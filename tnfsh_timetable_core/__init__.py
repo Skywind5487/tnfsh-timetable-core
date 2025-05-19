@@ -1,7 +1,5 @@
+import tnfsh_timetable_core.utils as utils
 
-class TNFShTimetableCore:
-    def __init__(self):
-        pass
-    def index(self):
-        from .index import Index
-        return Index()
+__all__ = [
+    "utils"
+]

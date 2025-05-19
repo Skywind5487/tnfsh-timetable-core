@@ -3,39 +3,9 @@ import aiohttp
 import asyncio
 from bs4 import BeautifulSoup
 import re
-from pydantic import BaseModel
+from tnfsh_timetable_core.index.models import IndexResult, ReverseIndexResultDict, GroupIndex, ReverseMap, AllTypeIndexResult
 
-URL: TypeAlias = str
-ItemMap: TypeAlias = Dict[str, URL]  # e.g. {"黃大倬": "TA01.html"} 或 {"101": "C101101.html"}
-CategoryName: TypeAlias = str
-CategoryMap: TypeAlias = Dict[CategoryName, ItemMap]  # e.g. {"國文科": {...}}, {"高一": {...}}
-
-# ========================
-# 📦 資料結構模型
-# ========================
-
-class GroupIndex(BaseModel):
-    """
-    表示一個類別的索引資料，例如班級、老師等。
-    包含一個 URL 與一層巢狀字典結構的資料。
-    """
-    url: URL
-    data: CategoryMap
-
-    def __getitem__(self, key: str) -> ItemMap:
-        return self.data[key]
-
-
-class IndexResult(BaseModel):
-    """
-    表示 index 區塊的主結構，含有 base_url、root，以及班級與老師的索引資料。
-    """
-    base_url: URL
-    root: str
-    class_: GroupIndex
-    teacher: GroupIndex
-
-async def fetch_html(base_url: str, url: str, timeout: int = 10, from_file_path: Optional[str] = None) -> BeautifulSoup:
+async def request_html(base_url: str, url: str, timeout: int = 10, from_file_path: Optional[str] = None) -> BeautifulSoup:
     """非同步取得網頁內容並解析
     
     Args:
@@ -97,7 +67,34 @@ def parse_html(soup: BeautifulSoup, url: str) -> GroupIndex:
     
     return GroupIndex(url=url, data=parsed_data)
 
-async def fetch_index(base_url: str) -> IndexResult:
+
+def reverse_index(index: IndexResult) -> ReverseIndexResultDict:
+    """將索引資料轉換為反查表格式
+    
+    將 IndexResult 中的班級和老師資料轉換為 ReverseIndexResultDict 格式，
+    方便快速查找特定班級或老師的資訊。
+    
+    Args:
+        index (IndexResult): 原始索引資料
+        
+    Returns:
+        ReverseIndexResultDict: 反查表格式的資料
+    """
+    result: ReverseIndexResultDict = {}
+    
+    # 處理老師資料
+    for category, teachers in index.teacher.data.items():
+        for teacher_name, url in teachers.items():
+            result[teacher_name] = ReverseMap(url=url, category=category)
+    
+    # 處理班級資料
+    for category, classes in index.class_.data.items():
+        for class_name, url in classes.items():
+            result[class_name] = ReverseMap(url=url, category=category)
+    
+    return result
+
+async def request_all_index(base_url: str) -> IndexResult:
     """非同步獲取完整的課表索引
     
     Args:
@@ -108,8 +105,8 @@ async def fetch_index(base_url: str) -> IndexResult:
     """
     # 並行獲取教師和班級索引
     tasks = [
-        fetch_html(base_url, "_TeachIndex.html"),
-        fetch_html(base_url, "_ClassIndex.html")
+        request_html(base_url, "_TeachIndex.html"),
+        request_html(base_url, "_ClassIndex.html")
     ]
     teacher_soup, class_soup = await asyncio.gather(*tasks)
     
@@ -125,16 +122,34 @@ async def fetch_index(base_url: str) -> IndexResult:
         teacher=teacher_result
     )
 
-# 更新主程式為非同步版本
+def merge_results(index: IndexResult, reverse_index: ReverseIndexResultDict) -> AllTypeIndexResult:
+    """合併索引和反查表結果
+    
+    Args:
+        index (IndexResult): 完整的課表索引資料
+        reverse_index (ReverseIndexResultDict): 反查表資料
+        
+    Returns:
+        AllTypeIndexResult: 合併後的結果
+    """
+    return AllTypeIndexResult(
+        index=index,
+        reverse_index=reverse_index
+    )
+
+async def fetch_all_index(base_url: str) -> AllTypeIndexResult:
+    """獲取所有類型的索引資料
+    
+    Args:
+        base_url (str): 基礎 URL
+        
+    Returns:
+        AllTypeIndexResult: 所有類型的索引資料
+    """
+    index_result = await request_all_index(base_url)
+    reverse_index_result = reverse_index(index_result)
+    return merge_results(index_result, reverse_index_result)
+
 if __name__ == "__main__":
-    # http://w3.tnfsh.tn.edu.tw/deanofstudies/course/_TeachIndex.html
-    base_url = "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/"
-    
-    async def main():
-        index_result = await fetch_index(base_url)
-        with open("index.json", "w", encoding="utf-8") as f:
-            f.write(index_result.model_dump_json(indent=4))
-    
-    # 在 Windows 上運行非同步程式
-    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
-    asyncio.run(main())
+    # For test cases, see: tests/test_index/test_crawler.py
+    pass

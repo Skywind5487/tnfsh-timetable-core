@@ -1,60 +1,31 @@
 from datetime import datetime
 from typing import Dict, Optional
-from .models import IndexResult, ReverseIndex
-from .crawler import request_index
+from tnfsh_timetable_core.index.models import IndexResult, ReverseIndexResultDict, AllTypeIndexResult
+from tnfsh_timetable_core.index.crawler import request_all_index
+from tnfsh_timetable_core.index.cache import fetch_with_cache
+import json
 
 class Index:
     """台南一中課表索引的單例類別"""
     
-    _instance = None
-    _initialized = False
-    
-    def __new__(cls) -> 'Index':
-        if cls._instance is None:
-            cls._instance = super().__new__(cls)
-        return cls._instance
-    
+    base_url = "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/"
+    index: Optional[IndexResult] = None
+    reverse_index: Optional[ReverseIndexResultDict] = None
+
     def __init__(self) -> None:
-        # 確保初始化只執行一次
-        if not Index._initialized:
-            self.base_url = "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/"
-            self.index = self._get_index()
-            self.reverse_index = self._build_reverse_index()
-            Index._initialized = True
+        pass
 
-    def _get_index(self) -> IndexResult:
-        """取得完整的台南一中課表索引"""
-        return request_index(self.base_url)
-    
-    def _build_reverse_index(self) -> ReverseIndex:
-        """建立反查表，將老師/班級對應到其 URL 和分類。
-
-        Returns:
-            ReverseIndex: 反查表結構為 {老師/班級: {url: url, category: category}}
+    async def fetch(self, refresh: bool = False) -> None:
+        """初始化索引資料
+        
+        Args:
+            refresh (bool): 是否強制重新從網路獲取資料
         """
-        reverse_index = {}
-        
-        # 處理教師資料
-        if "teacher" in self.index:
-            teacher_data = self.index["teacher"]["data"]
-            for subject, teachers in teacher_data.items():
-                for teacher_name, teacher_url in teachers.items():
-                    reverse_index[teacher_name] = {
-                        "url": teacher_url,
-                        "category": subject
-                    }
-
-        # 處理班級資料
-        if "class" in self.index:
-            class_data = self.index["class"]["data"]
-            for grade, classes in class_data.items():
-                for class_num, class_url in classes.items():
-                    reverse_index[class_num] = {
-                        "url": class_url,
-                        "category": grade
-                    }
-        
-        return reverse_index
+        result: AllTypeIndexResult = await fetch_with_cache(self.base_url, refresh=refresh)
+        if self.index is None or refresh:
+            self.index = result.index
+        if self.reverse_index is None or refresh:
+            self.reverse_index = result.reverse_index
     
     def export_json(self, export_type: str = "all", filepath: Optional[str] = None) -> str:
         """匯出索引資料為 JSON 格式
@@ -78,10 +49,11 @@ class Index:
         
         if export_type == "all":
             export_type = "index_all"
+            
         # 準備要匯出的資料
         export_data = {}
         if export_type.lower() == "index":
-            export_data["index"] = self.index
+            export_data["index"] = self.index.model_dump()
         elif export_type.lower() == "reverse_index":
             export_data["reverse_index"] = self.reverse_index
         else:  # all
@@ -104,19 +76,7 @@ class Index:
             return filepath
         except Exception as e:
             raise Exception(f"Failed to write JSON file: {str(e)}")
-    
-    def refresh(self) -> None:
-        """重新載入索引資料"""
-        self.index = self._get_index()
-        self.reverse_index = self._build_reverse_index()
-        
-    @classmethod
-    def fetch(cls) -> 'Index':
-        """取得單例實例
-        
-        Returns:
-            TNFSHClassTableIndex: 索引類別的單例實例
-        """
-        if cls._instance is None:
-            cls._instance = cls()
-        return cls._instance
+
+if __name__ == "__main__":
+    # For test cases, see: tests/test_index/test_index.py
+    pass
