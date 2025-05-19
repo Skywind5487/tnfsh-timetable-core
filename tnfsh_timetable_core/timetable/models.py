@@ -1,11 +1,10 @@
 from __future__ import annotations
-from crawler import RawParsedResult
-from typing import List, Dict, TypeAlias, Optional, Any, Literal
-from pydantic import BaseModel
+from typing import List, Dict, TypeAlias, Optional, Any, Literal, ClassVar
 from datetime import datetime
-from typing import ClassVar
 import json
-from tnfsh_class_table.utils.logger import get_logger
+from pydantic import BaseModel
+from tnfsh_timetable_core.timetable.crawler import RawParsedResult
+from tnfsh_timetable_core.utils.logger import get_logger
 
 # 設定日誌
 logger = get_logger(logger_level="INFO")
@@ -41,17 +40,19 @@ class CourseInfo(BaseModel):
     counterpart: Optional[List[CounterPart]] # name of the class or teacher
 
 
-class ClassTable(BaseModel):
+class TimeTable(BaseModel):
     table: List[List[Optional[CourseInfo]]]  # 5 weekdays x 8 periods
     type: Literal["class", "teacher"]
     target: str
-    target_url: str
-
+    target_url: str    
     @classmethod
-    def from_parsed(cls, target: str, parsed: RawParsedResult) -> "ClassTable":
-        from tnfsh_class_table.backend import TNFSHClassTableIndex
+    def from_parsed(cls, target: str, parsed: RawParsedResult) -> "TimeTable":
+        # TNFSHClassTableIndex 已經在文件頂部導入
+        from tnfsh_timetable_core import TNFSHTimetableCore
+        core = TNFSHTimetableCore()
+        index = core.get_index().fetch()
 
-        reverse_index = TNFSHClassTableIndex.get_instance().reverse_index
+        reverse_index = index.reverse_index
         target_url = reverse_index[target]["url"]
         type_ = "class" if target.isdigit() else "teacher"
 
@@ -97,16 +98,14 @@ class ClassTable(BaseModel):
             type=type_,
             target=target,
             target_url=target_url
-        )
-
-    @classmethod
-    async def fetch_cached(cls, target: str, refresh: bool = False) -> "ClassTable":
+        )    @classmethod
+    async def fetch_cached(cls, target: str, refresh: bool = False) -> "TimeTable":
         """
         支援三層快取的智能載入方法：
         1. 記憶體 → 2. 本地檔案 → 3. 網路請求（可透過 refresh 強制重新建立）
         並在 refresh 時同步更新記憶體與本地快取。
         """
-        from tnfsh_class_table.new_backend.cache import prebuilt_cache, load_from_disk, save_to_disk
+        from tnfsh_timetable_core.timetable.cache import prebuilt_cache, load_from_disk, save_to_disk
 
         key = target
 
@@ -138,12 +137,10 @@ class ClassTable(BaseModel):
         save_to_disk(target, instance)
         logger.debug(f"💾 已更新快取：{target}")
 
-        return instance
-
-    @classmethod
-    async def _request(cls, target: str) -> "ClassTable":
+        return instance    @classmethod
+    async def _request(cls, target: str) -> "TimeTable":
         """從網路抓取課表資料。"""
-        from crawler import fetch_raw_html, parse_html
+        from tnfsh_timetable_core.timetable.crawler import fetch_raw_html, parse_html
         try:
             logger.debug(f"📡 正在抓取課表頁面：{target}")
             soup = await fetch_raw_html(target)
@@ -156,14 +153,5 @@ class ClassTable(BaseModel):
             raise
 
 if __name__ == "__main__":
-    # 測試用
-    import asyncio
-    from tnfsh_class_table.backend import TNFSHClassTableIndex
-
-    async def main():
-        logger.info("🚀 開始測試課表載入")
-        table = await ClassTable.fetch_cached("317", refresh=True)
-        logger.info("✨ 測試完成，輸出課表資料")
-        #print(table.model_dump_json(indent=4))
-
-    asyncio.run(main())
+    # For test cases, see: tests/test_timetable/test_models.py
+    pass

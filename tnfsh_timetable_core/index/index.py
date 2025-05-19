@@ -1,6 +1,6 @@
 from datetime import datetime
 from typing import Dict, Optional
-from tnfsh_timetable_core.index.models import IndexResult, ReverseIndexResultDict, AllTypeIndexResult
+from tnfsh_timetable_core.index.models import IndexResult, ReverseIndexResult, AllTypeIndexResult
 from tnfsh_timetable_core.index.crawler import request_all_index
 from tnfsh_timetable_core.index.cache import fetch_with_cache
 import json
@@ -10,7 +10,7 @@ class Index:
     
     base_url = "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/"
     index: Optional[IndexResult] = None
-    reverse_index: Optional[ReverseIndexResultDict] = None
+    reverse_index: Optional[ReverseIndexResult] = None
 
     def __init__(self) -> None:
         pass
@@ -26,7 +26,9 @@ class Index:
             self.index = result.index
         if self.reverse_index is None or refresh:
             self.reverse_index = result.reverse_index
-    
+        print(self.index.model_dump_json(indent=4))
+        print(json.dumps(self.reverse_index.model_dump(), indent=4))
+
     def export_json(self, export_type: str = "all", filepath: Optional[str] = None) -> str:
         """匯出索引資料為 JSON 格式
         

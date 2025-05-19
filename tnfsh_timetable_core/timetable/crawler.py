@@ -1,8 +1,8 @@
 from typing import List, Set, Dict, Optional, Literal, Tuple, TypedDict, TypeAlias
 import aiohttp
 from bs4 import BeautifulSoup
-from tnfsh_class_table.backend import TNFSHClassTableIndex
-from tnfsh_class_table.utils.logger import get_logger
+from tnfsh_timetable_core.index.index import Index
+from tnfsh_timetable_core.utils.logger import get_logger
 import json
 
 # 設定日誌
@@ -11,7 +11,9 @@ logger = get_logger(logger_level="INFO")
 class FetchError(Exception):
     pass
 
-
+aliases: List[Set[str]] = [
+        {"朱蒙", "吳銘"}
+]
 
 
 TimeInfo: TypeAlias = Tuple[str, str]
@@ -27,9 +29,11 @@ class RawParsedResult(TypedDict):
     table: List[List[Course]]
 
 
+from tnfsh_timetable_core.index.models import ReverseIndexResult
+
 def resolve_target(
     target: str,
-    reverse_index: Dict[str, Dict[str, str]],
+    reverse_index: ReverseIndexResult,
     aliases: List[Set[str]]
 ) -> Optional[str]:
     """
@@ -50,18 +54,17 @@ def resolve_target(
 
     return None
 
-async def fetch_raw_html(target: str) -> BeautifulSoup:
+async def fetch_raw_html(target: str, refresh: bool = False) -> BeautifulSoup:
     """
     非同步抓取原始課表 HTML
     """
-    index: TNFSHClassTableIndex = TNFSHClassTableIndex.get_instance()
-    reverse_index: Dict[str, Dict[str, str]] = index.reverse_index
+    from tnfsh_timetable_core.index.index import Index
+    from tnfsh_timetable_core.index.models import ReverseIndexResult
+    index: Index = Index().fetch(refresh=refresh)
+    reverse_index: ReverseIndexResult = index.reverse_index
     base_url: str = index.base_url
 
-    aliases: List[Set[str]] = [
-        {"朱蒙", "吳銘"}
-    ]
-    
+    global aliases
     logger.debug(f"🔍 解析目標：{target}")
     real_target = resolve_target(target, reverse_index, aliases)
     if real_target is None:
@@ -221,21 +224,5 @@ def parse_html(soup: BeautifulSoup) -> RawParsedResult:
 
 
 if __name__ == "__main__":
-    import asyncio
-    
-    async def main():
-        target = "307"
-        logger.info(f"🚀 開始抓取課表：{target}")
-        html_content = await fetch_raw_html(target)
-        parsed_result = parse_html(html_content)
-        logger.info(f"✨ 課表抓取完成：{target}")
-        
-        save_path = "class_307.html"
-        with open(save_path, "w") as f:
-            f.write(html_content.prettify())
-        logger.info(f"💾 已儲存 HTML 至：{save_path}")
-        
-        logger.debug("📝 輸出解析結果")
-        print(json.dumps(parsed_result, ensure_ascii=False, indent=4))
-
-    asyncio.run(main())
+    # For test cases, see: tests/test_timetable/test_crawler.py
+    pass

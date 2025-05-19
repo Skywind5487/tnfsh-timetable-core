@@ -5,7 +5,8 @@ import inspect
 from dotenv import load_dotenv
 
 load_dotenv()
-LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").upper()
+default_log_level = "INFO"
+LOG_LEVEL = os.getenv("LOG_LEVEL", default_log_level).upper()
 
 def get_logger(logger_level:str="DEBUG") -> logging.Logger:
     # 自動取得呼叫此函數的模組名稱

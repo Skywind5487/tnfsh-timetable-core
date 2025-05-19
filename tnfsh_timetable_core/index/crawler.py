@@ -3,7 +3,7 @@ import aiohttp
 import asyncio
 from bs4 import BeautifulSoup
 import re
-from tnfsh_timetable_core.index.models import IndexResult, ReverseIndexResultDict, GroupIndex, ReverseMap, AllTypeIndexResult
+from tnfsh_timetable_core.index.models import IndexResult, ReverseIndexResult, GroupIndex, ReverseMap, AllTypeIndexResult
 
 async def request_html(base_url: str, url: str, timeout: int = 10, from_file_path: Optional[str] = None) -> BeautifulSoup:
     """非同步取得網頁內容並解析
@@ -68,19 +68,19 @@ def parse_html(soup: BeautifulSoup, url: str) -> GroupIndex:
     return GroupIndex(url=url, data=parsed_data)
 
 
-def reverse_index(index: IndexResult) -> ReverseIndexResultDict:
+def reverse_index(index: IndexResult) -> ReverseIndexResult:
     """將索引資料轉換為反查表格式
     
-    將 IndexResult 中的班級和老師資料轉換為 ReverseIndexResultDict 格式，
+    將 IndexResult 中的班級和老師資料轉換為 ReverseIndexResult 格式，
     方便快速查找特定班級或老師的資訊。
     
     Args:
         index (IndexResult): 原始索引資料
         
     Returns:
-        ReverseIndexResultDict: 反查表格式的資料
+        ReverseIndexResult: 反查表格式的資料
     """
-    result: ReverseIndexResultDict = {}
+    result: ReverseIndexResult = {}
     
     # 處理老師資料
     for category, teachers in index.teacher.data.items():
@@ -122,12 +122,12 @@ async def request_all_index(base_url: str) -> IndexResult:
         teacher=teacher_result
     )
 
-def merge_results(index: IndexResult, reverse_index: ReverseIndexResultDict) -> AllTypeIndexResult:
+def merge_results(index: IndexResult, reverse_index: ReverseIndexResult) -> AllTypeIndexResult:
     """合併索引和反查表結果
     
     Args:
         index (IndexResult): 完整的課表索引資料
-        reverse_index (ReverseIndexResultDict): 反查表資料
+        reverse_index (ReverseIndexResult): 反查表資料
         
     Returns:
         AllTypeIndexResult: 合併後的結果

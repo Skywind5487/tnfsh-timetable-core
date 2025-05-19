@@ -1,5 +1,5 @@
 from typing import Optional, TypeAlias, Dict, Union
-from pydantic import BaseModel
+from pydantic import BaseModel, RootModel
 
 URL: TypeAlias = str
 ItemMap: TypeAlias = Dict[str, URL]  # e.g. {"黃大倬": "TA01.html"} 或 {"101": "C101101.html"}
@@ -48,11 +48,22 @@ class ReverseMap(BaseModel):
     url: URL
     category: CategoryName
 
-ReverseIndexResultDict: TypeAlias = Dict[str, ReverseMap]  # e.g. {"黃大倬": {...}} or {"101": {...}}
+    def __getitem__(self, key: str) -> URL:
+        if key == "url":
+            return self.url
+        elif key == "category":
+            return self.category
+
+class ReverseIndexResult(RootModel[Dict[str, ReverseMap]]): 
+    def __getitem__(self, key: str) -> ReverseMap:
+        """
+        透過索引鍵獲取對應的 ReverseMap 資料。
+        """
+        return self.__root__[key]
 
 class AllTypeIndexResult(BaseModel):
     """
     表示所有類型的索引結果，包括班級和教師的資料。
     """
     index: IndexResult
-    reverse_index: ReverseIndexResultDict
+    reverse_index: ReverseIndexResult
