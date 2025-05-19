@@ -1,5 +1,5 @@
 import pytest
-from model.rotation import TeacherNode, CourseNode, connect_neighbors, bwd_check, rotation
+from test_vitrual_scheduling.rotation import TeacherNode, CourseNode, connect_neighbors, bwd_check, rotation
 from typing import List, Dict, Optional, Generator, Set
 
 

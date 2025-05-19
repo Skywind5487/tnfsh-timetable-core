@@ -3,10 +3,10 @@ class TNFSHTimetableCore:
     def __init__(self):
         pass
     
-    def get_timetable(self):
-        from tnfsh_timetable_core.timetable.models import ClassTable
-        return ClassTable()
+    def fetch_timetable(self, target: str, refresh: bool = False):
+        from tnfsh_timetable_core.timetable.models import TimeTable
+        return TimeTable.fetch_cached(target=target, refresh=refresh)
 
-    def get_index(self):
+    def fetch_index(self):
         from tnfsh_timetable_core.index.index import Index
         return Index()
