@@ -1,5 +1,7 @@
 import pytest
-from test_vitrual_scheduling.rotation import TeacherNode, CourseNode, connect_neighbors, bwd_check, rotation
+from test_virtual_scheduling.src.node import TeacherNode, CourseNode
+from test_virtual_scheduling.src.utils import connect_neighbors, bwd_check
+from test_virtual_scheduling.src.rotation import rotation
 from typing import List, Dict, Optional, Generator, Set
 
 
@@ -168,7 +170,7 @@ def test_no_cycle_when_teacher_busy():
     connect_neighbors([a1, b2, c3, d4])
 
     # 檢查 A1 -> B2 的移動是否被阻止（因為 A2 非空堂）
-    assert not bwd_check(a1, b2), "當目標時段有課時，bwd_check 應該返回 False"
+    assert not bwd_check(a1, b2, freed=set()), "當目標時段有課時，bwd_check 應該返回 False"
 
     # 找出所有輪調環路
     cycles = list(rotation(a1))

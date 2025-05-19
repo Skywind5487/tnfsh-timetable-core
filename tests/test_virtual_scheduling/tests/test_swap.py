@@ -1,5 +1,7 @@
 import pytest
-from model.swap import TeacherNode, CourseNode, connect_neighbors, merge_paths
+from test_virtual_scheduling.src.node import TeacherNode, CourseNode
+from test_virtual_scheduling.src.utils import connect_neighbors
+from test_virtual_scheduling.src.swap import merge_paths
 from typing import List, Dict, Optional, Generator, Set, Tuple
 import string
 # -----------------------------------------------------------------------------

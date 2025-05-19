@@ -51,7 +51,7 @@ class TimeTable(BaseModel):
         # TNFSHClassTableIndex 已經在文件頂部導入
         from tnfsh_timetable_core import TNFSHTimetableCore
         core = TNFSHTimetableCore()
-        index = core.get_index()
+        index = core.fetch_index()
         await index.fetch()
         
         reverse_index = index.reverse_index
