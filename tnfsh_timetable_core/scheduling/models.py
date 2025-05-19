@@ -1,8 +1,10 @@
-from typing import Dict
+from typing import Dict, TypeAlias, Tuple
+from tnfsh_timetable_core.utils.dict_like import dict_like
+
 from pydantic import BaseModel
 from tnfsh_timetable_core.timetable.models import CourseInfo
 from typing import Dict
-from pydantic import BaseModel
+from pydantic import BaseModel, RootModel
 
 
 # === StreakTime：時間欄位，可當作 dict key ===
@@ -39,12 +41,16 @@ class ClassNode(BaseModel):
     courses: Dict[StreakTime, "CourseNode"]
 
 
+Source: TypeAlias = str
+Log: TypeAlias = CourseInfo
 # === OriginLog：用來記錄原始課表資料 ===
-class OriginLog(BaseModel):
-    source: str  # 可為 teacher_name 或 class_code
-    time: StreakTime
-    log: CourseInfo
-
+@dict_like
+class OriginLog(RootModel[
+    Dict[
+        Tuple[Source, StreakTime], 
+        Log
+    ]]):
+    pass
 
 # ✅ 重建 forward reference（Pydantic 解析字串型別）
 CourseNode.model_rebuild()
