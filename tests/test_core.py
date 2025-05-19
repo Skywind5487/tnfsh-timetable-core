@@ -1,5 +1,6 @@
 from tnfsh_timetable_core import TNFSHTimetableCore
 import pytest
+import asyncio
 
 @pytest.mark.asyncio
 async def test_timetable_core():
@@ -9,4 +10,4 @@ async def test_timetable_core():
     assert True
 
 if __name__ == "__main__":
-    test_timetable_core()
+    asyncio.run(test_timetable_core())
