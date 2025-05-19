@@ -60,7 +60,11 @@ async def fetch_raw_html(target: str, refresh: bool = False) -> BeautifulSoup:
     """
     from tnfsh_timetable_core.index.index import Index
     from tnfsh_timetable_core.index.models import ReverseIndexResult
-    index: Index = Index().fetch(refresh=refresh)
+    index: Index = Index()
+    await index.fetch(refresh=refresh)
+    if index.reverse_index is None:
+        logger.error("❌ 無法獲取索引資料")
+        raise FetchError("無法獲取索引資料")
     reverse_index: ReverseIndexResult = index.reverse_index
     base_url: str = index.base_url
 

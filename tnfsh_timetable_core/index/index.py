@@ -26,8 +26,8 @@ class Index:
             self.index = result.index
         if self.reverse_index is None or refresh:
             self.reverse_index = result.reverse_index
-        print(self.index.model_dump_json(indent=4))
-        print(json.dumps(self.reverse_index.model_dump(), indent=4))
+        #print(self.index.model_dump_json(indent=4))
+        #print(json.dumps(self.reverse_index.model_dump(), indent=4, ensure_ascii=False))
 
     def export_json(self, export_type: str = "all", filepath: Optional[str] = None) -> str:
         """匯出索引資料為 JSON 格式

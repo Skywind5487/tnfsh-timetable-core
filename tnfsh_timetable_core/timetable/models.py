@@ -44,14 +44,16 @@ class TimeTable(BaseModel):
     table: List[List[Optional[CourseInfo]]]  # 5 weekdays x 8 periods
     type: Literal["class", "teacher"]
     target: str
-    target_url: str    
+    target_url: str  
+
     @classmethod
-    def from_parsed(cls, target: str, parsed: RawParsedResult) -> "TimeTable":
+    async def from_parsed(cls, target: str, parsed: RawParsedResult) -> "TimeTable":
         # TNFSHClassTableIndex 已經在文件頂部導入
         from tnfsh_timetable_core import TNFSHTimetableCore
         core = TNFSHTimetableCore()
-        index = core.get_index().fetch()
-
+        index = core.get_index()
+        await index.fetch()
+        
         reverse_index = index.reverse_index
         target_url = reverse_index[target]["url"]
         type_ = "class" if target.isdigit() else "teacher"
@@ -98,7 +100,9 @@ class TimeTable(BaseModel):
             type=type_,
             target=target,
             target_url=target_url
-        )    @classmethod
+        )    
+    
+    @classmethod
     async def fetch_cached(cls, target: str, refresh: bool = False) -> "TimeTable":
         """
         支援三層快取的智能載入方法：
@@ -137,7 +141,9 @@ class TimeTable(BaseModel):
         save_to_disk(target, instance)
         logger.debug(f"💾 已更新快取：{target}")
 
-        return instance    @classmethod
+        return instance    
+    
+    @classmethod
     async def _request(cls, target: str) -> "TimeTable":
         """從網路抓取課表資料。"""
         from tnfsh_timetable_core.timetable.crawler import fetch_raw_html, parse_html
@@ -147,7 +153,7 @@ class TimeTable(BaseModel):
             logger.debug(f"🔍 解析課表資料：{target}")
             parsed = parse_html(soup)
             logger.debug(f"✅ 課表資料解析完成：{target}")
-            return cls.from_parsed(target, parsed)
+            return await cls.from_parsed(target, parsed)
         except Exception as e:
             logger.error(f"❌ 抓取課表失敗：{target}，錯誤：{e}")
             raise

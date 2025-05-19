@@ -31,3 +31,6 @@ async def test_fetch_and_parse_timetable():
     assert "periods" in parsed_result
     assert "table" in parsed_result
     assert len(parsed_result["table"]) > 0  # 確保課表不為空
+
+if __name__ == "__main__":
+    asyncio.run(test_fetch_and_parse_timetable())
