@@ -14,10 +14,7 @@ class BaseCrawlerABC(ABC, Generic[T]):
     @abstractmethod
     def parse(self, raw: Any, *args, **kwargs) -> T:
         pass
-
+    
+    @abstractmethod
     async def fetch(self, *args, **kwargs) -> T:
-        """
-        外部統一調用：自動 fetch_raw 並 parse，回傳結構化資料
-        """
-        raw = await self.fetch_raw(*args, **kwargs)
-        return self.parse(raw, *args, **kwargs)
+        pass

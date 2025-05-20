@@ -36,7 +36,7 @@ class CounterPart(BaseModel):
 
 class CourseInfo(BaseModel):
     subject: str
-    counterpart: Optional[List[CounterPart]] # name of the class or teacher
+    counterpart: Optional[List[CounterPart]] = None # name of the class or teacher
 
 
 class TimeTable(BaseModel):

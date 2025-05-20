@@ -25,45 +25,52 @@ class TimetableSlotLogCrawler(
             result_list.append(TimeTable.fetch_cached(target=target))
 
         return result_list
-        
-    def parse(self, raw: List[TimeTable]) -> TimetableSlotLog:
-        result: TimetableSlotLog = {}
-
+    
+    def parse(self, raw: List[TimeTable]) -> List[TimetableSlotLog]:
+        result = []
         for timetable in raw:
+            source = getattr(timetable, "target", None)  # 根據你的 TimeTable 結構調整
+
             for day_index, day in enumerate(timetable.table):
-                streak: int = 1
                 prev_course: Optional[CourseInfo] = None
+                streak = 1
+                start_period = 0
+
                 for period_index, course in enumerate(day):
+
                     if period_index == 0:
                         prev_course = course
                         continue
-                    
+
                     if course == prev_course:
                         streak += 1
-                        if period_index == len(day) - 1:
-                            result[
-                                (timetable.target), 
-                                StreakTime(
-                                    weekday = day + 1,
-                                    period = period_index - 1 + 1, # -1 代表紀錄上一個
-                                    streak = streak + 1
-                                )
-                            ] = course  
-                        continue
-                    
-                    
-                        
 
-                    result[
-                        (timetable.target), 
-                        StreakTime(
-                            weekday = day + 1,
-                            period = period_index - 1 + 1, # -1 代表紀錄上一個
-                            streak = streak
+                    else:
+                        streak_time = StreakTime(
+                            weekday=day_index + 1,
+                            period=start_period + 1,
+                            streak=streak
                         )
-                    ] = course
+                        result.append(TimetableSlotLog(
+                            source=source,
+                            streak_time=streak_time,
+                            log=prev_course
+                        ))
+                        streak = 1
+                        start_period = period_index
+
                     prev_course = course
-                    streak = 1
 
+                # 處理當天最後一組
+                streak_time = StreakTime(
+                    weekday=day_index + 1,
+                    period=start_period + 1,
+                    streak=streak
+                )
+                result.append(TimetableSlotLog(
+                    source=source,
+                    streak_time=streak_time,
+                    log=prev_course
+                ))
+        return result
 
-                
