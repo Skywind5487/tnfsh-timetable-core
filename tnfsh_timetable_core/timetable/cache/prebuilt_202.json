@@ -3,7 +3,6 @@
         [
             {
                 "subject": "補強-國語文",
-                "main": "202",
                 "counterpart": [
                     {
                         "participant": "陳惠卿",
@@ -13,7 +12,6 @@
             },
             {
                 "subject": "探究與實作：地理與人文社會科學研究",
-                "main": "202",
                 "counterpart": [
                     {
                         "participant": "賴秀茹",
@@ -23,7 +21,6 @@
             },
             {
                 "subject": "體育",
-                "main": "202",
                 "counterpart": [
                     {
                         "participant": "蔡閎璿",
@@ -33,7 +30,6 @@
             },
             {
                 "subject": "歷史",
-                "main": "202",
                 "counterpart": [
                     {
                         "participant": "朱達鈞",
@@ -43,7 +39,6 @@
             },
             {
                 "subject": "數學A, 數學B",
-                "main": "202",
                 "counterpart": [
                     {
                         "participant": "施明吉",
@@ -57,7 +52,6 @@
             },
             {
                 "subject": "探究與實作：公共議題與社會探究",
-                "main": "202",
                 "counterpart": [
                     {
                         "participant": "廖翠雰",
@@ -67,7 +61,6 @@
             },
             {
                 "subject": "物理",
-                "main": "202",
                 "counterpart": [
                     {
                         "participant": "黃木全",
@@ -80,7 +73,6 @@
         [
             {
                 "subject": "竹園專題探索",
-                "main": "202",
                 "counterpart": [
                     {
                         "participant": "殷念慈",
@@ -110,7 +102,6 @@
             },
             {
                 "subject": "竹園專題探索",
-                "main": "202",
                 "counterpart": [
                     {
                         "participant": "殷念慈",
@@ -140,7 +131,6 @@
             },
             {
                 "subject": "英語文",
-                "main": "202",
                 "counterpart": [
                     {
                         "participant": "林湘昀",
@@ -150,7 +140,6 @@
             },
             {
                 "subject": "數學A, 數學B",
-                "main": "202",
                 "counterpart": [
                     {
                         "participant": "施明吉",
@@ -164,7 +153,6 @@
             },
             {
                 "subject": "探究與實作：歷史學探究",
-                "main": "202",
                 "counterpart": [
                     {
                         "participant": "朱達鈞",
@@ -174,7 +162,6 @@
             },
             {
                 "subject": "國語文",
-                "main": "202",
                 "counterpart": [
                     {
                         "participant": "陳惠卿",
@@ -184,7 +171,6 @@
             },
             {
                 "subject": "國語文",
-                "main": "202",
                 "counterpart": [
                     {
                         "participant": "陳惠卿",
@@ -197,7 +183,6 @@
         [
             {
                 "subject": "公民與社會",
-                "main": "202",
                 "counterpart": [
                     {
                         "participant": "廖翠雰",
@@ -207,7 +192,6 @@
             },
             {
                 "subject": "國語文",
-                "main": "202",
                 "counterpart": [
                     {
                         "participant": "陳惠卿",
@@ -217,7 +201,6 @@
             },
             {
                 "subject": "英語文",
-                "main": "202",
                 "counterpart": [
                     {
                         "participant": "林湘昀",
@@ -227,7 +210,6 @@
             },
             {
                 "subject": "英語文",
-                "main": "202",
                 "counterpart": [
                     {
                         "participant": "林湘昀",
@@ -237,17 +219,14 @@
             },
             {
                 "subject": "彈性學習時間",
-                "main": "202",
                 "counterpart": null
             },
             {
                 "subject": "彈性學習時間",
-                "main": "202",
                 "counterpart": null
             },
             {
                 "subject": "團體活動時間",
-                "main": "202",
                 "counterpart": [
                     {
                         "participant": "陳惠卿",
@@ -260,7 +239,6 @@
         [
             {
                 "subject": "團體活動時間",
-                "main": "202",
                 "counterpart": [
                     {
                         "participant": "陳惠卿",
@@ -270,7 +248,6 @@
             },
             {
                 "subject": "國語文",
-                "main": "202",
                 "counterpart": [
                     {
                         "participant": "陳惠卿",
@@ -280,7 +257,6 @@
             },
             {
                 "subject": "歷史",
-                "main": "202",
                 "counterpart": [
                     {
                         "participant": "朱達鈞",
@@ -290,7 +266,6 @@
             },
             {
                 "subject": "數學A, 數學B",
-                "main": "202",
                 "counterpart": [
                     {
                         "participant": "施明吉",
@@ -304,7 +279,6 @@
             },
             {
                 "subject": "補強-英語文",
-                "main": "202",
                 "counterpart": [
                     {
                         "participant": "林湘昀",
@@ -314,7 +288,6 @@
             },
             {
                 "subject": "物理",
-                "main": "202",
                 "counterpart": [
                     {
                         "participant": "黃木全",
@@ -324,7 +297,6 @@
             },
             {
                 "subject": "體育",
-                "main": "202",
                 "counterpart": [
                     {
                         "participant": "蔡閎璿",
@@ -337,7 +309,6 @@
         [
             {
                 "subject": "家政",
-                "main": "202",
                 "counterpart": [
                     {
                         "participant": "潘智惠",
@@ -347,7 +318,6 @@
             },
             {
                 "subject": "家政",
-                "main": "202",
                 "counterpart": [
                     {
                         "participant": "潘智惠",
@@ -357,17 +327,14 @@
             },
             {
                 "subject": "高二多元選修",
-                "main": "202",
                 "counterpart": null
             },
             {
                 "subject": "彈性-多元選修",
-                "main": "202",
                 "counterpart": null
             },
             {
                 "subject": "公民與社會",
-                "main": "202",
                 "counterpart": [
                     {
                         "participant": "廖翠雰",
@@ -377,7 +344,6 @@
             },
             {
                 "subject": "數學A, 數學B",
-                "main": "202",
                 "counterpart": [
                     {
                         "participant": "施明吉",
@@ -391,7 +357,6 @@
             },
             {
                 "subject": "英語文",
-                "main": "202",
                 "counterpart": [
                     {
                         "participant": "林湘昀",

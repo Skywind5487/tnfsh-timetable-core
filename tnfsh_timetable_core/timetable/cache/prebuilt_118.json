@@ -3,7 +3,6 @@
         [
             {
                 "subject": "英語文",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "李俊文",
@@ -13,7 +12,6 @@
             },
             {
                 "subject": "邏輯辯證（2）：邏輯性思考與Excel之應用",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "蔡東憲",
@@ -23,7 +21,6 @@
             },
             {
                 "subject": "綠能科技探究(1)",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "鄭淑君",
@@ -33,7 +30,6 @@
             },
             {
                 "subject": "綠能科技探究(1)",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "鄭淑君",
@@ -43,7 +39,6 @@
             },
             {
                 "subject": "美術",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "賴勇達",
@@ -53,7 +48,6 @@
             },
             {
                 "subject": "物理",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "鄭聖璋",
@@ -63,7 +57,6 @@
             },
             {
                 "subject": "物理",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "鄭聖璋",
@@ -76,7 +69,6 @@
         [
             {
                 "subject": "英語文",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "李俊文",
@@ -86,7 +78,6 @@
             },
             {
                 "subject": "國語文",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "黃子容",
@@ -96,7 +87,6 @@
             },
             {
                 "subject": "公民與社會",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "廖翠雰",
@@ -106,7 +96,6 @@
             },
             {
                 "subject": "數學",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "蔡東憲",
@@ -116,7 +105,6 @@
             },
             {
                 "subject": "彈性-化學",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "鄭淑君",
@@ -126,7 +114,6 @@
             },
             {
                 "subject": "歷史",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "郭雅馨",
@@ -136,7 +123,6 @@
             },
             {
                 "subject": "體育",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "賴政雄",
@@ -146,7 +132,6 @@
             },
             {
                 "subject": "數學輔",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "蔡東憲",
@@ -158,7 +143,6 @@
         [
             {
                 "subject": "邏輯辯證（2）：邏輯性思考與Excel之應用",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "蔡東憲",
@@ -168,7 +152,6 @@
             },
             {
                 "subject": "公民與社會",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "廖翠雰",
@@ -178,7 +161,6 @@
             },
             {
                 "subject": "獨立研究",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "蔡東憲",
@@ -208,7 +190,6 @@
             },
             {
                 "subject": "獨立研究",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "蔡東憲",
@@ -238,17 +219,14 @@
             },
             {
                 "subject": "彈性學習時間",
-                "main": "118",
                 "counterpart": null
             },
             {
                 "subject": "彈性學習時間",
-                "main": "118",
                 "counterpart": null
             },
             {
                 "subject": "團體活動時間",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "鄭聖璋",
@@ -261,7 +239,6 @@
         [
             {
                 "subject": "團體活動時間",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "鄭聖璋",
@@ -271,7 +248,6 @@
             },
             {
                 "subject": "國語文",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "黃子容",
@@ -281,7 +257,6 @@
             },
             {
                 "subject": "國語文",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "黃子容",
@@ -291,7 +266,6 @@
             },
             {
                 "subject": "體育",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "賴政雄",
@@ -301,7 +275,6 @@
             },
             {
                 "subject": "英語文",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "李俊文",
@@ -311,7 +284,6 @@
             },
             {
                 "subject": "數學",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "蔡東憲",
@@ -321,7 +293,6 @@
             },
             {
                 "subject": "歷史",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "郭雅馨",
@@ -334,17 +305,14 @@
         [
             {
                 "subject": "高一多元選修",
-                "main": "118",
                 "counterpart": null
             },
             {
                 "subject": "高一多元選修",
-                "main": "118",
                 "counterpart": null
             },
             {
                 "subject": "生物",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "江佩娟",
@@ -354,7 +322,6 @@
             },
             {
                 "subject": "生物",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "江佩娟",
@@ -364,7 +331,6 @@
             },
             {
                 "subject": "數學",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "蔡東憲",
@@ -374,7 +340,6 @@
             },
             {
                 "subject": "國語文",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "黃子容",
@@ -384,7 +349,6 @@
             },
             {
                 "subject": "英語文",
-                "main": "118",
                 "counterpart": [
                     {
                         "participant": "李俊文",

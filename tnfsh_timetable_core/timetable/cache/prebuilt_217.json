@@ -3,7 +3,6 @@
         [
             {
                 "subject": "補強-化學",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "黃聖勛",
@@ -13,7 +12,6 @@
             },
             {
                 "subject": "補強-化學",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "黃聖勛",
@@ -23,7 +21,6 @@
             },
             {
                 "subject": "國語文",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "陳浥瑗",
@@ -33,7 +30,6 @@
             },
             {
                 "subject": "英語文",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "張雅玫",
@@ -43,7 +39,6 @@
             },
             {
                 "subject": "音樂",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "王理俐",
@@ -53,7 +48,6 @@
             },
             {
                 "subject": "數學A",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "鄭旭峰",
@@ -63,7 +57,6 @@
             },
             {
                 "subject": "地理",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "賴秀茹",
@@ -76,7 +69,6 @@
         [
             {
                 "subject": "英語文",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "張雅玫",
@@ -86,7 +78,6 @@
             },
             {
                 "subject": "體育",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "曾冠騰",
@@ -96,7 +87,6 @@
             },
             {
                 "subject": "補強-物理",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "林立婷",
@@ -106,7 +96,6 @@
             },
             {
                 "subject": "補強-物理",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "林立婷",
@@ -116,7 +105,6 @@
             },
             {
                 "subject": "地理",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "賴秀茹",
@@ -126,7 +114,6 @@
             },
             {
                 "subject": "國語文",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "陳浥瑗",
@@ -136,7 +123,6 @@
             },
             {
                 "subject": "國語文",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "陳浥瑗",
@@ -146,7 +132,6 @@
             },
             {
                 "subject": "國語輔",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "陳浥瑗",
@@ -158,7 +143,6 @@
         [
             {
                 "subject": "竹園專題探索",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "陳禹齊",
@@ -188,7 +172,6 @@
             },
             {
                 "subject": "竹園專題探索",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "陳禹齊",
@@ -218,7 +201,6 @@
             },
             {
                 "subject": "英語文",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "張雅玫",
@@ -228,7 +210,6 @@
             },
             {
                 "subject": "國語文",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "陳浥瑗",
@@ -238,17 +219,14 @@
             },
             {
                 "subject": "彈性學習時間",
-                "main": "217",
                 "counterpart": null
             },
             {
                 "subject": "彈性學習時間",
-                "main": "217",
                 "counterpart": null
             },
             {
                 "subject": "團體活動時間",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "陳浥瑗",
@@ -261,7 +239,6 @@
         [
             {
                 "subject": "團體活動時間",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "陳浥瑗",
@@ -271,7 +248,6 @@
             },
             {
                 "subject": "SDGs國際議題探討",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "Evan",
@@ -281,7 +257,6 @@
             },
             {
                 "subject": "SDGs國際議題探討",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "Evan",
@@ -291,7 +266,6 @@
             },
             {
                 "subject": "物理",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "林立婷",
@@ -301,7 +275,6 @@
             },
             {
                 "subject": "英語文",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "張雅玫",
@@ -311,7 +284,6 @@
             },
             {
                 "subject": "音樂",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "王理俐",
@@ -321,7 +293,6 @@
             },
             {
                 "subject": "數學A",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "鄭旭峰",
@@ -334,7 +305,6 @@
         [
             {
                 "subject": "數學A",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "鄭旭峰",
@@ -344,7 +314,6 @@
             },
             {
                 "subject": "數學A",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "鄭旭峰",
@@ -354,17 +323,14 @@
             },
             {
                 "subject": "高二多元選修",
-                "main": "217",
                 "counterpart": null
             },
             {
                 "subject": "彈性-多元選修",
-                "main": "217",
                 "counterpart": null
             },
             {
                 "subject": "補強-生物",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "林弘都",
@@ -374,7 +340,6 @@
             },
             {
                 "subject": "補強-生物",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "林弘都",
@@ -384,7 +349,6 @@
             },
             {
                 "subject": "體育",
-                "main": "217",
                 "counterpart": [
                     {
                         "participant": "曾冠騰",

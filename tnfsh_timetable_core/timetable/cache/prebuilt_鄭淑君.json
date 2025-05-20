@@ -5,7 +5,6 @@
             null,
             {
                 "subject": "綠能科技探究(1)",
-                "main": "鄭淑君",
                 "counterpart": [
                     {
                         "participant": "118",
@@ -15,7 +14,6 @@
             },
             {
                 "subject": "綠能科技探究(1)",
-                "main": "鄭淑君",
                 "counterpart": [
                     {
                         "participant": "118",
@@ -27,7 +25,6 @@
             null,
             {
                 "subject": "彈性-化學",
-                "main": "鄭淑君",
                 "counterpart": [
                     {
                         "participant": "306",
@@ -40,7 +37,6 @@
         [
             {
                 "subject": "補強-化學",
-                "main": "鄭淑君",
                 "counterpart": [
                     {
                         "participant": "213",
@@ -50,7 +46,6 @@
             },
             {
                 "subject": "補強-化學",
-                "main": "鄭淑君",
                 "counterpart": [
                     {
                         "participant": "213",
@@ -60,7 +55,6 @@
             },
             {
                 "subject": "選修化學-有機化學與應用科技",
-                "main": "鄭淑君",
                 "counterpart": [
                     {
                         "participant": "306",
@@ -71,7 +65,6 @@
             null,
             {
                 "subject": "彈性-化學",
-                "main": "鄭淑君",
                 "counterpart": [
                     {
                         "participant": "118",
@@ -86,7 +79,6 @@
         [
             {
                 "subject": "補強-化學",
-                "main": "鄭淑君",
                 "counterpart": [
                     {
                         "participant": "212",
@@ -96,7 +88,6 @@
             },
             {
                 "subject": "補強-化學",
-                "main": "鄭淑君",
                 "counterpart": [
                     {
                         "participant": "212",
@@ -106,7 +97,6 @@
             },
             {
                 "subject": "獨立研究",
-                "main": "鄭淑君",
                 "counterpart": [
                     {
                         "participant": "118",
@@ -116,7 +106,6 @@
             },
             {
                 "subject": "獨立研究",
-                "main": "鄭淑君",
                 "counterpart": [
                     {
                         "participant": "118",
@@ -128,7 +117,6 @@
             null,
             {
                 "subject": "團體活動時間",
-                "main": "鄭淑君",
                 "counterpart": [
                     {
                         "participant": "213",
@@ -141,7 +129,6 @@
         [
             {
                 "subject": "團體活動時間",
-                "main": "鄭淑君",
                 "counterpart": [
                     {
                         "participant": "213",
@@ -152,7 +139,6 @@
             null,
             {
                 "subject": "選修化學-化學反應與平衡二",
-                "main": "鄭淑君",
                 "counterpart": [
                     {
                         "participant": "306",
@@ -162,7 +148,6 @@
             },
             {
                 "subject": "選修化學-化學反應與平衡二",
-                "main": "鄭淑君",
                 "counterpart": [
                     {
                         "participant": "306",
@@ -182,13 +167,11 @@
             null,
             {
                 "subject": " ",
-                "main": "鄭淑君",
                 "counterpart": null
             },
             null,
             {
                 "subject": "選修化學-有機化學與應用科技",
-                "main": "鄭淑君",
                 "counterpart": [
                     {
                         "participant": "306",

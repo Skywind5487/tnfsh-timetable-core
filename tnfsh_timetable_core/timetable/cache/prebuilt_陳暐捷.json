@@ -4,7 +4,6 @@
             null,
             {
                 "subject": "數學A",
-                "main": "陳暐捷",
                 "counterpart": [
                     {
                         "participant": "206",
@@ -16,14 +15,12 @@
             null,
             {
                 "subject": "＊特殊需求課程\r, , , -學習策略(數學)",
-                "main": "陳暐捷",
                 "counterpart": null
             },
             null,
             null,
             {
                 "subject": "數學A",
-                "main": "陳暐捷",
                 "counterpart": [
                     {
                         "participant": "205",
@@ -33,7 +30,6 @@
             },
             {
                 "subject": "＊特殊需求課程\r, , , -學習策略(數學)",
-                "main": "陳暐捷",
                 "counterpart": null
             }
         ],
@@ -43,7 +39,6 @@
             null,
             {
                 "subject": "數學A",
-                "main": "陳暐捷",
                 "counterpart": [
                     {
                         "participant": "205",
@@ -53,7 +48,6 @@
             },
             {
                 "subject": "＊特殊需求課程\r, , , -學習策略(數學)",
-                "main": "陳暐捷",
                 "counterpart": null
             },
             null,
@@ -61,7 +55,6 @@
             null,
             {
                 "subject": "＊特殊需求課程\r, , , -學習策略(數學)",
-                "main": "陳暐捷",
                 "counterpart": null
             }
         ],
@@ -71,7 +64,6 @@
             null,
             {
                 "subject": "數學A",
-                "main": "陳暐捷",
                 "counterpart": [
                     {
                         "participant": "206",
@@ -81,7 +73,6 @@
             },
             {
                 "subject": "＊特殊需求課程\r, , , -學習策略(數學)",
-                "main": "陳暐捷",
                 "counterpart": null
             },
             null,
@@ -89,7 +80,6 @@
             null,
             {
                 "subject": "＊特殊需求課程\r, , , -學習策略(數學)",
-                "main": "陳暐捷",
                 "counterpart": null
             }
         ],
@@ -100,13 +90,11 @@
             null,
             {
                 "subject": "＊特殊需求課程\r, , , -學習策略(數學)",
-                "main": "陳暐捷",
                 "counterpart": null
             },
             null,
             {
                 "subject": "數學A",
-                "main": "陳暐捷",
                 "counterpart": [
                     {
                         "participant": "206",
@@ -116,7 +104,6 @@
             },
             {
                 "subject": "數學A",
-                "main": "陳暐捷",
                 "counterpart": [
                     {
                         "participant": "205",
@@ -126,14 +113,12 @@
             },
             {
                 "subject": "＊特殊需求課程\r, , , -學習策略(數學)",
-                "main": "陳暐捷",
                 "counterpart": null
             }
         ],
         [
             {
                 "subject": "數學A",
-                "main": "陳暐捷",
                 "counterpart": [
                     {
                         "participant": "206",
@@ -146,12 +131,10 @@
             null,
             {
                 "subject": " ",
-                "main": "陳暐捷",
                 "counterpart": null
             },
             {
                 "subject": "數學A",
-                "main": "陳暐捷",
                 "counterpart": [
                     {
                         "participant": "205",

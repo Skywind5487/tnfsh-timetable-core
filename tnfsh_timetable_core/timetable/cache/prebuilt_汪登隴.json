@@ -3,7 +3,6 @@
         [
             {
                 "subject": "選修物理-電磁現象一",
-                "main": "汪登隴",
                 "counterpart": [
                     {
                         "participant": "303",
@@ -13,7 +12,6 @@
             },
             {
                 "subject": "選修物理-電磁現象一",
-                "main": "汪登隴",
                 "counterpart": [
                     {
                         "participant": "303",
@@ -26,7 +24,6 @@
             null,
             {
                 "subject": "彈性-物理",
-                "main": "汪登隴",
                 "counterpart": [
                     {
                         "participant": "312",
@@ -36,7 +33,6 @@
             },
             {
                 "subject": "彈性-物理",
-                "main": "汪登隴",
                 "counterpart": [
                     {
                         "participant": "307",
@@ -53,7 +49,6 @@
             null,
             {
                 "subject": "選修物理-電磁現象二與量子現象",
-                "main": "汪登隴",
                 "counterpart": [
                     {
                         "participant": "312",
@@ -63,7 +58,6 @@
             },
             {
                 "subject": "選修物理-電磁現象二與量子現象",
-                "main": "汪登隴",
                 "counterpart": [
                     {
                         "participant": "312",
@@ -73,7 +67,6 @@
             },
             {
                 "subject": "選修物理-電磁現象二與量子現象",
-                "main": "汪登隴",
                 "counterpart": [
                     {
                         "participant": "303",
@@ -86,7 +79,6 @@
         [
             {
                 "subject": "選修物理-電磁現象一",
-                "main": "汪登隴",
                 "counterpart": [
                     {
                         "participant": "312",
@@ -96,7 +88,6 @@
             },
             {
                 "subject": "選修物理-電磁現象一",
-                "main": "汪登隴",
                 "counterpart": [
                     {
                         "participant": "312",
@@ -108,7 +99,6 @@
             null,
             {
                 "subject": "選修物理-電磁現象一",
-                "main": "汪登隴",
                 "counterpart": [
                     {
                         "participant": "307",
@@ -118,7 +108,6 @@
             },
             {
                 "subject": "選修物理-電磁現象一",
-                "main": "汪登隴",
                 "counterpart": [
                     {
                         "participant": "307",
@@ -128,7 +117,6 @@
             },
             {
                 "subject": "彈性-物理",
-                "main": "汪登隴",
                 "counterpart": [
                     {
                         "participant": "303",
@@ -141,7 +129,6 @@
         [
             {
                 "subject": "團體活動時間",
-                "main": "汪登隴",
                 "counterpart": [
                     {
                         "participant": "303",
@@ -151,7 +138,6 @@
             },
             {
                 "subject": "團體活動時間",
-                "main": "汪登隴",
                 "counterpart": [
                     {
                         "participant": "303",
@@ -169,7 +155,6 @@
         [
             {
                 "subject": "選修物理-電磁現象二與量子現象",
-                "main": "汪登隴",
                 "counterpart": [
                     {
                         "participant": "307",
@@ -179,7 +164,6 @@
             },
             {
                 "subject": "選修物理-電磁現象二與量子現象",
-                "main": "汪登隴",
                 "counterpart": [
                     {
                         "participant": "307",
@@ -191,7 +175,6 @@
             null,
             {
                 "subject": "選修物理-電磁現象二與量子現象",
-                "main": "汪登隴",
                 "counterpart": [
                     {
                         "participant": "303",

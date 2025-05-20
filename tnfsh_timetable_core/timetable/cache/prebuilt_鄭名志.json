@@ -3,7 +3,6 @@
         [
             {
                 "subject": "補強-物理",
-                "main": "鄭名志",
                 "counterpart": [
                     {
                         "participant": "208",
@@ -13,7 +12,6 @@
             },
             {
                 "subject": "補強-物理",
-                "main": "鄭名志",
                 "counterpart": [
                     {
                         "participant": "208",
@@ -23,7 +21,6 @@
             },
             {
                 "subject": "補強-物理",
-                "main": "鄭名志",
                 "counterpart": [
                     {
                         "participant": "212",
@@ -33,7 +30,6 @@
             },
             {
                 "subject": "補強-物理",
-                "main": "鄭名志",
                 "counterpart": [
                     {
                         "participant": "212",
@@ -45,7 +41,6 @@
             null,
             {
                 "subject": "物理",
-                "main": "鄭名志",
                 "counterpart": [
                     {
                         "participant": "214",
@@ -59,7 +54,6 @@
             null,
             {
                 "subject": "物理",
-                "main": "鄭名志",
                 "counterpart": [
                     {
                         "participant": "211",
@@ -69,7 +63,6 @@
             },
             {
                 "subject": "自然科學探究與實作",
-                "main": "鄭名志",
                 "counterpart": [
                     {
                         "participant": "111",
@@ -79,7 +72,6 @@
             },
             {
                 "subject": "自然科學探究與實作",
-                "main": "鄭名志",
                 "counterpart": [
                     {
                         "participant": "111",
@@ -89,7 +81,6 @@
             },
             {
                 "subject": "物理",
-                "main": "鄭名志",
                 "counterpart": [
                     {
                         "participant": "212",
@@ -99,7 +90,6 @@
             },
             {
                 "subject": "補強-物理",
-                "main": "鄭名志",
                 "counterpart": [
                     {
                         "participant": "216",
@@ -109,7 +99,6 @@
             },
             {
                 "subject": "補強-物理",
-                "main": "鄭名志",
                 "counterpart": [
                     {
                         "participant": "216",
@@ -122,13 +111,11 @@
         [
             {
                 "subject": " ",
-                "main": "鄭名志",
                 "counterpart": null
             },
             null,
             {
                 "subject": "補強-物理",
-                "main": "鄭名志",
                 "counterpart": [
                     {
                         "participant": "214",
@@ -138,7 +125,6 @@
             },
             {
                 "subject": "補強-物理",
-                "main": "鄭名志",
                 "counterpart": [
                     {
                         "participant": "214",
@@ -155,7 +141,6 @@
             null,
             {
                 "subject": "物理",
-                "main": "鄭名志",
                 "counterpart": [
                     {
                         "participant": "216",
@@ -165,7 +150,6 @@
             },
             {
                 "subject": "物理",
-                "main": "鄭名志",
                 "counterpart": [
                     {
                         "participant": "208",
@@ -175,7 +159,6 @@
             },
             {
                 "subject": "物理",
-                "main": "鄭名志",
                 "counterpart": [
                     {
                         "participant": "207",
@@ -191,7 +174,6 @@
         [
             {
                 "subject": "補強-物理",
-                "main": "鄭名志",
                 "counterpart": [
                     {
                         "participant": "211",
@@ -201,7 +183,6 @@
             },
             {
                 "subject": "補強-物理",
-                "main": "鄭名志",
                 "counterpart": [
                     {
                         "participant": "211",
@@ -213,7 +194,6 @@
             null,
             {
                 "subject": "補強-物理",
-                "main": "鄭名志",
                 "counterpart": [
                     {
                         "participant": "207",
@@ -223,7 +203,6 @@
             },
             {
                 "subject": "補強-物理",
-                "main": "鄭名志",
                 "counterpart": [
                     {
                         "participant": "207",

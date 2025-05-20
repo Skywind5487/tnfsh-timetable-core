@@ -7,7 +7,6 @@
             null,
             {
                 "subject": "生命教育",
-                "main": "林揚淵",
                 "counterpart": [
                     {
                         "participant": "113",
@@ -26,7 +25,6 @@
             null,
             {
                 "subject": "生命教育",
-                "main": "林揚淵",
                 "counterpart": [
                     {
                         "participant": "111",
@@ -36,7 +34,6 @@
             },
             {
                 "subject": "生命教育",
-                "main": "林揚淵",
                 "counterpart": [
                     {
                         "participant": "112",
@@ -50,7 +47,6 @@
         [
             {
                 "subject": "生命教育",
-                "main": "林揚淵",
                 "counterpart": [
                     {
                         "participant": "101",
@@ -81,12 +77,10 @@
             null,
             {
                 "subject": "高二多元選修",
-                "main": "林揚淵",
                 "counterpart": null
             },
             {
                 "subject": "彈性-多元選修",
-                "main": "林揚淵",
                 "counterpart": null
             },
             null,

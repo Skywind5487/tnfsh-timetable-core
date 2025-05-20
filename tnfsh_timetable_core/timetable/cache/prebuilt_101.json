@@ -3,7 +3,6 @@
         [
             {
                 "subject": "音樂",
-                "main": "101",
                 "counterpart": [
                     {
                         "participant": "李芬蘭",
@@ -13,7 +12,6 @@
             },
             {
                 "subject": "數學",
-                "main": "101",
                 "counterpart": [
                     {
                         "participant": "鄭詠純",
@@ -23,7 +21,6 @@
             },
             {
                 "subject": "美術",
-                "main": "101",
                 "counterpart": [
                     {
                         "participant": "賴勇達",
@@ -33,7 +30,6 @@
             },
             {
                 "subject": "美術",
-                "main": "101",
                 "counterpart": [
                     {
                         "participant": "賴勇達",
@@ -43,7 +39,6 @@
             },
             {
                 "subject": "英語文",
-                "main": "101",
                 "counterpart": [
                     {
                         "participant": "梁力仁",
@@ -53,7 +48,6 @@
             },
             {
                 "subject": "自然科學探究與實作",
-                "main": "101",
                 "counterpart": [
                     {
                         "participant": "王俊乃",
@@ -67,7 +61,6 @@
             },
             {
                 "subject": "自然科學探究與實作",
-                "main": "101",
                 "counterpart": [
                     {
                         "participant": "王俊乃",
@@ -84,7 +77,6 @@
         [
             {
                 "subject": "國語文",
-                "main": "101",
                 "counterpart": [
                     {
                         "participant": "陳婉玲",
@@ -94,7 +86,6 @@
             },
             {
                 "subject": "化學",
-                "main": "101",
                 "counterpart": [
                     {
                         "participant": "黃聖勛",
@@ -104,7 +95,6 @@
             },
             {
                 "subject": "體育",
-                "main": "101",
                 "counterpart": [
                     {
                         "participant": "柯東成",
@@ -114,7 +104,6 @@
             },
             {
                 "subject": "英語文",
-                "main": "101",
                 "counterpart": [
                     {
                         "participant": "梁力仁",
@@ -124,7 +113,6 @@
             },
             {
                 "subject": "數學",
-                "main": "101",
                 "counterpart": [
                     {
                         "participant": "鄭詠純",
@@ -134,7 +122,6 @@
             },
             {
                 "subject": "公民與社會",
-                "main": "101",
                 "counterpart": [
                     {
                         "participant": "廖翠雰",
@@ -144,7 +131,6 @@
             },
             {
                 "subject": "歷史",
-                "main": "101",
                 "counterpart": [
                     {
                         "participant": "蔡良昇",
@@ -157,7 +143,6 @@
         [
             {
                 "subject": "生命教育",
-                "main": "101",
                 "counterpart": [
                     {
                         "participant": "林揚淵",
@@ -167,7 +152,6 @@
             },
             {
                 "subject": "化學",
-                "main": "101",
                 "counterpart": [
                     {
                         "participant": "黃聖勛",
@@ -177,7 +161,6 @@
             },
             {
                 "subject": "歷史",
-                "main": "101",
                 "counterpart": [
                     {
                         "participant": "蔡良昇",
@@ -187,7 +170,6 @@
             },
             {
                 "subject": "數學",
-                "main": "101",
                 "counterpart": [
                     {
                         "participant": "鄭詠純",
@@ -197,17 +179,14 @@
             },
             {
                 "subject": "彈性學習時間",
-                "main": "101",
                 "counterpart": null
             },
             {
                 "subject": "彈性學習時間",
-                "main": "101",
                 "counterpart": null
             },
             {
                 "subject": "團體活動時間",
-                "main": "101",
                 "counterpart": [
                     {
                         "participant": "陳婉玲",
@@ -220,7 +199,6 @@
         [
             {
                 "subject": "團體活動時間",
-                "main": "101",
                 "counterpart": [
                     {
                         "participant": "陳婉玲",
@@ -230,7 +208,6 @@
             },
             {
                 "subject": "英語文",
-                "main": "101",
                 "counterpart": [
                     {
                         "participant": "梁力仁",
@@ -240,7 +217,6 @@
             },
             {
                 "subject": "英語文",
-                "main": "101",
                 "counterpart": [
                     {
                         "participant": "梁力仁",
@@ -250,7 +226,6 @@
             },
             {
                 "subject": "地理",
-                "main": "101",
                 "counterpart": [
                     {
                         "participant": "賴秀茹",
@@ -260,7 +235,6 @@
             },
             {
                 "subject": "國語文",
-                "main": "101",
                 "counterpart": [
                     {
                         "participant": "陳婉玲",
@@ -270,7 +244,6 @@
             },
             {
                 "subject": "數學",
-                "main": "101",
                 "counterpart": [
                     {
                         "participant": "鄭詠純",
@@ -280,7 +253,6 @@
             },
             {
                 "subject": "體育",
-                "main": "101",
                 "counterpart": [
                     {
                         "participant": "柯東成",
@@ -293,17 +265,14 @@
         [
             {
                 "subject": "高一多元選修",
-                "main": "101",
                 "counterpart": null
             },
             {
                 "subject": "高一多元選修",
-                "main": "101",
                 "counterpart": null
             },
             {
                 "subject": "國語文",
-                "main": "101",
                 "counterpart": [
                     {
                         "participant": "陳婉玲",
@@ -313,7 +282,6 @@
             },
             {
                 "subject": "國語文",
-                "main": "101",
                 "counterpart": [
                     {
                         "participant": "陳婉玲",
@@ -323,7 +291,6 @@
             },
             {
                 "subject": "客語文, 閩南語文",
-                "main": "101",
                 "counterpart": [
                     {
                         "participant": "劉柔秀",
@@ -337,7 +304,6 @@
             },
             {
                 "subject": "地理",
-                "main": "101",
                 "counterpart": [
                     {
                         "participant": "賴秀茹",
@@ -347,7 +313,6 @@
             },
             {
                 "subject": "公民與社會",
-                "main": "101",
                 "counterpart": [
                     {
                         "participant": "廖翠雰",

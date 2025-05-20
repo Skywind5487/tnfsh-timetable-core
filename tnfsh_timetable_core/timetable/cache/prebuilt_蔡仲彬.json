@@ -4,7 +4,6 @@
             null,
             {
                 "subject": "數學甲",
-                "main": "蔡仲彬",
                 "counterpart": [
                     {
                         "participant": "313",
@@ -15,7 +14,6 @@
             null,
             {
                 "subject": "補強-數學",
-                "main": "蔡仲彬",
                 "counterpart": [
                     {
                         "participant": "303",
@@ -25,7 +23,6 @@
             },
             {
                 "subject": "數學甲",
-                "main": "蔡仲彬",
                 "counterpart": [
                     {
                         "participant": "303",
@@ -35,7 +32,6 @@
             },
             {
                 "subject": "數學A",
-                "main": "蔡仲彬",
                 "counterpart": [
                     {
                         "participant": "210",
@@ -51,7 +47,6 @@
             null,
             {
                 "subject": "數學A",
-                "main": "蔡仲彬",
                 "counterpart": [
                     {
                         "participant": "210",
@@ -62,7 +57,6 @@
             null,
             {
                 "subject": "數學甲",
-                "main": "蔡仲彬",
                 "counterpart": [
                     {
                         "participant": "303",
@@ -72,7 +66,6 @@
             },
             {
                 "subject": "數學甲",
-                "main": "蔡仲彬",
                 "counterpart": [
                     {
                         "participant": "303",
@@ -82,7 +75,6 @@
             },
             {
                 "subject": "數學甲",
-                "main": "蔡仲彬",
                 "counterpart": [
                     {
                         "participant": "313",
@@ -96,7 +88,6 @@
             null,
             {
                 "subject": "數學甲",
-                "main": "蔡仲彬",
                 "counterpart": [
                     {
                         "participant": "313",
@@ -106,7 +97,6 @@
             },
             {
                 "subject": "數學甲",
-                "main": "蔡仲彬",
                 "counterpart": [
                     {
                         "participant": "303",
@@ -116,7 +106,6 @@
             },
             {
                 "subject": "數學A",
-                "main": "蔡仲彬",
                 "counterpart": [
                     {
                         "participant": "210",
@@ -137,7 +126,6 @@
             null,
             {
                 "subject": "補強-數學",
-                "main": "蔡仲彬",
                 "counterpart": [
                     {
                         "participant": "303",
@@ -147,7 +135,6 @@
             },
             {
                 "subject": "數學A",
-                "main": "蔡仲彬",
                 "counterpart": [
                     {
                         "participant": "210",
@@ -160,7 +147,6 @@
         [
             {
                 "subject": "數學甲",
-                "main": "蔡仲彬",
                 "counterpart": [
                     {
                         "participant": "313",
@@ -171,12 +157,10 @@
             null,
             {
                 "subject": "高二多元選修",
-                "main": "蔡仲彬",
                 "counterpart": null
             },
             {
                 "subject": "彈性-多元選修",
-                "main": "蔡仲彬",
                 "counterpart": null
             },
             null,

@@ -7,7 +7,6 @@
             null,
             {
                 "subject": "物理",
-                "main": "杜思谷",
                 "counterpart": [
                     {
                         "participant": "210",
@@ -17,7 +16,6 @@
             },
             {
                 "subject": "物理",
-                "main": "杜思谷",
                 "counterpart": [
                     {
                         "participant": "205",
@@ -31,7 +29,6 @@
         [
             {
                 "subject": "補強-物理",
-                "main": "杜思谷",
                 "counterpart": [
                     {
                         "participant": "210",
@@ -41,7 +38,6 @@
             },
             {
                 "subject": "補強-物理",
-                "main": "杜思谷",
                 "counterpart": [
                     {
                         "participant": "210",
@@ -59,7 +55,6 @@
         [
             {
                 "subject": "物理",
-                "main": "杜思谷",
                 "counterpart": [
                     {
                         "participant": "203",
@@ -70,7 +65,6 @@
             null,
             {
                 "subject": "補強-物理",
-                "main": "杜思谷",
                 "counterpart": [
                     {
                         "participant": "205",
@@ -80,7 +74,6 @@
             },
             {
                 "subject": "補強-物理",
-                "main": "杜思谷",
                 "counterpart": [
                     {
                         "participant": "205",
@@ -98,7 +91,6 @@
             null,
             {
                 "subject": "補強-物理",
-                "main": "杜思谷",
                 "counterpart": [
                     {
                         "participant": "203",
@@ -108,7 +100,6 @@
             },
             {
                 "subject": "補強-物理",
-                "main": "杜思谷",
                 "counterpart": [
                     {
                         "participant": "203",
@@ -124,12 +115,10 @@
         [
             {
                 "subject": "高一多元選修",
-                "main": "杜思谷",
                 "counterpart": null
             },
             {
                 "subject": "高一多元選修",
-                "main": "杜思谷",
                 "counterpart": null
             },
             null,

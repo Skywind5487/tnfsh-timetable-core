@@ -7,7 +7,6 @@
             null,
             {
                 "subject": "選修化學-有機化學與應用科技",
-                "main": "陳立偉",
                 "counterpart": [
                     {
                         "participant": "310",
@@ -17,7 +16,6 @@
             },
             {
                 "subject": "自然科學探究與實作",
-                "main": "陳立偉",
                 "counterpart": [
                     {
                         "participant": "105",
@@ -27,7 +25,6 @@
             },
             {
                 "subject": "自然科學探究與實作",
-                "main": "陳立偉",
                 "counterpart": [
                     {
                         "participant": "105",
@@ -40,7 +37,6 @@
         [
             {
                 "subject": "選修化學-化學反應與平衡二",
-                "main": "陳立偉",
                 "counterpart": [
                     {
                         "participant": "310",
@@ -50,7 +46,6 @@
             },
             {
                 "subject": "選修化學-化學反應與平衡二",
-                "main": "陳立偉",
                 "counterpart": [
                     {
                         "participant": "310",
@@ -60,7 +55,6 @@
             },
             {
                 "subject": "自然科學探究與實作",
-                "main": "陳立偉",
                 "counterpart": [
                     {
                         "participant": "104",
@@ -70,7 +64,6 @@
             },
             {
                 "subject": "自然科學探究與實作",
-                "main": "陳立偉",
                 "counterpart": [
                     {
                         "participant": "104",
@@ -80,7 +73,6 @@
             },
             {
                 "subject": "個別科學研究",
-                "main": "陳立偉",
                 "counterpart": [
                     {
                         "participant": "319",
@@ -90,7 +82,6 @@
             },
             {
                 "subject": "個別科學研究",
-                "main": "陳立偉",
                 "counterpart": [
                     {
                         "participant": "319",
@@ -110,7 +101,6 @@
             null,
             {
                 "subject": "選修化學-有機化學與應用科技",
-                "main": "陳立偉",
                 "counterpart": [
                     {
                         "participant": "310",
@@ -135,19 +125,16 @@
             null,
             {
                 "subject": "高二多元選修",
-                "main": "陳立偉",
                 "counterpart": null
             },
             {
                 "subject": "彈性-多元選修",
-                "main": "陳立偉",
                 "counterpart": null
             },
             null,
             null,
             {
                 "subject": "彈性-化學",
-                "main": "陳立偉",
                 "counterpart": [
                     {
                         "participant": "310",

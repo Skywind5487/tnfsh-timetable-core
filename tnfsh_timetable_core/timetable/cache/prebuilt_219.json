@@ -3,7 +3,6 @@
         [
             {
                 "subject": "數學",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "陳榮吉",
@@ -13,7 +12,6 @@
             },
             {
                 "subject": "公民與社會",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "廖翠雰",
@@ -23,7 +21,6 @@
             },
             {
                 "subject": "化學",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "蔡佳怡",
@@ -33,7 +30,6 @@
             },
             {
                 "subject": "化學",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "蔡佳怡",
@@ -43,7 +39,6 @@
             },
             {
                 "subject": "英語文",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "林湘昀",
@@ -53,7 +48,6 @@
             },
             {
                 "subject": "生物",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "林弘都",
@@ -63,7 +57,6 @@
             },
             {
                 "subject": "生物",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "林弘都",
@@ -73,7 +66,6 @@
             },
             {
                 "subject": "物理",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "羅焜哲",
@@ -85,7 +77,6 @@
         [
             {
                 "subject": "地理",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "謝承霖",
@@ -95,7 +86,6 @@
             },
             {
                 "subject": "全民國防教育",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "王柏中",
@@ -105,7 +95,6 @@
             },
             {
                 "subject": "數學",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "陳榮吉",
@@ -115,7 +104,6 @@
             },
             {
                 "subject": "數學",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "陳榮吉",
@@ -125,7 +113,6 @@
             },
             {
                 "subject": "國語文",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "梁佳雯",
@@ -135,7 +122,6 @@
             },
             {
                 "subject": "物理",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "羅焜哲",
@@ -145,7 +131,6 @@
             },
             {
                 "subject": "體育",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "蔡閎璿",
@@ -155,7 +140,6 @@
             },
             {
                 "subject": "化學",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "蔡佳怡",
@@ -167,7 +151,6 @@
         [
             {
                 "subject": "英語文",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "林湘昀",
@@ -177,7 +160,6 @@
             },
             {
                 "subject": "專題研究",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "陳榮吉",
@@ -203,7 +185,6 @@
             },
             {
                 "subject": "專題研究",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "陳榮吉",
@@ -229,7 +210,6 @@
             },
             {
                 "subject": "專題研究",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "陳榮吉",
@@ -255,7 +235,6 @@
             },
             {
                 "subject": "彈性學習時間",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "",
@@ -265,7 +244,6 @@
             },
             {
                 "subject": "彈性學習時間",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "",
@@ -275,7 +253,6 @@
             },
             {
                 "subject": "團體活動時間",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "蔡佳怡",
@@ -285,7 +262,6 @@
             },
             {
                 "subject": "生物",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "林弘都",
@@ -297,7 +273,6 @@
         [
             {
                 "subject": "團體活動時間",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "蔡佳怡",
@@ -307,7 +282,6 @@
             },
             {
                 "subject": "體育",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "蔡閎璿",
@@ -317,7 +291,6 @@
             },
             {
                 "subject": "物理",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "羅焜哲",
@@ -327,7 +300,6 @@
             },
             {
                 "subject": "國學欣賞",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "梁佳雯",
@@ -337,7 +309,6 @@
             },
             {
                 "subject": "數學",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "陳榮吉",
@@ -347,7 +318,6 @@
             },
             {
                 "subject": "英文寫作",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "林湘昀",
@@ -357,7 +327,6 @@
             },
             {
                 "subject": "生活科技應用",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "莊淑如",
@@ -367,7 +336,6 @@
             },
             {
                 "subject": "生活科技應用",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "莊淑如",
@@ -379,7 +347,6 @@
         [
             {
                 "subject": "國語文",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "梁佳雯",
@@ -389,7 +356,6 @@
             },
             {
                 "subject": "國語文",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "梁佳雯",
@@ -399,7 +365,6 @@
             },
             {
                 "subject": "物理",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "羅焜哲",
@@ -409,7 +374,6 @@
             },
             {
                 "subject": "物理",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "羅焜哲",
@@ -419,7 +383,6 @@
             },
             {
                 "subject": "化學",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "蔡佳怡",
@@ -429,7 +392,6 @@
             },
             {
                 "subject": "英語文",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "林湘昀",
@@ -439,7 +401,6 @@
             },
             {
                 "subject": "竹園數學",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "陳榮吉",
@@ -449,7 +410,6 @@
             },
             {
                 "subject": "竹園數學",
-                "main": "219",
                 "counterpart": [
                     {
                         "participant": "陳榮吉",

@@ -4,7 +4,6 @@
             null,
             {
                 "subject": "數學",
-                "main": "林郁敏",
                 "counterpart": [
                     {
                         "participant": "116",
@@ -14,7 +13,6 @@
             },
             {
                 "subject": "數學",
-                "main": "林郁敏",
                 "counterpart": [
                     {
                         "participant": "105",
@@ -24,7 +22,6 @@
             },
             {
                 "subject": " ",
-                "main": "林郁敏",
                 "counterpart": null
             },
             null,
@@ -39,7 +36,6 @@
             null,
             {
                 "subject": "數學",
-                "main": "林郁敏",
                 "counterpart": [
                     {
                         "participant": "105",
@@ -49,7 +45,6 @@
             },
             {
                 "subject": "數學",
-                "main": "林郁敏",
                 "counterpart": [
                     {
                         "participant": "116",
@@ -59,7 +54,6 @@
             },
             {
                 "subject": "數學甲",
-                "main": "林郁敏",
                 "counterpart": [
                     {
                         "participant": "311",
@@ -73,7 +67,6 @@
             null,
             {
                 "subject": "數學甲",
-                "main": "林郁敏",
                 "counterpart": [
                     {
                         "participant": "311",
@@ -83,7 +76,6 @@
             },
             {
                 "subject": "數學",
-                "main": "林郁敏",
                 "counterpart": [
                     {
                         "participant": "116",
@@ -93,7 +85,6 @@
             },
             {
                 "subject": "數學",
-                "main": "林郁敏",
                 "counterpart": [
                     {
                         "participant": "105",
@@ -105,7 +96,6 @@
             null,
             {
                 "subject": "團體活動時間",
-                "main": "林郁敏",
                 "counterpart": [
                     {
                         "participant": "105",
@@ -118,7 +108,6 @@
         [
             {
                 "subject": "團體活動時間",
-                "main": "林郁敏",
                 "counterpart": [
                     {
                         "participant": "105",
@@ -128,7 +117,6 @@
             },
             {
                 "subject": "數學",
-                "main": "林郁敏",
                 "counterpart": [
                     {
                         "participant": "105",
@@ -148,17 +136,14 @@
             null,
             {
                 "subject": "高二多元選修",
-                "main": "林郁敏",
                 "counterpart": null
             },
             {
                 "subject": "彈性-多元選修",
-                "main": "林郁敏",
                 "counterpart": null
             },
             {
                 "subject": "數學甲",
-                "main": "林郁敏",
                 "counterpart": [
                     {
                         "participant": "311",
@@ -168,7 +153,6 @@
             },
             {
                 "subject": "數學甲",
-                "main": "林郁敏",
                 "counterpart": [
                     {
                         "participant": "311",
@@ -178,7 +162,6 @@
             },
             {
                 "subject": "數學",
-                "main": "林郁敏",
                 "counterpart": [
                     {
                         "participant": "116",

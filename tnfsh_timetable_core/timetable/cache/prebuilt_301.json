@@ -3,7 +3,6 @@
         [
             {
                 "subject": "各類文學選讀",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "林文瑜",
@@ -13,7 +12,6 @@
             },
             {
                 "subject": "科技、環境與藝術的歷史",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "楊秀蘭",
@@ -23,7 +21,6 @@
             },
             {
                 "subject": "美術",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "黃逸民",
@@ -33,7 +30,6 @@
             },
             {
                 "subject": "美術",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "黃逸民",
@@ -43,7 +39,6 @@
             },
             {
                 "subject": "數學乙",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "巫權祐",
@@ -53,7 +48,6 @@
             },
             {
                 "subject": "數學乙",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "巫權祐",
@@ -63,7 +57,6 @@
             },
             {
                 "subject": "民主政治與法律",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "阮雋絜",
@@ -76,7 +69,6 @@
         [
             {
                 "subject": "科技、環境與藝術的歷史",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "楊秀蘭",
@@ -86,7 +78,6 @@
             },
             {
                 "subject": "英文閱讀與寫作",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "張惠智",
@@ -96,7 +87,6 @@
             },
             {
                 "subject": "民主政治與法律",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "阮雋絜",
@@ -106,7 +96,6 @@
             },
             {
                 "subject": "體育",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "潘帝仁",
@@ -116,7 +105,6 @@
             },
             {
                 "subject": "數學乙",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "巫權祐",
@@ -126,7 +114,6 @@
             },
             {
                 "subject": "語文表達與傳播應用",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "林文瑜",
@@ -136,7 +123,6 @@
             },
             {
                 "subject": "語文表達與傳播應用",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "林文瑜",
@@ -149,7 +135,6 @@
         [
             {
                 "subject": "補強-公民與社會",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "阮雋絜",
@@ -159,7 +144,6 @@
             },
             {
                 "subject": "補強-地理",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "陳麒丞",
@@ -169,7 +153,6 @@
             },
             {
                 "subject": "英語聽講",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "張惠智",
@@ -179,7 +162,6 @@
             },
             {
                 "subject": "英語聽講",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "張惠智",
@@ -189,7 +171,6 @@
             },
             {
                 "subject": "補強-歷史",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "楊秀蘭",
@@ -199,7 +180,6 @@
             },
             {
                 "subject": "科技、環境與藝術的歷史",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "楊秀蘭",
@@ -209,7 +189,6 @@
             },
             {
                 "subject": "彈性學習時間",
-                "main": "301",
                 "counterpart": null
             },
             null
@@ -217,7 +196,6 @@
         [
             {
                 "subject": "團體活動時間",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "阮雋絜",
@@ -227,7 +205,6 @@
             },
             {
                 "subject": "團體活動時間",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "阮雋絜",
@@ -237,7 +214,6 @@
             },
             {
                 "subject": "各類文學選讀",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "林文瑜",
@@ -247,7 +223,6 @@
             },
             {
                 "subject": "數學乙",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "巫權祐",
@@ -257,7 +232,6 @@
             },
             {
                 "subject": "音樂",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "王理俐",
@@ -267,7 +241,6 @@
             },
             {
                 "subject": "體育",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "潘帝仁",
@@ -277,7 +250,6 @@
             },
             {
                 "subject": "空間資訊科技",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "陳麒丞",
@@ -290,7 +262,6 @@
         [
             {
                 "subject": "空間資訊科技",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "陳麒丞",
@@ -300,7 +271,6 @@
             },
             {
                 "subject": "空間資訊科技",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "陳麒丞",
@@ -310,7 +280,6 @@
             },
             {
                 "subject": "健康與護理",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "黃凱羚",
@@ -320,7 +289,6 @@
             },
             {
                 "subject": "彈性-國文",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "林文瑜",
@@ -330,7 +298,6 @@
             },
             {
                 "subject": "民主政治與法律",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "阮雋絜",
@@ -340,7 +307,6 @@
             },
             {
                 "subject": "彈性-英文",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "Evan",
@@ -350,7 +316,6 @@
             },
             {
                 "subject": "英文閱讀與寫作",
-                "main": "301",
                 "counterpart": [
                     {
                         "participant": "張惠智",

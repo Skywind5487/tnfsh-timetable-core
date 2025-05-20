@@ -3,7 +3,6 @@
         [
             {
                 "subject": "竹園專題探索",
-                "main": "212",
                 "counterpart": [
                     {
                         "participant": "丘念佳",
@@ -33,7 +32,6 @@
             },
             {
                 "subject": "竹園專題探索",
-                "main": "212",
                 "counterpart": [
                     {
                         "participant": "丘念佳",
@@ -63,7 +61,6 @@
             },
             {
                 "subject": "補強-物理",
-                "main": "212",
                 "counterpart": [
                     {
                         "participant": "鄭名志",
@@ -73,7 +70,6 @@
             },
             {
                 "subject": "補強-物理",
-                "main": "212",
                 "counterpart": [
                     {
                         "participant": "鄭名志",
@@ -83,7 +79,6 @@
             },
             {
                 "subject": "數學A",
-                "main": "212",
                 "counterpart": [
                     {
                         "participant": "周博信",
@@ -93,7 +88,6 @@
             },
             {
                 "subject": "英語文",
-                "main": "212",
                 "counterpart": [
                     {
                         "participant": "陳佩均",
@@ -103,7 +97,6 @@
             },
             {
                 "subject": "英語文",
-                "main": "212",
                 "counterpart": [
                     {
                         "participant": "陳佩均",
@@ -116,7 +109,6 @@
         [
             {
                 "subject": "公民與社會",
-                "main": "212",
                 "counterpart": [
                     {
                         "participant": "鄭妍臻",
@@ -126,7 +118,6 @@
             },
             {
                 "subject": "數學A",
-                "main": "212",
                 "counterpart": [
                     {
                         "participant": "周博信",
@@ -136,7 +127,6 @@
             },
             {
                 "subject": "體育",
-                "main": "212",
                 "counterpart": [
                     {
                         "participant": "林高義",
@@ -146,7 +136,6 @@
             },
             {
                 "subject": "歷史",
-                "main": "212",
                 "counterpart": [
                     {
                         "participant": "陳建宏",
@@ -156,7 +145,6 @@
             },
             {
                 "subject": "物理",
-                "main": "212",
                 "counterpart": [
                     {
                         "participant": "鄭名志",
@@ -166,7 +154,6 @@
             },
             {
                 "subject": "國語文",
-                "main": "212",
                 "counterpart": [
                     {
                         "participant": "陳姿綉",
@@ -176,7 +163,6 @@
             },
             {
                 "subject": "國語文",
-                "main": "212",
                 "counterpart": [
                     {
                         "participant": "陳姿綉",
@@ -189,7 +175,6 @@
         [
             {
                 "subject": "補強-化學",
-                "main": "212",
                 "counterpart": [
                     {
                         "participant": "鄭淑君",
@@ -199,7 +184,6 @@
             },
             {
                 "subject": "補強-化學",
-                "main": "212",
                 "counterpart": [
                     {
                         "participant": "鄭淑君",
@@ -209,7 +193,6 @@
             },
             {
                 "subject": "數學A",
-                "main": "212",
                 "counterpart": [
                     {
                         "participant": "周博信",
@@ -219,7 +202,6 @@
             },
             {
                 "subject": "國語文",
-                "main": "212",
                 "counterpart": [
                     {
                         "participant": "陳姿綉",
@@ -229,17 +211,14 @@
             },
             {
                 "subject": "彈性學習時間",
-                "main": "212",
                 "counterpart": null
             },
             {
                 "subject": "彈性學習時間",
-                "main": "212",
                 "counterpart": null
             },
             {
                 "subject": "團體活動時間",
-                "main": "212",
                 "counterpart": [
                     {
                         "participant": "周博信",
@@ -252,7 +231,6 @@
         [
             {
                 "subject": "團體活動時間",
-                "main": "212",
                 "counterpart": [
                     {
                         "participant": "周博信",
@@ -262,7 +240,6 @@
             },
             {
                 "subject": "國語文",
-                "main": "212",
                 "counterpart": [
                     {
                         "participant": "陳姿綉",
@@ -272,7 +249,6 @@
             },
             {
                 "subject": "家政",
-                "main": "212",
                 "counterpart": [
                     {
                         "participant": "潘智惠",
@@ -282,7 +258,6 @@
             },
             {
                 "subject": "家政",
-                "main": "212",
                 "counterpart": [
                     {
                         "participant": "潘智惠",
@@ -292,7 +267,6 @@
             },
             {
                 "subject": "英語文",
-                "main": "212",
                 "counterpart": [
                     {
                         "participant": "陳佩均",
@@ -302,7 +276,6 @@
             },
             {
                 "subject": "歷史",
-                "main": "212",
                 "counterpart": [
                     {
                         "participant": "陳建宏",
@@ -312,7 +285,6 @@
             },
             {
                 "subject": "公民與社會",
-                "main": "212",
                 "counterpart": [
                     {
                         "participant": "鄭妍臻",
@@ -325,7 +297,6 @@
         [
             {
                 "subject": "補強-生物",
-                "main": "212",
                 "counterpart": [
                     {
                         "participant": "詹濠先",
@@ -335,7 +306,6 @@
             },
             {
                 "subject": "補強-生物",
-                "main": "212",
                 "counterpart": [
                     {
                         "participant": "詹濠先",
@@ -345,17 +315,14 @@
             },
             {
                 "subject": "高二多元選修",
-                "main": "212",
                 "counterpart": null
             },
             {
                 "subject": "彈性-多元選修",
-                "main": "212",
                 "counterpart": null
             },
             {
                 "subject": "體育",
-                "main": "212",
                 "counterpart": [
                     {
                         "participant": "林高義",
@@ -365,7 +332,6 @@
             },
             {
                 "subject": "英語文",
-                "main": "212",
                 "counterpart": [
                     {
                         "participant": "陳佩均",
@@ -375,7 +341,6 @@
             },
             {
                 "subject": "數學A",
-                "main": "212",
                 "counterpart": [
                     {
                         "participant": "周博信",

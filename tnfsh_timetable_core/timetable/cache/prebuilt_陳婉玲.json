@@ -3,7 +3,6 @@
         [
             {
                 "subject": "國語文",
-                "main": "陳婉玲",
                 "counterpart": [
                     {
                         "participant": "119",
@@ -22,7 +21,6 @@
         [
             {
                 "subject": "國語文",
-                "main": "陳婉玲",
                 "counterpart": [
                     {
                         "participant": "101",
@@ -35,7 +33,6 @@
             null,
             {
                 "subject": "國學欣賞",
-                "main": "陳婉玲",
                 "counterpart": [
                     {
                         "participant": "119",
@@ -52,19 +49,16 @@
             null,
             {
                 "subject": " ",
-                "main": "陳婉玲",
                 "counterpart": null
             },
             {
                 "subject": " ",
-                "main": "陳婉玲",
                 "counterpart": null
             },
             null,
             null,
             {
                 "subject": "團體活動時間",
-                "main": "陳婉玲",
                 "counterpart": [
                     {
                         "participant": "101",
@@ -77,7 +71,6 @@
         [
             {
                 "subject": "團體活動時間",
-                "main": "陳婉玲",
                 "counterpart": [
                     {
                         "participant": "101",
@@ -90,7 +83,6 @@
             null,
             {
                 "subject": "國語文",
-                "main": "陳婉玲",
                 "counterpart": [
                     {
                         "participant": "101",
@@ -101,7 +93,6 @@
             null,
             {
                 "subject": "國語文",
-                "main": "陳婉玲",
                 "counterpart": [
                     {
                         "participant": "119",
@@ -111,7 +102,6 @@
             },
             {
                 "subject": "國語文",
-                "main": "陳婉玲",
                 "counterpart": [
                     {
                         "participant": "119",
@@ -125,7 +115,6 @@
             null,
             {
                 "subject": "國語文",
-                "main": "陳婉玲",
                 "counterpart": [
                     {
                         "participant": "101",
@@ -135,7 +124,6 @@
             },
             {
                 "subject": "國語文",
-                "main": "陳婉玲",
                 "counterpart": [
                     {
                         "participant": "101",

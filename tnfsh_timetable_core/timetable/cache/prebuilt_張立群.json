@@ -3,7 +3,6 @@
         [
             {
                 "subject": "數學A",
-                "main": "張立群",
                 "counterpart": [
                     {
                         "participant": "213",
@@ -15,7 +14,6 @@
             null,
             {
                 "subject": "數學",
-                "main": "張立群",
                 "counterpart": [
                     {
                         "participant": "103",
@@ -26,7 +24,6 @@
             null,
             {
                 "subject": "數學A",
-                "main": "張立群",
                 "counterpart": [
                     {
                         "participant": "204",
@@ -36,7 +33,6 @@
             },
             {
                 "subject": "數學A",
-                "main": "張立群",
                 "counterpart": [
                     {
                         "participant": "204",
@@ -53,7 +49,6 @@
             null,
             {
                 "subject": "數學A",
-                "main": "張立群",
                 "counterpart": [
                     {
                         "participant": "204",
@@ -63,7 +58,6 @@
             },
             {
                 "subject": "數學A",
-                "main": "張立群",
                 "counterpart": [
                     {
                         "participant": "213",
@@ -77,7 +71,6 @@
         [
             {
                 "subject": "數學",
-                "main": "張立群",
                 "counterpart": [
                     {
                         "participant": "103",
@@ -92,7 +85,6 @@
             null,
             {
                 "subject": "團體活動時間",
-                "main": "張立群",
                 "counterpart": [
                     {
                         "participant": "103",
@@ -105,7 +97,6 @@
         [
             {
                 "subject": "團體活動時間",
-                "main": "張立群",
                 "counterpart": [
                     {
                         "participant": "103",
@@ -115,7 +106,6 @@
             },
             {
                 "subject": "數學",
-                "main": "張立群",
                 "counterpart": [
                     {
                         "participant": "103",
@@ -126,7 +116,6 @@
             null,
             {
                 "subject": "數學A",
-                "main": "張立群",
                 "counterpart": [
                     {
                         "participant": "213",
@@ -142,7 +131,6 @@
         [
             {
                 "subject": "數學A",
-                "main": "張立群",
                 "counterpart": [
                     {
                         "participant": "204",
@@ -152,7 +140,6 @@
             },
             {
                 "subject": "數學A",
-                "main": "張立群",
                 "counterpart": [
                     {
                         "participant": "213",
@@ -162,7 +149,6 @@
             },
             {
                 "subject": "數學",
-                "main": "張立群",
                 "counterpart": [
                     {
                         "participant": "103",

@@ -3,7 +3,6 @@
         [
             {
                 "subject": "國語文",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "陳婉玲",
@@ -13,7 +12,6 @@
             },
             {
                 "subject": "閩南語文, 臺灣手語",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "黃子容",
@@ -27,7 +25,6 @@
             },
             {
                 "subject": "資訊科技",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "顏永進",
@@ -37,7 +34,6 @@
             },
             {
                 "subject": "資訊科技",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "顏永進",
@@ -47,7 +43,6 @@
             },
             {
                 "subject": "竹園物理",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "曾奕勛",
@@ -57,7 +52,6 @@
             },
             {
                 "subject": "生命教育",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "吳玟芷",
@@ -67,7 +61,6 @@
             },
             {
                 "subject": "英文寫作",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "劉哲夫",
@@ -77,7 +70,6 @@
             },
             {
                 "subject": "數學",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "梁俊宏",
@@ -89,7 +81,6 @@
         [
             {
                 "subject": "生物",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "江佩娟",
@@ -99,7 +90,6 @@
             },
             {
                 "subject": "生物",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "江佩娟",
@@ -109,7 +99,6 @@
             },
             {
                 "subject": "竹園物理",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "曾奕勛",
@@ -119,7 +108,6 @@
             },
             {
                 "subject": "英文寫作",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "劉哲夫",
@@ -129,7 +117,6 @@
             },
             {
                 "subject": "國學欣賞",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "陳婉玲",
@@ -139,7 +126,6 @@
             },
             {
                 "subject": "數學",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "梁俊宏",
@@ -149,7 +135,6 @@
             },
             {
                 "subject": "數學",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "梁俊宏",
@@ -159,7 +144,6 @@
             },
             {
                 "subject": "竹園化學",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "黃先明",
@@ -171,7 +155,6 @@
         [
             {
                 "subject": "體育",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "柯東成",
@@ -181,7 +164,6 @@
             },
             {
                 "subject": "資訊科技",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "顏永進",
@@ -191,7 +173,6 @@
             },
             {
                 "subject": "專題研究",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "梁俊宏",
@@ -221,7 +202,6 @@
             },
             {
                 "subject": "專題研究",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "梁俊宏",
@@ -251,17 +231,14 @@
             },
             {
                 "subject": "彈性學習時間",
-                "main": "119",
                 "counterpart": null
             },
             {
                 "subject": "彈性學習時間",
-                "main": "119",
                 "counterpart": null
             },
             {
                 "subject": "團體活動時間",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "梁俊宏",
@@ -271,7 +248,6 @@
             },
             {
                 "subject": "竹園物理",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "曾奕勛",
@@ -283,7 +259,6 @@
         [
             {
                 "subject": "團體活動時間",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "梁俊宏",
@@ -293,7 +268,6 @@
             },
             {
                 "subject": "物理",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "曾奕勛",
@@ -303,7 +277,6 @@
             },
             {
                 "subject": "物理",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "曾奕勛",
@@ -313,7 +286,6 @@
             },
             {
                 "subject": "竹園化學",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "黃先明",
@@ -323,7 +295,6 @@
             },
             {
                 "subject": "數學",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "梁俊宏",
@@ -333,7 +304,6 @@
             },
             {
                 "subject": "歷史",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "郭雅馨",
@@ -343,7 +313,6 @@
             },
             {
                 "subject": "國語文",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "陳婉玲",
@@ -353,7 +322,6 @@
             },
             {
                 "subject": "國語文",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "陳婉玲",
@@ -365,7 +333,6 @@
         [
             {
                 "subject": "英語文",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "劉哲夫",
@@ -375,7 +342,6 @@
             },
             {
                 "subject": "英語文",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "劉哲夫",
@@ -385,7 +351,6 @@
             },
             {
                 "subject": "數學",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "梁俊宏",
@@ -395,7 +360,6 @@
             },
             {
                 "subject": "數學",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "梁俊宏",
@@ -405,7 +369,6 @@
             },
             {
                 "subject": "體育",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "柯東成",
@@ -415,7 +378,6 @@
             },
             {
                 "subject": "化學",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "黃先明",
@@ -425,7 +387,6 @@
             },
             {
                 "subject": "化學",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "黃先明",
@@ -435,7 +396,6 @@
             },
             {
                 "subject": "生物",
-                "main": "119",
                 "counterpart": [
                     {
                         "participant": "江佩娟",

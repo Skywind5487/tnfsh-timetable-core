@@ -36,7 +36,6 @@ class CounterPart(BaseModel):
 
 class CourseInfo(BaseModel):
     subject: str
-    main: str # name of the class or teacher
     counterpart: Optional[List[CounterPart]] # name of the class or teacher
 
 
@@ -90,7 +89,6 @@ class TimeTable(BaseModel):
 
                 parsed_row.append(CourseInfo(
                     subject=subject,
-                    main=main_name,
                     counterpart=counterpart_list if counterpart_list else None
                 ))
             table.append(parsed_row)
@@ -160,4 +158,6 @@ class TimeTable(BaseModel):
 
 if __name__ == "__main__":
     # For test cases, see: tests/test_timetable/test_models.py
+    import asyncio
+    asyncio.run(TimeTable.fetch_cached(target="101", refresh=True))
     pass

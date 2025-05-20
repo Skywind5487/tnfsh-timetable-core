@@ -5,7 +5,6 @@
             null,
             {
                 "subject": "數學乙",
-                "main": "黃棨堯",
                 "counterpart": [
                     {
                         "participant": "302",
@@ -16,7 +15,6 @@
             null,
             {
                 "subject": "數學甲",
-                "main": "黃棨堯",
                 "counterpart": [
                     {
                         "participant": "312",
@@ -27,7 +25,6 @@
             null,
             {
                 "subject": "數學",
-                "main": "黃棨堯",
                 "counterpart": [
                     {
                         "participant": "115",
@@ -43,7 +40,6 @@
             null,
             {
                 "subject": "數學",
-                "main": "黃棨堯",
                 "counterpart": [
                     {
                         "participant": "115",
@@ -54,7 +50,6 @@
             null,
             {
                 "subject": "數學乙",
-                "main": "黃棨堯",
                 "counterpart": [
                     {
                         "participant": "302",
@@ -64,7 +59,6 @@
             },
             {
                 "subject": "數學甲",
-                "main": "黃棨堯",
                 "counterpart": [
                     {
                         "participant": "312",
@@ -79,12 +73,10 @@
             null,
             {
                 "subject": " ",
-                "main": "黃棨堯",
                 "counterpart": null
             },
             {
                 "subject": "數學甲",
-                "main": "黃棨堯",
                 "counterpart": [
                     {
                         "participant": "312",
@@ -96,7 +88,6 @@
             null,
             {
                 "subject": "團體活動時間",
-                "main": "黃棨堯",
                 "counterpart": [
                     {
                         "participant": "115",
@@ -109,7 +100,6 @@
         [
             {
                 "subject": "團體活動時間",
-                "main": "黃棨堯",
                 "counterpart": [
                     {
                         "participant": "115",
@@ -119,7 +109,6 @@
             },
             {
                 "subject": "數學",
-                "main": "黃棨堯",
                 "counterpart": [
                     {
                         "participant": "115",
@@ -137,7 +126,6 @@
         [
             {
                 "subject": "數學甲",
-                "main": "黃棨堯",
                 "counterpart": [
                     {
                         "participant": "312",
@@ -148,7 +136,6 @@
             null,
             {
                 "subject": "數學乙",
-                "main": "黃棨堯",
                 "counterpart": [
                     {
                         "participant": "302",
@@ -158,7 +145,6 @@
             },
             {
                 "subject": "數學乙",
-                "main": "黃棨堯",
                 "counterpart": [
                     {
                         "participant": "302",
@@ -168,7 +154,6 @@
             },
             {
                 "subject": "數學",
-                "main": "黃棨堯",
                 "counterpart": [
                     {
                         "participant": "115",

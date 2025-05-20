@@ -3,7 +3,6 @@
         [
             {
                 "subject": "美術",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "黃逸民",
@@ -13,7 +12,6 @@
             },
             {
                 "subject": "美術",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "黃逸民",
@@ -23,7 +21,6 @@
             },
             {
                 "subject": "選修化學-化學反應與平衡二",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "黃先明",
@@ -33,7 +30,6 @@
             },
             {
                 "subject": "選修化學-化學反應與平衡二",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "黃先明",
@@ -43,7 +39,6 @@
             },
             {
                 "subject": "數學甲",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "黃棨堯",
@@ -53,7 +48,6 @@
             },
             {
                 "subject": "彈性-物理",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "汪登隴",
@@ -63,7 +57,6 @@
             },
             {
                 "subject": "體育",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "曾冠騰",
@@ -76,7 +69,6 @@
         [
             {
                 "subject": "英文閱讀與寫作",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "歐陽佩婷",
@@ -86,7 +78,6 @@
             },
             {
                 "subject": "選修生物-生命的起源與植物體的構造與功能",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "鄭楷騰",
@@ -96,7 +87,6 @@
             },
             {
                 "subject": "各類文學選讀",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "馬薈萍",
@@ -106,7 +96,6 @@
             },
             {
                 "subject": "音樂",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "王理俐",
@@ -116,7 +105,6 @@
             },
             {
                 "subject": "選修物理-電磁現象二與量子現象",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "汪登隴",
@@ -126,7 +114,6 @@
             },
             {
                 "subject": "選修物理-電磁現象二與量子現象",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "汪登隴",
@@ -136,7 +123,6 @@
             },
             {
                 "subject": "數學甲",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "黃棨堯",
@@ -149,7 +135,6 @@
         [
             {
                 "subject": "選修物理-電磁現象一",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "汪登隴",
@@ -159,7 +144,6 @@
             },
             {
                 "subject": "選修物理-電磁現象一",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "汪登隴",
@@ -169,7 +153,6 @@
             },
             {
                 "subject": "健康與護理",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "黃凱羚",
@@ -179,7 +162,6 @@
             },
             {
                 "subject": "數學甲",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "黃棨堯",
@@ -189,7 +171,6 @@
             },
             {
                 "subject": "彈性-化學",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "黃先明",
@@ -199,7 +180,6 @@
             },
             {
                 "subject": "語文表達與傳播應用",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "馬薈萍",
@@ -209,7 +189,6 @@
             },
             {
                 "subject": "語文表達與傳播應用",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "馬薈萍",
@@ -222,7 +201,6 @@
         [
             {
                 "subject": "團體活動時間",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "黃先明",
@@ -232,7 +210,6 @@
             },
             {
                 "subject": "團體活動時間",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "黃先明",
@@ -242,7 +219,6 @@
             },
             {
                 "subject": "選修生物-生命的起源與植物體的構造與功能",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "鄭楷騰",
@@ -252,7 +228,6 @@
             },
             {
                 "subject": "體育",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "曾冠騰",
@@ -262,7 +237,6 @@
             },
             {
                 "subject": "各類文學選讀",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "馬薈萍",
@@ -272,7 +246,6 @@
             },
             {
                 "subject": "英語聽講",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "歐陽佩婷",
@@ -282,7 +255,6 @@
             },
             {
                 "subject": "英語聽講",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "歐陽佩婷",
@@ -295,7 +267,6 @@
         [
             {
                 "subject": "數學甲",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "黃棨堯",
@@ -305,7 +276,6 @@
             },
             {
                 "subject": "英文閱讀與寫作",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "歐陽佩婷",
@@ -315,7 +285,6 @@
             },
             {
                 "subject": "選修化學-有機化學與應用科技",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "黃先明",
@@ -325,7 +294,6 @@
             },
             {
                 "subject": "選修化學-有機化學與應用科技",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "黃先明",
@@ -335,7 +303,6 @@
             },
             {
                 "subject": "彈性-英文",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "Evan",
@@ -345,7 +312,6 @@
             },
             {
                 "subject": "選修生物-生態、演化及生物多樣性",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "鄭楷騰",
@@ -355,7 +321,6 @@
             },
             {
                 "subject": "選修生物-生態、演化及生物多樣性",
-                "main": "312",
                 "counterpart": [
                     {
                         "participant": "鄭楷騰",

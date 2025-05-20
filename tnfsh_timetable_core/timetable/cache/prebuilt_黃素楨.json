@@ -3,7 +3,6 @@
         [
             {
                 "subject": "臺灣手語",
-                "main": "黃素楨",
                 "counterpart": [
                     {
                         "participant": "105",
@@ -17,7 +16,6 @@
             },
             {
                 "subject": "臺灣手語",
-                "main": "黃素楨",
                 "counterpart": [
                     {
                         "participant": "104",
@@ -33,23 +31,19 @@
             null,
             {
                 "subject": " ",
-                "main": "黃素楨",
                 "counterpart": null
             },
             null,
             {
                 "subject": "＊間接服務",
-                "main": "黃素楨",
                 "counterpart": null
             },
             {
                 "subject": "＊特殊需求課程\r, , , -學習策略",
-                "main": "黃素楨",
                 "counterpart": null
             },
             {
                 "subject": "＊特殊需求課程\r, , , -學習策略",
-                "main": "黃素楨",
                 "counterpart": null
             }
         ],
@@ -60,27 +54,22 @@
             null,
             {
                 "subject": " ",
-                "main": "黃素楨",
                 "counterpart": null
             },
             {
                 "subject": "＊間接服務",
-                "main": "黃素楨",
                 "counterpart": null
             },
             {
                 "subject": "＊間接服務",
-                "main": "黃素楨",
                 "counterpart": null
             },
             {
                 "subject": "＊間接服務",
-                "main": "黃素楨",
                 "counterpart": null
             },
             {
                 "subject": "＊特殊需求課程\r, , , -社會技巧",
-                "main": "黃素楨",
                 "counterpart": null
             }
         ],
@@ -91,17 +80,14 @@
             null,
             {
                 "subject": "＊特殊需求課程\r, , , -社會技巧",
-                "main": "黃素楨",
                 "counterpart": null
             },
             {
                 "subject": "＊特殊需求課程\r, , , -學習策略",
-                "main": "黃素楨",
                 "counterpart": null
             },
             {
                 "subject": "＊特殊需求課程\r, , , -學習策略",
-                "main": "黃素楨",
                 "counterpart": null
             },
             null,
@@ -114,7 +100,6 @@
             null,
             {
                 "subject": " ",
-                "main": "黃素楨",
                 "counterpart": null
             },
             null,
@@ -129,7 +114,6 @@
             null,
             {
                 "subject": " ",
-                "main": "黃素楨",
                 "counterpart": null
             },
             null,

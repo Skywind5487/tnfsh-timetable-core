@@ -3,7 +3,6 @@
         [
             {
                 "subject": "數學",
-                "main": "陳榮吉",
                 "counterpart": [
                     {
                         "participant": "219",
@@ -13,7 +12,6 @@
             },
             {
                 "subject": "數學A",
-                "main": "陳榮吉",
                 "counterpart": [
                     {
                         "participant": "214",
@@ -33,7 +31,6 @@
             null,
             {
                 "subject": "數學",
-                "main": "陳榮吉",
                 "counterpart": [
                     {
                         "participant": "219",
@@ -43,7 +40,6 @@
             },
             {
                 "subject": "數學",
-                "main": "陳榮吉",
                 "counterpart": [
                     {
                         "participant": "219",
@@ -55,7 +51,6 @@
             null,
             {
                 "subject": "數學A",
-                "main": "陳榮吉",
                 "counterpart": [
                     {
                         "participant": "214",
@@ -69,7 +64,6 @@
             null,
             {
                 "subject": "專題研究",
-                "main": "陳榮吉",
                 "counterpart": [
                     {
                         "participant": "219",
@@ -79,7 +73,6 @@
             },
             {
                 "subject": "專題研究",
-                "main": "陳榮吉",
                 "counterpart": [
                     {
                         "participant": "219",
@@ -89,7 +82,6 @@
             },
             {
                 "subject": "專題研究",
-                "main": "陳榮吉",
                 "counterpart": [
                     {
                         "participant": "219",
@@ -101,7 +93,6 @@
             null,
             {
                 "subject": "團體活動時間",
-                "main": "陳榮吉",
                 "counterpart": [
                     {
                         "participant": "214",
@@ -114,7 +105,6 @@
         [
             {
                 "subject": "團體活動時間",
-                "main": "陳榮吉",
                 "counterpart": [
                     {
                         "participant": "214",
@@ -124,7 +114,6 @@
             },
             {
                 "subject": "數學A",
-                "main": "陳榮吉",
                 "counterpart": [
                     {
                         "participant": "214",
@@ -136,7 +125,6 @@
             null,
             {
                 "subject": "數學",
-                "main": "陳榮吉",
                 "counterpart": [
                     {
                         "participant": "219",
@@ -151,19 +139,16 @@
         [
             {
                 "subject": "高一多元選修",
-                "main": "陳榮吉",
                 "counterpart": null
             },
             {
                 "subject": "高一多元選修",
-                "main": "陳榮吉",
                 "counterpart": null
             },
             null,
             null,
             {
                 "subject": "數學A",
-                "main": "陳榮吉",
                 "counterpart": [
                     {
                         "participant": "214",
@@ -174,7 +159,6 @@
             null,
             {
                 "subject": "竹園數學",
-                "main": "陳榮吉",
                 "counterpart": [
                     {
                         "participant": "219",
@@ -184,7 +168,6 @@
             },
             {
                 "subject": "竹園數學",
-                "main": "陳榮吉",
                 "counterpart": [
                     {
                         "participant": "219",

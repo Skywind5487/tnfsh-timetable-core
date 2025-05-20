@@ -3,12 +3,10 @@
         [
             {
                 "subject": " ",
-                "main": "鄭聖璋",
                 "counterpart": null
             },
             {
                 "subject": "選修物理-電磁現象一",
-                "main": "鄭聖璋",
                 "counterpart": [
                     {
                         "participant": "309",
@@ -18,7 +16,6 @@
             },
             {
                 "subject": "選修物理-電磁現象一",
-                "main": "鄭聖璋",
                 "counterpart": [
                     {
                         "participant": "309",
@@ -28,7 +25,6 @@
             },
             {
                 "subject": "選修物理-電磁現象二與量子現象",
-                "main": "鄭聖璋",
                 "counterpart": [
                     {
                         "participant": "315",
@@ -39,7 +35,6 @@
             null,
             {
                 "subject": "物理",
-                "main": "鄭聖璋",
                 "counterpart": [
                     {
                         "participant": "118",
@@ -49,7 +44,6 @@
             },
             {
                 "subject": "物理",
-                "main": "鄭聖璋",
                 "counterpart": [
                     {
                         "participant": "118",
@@ -63,7 +57,6 @@
             null,
             {
                 "subject": "選修物理-電磁現象二與量子現象",
-                "main": "鄭聖璋",
                 "counterpart": [
                     {
                         "participant": "309",
@@ -76,7 +69,6 @@
             null,
             {
                 "subject": "選修物理-電磁現象二與量子現象",
-                "main": "鄭聖璋",
                 "counterpart": [
                     {
                         "participant": "315",
@@ -86,7 +78,6 @@
             },
             {
                 "subject": "彈性-物理",
-                "main": "鄭聖璋",
                 "counterpart": [
                     {
                         "participant": "315",
@@ -101,7 +92,6 @@
             null,
             {
                 "subject": "獨立研究",
-                "main": "鄭聖璋",
                 "counterpart": [
                     {
                         "participant": "118",
@@ -111,7 +101,6 @@
             },
             {
                 "subject": "獨立研究",
-                "main": "鄭聖璋",
                 "counterpart": [
                     {
                         "participant": "118",
@@ -123,7 +112,6 @@
             null,
             {
                 "subject": "團體活動時間",
-                "main": "鄭聖璋",
                 "counterpart": [
                     {
                         "participant": "118",
@@ -136,7 +124,6 @@
         [
             {
                 "subject": "團體活動時間",
-                "main": "鄭聖璋",
                 "counterpart": [
                     {
                         "participant": "118",
@@ -148,7 +135,6 @@
             null,
             {
                 "subject": "選修物理-電磁現象二與量子現象",
-                "main": "鄭聖璋",
                 "counterpart": [
                     {
                         "participant": "309",
@@ -164,12 +150,10 @@
         [
             {
                 "subject": " ",
-                "main": "鄭聖璋",
                 "counterpart": null
             },
             {
                 "subject": "選修物理-電磁現象一",
-                "main": "鄭聖璋",
                 "counterpart": [
                     {
                         "participant": "315",
@@ -179,7 +163,6 @@
             },
             {
                 "subject": "選修物理-電磁現象一",
-                "main": "鄭聖璋",
                 "counterpart": [
                     {
                         "participant": "315",
@@ -190,7 +173,6 @@
             null,
             {
                 "subject": "彈性-物理",
-                "main": "鄭聖璋",
                 "counterpart": [
                     {
                         "participant": "309",

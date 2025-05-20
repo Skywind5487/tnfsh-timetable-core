@@ -3,7 +3,6 @@
         [
             {
                 "subject": "國語文",
-                "main": "207",
                 "counterpart": [
                     {
                         "participant": "陳禹齊",
@@ -13,7 +12,6 @@
             },
             {
                 "subject": "國語文",
-                "main": "207",
                 "counterpart": [
                     {
                         "participant": "陳禹齊",
@@ -23,7 +21,6 @@
             },
             {
                 "subject": "竹園專題探索",
-                "main": "207",
                 "counterpart": [
                     {
                         "participant": "梁佳雯",
@@ -53,7 +50,6 @@
             },
             {
                 "subject": "竹園專題探索",
-                "main": "207",
                 "counterpart": [
                     {
                         "participant": "梁佳雯",
@@ -83,7 +79,6 @@
             },
             {
                 "subject": "英語文",
-                "main": "207",
                 "counterpart": [
                     {
                         "participant": "陳佩均",
@@ -93,7 +88,6 @@
             },
             {
                 "subject": "體育",
-                "main": "207",
                 "counterpart": [
                     {
                         "participant": "徐敏凱",
@@ -103,7 +97,6 @@
             },
             {
                 "subject": "數學A",
-                "main": "207",
                 "counterpart": [
                     {
                         "participant": "黃天賜",
@@ -116,7 +109,6 @@
         [
             {
                 "subject": "英語文",
-                "main": "207",
                 "counterpart": [
                     {
                         "participant": "陳佩均",
@@ -126,7 +118,6 @@
             },
             {
                 "subject": "英語文",
-                "main": "207",
                 "counterpart": [
                     {
                         "participant": "陳佩均",
@@ -136,7 +127,6 @@
             },
             {
                 "subject": "數學A",
-                "main": "207",
                 "counterpart": [
                     {
                         "participant": "黃天賜",
@@ -146,7 +136,6 @@
             },
             {
                 "subject": "全民國防教育",
-                "main": "207",
                 "counterpart": [
                     {
                         "participant": "謝卓勳",
@@ -156,7 +145,6 @@
             },
             {
                 "subject": "生活科技",
-                "main": "207",
                 "counterpart": [
                     {
                         "participant": "莊淑如",
@@ -166,7 +154,6 @@
             },
             {
                 "subject": "生活科技",
-                "main": "207",
                 "counterpart": [
                     {
                         "participant": "莊淑如",
@@ -176,7 +163,6 @@
             },
             {
                 "subject": "地理",
-                "main": "207",
                 "counterpart": [
                     {
                         "participant": "黃詩珊",
@@ -189,7 +175,6 @@
         [
             {
                 "subject": "補強-生物",
-                "main": "207",
                 "counterpart": [
                     {
                         "participant": "蔡和蓁",
@@ -199,7 +184,6 @@
             },
             {
                 "subject": "補強-生物",
-                "main": "207",
                 "counterpart": [
                     {
                         "participant": "蔡和蓁",
@@ -209,7 +193,6 @@
             },
             {
                 "subject": "體育",
-                "main": "207",
                 "counterpart": [
                     {
                         "participant": "徐敏凱",
@@ -219,7 +202,6 @@
             },
             {
                 "subject": "全民國防教育",
-                "main": "207",
                 "counterpart": [
                     {
                         "participant": "謝卓勳",
@@ -229,17 +211,14 @@
             },
             {
                 "subject": "彈性學習時間",
-                "main": "207",
                 "counterpart": null
             },
             {
                 "subject": "彈性學習時間",
-                "main": "207",
                 "counterpart": null
             },
             {
                 "subject": "團體活動時間",
-                "main": "207",
                 "counterpart": [
                     {
                         "participant": "黃天賜",
@@ -252,7 +231,6 @@
         [
             {
                 "subject": "團體活動時間",
-                "main": "207",
                 "counterpart": [
                     {
                         "participant": "黃天賜",
@@ -262,7 +240,6 @@
             },
             {
                 "subject": "地理",
-                "main": "207",
                 "counterpart": [
                     {
                         "participant": "黃詩珊",
@@ -272,7 +249,6 @@
             },
             {
                 "subject": "英語文",
-                "main": "207",
                 "counterpart": [
                     {
                         "participant": "陳佩均",
@@ -282,7 +258,6 @@
             },
             {
                 "subject": "物理",
-                "main": "207",
                 "counterpart": [
                     {
                         "participant": "鄭名志",
@@ -292,7 +267,6 @@
             },
             {
                 "subject": "國語文",
-                "main": "207",
                 "counterpart": [
                     {
                         "participant": "陳禹齊",
@@ -302,7 +276,6 @@
             },
             {
                 "subject": "數學A",
-                "main": "207",
                 "counterpart": [
                     {
                         "participant": "黃天賜",
@@ -312,7 +285,6 @@
             },
             {
                 "subject": "數學A",
-                "main": "207",
                 "counterpart": [
                     {
                         "participant": "黃天賜",
@@ -325,7 +297,6 @@
         [
             {
                 "subject": "補強-化學",
-                "main": "207",
                 "counterpart": [
                     {
                         "participant": "黃先明",
@@ -339,7 +310,6 @@
             },
             {
                 "subject": "補強-化學",
-                "main": "207",
                 "counterpart": [
                     {
                         "participant": "黃先明",
@@ -353,17 +323,14 @@
             },
             {
                 "subject": "高二多元選修",
-                "main": "207",
                 "counterpart": null
             },
             {
                 "subject": "彈性-多元選修",
-                "main": "207",
                 "counterpart": null
             },
             {
                 "subject": "補強-物理",
-                "main": "207",
                 "counterpart": [
                     {
                         "participant": "鄭名志",
@@ -373,7 +340,6 @@
             },
             {
                 "subject": "補強-物理",
-                "main": "207",
                 "counterpart": [
                     {
                         "participant": "鄭名志",
@@ -383,7 +349,6 @@
             },
             {
                 "subject": "國語文",
-                "main": "207",
                 "counterpart": [
                     {
                         "participant": "陳禹齊",

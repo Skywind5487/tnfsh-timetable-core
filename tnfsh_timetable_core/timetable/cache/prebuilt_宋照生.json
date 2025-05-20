@@ -3,17 +3,14 @@
         [
             {
                 "subject": " ",
-                "main": "宋照生",
                 "counterpart": null
             },
             {
                 "subject": " ",
-                "main": "宋照生",
                 "counterpart": null
             },
             {
                 "subject": "選修化學-有機化學與應用科技",
-                "main": "宋照生",
                 "counterpart": [
                     {
                         "participant": "316",
@@ -24,7 +21,6 @@
             null,
             {
                 "subject": "補強-化學",
-                "main": "宋照生",
                 "counterpart": [
                     {
                         "participant": "211",
@@ -34,7 +30,6 @@
             },
             {
                 "subject": "補強-化學",
-                "main": "宋照生",
                 "counterpart": [
                     {
                         "participant": "211",
@@ -50,7 +45,6 @@
             null,
             {
                 "subject": "選修化學-化學反應與平衡二",
-                "main": "宋照生",
                 "counterpart": [
                     {
                         "participant": "316",
@@ -60,7 +54,6 @@
             },
             {
                 "subject": "選修化學-化學反應與平衡二",
-                "main": "宋照生",
                 "counterpart": [
                     {
                         "participant": "316",
@@ -70,7 +63,6 @@
             },
             {
                 "subject": "補強-化學",
-                "main": "宋照生",
                 "counterpart": [
                     {
                         "participant": "205",
@@ -80,7 +72,6 @@
             },
             {
                 "subject": "補強-化學",
-                "main": "宋照生",
                 "counterpart": [
                     {
                         "participant": "205",
@@ -94,7 +85,6 @@
         [
             {
                 "subject": "補強-化學",
-                "main": "宋照生",
                 "counterpart": [
                     {
                         "participant": "209",
@@ -104,7 +94,6 @@
             },
             {
                 "subject": "補強-化學",
-                "main": "宋照生",
                 "counterpart": [
                     {
                         "participant": "209",
@@ -114,7 +103,6 @@
             },
             {
                 "subject": "選修化學-化學反應與平衡二",
-                "main": "宋照生",
                 "counterpart": [
                     {
                         "participant": "318",
@@ -125,7 +113,6 @@
             null,
             {
                 "subject": "彈性-化學",
-                "main": "宋照生",
                 "counterpart": [
                     {
                         "participant": "316",
@@ -141,7 +128,6 @@
             null,
             {
                 "subject": "補強-化學",
-                "main": "宋照生",
                 "counterpart": [
                     {
                         "participant": "206",
@@ -151,7 +137,6 @@
             },
             {
                 "subject": "補強-化學",
-                "main": "宋照生",
                 "counterpart": [
                     {
                         "participant": "206",
@@ -161,7 +146,6 @@
             },
             {
                 "subject": "選修化學-有機化學與應用科技",
-                "main": "宋照生",
                 "counterpart": [
                     {
                         "participant": "316",
@@ -177,7 +161,6 @@
         [
             {
                 "subject": "補強-化學",
-                "main": "宋照生",
                 "counterpart": [
                     {
                         "participant": "208",
@@ -187,7 +170,6 @@
             },
             {
                 "subject": "補強-化學",
-                "main": "宋照生",
                 "counterpart": [
                     {
                         "participant": "208",
@@ -199,7 +181,6 @@
             null,
             {
                 "subject": "選修化學-有機化學與應用科技",
-                "main": "宋照生",
                 "counterpart": [
                     {
                         "participant": "318",
@@ -209,7 +190,6 @@
             },
             {
                 "subject": "選修化學-有機化學與應用科技",
-                "main": "宋照生",
                 "counterpart": [
                     {
                         "participant": "318",

@@ -3,7 +3,6 @@
         [
             {
                 "subject": "公民與社會",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "廖翠雰",
@@ -13,7 +12,6 @@
             },
             {
                 "subject": "體育",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "蔡閎璿",
@@ -23,7 +21,6 @@
             },
             {
                 "subject": "全民國防教育",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "王柏中",
@@ -33,7 +30,6 @@
             },
             {
                 "subject": "手機實驗室第二季",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "王俊乃",
@@ -43,7 +39,6 @@
             },
             {
                 "subject": "數學A",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "陳盈言",
@@ -53,7 +48,6 @@
             },
             {
                 "subject": "數學A",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "陳盈言",
@@ -63,7 +57,6 @@
             },
             {
                 "subject": "國語文",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "歐美瑩",
@@ -73,7 +66,6 @@
             },
             {
                 "subject": "國語輔",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "歐美瑩",
@@ -85,7 +77,6 @@
         [
             {
                 "subject": "彈性-數學",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "陳盈言",
@@ -95,7 +86,6 @@
             },
             {
                 "subject": "英語文",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "宋忠義",
@@ -105,7 +95,6 @@
             },
             {
                 "subject": "國語文",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "歐美瑩",
@@ -115,7 +104,6 @@
             },
             {
                 "subject": "歷史",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "朱達鈞",
@@ -125,7 +113,6 @@
             },
             {
                 "subject": "公民與社會",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "廖翠雰",
@@ -135,7 +122,6 @@
             },
             {
                 "subject": "選修化學-物質構造與反應速率",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "侯俊男",
@@ -145,7 +131,6 @@
             },
             {
                 "subject": "選修化學-物質構造與反應速率",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "侯俊男",
@@ -158,7 +143,6 @@
         [
             {
                 "subject": "數學A",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "陳盈言",
@@ -168,7 +152,6 @@
             },
             {
                 "subject": "選修物理-力學二與熱學",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "王俊乃",
@@ -178,7 +161,6 @@
             },
             {
                 "subject": "獨立研究",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "陳盈言",
@@ -208,7 +190,6 @@
             },
             {
                 "subject": "獨立研究",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "陳盈言",
@@ -238,17 +219,14 @@
             },
             {
                 "subject": "彈性學習時間",
-                "main": "218",
                 "counterpart": null
             },
             {
                 "subject": "彈性學習時間",
-                "main": "218",
                 "counterpart": null
             },
             {
                 "subject": "團體活動時間",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "侯俊男",
@@ -261,7 +239,6 @@
         [
             {
                 "subject": "團體活動時間",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "侯俊男",
@@ -271,7 +248,6 @@
             },
             {
                 "subject": "歷史",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "朱達鈞",
@@ -281,7 +257,6 @@
             },
             {
                 "subject": "體育",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "蔡閎璿",
@@ -291,7 +266,6 @@
             },
             {
                 "subject": "高層思考(2)：, 線性代數",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "陳盈言",
@@ -301,7 +275,6 @@
             },
             {
                 "subject": "國語文",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "歐美瑩",
@@ -311,7 +284,6 @@
             },
             {
                 "subject": "國語文",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "歐美瑩",
@@ -321,7 +293,6 @@
             },
             {
                 "subject": "英語文",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "宋忠義",
@@ -334,7 +305,6 @@
         [
             {
                 "subject": "英語文",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "宋忠義",
@@ -344,7 +314,6 @@
             },
             {
                 "subject": "英語文",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "宋忠義",
@@ -354,17 +323,14 @@
             },
             {
                 "subject": "高二多元選修",
-                "main": "218",
                 "counterpart": null
             },
             {
                 "subject": "高二多元選修",
-                "main": "218",
                 "counterpart": null
             },
             {
                 "subject": "全球議題(2)：動植物與生態平衡(2)",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "詹濠先",
@@ -374,7 +340,6 @@
             },
             {
                 "subject": "全球議題(2)：動植物與生態平衡(2)",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "詹濠先",
@@ -384,7 +349,6 @@
             },
             {
                 "subject": "選修物理-力學二與熱學",
-                "main": "218",
                 "counterpart": [
                     {
                         "participant": "王俊乃",

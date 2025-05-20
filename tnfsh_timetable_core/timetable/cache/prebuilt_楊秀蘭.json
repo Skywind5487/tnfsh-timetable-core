@@ -4,7 +4,6 @@
             null,
             {
                 "subject": "科技、環境與藝術的歷史",
-                "main": "楊秀蘭",
                 "counterpart": [
                     {
                         "participant": "301",
@@ -18,7 +17,6 @@
             null,
             {
                 "subject": "補強-歷史",
-                "main": "楊秀蘭",
                 "counterpart": [
                     {
                         "participant": "302",
@@ -31,7 +29,6 @@
         [
             {
                 "subject": "科技、環境與藝術的歷史",
-                "main": "楊秀蘭",
                 "counterpart": [
                     {
                         "participant": "301",
@@ -46,7 +43,6 @@
             null,
             {
                 "subject": "科技、環境與藝術的歷史",
-                "main": "楊秀蘭",
                 "counterpart": [
                     {
                         "participant": "302",
@@ -63,7 +59,6 @@
             null,
             {
                 "subject": "補強-歷史",
-                "main": "楊秀蘭",
                 "counterpart": [
                     {
                         "participant": "301",
@@ -73,7 +68,6 @@
             },
             {
                 "subject": "科技、環境與藝術的歷史",
-                "main": "楊秀蘭",
                 "counterpart": [
                     {
                         "participant": "301",
@@ -89,7 +83,6 @@
             null,
             {
                 "subject": "科技、環境與藝術的歷史",
-                "main": "楊秀蘭",
                 "counterpart": [
                     {
                         "participant": "302",
@@ -102,7 +95,6 @@
             null,
             {
                 "subject": "科技、環境與藝術的歷史",
-                "main": "楊秀蘭",
                 "counterpart": [
                     {
                         "participant": "302",
@@ -115,12 +107,10 @@
         [
             {
                 "subject": "高一多元選修",
-                "main": "楊秀蘭",
                 "counterpart": null
             },
             {
                 "subject": "高一多元選修",
-                "main": "楊秀蘭",
                 "counterpart": null
             },
             null,

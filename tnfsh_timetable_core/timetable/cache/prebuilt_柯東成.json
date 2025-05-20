@@ -3,7 +3,6 @@
         [
             {
                 "subject": "體育",
-                "main": "柯東成",
                 "counterpart": [
                     {
                         "participant": "111",
@@ -13,7 +12,6 @@
             },
             {
                 "subject": "體育",
-                "main": "柯東成",
                 "counterpart": [
                     {
                         "participant": "105",
@@ -23,7 +21,6 @@
             },
             {
                 "subject": "體育",
-                "main": "柯東成",
                 "counterpart": [
                     {
                         "participant": "113",
@@ -33,7 +30,6 @@
             },
             {
                 "subject": "體育",
-                "main": "柯東成",
                 "counterpart": [
                     {
                         "participant": "117",
@@ -51,7 +47,6 @@
             null,
             {
                 "subject": "體育",
-                "main": "柯東成",
                 "counterpart": [
                     {
                         "participant": "101",
@@ -62,7 +57,6 @@
             null,
             {
                 "subject": "體育",
-                "main": "柯東成",
                 "counterpart": [
                     {
                         "participant": "109",
@@ -73,7 +67,6 @@
             null,
             {
                 "subject": "體育",
-                "main": "柯東成",
                 "counterpart": [
                     {
                         "participant": "103",
@@ -86,7 +79,6 @@
         [
             {
                 "subject": "體育",
-                "main": "柯東成",
                 "counterpart": [
                     {
                         "participant": "119",
@@ -96,7 +88,6 @@
             },
             {
                 "subject": "體育",
-                "main": "柯東成",
                 "counterpart": [
                     {
                         "participant": "117",
@@ -106,7 +97,6 @@
             },
             {
                 "subject": "體育",
-                "main": "柯東成",
                 "counterpart": [
                     {
                         "participant": "105",
@@ -119,7 +109,6 @@
             null,
             {
                 "subject": "團體活動時間",
-                "main": "柯東成",
                 "counterpart": [
                     {
                         "participant": "113",
@@ -132,7 +121,6 @@
         [
             {
                 "subject": "團體活動時間",
-                "main": "柯東成",
                 "counterpart": [
                     {
                         "participant": "113",
@@ -142,14 +130,12 @@
             },
             {
                 "subject": " ",
-                "main": "柯東成",
                 "counterpart": null
             },
             null,
             null,
             {
                 "subject": "體育",
-                "main": "柯東成",
                 "counterpart": [
                     {
                         "participant": "103",
@@ -159,7 +145,6 @@
             },
             {
                 "subject": "體育",
-                "main": "柯東成",
                 "counterpart": [
                     {
                         "participant": "109",
@@ -169,7 +154,6 @@
             },
             {
                 "subject": "體育",
-                "main": "柯東成",
                 "counterpart": [
                     {
                         "participant": "101",
@@ -186,7 +170,6 @@
             null,
             {
                 "subject": "體育",
-                "main": "柯東成",
                 "counterpart": [
                     {
                         "participant": "119",
@@ -196,7 +179,6 @@
             },
             {
                 "subject": "體育",
-                "main": "柯東成",
                 "counterpart": [
                     {
                         "participant": "113",
@@ -206,7 +188,6 @@
             },
             {
                 "subject": "體育",
-                "main": "柯東成",
                 "counterpart": [
                     {
                         "participant": "111",

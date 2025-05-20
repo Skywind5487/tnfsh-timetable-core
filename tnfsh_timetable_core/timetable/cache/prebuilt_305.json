@@ -3,7 +3,6 @@
         [
             {
                 "subject": "數學甲",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "蔡東憲",
@@ -13,7 +12,6 @@
             },
             {
                 "subject": "體育",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "潘帝仁",
@@ -23,7 +21,6 @@
             },
             {
                 "subject": "英語聽講",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "張惠智",
@@ -33,7 +30,6 @@
             },
             {
                 "subject": "英語聽講",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "張惠智",
@@ -43,7 +39,6 @@
             },
             {
                 "subject": "彈性-化學",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "林季瑩",
@@ -53,7 +48,6 @@
             },
             {
                 "subject": "選修物理-電磁現象一",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "何俊昌",
@@ -63,7 +57,6 @@
             },
             {
                 "subject": "選修物理-電磁現象一",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "何俊昌",
@@ -76,7 +69,6 @@
         [
             {
                 "subject": "選修物理-電磁現象二與量子現象",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "何俊昌",
@@ -86,7 +78,6 @@
             },
             {
                 "subject": "選修化學-有機化學與應用科技",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "林季瑩",
@@ -96,7 +87,6 @@
             },
             {
                 "subject": "領域課程：科技應用專題",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "顏永進",
@@ -106,7 +96,6 @@
             },
             {
                 "subject": "領域課程：科技應用專題",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "顏永進",
@@ -116,7 +105,6 @@
             },
             {
                 "subject": "健康與護理",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "黃凱羚",
@@ -126,7 +114,6 @@
             },
             {
                 "subject": "數學甲",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "蔡東憲",
@@ -136,7 +123,6 @@
             },
             {
                 "subject": "數學甲",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "蔡東憲",
@@ -149,7 +135,6 @@
         [
             {
                 "subject": "體育",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "潘帝仁",
@@ -159,7 +144,6 @@
             },
             {
                 "subject": "數學甲",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "蔡東憲",
@@ -169,7 +153,6 @@
             },
             {
                 "subject": "語文表達與傳播應用",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "馬薈萍",
@@ -179,7 +162,6 @@
             },
             {
                 "subject": "語文表達與傳播應用",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "馬薈萍",
@@ -189,7 +171,6 @@
             },
             {
                 "subject": "選修化學-有機化學與應用科技",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "林季瑩",
@@ -199,7 +180,6 @@
             },
             {
                 "subject": "英文閱讀與寫作",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "張惠智",
@@ -209,7 +189,6 @@
             },
             {
                 "subject": "彈性-物理",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "何俊昌",
@@ -222,7 +201,6 @@
         [
             {
                 "subject": "團體活動時間",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "蔡東憲",
@@ -232,7 +210,6 @@
             },
             {
                 "subject": "團體活動時間",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "蔡東憲",
@@ -242,7 +219,6 @@
             },
             {
                 "subject": "藝術生活",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "董怡君",
@@ -252,7 +228,6 @@
             },
             {
                 "subject": "藝術生活",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "董怡君",
@@ -262,7 +237,6 @@
             },
             {
                 "subject": "補強-數學",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "蔡東憲",
@@ -272,7 +246,6 @@
             },
             {
                 "subject": "彈性-英文",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "Evan",
@@ -282,7 +255,6 @@
             },
             {
                 "subject": "各類文學選讀",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "馬薈萍",
@@ -295,7 +267,6 @@
         [
             {
                 "subject": "選修化學-化學反應與平衡二",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "林季瑩",
@@ -305,7 +276,6 @@
             },
             {
                 "subject": "選修化學-化學反應與平衡二",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "林季瑩",
@@ -315,7 +285,6 @@
             },
             {
                 "subject": "補強-數學",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "蔡東憲",
@@ -325,7 +294,6 @@
             },
             {
                 "subject": "選修物理-電磁現象二與量子現象",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "何俊昌",
@@ -335,7 +303,6 @@
             },
             {
                 "subject": "音樂",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "王理俐",
@@ -345,7 +312,6 @@
             },
             {
                 "subject": "英文閱讀與寫作",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "張惠智",
@@ -355,7 +321,6 @@
             },
             {
                 "subject": "各類文學選讀",
-                "main": "305",
                 "counterpart": [
                     {
                         "participant": "馬薈萍",
