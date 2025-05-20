@@ -14,4 +14,5 @@ def dict_like(cls):
     setattr(cls, 'values', lambda self: _get_root(self).values())
     setattr(cls, 'items', lambda self: _get_root(self).items())
     setattr(cls, 'update', lambda self, *args, **kwargs: _get_root(self).update(*args, **kwargs))
+    
     return cls
