@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-
+from typing import Optional, TYPE_CHECKING
 
 class StreakTime(BaseModel):
     weekday: int
@@ -16,3 +16,13 @@ class StreakTime(BaseModel):
             self.weekday == other.weekday and
             self.period == other.period
         )
+
+
+from tnfsh_timetable_core.timetable.models import CourseInfo
+
+class TimetableSlotLog(BaseModel):
+    source: str
+    streak_time: StreakTime
+    log: Optional["CourseInfo"]
+
+TimetableSlotLog.model_rebuild()
