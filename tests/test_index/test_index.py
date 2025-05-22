@@ -16,7 +16,7 @@ async def test_fetch_index():
     await index_2.fetch(refresh=True)
     
     assert index_2.index == index.index    
-    print(index.index.model_dump_json(indent=4))
+    #print(index.index.model_dump_json(indent=4))
 
 if __name__ == "__main__":
     asyncio.run(test_fetch_index())

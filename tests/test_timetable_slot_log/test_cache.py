@@ -95,10 +95,11 @@ class TestCache:
     @pytest.mark.asyncio
     async def test_fetch_fallback(self, cache_with_temp_dir, sample_dict, sample_logs):
         """測試快取的 fallback 機制"""
-        global _memory_cache
-        _memory_cache = None  # 清除記憶體快取
-        
-        cache = cache_with_temp_dir
+        from tnfsh_timetable_core.timetable_slot_log_dict import cache as ch
+        ch._memory_cache = None  # 清除記憶體快取
+
+        from tnfsh_timetable_core.timetable_slot_log_dict.cache import TimetableSlotLogCache 
+        cache: TimetableSlotLogCache = cache_with_temp_dir
         logs = sample_logs
         dict_result = sample_dict
         
@@ -106,13 +107,14 @@ class TestCache:
         result1 = await cache.fetch()
         assert isinstance(result1, TimetableSlotLogDict)
         
+    
         # 第二次fetch：應該從記憶體快取取得
         result2 = await cache.fetch()
-        assert result2 is _memory_cache
+        assert result2 is ch._memory_cache
         
         # 清除記憶體快取
-        _memory_cache = None
-        
+        ch._memory_cache = None
+
         # 第三次fetch：應該從檔案快取取得
         result3 = await cache.fetch()
         assert isinstance(result3, TimetableSlotLogDict)

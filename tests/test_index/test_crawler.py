@@ -9,9 +9,8 @@ async def test_all_index():
     
     base_url = "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/"
     result: AllTypeIndexResult = await fetch_all_index(base_url)
-    
     assert result is not None
-    print(result.model_dump_json(indent=4))
+    # print(result.model_dump_json(indent=4))
 
 @pytest.mark.asyncio
 async def test_reverse_index():

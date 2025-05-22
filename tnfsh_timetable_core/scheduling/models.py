@@ -3,9 +3,11 @@ from tnfsh_timetable_core.utils.dict_like import dict_like
 
 from pydantic import BaseModel
 from tnfsh_timetable_core.timetable.models import CourseInfo
-from tnfsh_timetable_core.timetable_slot_log.models import StreakTime
+from tnfsh_timetable_core.timetable_slot_log_dict.models import StreakTime
 from typing import Dict
 from pydantic import BaseModel, RootModel
+
+from tnfsh_timetable_core.scheduling.utils import is_free
 
 
 
@@ -15,6 +17,7 @@ from pydantic import BaseModel, RootModel
 # === Forward reference：宣告在前、定義在後 ===
 class CourseNode(BaseModel):
     time: StreakTime
+    is_free: bool = False
     teachers: Dict[str, "TeacherNode"]
     classes: Dict[str, "ClassNode"]
 

@@ -9,7 +9,7 @@ async def test_fetch_with_cache():
     base_url = "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/"
     result = await fetch_with_cache(base_url, refresh=True)
     assert result is not None
-    print(result.model_dump_json(indent=4))
+    # print(result.model_dump_json(indent=4))
 
 
 
