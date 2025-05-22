@@ -373,3 +373,36 @@ def test_long_cycle_max_depth():
 
         # 驗證路徑長度不超過最大深度限制
         assert len(path) <= 4, "路徑長度超過最大深度限制"  # max_depth=3 時，最長路徑為 4（包含重複的起點）
+
+
+def test_isolated_course():
+    """測試孤立課程的情況
+    
+    情境：
+    - 建立一個孤立的課程節點（沒有任何連接）
+    - 建立一個班級和一位老師
+    - 所有課程都在同一個班級中
+    
+    檢查項目：
+    1. 確認孤立的課程節點無法形成環路
+    2. rotation 函數應該返回空列表
+    """
+    # === 建立老師與班級 ===
+    teacher_A = TeacherNode(teacher_name="A", courses={})
+    cls_101 = ClassNode(class_code="101", courses={})    # === 建立班級 ===
+    cls_102 = ClassNode(class_code="102", courses={})  # 使用另一個班級，確保課程真的是孤立的
+
+    # === 建立課程節點 ===
+    a1 = build_course(teacher_A, cls_101, weekday=1, period=1, streak=1, is_free=False)  
+    a2 = build_course(teacher_A, cls_102, weekday=1, period=2, streak=1, is_free=True)   
+
+    # === 執行 rotation ===
+    cycles = list(rotation(a1))
+    
+    # === 驗證：不應該找到任何環路 ===
+    assert len(cycles) == 0, "孤立的課程節點不應該能找到任何輪調環路"
+
+    # === 額外驗證：確保 a1 確實是孤立的 ===
+    neighbors = list(cls_101.courses.values())
+    assert len(neighbors) >= 1, "班級應該至少有一節課程"
+    assert a1 in neighbors, "孤立的課程節點應該在班級的課程列表中"
