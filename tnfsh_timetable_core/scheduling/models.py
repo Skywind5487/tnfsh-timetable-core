@@ -15,14 +15,26 @@ class CourseNode(BaseModel):
     is_free: bool = False
     teachers: Dict[str, "TeacherNode"]
     classes: Dict[str, "ClassNode"]
+
+    def __hash__(self) -> int:
+        teacher_keys = tuple(sorted(self.teachers.keys()))
+        class_keys = tuple(sorted(self.classes.keys()))
+        return hash((self.time, teacher_keys, class_keys))
+
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, CourseNode):
             return NotImplemented
-        return (self.time == other.time,
-                self.is_free == other.is_free,
-                self.teachers == other.teachers,
-                self.classes == other.teachers
+        return (self.time == other.time and
+                self.is_free == other.is_free and
+                self.teachers == other.teachers and
+                self.classes == other.classes
                 )
+    
+    def short(self) -> str:
+        teacher_keys = ",".join(sorted(self.teachers))
+        class_keys = ",".join(sorted(self.classes))
+        t = self.time
+        return f"<{t.weekday}-{t.period}(x{t.streak}) {'free' if self.is_free else 'busy'} T[{teacher_keys}] C[{class_keys}]>"
 
 class TeacherNode(BaseModel):
     teacher_name: str

@@ -1,6 +1,11 @@
 {
     "python.testing.pytestArgs": [
-        "-s", "-v", "tests"
+        "-s",
+        "-v",
+        "--capture=tee-sys",
+        "-o", "log_cli=true",
+        "-o", "log_cli_level=DEBUG",
+        "tests"
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,

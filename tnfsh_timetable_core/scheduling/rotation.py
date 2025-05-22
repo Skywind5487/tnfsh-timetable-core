@@ -1,81 +1,83 @@
+from __future__ import annotations
+
 """實作課程輪調的搜尋演算法"""
 from typing import TYPE_CHECKING, List, Set, Optional, Generator
 from tnfsh_timetable_core.scheduling.utils import connect_neighbors, get_1_hop, is_free, get_neighbors
 
 if TYPE_CHECKING:
     from tnfsh_timetable_core.scheduling.models import TeacherNode, CourseNode
+import logging
+from typing import Generator, List, Set, Optional
+from tnfsh_timetable_core.scheduling.models import CourseNode
+from tnfsh_timetable_core.scheduling.utils import get_neighbors, get_1_hop, is_free
+from tnfsh_timetable_core.utils.logger import get_logger
+
+logger = get_logger(logger_level="DEBUG")
 
 def rotation(start: CourseNode, max_depth: int = 5) -> Generator[List[CourseNode], None, None]:
     """深度優先搜尋環路的主函式
     
     Args:
         start: 起始課程節點
-        max_depth: 最大搜尋深度
+        max_depth: 最大搜尋深度，預設為5
         
-    Yields:
-        List[CourseNode]: 找到的環路，包含起點（結尾會重複一次起點）
+    Returns:
+        Generator[List[CourseNode], None, None]: 生成找到的所有環路，每個環路是一個 CourseNode 列表
     """
-    def dfs_cycle(start: CourseNode,
-            max_depth: int,
-            current: Optional[CourseNode] = None,
-            depth: int = 0,
-            path: Optional[List[CourseNode]] = None,
-            visited: Optional[Set[CourseNode]] = None,
-            ) -> Generator[List[CourseNode], None, None]:
-        """深度優先搜尋環路
-        
-        Args:
-            start: 起始節點（也是目標節點）
-            current: 當前節點
-            depth: 當前深度
-            path: 當前路徑
-            visited: 已訪問的節點集合
-        """
-        # 初始化
+
+    def dfs_cycle(
+        start: CourseNode,
+        current: Optional[CourseNode] = None,
+        depth: int = 0,
+        path: Optional[List[CourseNode]] = None,
+        visited: Optional[Set[CourseNode]] = None,
+    ) -> Generator[List[CourseNode], None, None]:
+
+        indent = "  " * depth
+
         if current is None:
             current = start
-            print(f"\n=== DFS (深度: {depth}) ===")
-            print(f"起點: {start}")
+            logger.debug(f"\n🔍 開始 DFS | 深度: {depth}")
+            logger.debug(f"{indent}🎯 起點: {start.short()}")
             path = [start]
             visited = set()
-        
-        # 最大深度限制
+
         if depth >= max_depth:
-            print(f"達到最大深度 {max_depth}，停止搜尋")
+            logger.debug(f"{indent}⛔ 達到最大深度 {max_depth}，停止擴展")
             return
 
-        # 遍歷當前節點的所有鄰居
         for next_course in get_neighbors(current):
-            print(f"\n=== DFS (深度: {depth}) ===")
-            if path:
-                print(f"當前路徑 ({len(path)}): {' -> '.join(str(node) for node in path)}")
-            print(f"檢查相鄰課程: {next_course}")
-            
-            # 檢查換課是否可行
-            hop_1_bwd = get_1_hop(current, next_course, type="bwd")
-            if not is_free(hop_1_bwd):
-                print(f"- 跳過 {next_course} (換課不可行)")
+            logger.debug(f"\n{indent}➡️ 檢查相鄰課程: {next_course.short()}")
+            logger.debug(f"{indent}↪️ 當前路徑 ({len(path)}): {' → '.join(n.short() for n in path)}")
+
+            if next_course == current:
+                logger.debug(f"{indent}🔄 回到當前節點，跳過: {next_course.short()}")
                 continue
-            
-            # 跳過已訪問過的節點
-            if next_course in visited:
-                print(f"- 跳過 {next_course} (已訪問)")
-                continue
-                
-            # 找到環路
-            if next_course == start:
+
+            if next_course == start and depth > 0:
                 complete_path = path + [start]
-                print(f"\n找到環路:")
-                print(f"路徑 ({len(complete_path)}): {' -> '.join(str(node) for node in complete_path)}")
+                logger.info(f"{indent}✅ 找到環路，長度 {len(complete_path)}")
+                logger.info(f"{indent}🔄 路徑: {' → '.join(n.short() for n in complete_path)}")
                 yield complete_path
                 continue
 
-            # 繼續搜索
+            hop_1_bwd = get_1_hop(current, next_course, type="bwd")
+            if not is_free(hop_1_bwd):
+                logger.debug(f"{indent}❌ 不可換課（非空堂）: {next_course.short()}")
+                continue
+
+            if next_course in visited:
+                logger.debug(f"{indent}🔁 已訪問過，跳過: {next_course.short()}")
+                continue
+
             visited.add(next_course)
             yield from dfs_cycle(start, next_course, depth + 1, path + [next_course], visited)
             visited.remove(next_course)
-            
+
+
     yield from dfs_cycle(start)
+
+
 
 def _print_cycles(cycles):
     """以更清晰的格式輸出找到的環路"""

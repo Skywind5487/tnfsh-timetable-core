@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 import re
 from tnfsh_timetable_core.index.models import IndexResult, ReverseIndexResult, GroupIndex, ReverseMap, AllTypeIndexResult
 
-async def request_html(base_url: str, url: str, timeout: int = 10, from_file_path: Optional[str] = None) -> BeautifulSoup:
+async def request_html(base_url: str, url: str, timeout: int = 15, from_file_path: Optional[str] = None) -> BeautifulSoup:
     """非同步取得網頁內容並解析
     
     Args:
@@ -24,7 +24,9 @@ async def request_html(base_url: str, url: str, timeout: int = 10, from_file_pat
     if from_file_path:
         with open(from_file_path, 'r', encoding='utf-8') as f:
             return BeautifulSoup(f.read(), 'html.parser')
-            
+    
+
+    
     async with aiohttp.ClientSession() as session:
         async with session.get(base_url + url, timeout=timeout) as response:
             response.raise_for_status()

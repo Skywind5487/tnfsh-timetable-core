@@ -1,20 +1,13 @@
-"""
-提供共用的工具函式
-"""
-from asyncio import Condition
-from typing import TYPE_CHECKING, List, Dict, Literal, Set, Optional
 from __future__ import annotations
-from warnings import deprecated
-from xml.sax.handler import feature_external_ges
 
-from tests.test_virtual_scheduling import src
+from typing import TYPE_CHECKING, List, Dict, Literal, Set, Optional
 
 if TYPE_CHECKING:
     from tnfsh_timetable_core.scheduling.models import CourseNode, ClassNode, TeacherNode
     from tnfsh_timetable_core.timetable_slot_log_dict.models import StreakTime
 
 
-@deprecated
+# deprecated
 def connect_neighbors(nodes: List[CourseNode]) -> None:
     """連接課程節點，使每個節點都成為其他節點的鄰居
     
@@ -69,9 +62,11 @@ def is_free(
     Returns:
         bool: 課程是否可用
     """
-    if course in freed and mode == "swap":
+    if (freed is not None) and course in freed and mode == "swap":
         return True
-    
+    if course is None:
+        print(course)
+        return False
     return course.is_free
 
 def find_streak_start_if_free(course: CourseNode) -> Optional[CourseNode]:
@@ -126,20 +121,20 @@ def get_1_hop(
     if freed is None:
         freed = set()
 
-    src_teacher = src.teachers[0]
+    src_teacher = list(src.teachers.values())[0]
     dst_time = dst.time
     hop_1 = src_teacher.courses.get(dst_time, None)
     if hop_1:
         # 找到頭
         if is_free(hop_1, mode=mode, freed=freed):
             # 找到頭且為空堂
-            if hop_1.streak >= dst_time.streak:
+            if hop_1.time.streak >= dst_time.streak:
                 return hop_1
             else:
                 return None
         else:
             # 找到頭且不為空堂
-            if hop_1.streak == dst_time.streak:
+            if hop_1.time.streak == dst_time.streak:
                 return hop_1
             else:
                 return None
