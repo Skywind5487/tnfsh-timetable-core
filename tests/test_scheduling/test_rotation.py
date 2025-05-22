@@ -258,3 +258,118 @@ def test_basic_cycle():
             curr, next_node = path[i], path[i+1]
             hop_1 = get_1_hop(curr, next_node, type="bwd")
             assert is_free(hop_1), f"路徑中存在不合法的移動：{curr.short()} → {next_node.short()}"
+
+
+def test_long_cycle_max_depth():
+    """測試最大深度限制下的輪調環路
+    
+    情境：
+    - 測試與 test_basic_cycle 相同的環路配置
+    - 但將最大深度設為3，所以：
+      1. 實際長度 = 深度 + 1（因為起點節點會重複計算在結尾）
+      2. 所以深度3最多形成長度4的路徑
+
+    可能的路徑：
+    深度2路徑 (實際長度3): a1 -> b2 -> a1
+    深度2路徑 (實際長度3): a1 -> c3 -> a1
+    深度2路徑 (實際長度3): a1 -> d4 -> a1
+    深度3路徑 (實際長度4): a1 -> b2 -> c3 -> a1
+    深度3路徑 (實際長度4): a1 -> b2 -> d4 -> a1
+    深度3路徑 (實際長度4): a1 -> c3 -> d4 -> a1
+    等其他組合...
+
+    不應該出現的路徑：
+    深度4路徑 (實際長度5): a1 -> b2 -> c3 -> d4 -> a1
+    """
+    # === 建立老師 ===
+    teacher_A = TeacherNode(teacher_name="A", courses={})
+    teacher_B = TeacherNode(teacher_name="B", courses={})
+    teacher_C = TeacherNode(teacher_name="C", courses={})
+    teacher_D = TeacherNode(teacher_name="D", courses={})
+    
+    # === 建立班級 ===
+    cls_101 = ClassNode(class_code="101", courses={})  # 環路課程的班級
+    cls_102 = ClassNode(class_code="102", courses={})  # A老師其他課程的班級
+    cls_103 = ClassNode(class_code="103", courses={})  # B老師其他課程的班級
+    cls_104 = ClassNode(class_code="104", courses={})  # C老師其他課程的班級
+    cls_105 = ClassNode(class_code="105", courses={})  # D老師其他課程的班級
+
+    # A 老師的課程：輪調課在 101，其他在 102
+    a1 = build_course(teacher_A, cls_101, weekday=1, period=1, streak=1, is_free=False)  # 要輪調的課程（在環路中）
+    a2 = build_course(teacher_A, cls_102, weekday=1, period=2, streak=1, is_free=True)
+    a3 = build_course(teacher_A, cls_102, weekday=1, period=3, streak=1, is_free=True)
+    a4 = build_course(teacher_A, cls_102, weekday=1, period=4, streak=1, is_free=True)
+    
+    # B 老師的課程：輪調課在 101，其他在 103
+    b1 = build_course(teacher_B, cls_103, weekday=1, period=1, streak=1, is_free=True)
+    b2 = build_course(teacher_B, cls_101, weekday=1, period=2, streak=1, is_free=False)  # 要和 a1 交換的課程（在環路中）
+    b3 = build_course(teacher_B, cls_103, weekday=1, period=3, streak=1, is_free=True)
+    b4 = build_course(teacher_B, cls_103, weekday=1, period=4, streak=1, is_free=True)
+    
+    # C 老師的課程：輪調課在 101，其他在 104 
+    c1 = build_course(teacher_C, cls_104, weekday=1, period=1, streak=1, is_free=True)
+    c2 = build_course(teacher_C, cls_104, weekday=1, period=2, streak=1, is_free=True)
+    c3 = build_course(teacher_C, cls_101, weekday=1, period=3, streak=1, is_free=False)  # 要和 b2 交換的課程（在環路中）
+    c4 = build_course(teacher_C, cls_104, weekday=1, period=4, streak=1, is_free=True)
+    
+    # D 老師的課程：輪調課在 101，其他在 105
+    d1 = build_course(teacher_D, cls_105, weekday=1, period=1, streak=1, is_free=True)
+    d2 = build_course(teacher_D, cls_105, weekday=1, period=2, streak=1, is_free=True)
+    d3 = build_course(teacher_D, cls_105, weekday=1, period=3, streak=1, is_free=True)
+    d4 = build_course(teacher_D, cls_101, weekday=1, period=4, streak=1, is_free=False)  # 要和 c3 交換的課程（在環路中）
+
+    # === 執行 rotation ===
+    cycles = list(rotation(a1, max_depth=3))  # 設定最大深度為 3
+
+    # 找到所有可能的環路組合
+    sorted_cycles = sorted(cycles, key=len)
+    
+    print(f"\n找到 {len(cycles)} 條環路：")
+    print("\n=== 依照長度排序 ===")
+    current_len = 0
+    for i, cycle in enumerate(sorted_cycles, 1):
+        if len(cycle) != current_len:
+            current_len = len(cycle)
+            print(f"\n長度 {current_len}:")
+        print(f"{i:2d}. {' → '.join(node.short() for node in cycle)}")
+
+    # 驗證找到的環路數量正確
+    expected_paths = {
+        # 兩節課的環路 (實際長度3)
+        f"{a1.short()} → {b2.short()} → {a1.short()}",
+        f"{a1.short()} → {c3.short()} → {a1.short()}",
+        f"{a1.short()} → {d4.short()} → {a1.short()}",
+
+        # 三節課的環路 (實際長度4)
+        f"{a1.short()} → {b2.short()} → {c3.short()} → {a1.short()}",
+        f"{a1.short()} → {b2.short()} → {d4.short()} → {a1.short()}",
+        f"{a1.short()} → {c3.short()} → {d4.short()} → {a1.short()}",
+        f"{a1.short()} → {d4.short()} → {c3.short()} → {a1.short()}",
+        f"{a1.short()} → {c3.short()} → {b2.short()} → {a1.short()}",
+        f"{a1.short()} → {d4.short()} → {b2.short()} → {a1.short()}"
+    }
+
+    # 驗證找到的環路數量正確
+    path_strs = set(" → ".join(node.short() for node in cycle) for cycle in cycles)
+    assert len(cycles) == len(expected_paths), f"預期找到 {len(expected_paths)} 條環路，但找到 {len(cycles)} 條"
+    
+    # 驗證每條基本路徑都有被找到
+    for path in expected_paths:
+        assert path in path_strs, f"基本路徑 {path} 未在找到的路徑中"
+    
+    # 驗證沒有多餘的路徑
+    assert path_strs == expected_paths, "找到了預期之外的環路"
+
+    # 驗證每條路徑都合法
+    for path in cycles:
+        # 確保環路首尾相連
+        assert path[0] == path[-1], "環路的起點和終點必須相同"
+        
+        # 檢查每一步移動是否合法
+        for i in range(len(path)-1):
+            curr, next_node = path[i], path[i+1]
+            hop_1 = get_1_hop(curr, next_node, type="bwd")
+            assert is_free(hop_1), f"路徑中存在不合法的移動：{curr.short()} → {next_node.short()}"
+
+        # 驗證路徑長度不超過最大深度限制
+        assert len(path) <= 4, "路徑長度超過最大深度限制"  # max_depth=3 時，最長路徑為 4（包含重複的起點）
