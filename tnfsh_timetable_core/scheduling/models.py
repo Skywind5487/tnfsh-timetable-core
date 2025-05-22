@@ -15,7 +15,14 @@ class CourseNode(BaseModel):
     is_free: bool = False
     teachers: Dict[str, "TeacherNode"]
     classes: Dict[str, "ClassNode"]
-
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, CourseNode):
+            return NotImplemented
+        return (self.time == other.time,
+                self.is_free == other.is_free,
+                self.teachers == other.teachers,
+                self.classes == other.teachers
+                )
 
 class TeacherNode(BaseModel):
     teacher_name: str

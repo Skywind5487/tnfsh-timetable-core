@@ -50,7 +50,11 @@ def get_neighbors(course: CourseNode) -> List[CourseNode]:
     src_class = list(course.classes.values())[0]
     return list(src_class.courses.values()) # 取得所有課程節點
 
-def is_free(course: Optional[CourseNode], mode: Literal["rotation", "swap"], freed: Optional[Set[CourseNode]]) -> bool:
+def is_free(
+        course: Optional[CourseNode], 
+        mode: Literal["rotation", "swap"] = "rotation", 
+        freed: Optional[Set[CourseNode]] = None
+) -> bool:
     """檢查課程是否可用
     
     課程在以下情況被視為可用： 
@@ -91,7 +95,7 @@ def get_1_hop(
         dst: CourseNode,
         *,
         type: Literal["fwd", "bwd"],
-        mode: Literal["rotation", "swap"],
+        mode: Literal["rotation", "swap"] = "rotation",
         freed: Optional[Set[CourseNode]] = None
 ) -> Optional[CourseNode]:
     """檢查課程是否可用

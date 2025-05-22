@@ -1,17 +1,9 @@
 """實作課程輪調的搜尋演算法"""
 from typing import TYPE_CHECKING, List, Set, Optional, Generator
-from tnfsh_timetable_core.scheduling.utils import connect_neighbors, get_bwd
+from tnfsh_timetable_core.scheduling.utils import connect_neighbors, get_1_hop, is_free, get_neighbors
 
 if TYPE_CHECKING:
     from tnfsh_timetable_core.scheduling.models import TeacherNode, CourseNode
-
-def bwd_check(src: CourseNode, dst: CourseNode) -> bool:
-    """檢查後向移動是否合法
-    不考慮路徑上的節點，只看最終狀態
-    """
-    course = get_bwd(src, dst)
-    print(f"{'可以移動' if course is None or course.is_free else '不可移動'}")
-    return course is None or course.is_free
 
 def rotation(start: CourseNode, max_depth: int = 5) -> Generator[List[CourseNode], None, None]:
     """深度優先搜尋環路的主函式
@@ -24,11 +16,12 @@ def rotation(start: CourseNode, max_depth: int = 5) -> Generator[List[CourseNode
         List[CourseNode]: 找到的環路，包含起點（結尾會重複一次起點）
     """
     def dfs_cycle(start: CourseNode,
-              current: Optional[CourseNode] = None,
-              depth: int = 0,
-              path: Optional[List[CourseNode]] = None,
-              visited: Optional[Set[CourseNode]] = None,
-              ) -> Generator[List[CourseNode], None, None]:
+            max_depth: int,
+            current: Optional[CourseNode] = None,
+            depth: int = 0,
+            path: Optional[List[CourseNode]] = None,
+            visited: Optional[Set[CourseNode]] = None,
+            ) -> Generator[List[CourseNode], None, None]:
         """深度優先搜尋環路
         
         Args:
@@ -52,14 +45,15 @@ def rotation(start: CourseNode, max_depth: int = 5) -> Generator[List[CourseNode
             return
 
         # 遍歷當前節點的所有鄰居
-        for next_course in current.neighbors:
+        for next_course in get_neighbors(current):
             print(f"\n=== DFS (深度: {depth}) ===")
             if path:
                 print(f"當前路徑 ({len(path)}): {' -> '.join(str(node) for node in path)}")
             print(f"檢查相鄰課程: {next_course}")
             
             # 檢查換課是否可行
-            if not bwd_check(current, next_course):
+            hop_1_bwd = get_1_hop(current, next_course, type="bwd")
+            if not is_free(hop_1_bwd):
                 print(f"- 跳過 {next_course} (換課不可行)")
                 continue
             
