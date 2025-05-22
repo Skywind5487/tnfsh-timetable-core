@@ -7,7 +7,7 @@ class StreakTime(BaseModel):
     streak: int
 
     def __hash__(self):
-        return hash((self.weekday, self.period))  # ✅ 只根據固定欄位
+        return hash((self.weekday, self.period))  # ✅ 只根據固定欄位 即使 streak 不同也能 get 到
 
     def __eq__(self, other):
         if not isinstance(other, StreakTime):

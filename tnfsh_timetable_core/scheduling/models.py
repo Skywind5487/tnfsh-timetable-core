@@ -9,11 +9,6 @@ from pydantic import BaseModel, RootModel
 
 from tnfsh_timetable_core.scheduling.utils import is_free
 
-
-
-# === StreakTime：時間欄位，可當作 dict key ===
-
-
 # === Forward reference：宣告在前、定義在後 ===
 class CourseNode(BaseModel):
     time: StreakTime

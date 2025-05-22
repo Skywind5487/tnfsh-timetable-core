@@ -1,7 +1,9 @@
 """實作課程輪調的搜尋演算法"""
-from typing import List, Set, Optional, Generator
-from .node import TeacherNode, CourseNode
-from .utils import connect_neighbors, get_bwd
+from typing import TYPE_CHECKING, List, Set, Optional, Generator
+from tnfsh_timetable_core.scheduling.utils import connect_neighbors, get_bwd
+
+if TYPE_CHECKING:
+    from tnfsh_timetable_core.scheduling.models import TeacherNode, CourseNode
 
 def bwd_check(src: CourseNode, dst: CourseNode) -> bool:
     """檢查後向移動是否合法
