@@ -157,7 +157,7 @@ def test_basic_cycle():
       - B2：在 101 班，要和 A1 交換
       - C3：在 101 班，要和 B2 交換
       - D4：在 101 班，要和 C3 交換
-    - 其他老師的課都在不同班級
+    - 其他老師的課大多都在不同班級
     """
     # === 建立老師 ===
     teacher_A = TeacherNode(teacher_name="A", courses={})
