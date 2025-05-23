@@ -13,7 +13,7 @@ async def test_timetable_core():
 async def get_timetable():
     core = TNFSHTimetableCore()
     from tnfsh_timetable_core.timetable.models import TimeTable
-    timetable:TimeTable = await core.fetch_timetable(target="307")
+    timetable:TimeTable = await core.fetch_timetable(target="311")
     table = timetable.table
     teacher_name = set()
     for day in table:

@@ -207,75 +207,131 @@ def test_single_swap_path():
     assert a1.classes == b2.classes, "要交換的課程必須在同一個班級"
 
 
-def test_no_valid_path_in_long_chain():
-    """測試長鏈路超出深度限制的情況
+def test_no_valid_path_in_long_chain(n: int = 10):  # 改為預設10位老師
+    """測試長鏈路超出路徑長度限制的情況
     
-    情境：
+    描述：
     建立一個長的課程交換鏈，其中：
-    - 有10位老師 (A-J)，每位老師 3-4 節課
-    - 每個老師的課程都在不同班級
-    - 課程連接方式：A1 -> B2 -> C3 -> D1 -> E2 -> F3 -> G1 -> H2 -> I3 -> J1
-    - 第一位老師的第二節課和最後一位老師的第二節課是空堂
+    1. 有 n 位老師（預設15位）
+    2. 每位老師的課程分布：
+       - 第1節：作為 fwd_hop 使用，非空堂
+       - 第2-4節：根據交換鏈配置
+    3. 課程連接方式（以前4個老師為例）：
+       A[1] -> B[3]：
+           - 使用 class_1 連接 A[1] 和 B[3]
+           - fwd：B[1] 在 class_1（B老師第1節，和A[1]同班）
+           - bwd：A[3]（A老師第3節，空堂）
+       B[1] -> C[4]：
+           - 使用 class_2 連接 B[1] 和 C[4]
+           - fwd：C[1] 在 class_2（C老師第1節，和B[1]同班）
+           - bwd：B[4]（B老師第4節，空堂）
+       C[1] -> D[2]：
+           - 使用 class_3 連接 C[1] 和 D[2]
+           - fwd：D[1] 在 class_3（D老師第1節，和C[1]同班）
+           - bwd：C[2]（C老師第2節，空堂）
     
-    結構特點：
-    1. 鏈路太長，超出搜尋深度限制（設為5）
-    2. 雖然起點和終點都有空堂可用，但路徑無法被找到
+    規則：
+    1. 每個老師的第1節課作為 fwd_hop，必須是非空堂
+    2. 每對需要交換的課程都在同一個班級
+    3. 每個老師都有一節課是空堂，用於 bwd_hop
     
-    檢查項目：
-    1. 在深度限制下應該找不到任何路徑
-    2. 確保程式不會因為搜尋太深而卡住
+    預期：
+    - 由於路徑長度超過限制（設為5），不會找到任何路徑
     """
-    # === 建立老師與班級 ===
+    # === 建立老師、班級、交換規則 ===
+    teacher_names = "ABCDEFGHIJ"[:n]  # 最多10位老師
     teachers = {
         ch: TeacherNode(teacher_name=ch, courses={})
-        for ch in "ABCDEFGHIJ"  # 10位老師
+        for ch in teacher_names
     }
     
     classes = {
-        f"{i:03}": ClassNode(class_code=f"{i:03}", courses={})
-        for i in range(101, 111)  # 10個班級
-    }    # === 建立課程節點 ===
-    courses = {}
+        f"class_{i}": ClassNode(class_code=f"class_{i}", courses={})
+        for i in range(1, n)  # n-1個班級，因為最後一個老師不需要往下連
+    }
     
-    # 形成長鏈：A1 -> B2 -> C3 -> D1 -> E2 -> F3 -> G1 -> H2 -> I3 -> J1
-    chain = ["A1", "B2", "C3", "D1", "E2", "F3", "G1", "H2", "I3", "J1"]
-
-    # 為每位老師建立3節課，每兩個相鄰的課程共用一個班級以便交換
-    for i, (teacher_name, teacher) in enumerate(teachers.items()):
-        for j in range(1, 4):  # 1, 2, 3 節課
-            course_id = f"{teacher_name}{j}"
+    # 建立交換鏈規則：[(老師, 時段), ...]
+    # 例如：[('A', 3), ('B', 4), ('C', 2)] 表示 A[1]->B[3], B[1]->C[4], C[1]->D[2]
+    exchange_chain = []
+    for i in range(len(teacher_names)-1):  # 修改為使用 teacher_names 的長度
+        src_teacher = teacher_names[i]
+        dst_teacher = teacher_names[i+1]
+        dst_period = (i % 3) + 2  # 2, 3, 4 循環
+        exchange_chain.append((src_teacher, dst_period))
+    
+    # === 建立課程節點 ===
+    courses = {}  # 儲存所有課程的字典：{課程ID: 課程節點}
+    
+    # 建立臨時班級，用於初始化課程
+    temp_class = ClassNode(class_code="temp", courses={})
+    
+    for idx, (t_name, teacher) in enumerate(teachers.items()):
+        for period in range(1, 5):  # 1-4節課
+            # 決定這個課程是否為空堂
+            is_free = False
             
-            # 如果這個課程在鏈中，找出它的下一個課程
-            next_course_id = None
-            if course_id in chain:
-                idx = chain.index(course_id)
-                if idx < len(chain) - 1:
-                    next_course_id = chain[idx + 1]
+            # 如果這是某個老師的 bwd_hop（和 dst 同時段，和 src 同老師）
+            if idx < len(exchange_chain):  # 跳過最後一個老師
+                _, dst_period = exchange_chain[idx]
+                if period == dst_period:  # 如果時段符合
+                    is_free = True
             
-            # 決定使用哪個班級
-            if next_course_id:
-                # 如果課程在鏈中，使用與下一個課程相同的班級
-                cls = classes[f"{101+i:03}"]
-            else:
-                # 如果不在鏈中，使用自己的班級
-                cls = classes[f"{101+((i+j)%10):03}"]
-            
-            # 建立課程
+            # 建立課程節點
+            course_id = f"{t_name}{period}"
             courses[course_id] = build_course(
-                teacher, cls,
-                weekday=1, period=j, streak=1,
-                is_free=(course_id[0] in "AJ" and j == 2)  # A2和J2是空堂
+                teacher=teacher,
+                cls=temp_class,  # 使用臨時班級
+                weekday=1,
+                period=period,
+                streak=1,
+                is_free=is_free
             )
-
-    # === 設定較小的深度限制並執行搜尋 ===
-    paths = list(scheduling.origin_swap(courses["A1"], max_depth=5))
-
-
-    # === 驗證 ===
-    # 不應該找到任何路徑（因為超出深度限制）
-    logger.debug(f"找到的路徑: {paths}")
+    
+    # 清除所有課程的臨時班級關係
+    for course in courses.values():
+        course.classes.clear()
+        if course.time in temp_class.courses:
+            del temp_class.courses[course.time]
+    
+    # === 建立課程連接（通過加入同一班級） ===
+    for idx, (src_teacher, dst_period) in enumerate(exchange_chain):
+        dst_teacher = teacher_names[idx+1]
+        cls = classes[f"class_{idx+1}"]
+        
+        # 1. src老師的第1節和dst老師的第dst_period節同班
+        src_course = courses[f"{src_teacher}1"]
+        dst_course = courses[f"{dst_teacher}{dst_period}"]
+        
+        # 將課程加入班級
+        time_src = StreakTime(weekday=1, period=src_course.time.period, streak=1)
+        time_dst = StreakTime(weekday=1, period=dst_course.time.period, streak=1)
+        
+        cls.courses[time_src] = src_course
+        cls.courses[time_dst] = dst_course
+        src_course.classes[cls.class_code] = cls
+        dst_course.classes[cls.class_code] = cls
+        
+        
+    
+    # 印出課程結構（用於除錯）
+    print("\n=== 課程結構 ===")
+    for src_teacher, dst_period in exchange_chain:
+        dst_teacher = teacher_names["ABCDEFGHIJ".index(src_teacher)+1]
+        src_course = courses[f"{src_teacher}1"]
+        dst_course = courses[f"{dst_teacher}{dst_period}"]
+        fwd_course = courses[f"{dst_teacher}1"]
+        
+        print(f"\n交換對：{src_course.short()} -> {dst_course.short()}")
+        print(f"- src課程：{src_course.short()} (第{src_course.time.period}節)")
+        print(f"- dst課程：{dst_course.short()} (第{dst_course.time.period}節)")
+        print(f"- fwd課程：{fwd_course.short()} (第{fwd_course.time.period}節)")
+        print(f"- 共同班級：{list(src_course.classes.keys())}")
+    
+    # === 執行搜尋（深度限制=5）===
+    start_course = courses["A1"]
+    paths = list(scheduling.origin_swap(start_course, max_depth=5))
+    
+    # === 驗證結果 ===
+    # 1. 不應該找到任何路徑（因為超出深度限制）
     assert len(paths) == 0, f"預期找不到任何路徑（深度限制5），但找到了{len(paths)}條路徑"
-
-    # 印出鏈路結構（用於除錯）
-    logger.debug("=== 課程鏈路 ===")
-    logger.debug(" → ".join(f"{node}{'_' if courses[node].is_free else ''}" for node in chain))
+    

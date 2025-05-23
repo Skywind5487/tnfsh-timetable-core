@@ -37,7 +37,7 @@ class CourseNode(BaseModel):
         class_keys = ",".join(sorted(self.classes))
         t = self.time
         result = f"<{t.weekday}-{t.period}(x{t.streak}) {'free' if self.is_free else 'busy'} T[{teacher_keys}] C[{class_keys}]>"
-        result = f"{t.period}T[{teacher_keys}]"
+        result = f"{teacher_keys}[{t.period}]"
         return result
 
 class TeacherNode(BaseModel):

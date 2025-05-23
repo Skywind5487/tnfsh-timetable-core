@@ -110,6 +110,10 @@ def merge_paths(start: CourseNode, max_depth: int=20) -> Generator[List[CourseNo
     for course in get_neighbors(start):
         logger.debug(f"\n➡️ 檢查相鄰課程: {course.short()}")
         
+        if course == start:
+            logger.debug("🔄 跳過（當前節點）")
+            continue        
+
         fwd_hop = get_1_hop(start, course, type="fwd")
         bwd_hop = get_1_hop(start, course, type="bwd")
 
