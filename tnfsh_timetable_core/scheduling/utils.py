@@ -104,14 +104,14 @@ def get_1_hop(
         - 檢查 streak 是否足夠
     4. 找到中段且不為空堂
         - 不需要的情況
-        
+    
     Args:
         src: 源課程節點
         dst: 目標課程節點
         freed: 已釋放的課程節點集合
         
     Returns:
-        Optional[CourseNode]: 可用的課程節點，若不存在則返回 None
+        Optional[CourseNode]: 可用的課程節點，可能是空堂或非空堂，若不存在則返回 None
     """
     # 取得 src 和 dst 的教師
     # 以 bwd 為主，若為 fwd 則交換

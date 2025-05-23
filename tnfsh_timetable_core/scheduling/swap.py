@@ -1,11 +1,15 @@
 """課程交換的 DFS 搜尋實作"""
 from typing import Generator, List, Set
-from .node import TeacherNode, CourseNode
-from .utils import (
+from tnfsh_timetable_core.scheduling.models import TeacherNode, CourseNode
+from tnfsh_timetable_core.scheduling.utils import (
     connect_neighbors,
-    get_fwd, get_bwd,
-    is_free, bwd_check, fwd_check
+    get_1_hop,
+    get_neighbors,
+    is_free
 )
+from tnfsh_timetable_core.utils.logger import get_logger
+
+logger = get_logger(logger_level="DEBUG")
 
 def merge_paths(start: CourseNode, max_depth: int=100) -> Generator[List[CourseNode], None, None]:
     """產生完整的交換路徑
@@ -44,10 +48,11 @@ def merge_paths(start: CourseNode, max_depth: int=100) -> Generator[List[CourseN
         Yields:
             List[CourseNode]: 找到的合法交換路徑
         """
-        print(f"\n=== DFS (深度: {depth}) ===")
-        print(f"當前節點: {current or start}")
+        indent = "  " * depth
+        logger.debug(f"\n{indent}=== DFS (深度: {depth}) ===")
+        logger.debug(f"{indent}當前節點: {current or start}")
         if path:
-            print(f"當前路徑 ({len(path)}): {' -> '.join(str(c) for c in path)}")
+            logger.debug(f"{indent}當前路徑 ({len(path)}): {' → '.join(str(c) for c in path)}")
 
         if path is None:
             path = []
@@ -55,80 +60,86 @@ def merge_paths(start: CourseNode, max_depth: int=100) -> Generator[List[CourseN
             current = start
 
         if depth >= max_depth:
-            print(f"達到最大深度 {max_depth}，停止搜尋")
+            logger.debug(f"{indent}⛔ 達到最大深度 {max_depth}，停止搜尋")
             return
 
         if current.is_free:
             result = path + [current]
-            print(f"找到空堂！產生路徑: {' -> '.join(str(c) for c in result)}")
+            logger.info(f"{indent}✅ 找到空堂！產生路徑: {' → '.join(str(c) for c in result)}")
             yield result
             return
 
         freed: Set[CourseNode] = set(path)
-        for next_node in current.neighbors:
+        for next_node in get_neighbors(current):
+            if next_node == current:
+                logger.debug(f"{indent}🔄 跳過 {next_node} (當前節點)")
+                continue
+
             if next_node == start:
-                print(f"- 跳過 {next_node} (起點)")
-                continue
-                
-            if not bwd_check(current, next_node, freed=freed):
-                print(f"- 跳過 {next_node} (後向檢查失敗)")
+                logger.debug(f"{indent}🔄 跳過 {next_node} (起點)")
                 continue
 
-            hop2 = get_fwd(current, next_node)
-            print(f"- 前向課程: {hop2}")
+            bwd_hop = get_1_hop(current, next_node, type="bwd", mode="swap", freed=freed)
+
+            if not is_free(bwd_hop, mode="swap", freed=freed):
+                logger.debug(f"{indent}❌ 跳過 {next_node} (後向檢查失敗)")
+                continue
+
+            fwd_hop = get_1_hop(current, next_node, type="fwd", mode="swap", freed=freed)
+            logger.debug(f"{indent}➡️ 前向課程: {fwd_hop}")
             
-            if hop2 is None or hop2 == start:
-                print("- 跳過（前向課程無效）")
+            if fwd_hop is None or fwd_hop == start:
+                logger.debug(f"{indent}❌ 跳過（前向課程無效）")
                 continue
 
-            if fwd_check(current, next_node, freed=freed):
-                result = path + [current, next_node, hop2]
-                print(f"- 產生路徑: {' -> '.join(str(c) for c in result)}")
+            if is_free(fwd_hop, mode="swap", freed=freed):
+                result = path + [current, next_node, fwd_hop]
+                logger.info(f"{indent}✅ 產生路徑: {' → '.join(str(c) for c in result)}")
                 yield result
             else:
-                print(f"- 繼續搜尋（從 {hop2} 開始）")
+                logger.debug(f"{indent}🔍 繼續搜尋（從 {fwd_hop} 開始）")
                 yield from _dfs_swap_path(
-                    start, hop2, 
+                    start, fwd_hop, 
                     depth=depth + 1, 
                     path=path + [current, next_node]
                 )
 
-    print(f"\n========= 搜尋交換路徑 =========")
-    print(f"起點課程: {start}")
+    logger.debug(f"\n========= 搜尋交換路徑 =========")
+    logger.debug(f"🎯 起點課程: {start}")
     
     for course in start.neighbors:
-        print(f"\n檢查相鄰課程: {course}")
+        logger.debug(f"\n➡️ 檢查相鄰課程: {course}")
         
-        hop2 = get_fwd(start, course)
-        bwd_neighbor = get_bwd(start, course)
+        fwd_hop = get_1_hop(start, course, type="fwd")
+        bwd_hop = get_1_hop(start, course, type="bwd")
+
+        logger.debug(f"➡️ 前向課程: {fwd_hop}")
+        logger.debug(f"⬅️ 後向課程: {bwd_hop}")
         
-        print(f"前向課程: {hop2}")
-        print(f"後向課程: {bwd_neighbor}")
-        
-        if hop2 is None or hop2 == start or bwd_neighbor is None:
-            print("- 跳過（無效的前向或後向課程）")
+        if fwd_hop is None or fwd_hop == start or bwd_hop is None:
+            logger.debug("❌ 跳過（無效的前向或後向課程）")
             continue
 
-        print("\n=== 搜尋後向路徑 ===")
-        if bwd_check(start, course, freed=set()):
-            bwd_slices = [[bwd_neighbor]]
-            print("後向路徑可直接使用")
+        logger.debug("\n=== 搜尋後向路徑 ===")
+        if is_free(bwd_hop):
+            bwd_slices = [[bwd_hop]]
+            logger.debug("✅ 後向路徑可直接使用")
         else:
-            print("開始後向深度搜尋...")
-            bwd_slices = list(_dfs_swap_path(start, bwd_neighbor))
+            logger.debug("🔍 開始後向深度搜尋...")
+            bwd_slices = list(_dfs_swap_path(start, bwd_hop))
 
-        print("\n=== 搜尋前向路徑 ===")
-        if hop2.is_free:
-            fwd_slices = [[course, hop2]]
-            print("前向路徑是空堂")
+        logger.debug("\n=== 搜尋前向路徑 ===")
+        if is_free(fwd_hop):
+            fwd_slices = [[course, fwd_hop]]
+            logger.debug("✅ 前向路徑是空堂")
         else:
-            print("開始前向深度搜尋...")
-            fwd_slices = list(_dfs_swap_path(start, hop2, path=[course]))
+            logger.debug("🔍 開始前向深度搜尋...")
+            fwd_slices = list(_dfs_swap_path(start, fwd_hop, path=[course]))
 
-        print("\n=== 合併路徑 ===")
+        logger.debug("\n=== 合併路徑 ===")
         for fwd in fwd_slices:
             for bwd in bwd_slices:
                 complete_path = list(reversed(bwd)) + [start] + fwd
-                print(f"完整路徑: {' -> '.join(str(c) for c in complete_path)}")
+                logger.info(f"✅ 完整路徑: {' → '.join(str(c) for c in complete_path)}")
                 yield complete_path
 

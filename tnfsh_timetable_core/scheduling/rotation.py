@@ -62,6 +62,7 @@ def rotation(start: CourseNode, max_depth: int = 5) -> Generator[List[CourseNode
                 continue
 
             hop_1_bwd = get_1_hop(current, next_course, type="bwd")
+
             if not is_free(hop_1_bwd):
                 logger.debug(f"{indent}❌ 不可換課（非空堂）: {next_course.short()}")
                 continue
