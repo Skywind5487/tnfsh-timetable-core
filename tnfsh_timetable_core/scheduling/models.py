@@ -13,6 +13,7 @@ from tnfsh_timetable_core.scheduling.utils import is_free
 class CourseNode(BaseModel):
     time: StreakTime
     is_free: bool = False
+    subject: str = ""
     teachers: Dict[str, "TeacherNode"]
     classes: Dict[str, "ClassNode"]
 
