@@ -11,7 +11,7 @@ from tnfsh_timetable_core.utils.logger import get_logger
 
 logger = get_logger(logger_level="DEBUG")
 
-def merge_paths(start: CourseNode, max_depth: int=100) -> Generator[List[CourseNode], None, None]:
+def merge_paths(start: CourseNode, max_depth: int=20) -> Generator[List[CourseNode], None, None]:
     """產生完整的交換路徑
     
     搜尋策略：

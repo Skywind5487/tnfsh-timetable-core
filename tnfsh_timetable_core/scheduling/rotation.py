@@ -14,13 +14,13 @@ from tnfsh_timetable_core.utils.logger import get_logger
 
 logger = get_logger(logger_level="DEBUG")
 
-def rotation(start: CourseNode, max_depth: int = 5) -> Generator[List[CourseNode], None, None]:
+def rotation(start: CourseNode, max_depth: int = 10) -> Generator[List[CourseNode], None, None]:
     """深度優先搜尋環路的主函式
     
     Args:
         start: 起始課程節點
-        max_depth: 最大搜尋深度，預設為5
-        
+        max_depth: 最大搜尋深度，預設為10
+
     Returns:
         Generator[List[CourseNode], None, None]: 生成找到的所有環路，每個環路是一個 CourseNode 列表
     """
