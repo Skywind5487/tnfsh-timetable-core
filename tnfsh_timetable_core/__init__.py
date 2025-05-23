@@ -1,5 +1,8 @@
+from __future__ import annotations
 """台南一中課表系統核心模組"""
 from typing import List, Optional
+
+from tnfsh_timetable_core.timetable.models import TimeTable
 
 class TNFSHTimetableCore:
     """台南一中課表核心功能的統一入口點
@@ -22,7 +25,8 @@ class TNFSHTimetableCore:
        - scheduling_swap(): 執行課程交換搜尋
     """
     
-    def get_timetable(self):
+    # deprecated
+    def get_timetable(self) -> TimeTable:
         """取得課表物件
         
         Returns:
@@ -31,7 +35,7 @@ class TNFSHTimetableCore:
         from tnfsh_timetable_core.timetable.models import TimeTable
         return TimeTable()
 
-    def fetch_timetable(self, target: str, refresh: bool = False):
+    async def fetch_timetable(self, target: str, refresh: bool = False):
         """從網路獲取課表資料
         
         Args:
@@ -42,7 +46,7 @@ class TNFSHTimetableCore:
             TimeTable: 包含課表資料的物件
         """
         from tnfsh_timetable_core.timetable.models import TimeTable
-        return TimeTable.fetch_cached(target=target, refresh=refresh)
+        return await TimeTable.fetch_cached(target=target, refresh=refresh)
 
     def get_index(self):
         """取得索引物件

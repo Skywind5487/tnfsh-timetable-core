@@ -64,49 +64,63 @@ def test_no_valid_path_in_long_chain(n: int = 15):
     描述：
     建立一個長的課程交換鏈，其中：
     1. 有 n 位老師（預設15位）
-    2. 每位老師 i 有 i+2 節課
-    3. 課程連接方式：A1 -> B2 -> C3 -> D4 -> ...
-    4. 最後一位老師的第一節課和倒數第二位老師最後一節是空堂
+    2. 每位老師有兩種課程：
+       - 編號1的課程(用於fwd_hop)
+       - 編號(i+1)的課程(用於與前一個老師同班)
+    3. 課程連接方式：
+       A1->B2(同班) -> B1->C3(同班) -> C1->D4(同班) -> D1->E5(同班) ...
+       其中每個老師的1號課程都是該老師課程的fwd_hop
+    4. 最後一個老師的第一節課是空堂
     
     結構特點：
-    1. 每個老師的課程數量不同
-    2. 雖然所有連接都是有效的，但路徑長度超過演算法的限制
-    3. 空堂分布在鏈的兩端
+    1. 每個老師都有兩節關鍵課程：一節用於同班連接，一節用於fwd_hop
+    2. fwd_hop 總是與下一個連接課程同班
+    3. 雖然所有連接都是有效的，但路徑長度超過演算法的限制
     
     預期：
     - 由於路徑長度超過限制，不會找到任何路徑
-    - 測試搜索算法的路徑長度限制處理機制
     """
     teachers = [TeacherNode(ch) for ch in string.ascii_uppercase[:n]]
     courses: Dict[str, CourseNode] = {}
     
     # 建立課程節點
     for idx, t in enumerate(teachers):
-        for time in range(1, idx + 3):  # 確保 time idx+2 存在
-            is_free = (time == idx + 2) or (t == teachers[-1] and time == 1)
-            cid = f"{t.name}{time}"
-            courses[cid] = CourseNode(str(time), t, is_free=is_free)
+        # 為每個老師建立兩種課程：
+        # 1. 編號1的課程(fwd_hop)
+        # 2. 編號(idx+2)的課程(用於與前一個老師同班)
+        c1 = f"{t.name}1"  # fwd_hop課程
+        c2 = f"{t.name}{idx+2}"  # 同班連接課程
+        
+        # 最後一位老師的第一節課是空堂
+        is_last_teacher_first_course = (t == teachers[-1] and c1.endswith('1'))
+        courses[c1] = CourseNode('1', t, is_free=is_last_teacher_first_course)
+        courses[c2] = CourseNode(str(idx+2), t)
     
     # 列印初始課程狀態以便除錯
     print("\n課程初始狀態:")
     for t in teachers:
-        course_list = [courses.get(f"{t.name}{i}") for i in range(1, n+2) if f"{t.name}{i}" in courses]
+        course_list = [c for cid, c in courses.items() if cid.startswith(t.name)]
         print(f"{t.name}: {' '.join(str(c) for c in course_list)}")
     
-    # 建立連接
+    # 建立連接：每個老師的課程都與下一個老師的課程相連
     for idx in range(n - 1):
-        start = courses[f"{teachers[idx].name}{1}"]
-        end = courses[f"{teachers[idx + 1].name}{idx + 2}"]
+        current_teacher = teachers[idx]
+        next_teacher = teachers[idx + 1]
+        
+        # 當前老師的1號課程(fwd_hop)與下一個老師的(idx+2)號課程同班
+        start = courses[f"{current_teacher.name}1"]
+        end = courses[f"{next_teacher.name}{idx+2}"]
         connect_neighbors([start, end])
         print(f"連接: {start} -> {end}")
-    courses["O15"].is_free = True  # 將最後一個課程設為空堂    
+    
     # 嘗試找出路徑
-    print(courses["A1"].neighbors)
-    paths = list(merge_paths(courses["A1"], max_depth=10))
+    start_course = courses["A1"]
+    print("\n起點課程的鄰居:", start_course.neighbors)
+    paths = list(merge_paths(start_course, max_depth=10))
     print("\n找到的路徑數量:", len(paths))
     
     # 檢查是否找到路徑
-    assert paths == []
+    assert paths == [], "由於路徑長度超出限制，不應該找到任何路徑"
     
 def test_single_swap_path() -> None:
     """測試簡單的單一交換路徑

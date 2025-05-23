@@ -1,4 +1,5 @@
 from typing import Dict, TypeAlias, Tuple
+from unittest import result
 from tnfsh_timetable_core.utils.dict_like import dict_like
 
 from pydantic import BaseModel
@@ -35,7 +36,9 @@ class CourseNode(BaseModel):
         teacher_keys = ",".join(sorted(self.teachers))
         class_keys = ",".join(sorted(self.classes))
         t = self.time
-        return f"<{t.weekday}-{t.period}(x{t.streak}) {'free' if self.is_free else 'busy'} T[{teacher_keys}] C[{class_keys}]>"
+        result = f"<{t.weekday}-{t.period}(x{t.streak}) {'free' if self.is_free else 'busy'} T[{teacher_keys}] C[{class_keys}]>"
+        result = f"{t.period}T[{teacher_keys}]"
+        return result
 
 class TeacherNode(BaseModel):
     teacher_name: str
