@@ -82,14 +82,14 @@ def merge_paths(start: CourseNode, max_depth: int=20) -> Generator[List[CourseNo
             bwd_hop = get_1_hop(current, next_node, type="bwd", mode="swap", freed=freed)
 
             if not is_free(bwd_hop, mode="swap", freed=freed):
-                logger.debug(f"{indent}❌ 跳過 {next_node.short()} (後向檢查失敗)")
+                logger.debug(f"{indent}❌ 跳過 {next_node.short()} (後向檢查{bwd_hop.short() if bwd_hop else 'None'}失敗)")
                 continue
 
             fwd_hop = get_1_hop(current, next_node, type="fwd", mode="swap", freed=freed)
             logger.debug(f"{indent}➡️ 前向課程: {fwd_hop.short() if fwd_hop else 'None'}")
             
             if fwd_hop is None or fwd_hop == start:
-                logger.debug(f"{indent}❌ 跳過（前向課程無效）")
+                logger.debug(f"{indent}❌ 跳過（前向課程{fwd_hop.short() if fwd_hop else 'None'}無效）")
                 continue
 
             if is_free(fwd_hop, mode="swap", freed=freed):
@@ -121,7 +121,7 @@ def merge_paths(start: CourseNode, max_depth: int=20) -> Generator[List[CourseNo
         logger.debug(f"⬅️ 後向課程: {bwd_hop.short() if bwd_hop else 'None'}")
         
         if fwd_hop is None or fwd_hop == start or bwd_hop is None:
-            logger.debug("❌ 跳過（無效的前向或後向課程）")
+            logger.debug(f"❌ 跳過{fwd_hop.short() if fwd_hop else 'None'}（無效的前向或後向課程）")
             continue
 
         logger.debug("\n=== 搜尋後向路徑 ===")
