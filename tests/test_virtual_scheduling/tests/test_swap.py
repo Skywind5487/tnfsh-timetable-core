@@ -376,6 +376,7 @@ def test_interconnected_path_with_cycle() -> None:
     # B老師的課程
     b1 = CourseNode('1', B)              # B2 移動時的目標位置
     b2 = CourseNode('2', B)              # 中間交換點
+    #b3 = CourseNode('3', B, is_free=True)  # 空堂，用於接收 B2
 
     # C老師的課程
     c1 = CourseNode('1', C)              # C3 移動時的目標位置

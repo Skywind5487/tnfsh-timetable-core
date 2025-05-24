@@ -66,6 +66,7 @@ def merge_paths(start: CourseNode, max_depth: int=100) -> Generator[List[CourseN
 
         freed: Set[CourseNode] = set(path)
         for next_node in current.neighbors:
+            print(f"- 檢查相鄰課程: {next_node}")
             if next_node == start:
                 print(f"- 跳過 {next_node} (起點)")
                 continue
@@ -73,6 +74,9 @@ def merge_paths(start: CourseNode, max_depth: int=100) -> Generator[List[CourseN
             if not bwd_check(current, next_node, freed=freed):
                 print(f"- 跳過 {next_node} (後向檢查失敗)")
                 continue
+            
+            bwd_hop = get_bwd(current, next_node)
+            print(f"- 後向課程: {bwd_hop} 檢查成功")
 
             hop2 = get_fwd(current, next_node)
             print(f"- 前向課程: {hop2}")
