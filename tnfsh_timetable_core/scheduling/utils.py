@@ -63,7 +63,7 @@ def is_free(
         bool: 課程是否可用
     """
     if (freed is not None) and course in freed and mode == "swap":
-        return True
+        pass
     if course is None:
         print(course)
         return False

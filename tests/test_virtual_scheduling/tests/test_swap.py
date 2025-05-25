@@ -296,6 +296,7 @@ def test_forked_path_with_two_ends() -> None:
     # B老師的課程
     b1 = CourseNode('1', B)              # B2 移動時的目標位置
     b2 = CourseNode('2', B)              # 中間交換點
+    b3 = CourseNode('3', B, is_free=True)  # 空堂，用於接收 C3
 
     # C老師的課程
     c1 = CourseNode('1', C)              # C3 移動時的目標位置
@@ -376,7 +377,7 @@ def test_interconnected_path_with_cycle() -> None:
     # B老師的課程
     b1 = CourseNode('1', B)              # B2 移動時的目標位置
     b2 = CourseNode('2', B)              # 中間交換點
-    #b3 = CourseNode('3', B, is_free=True)  # 空堂，用於接收 B2
+    b3 = CourseNode('3', B, is_free=True)  # 空堂，用於接收 B2
 
     # C老師的課程
     c1 = CourseNode('1', C)              # C3 移動時的目標位置
@@ -389,6 +390,7 @@ def test_interconnected_path_with_cycle() -> None:
 
     # E老師的課程
     e1 = CourseNode('1', E)              # E1 不是空堂
+    e2 = CourseNode('2', E, is_free=True)  # E2 是空堂
     e3 = CourseNode('3', E)              # 分叉路徑之二
 
     # 建立交換關係 - 注意：現在所有相關課程都互相連接

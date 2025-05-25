@@ -1,4 +1,5 @@
 import pytest
+import pytest_asyncio
 from tnfsh_timetable_core.scheduling.models import CourseNode, TeacherNode, ClassNode
 from tnfsh_timetable_core.timetable_slot_log_dict.models import StreakTime
 from tnfsh_timetable_core import TNFSHTimetableCore
@@ -28,7 +29,7 @@ def build_course(
 
 # 建立一個全域的 Scheduling 實例
 core = TNFSHTimetableCore()
-scheduling = core.get_scheduling()
+scheduling = core.fetch_scheduling()
 
 
 def test_simplest_rotation_path():
@@ -412,3 +413,10 @@ def test_isolated_course():
     neighbors = list(cls_101.courses.values())
     assert len(neighbors) >= 1, "班級應該至少有一節課程"
     assert a1 in neighbors, "孤立的課程節點應該在班級的課程列表中"
+
+@pytest.mark.asyncio
+async def test_yan_young_jing_3_2():
+    """測試顏永進老師的 3-2 課程配置
+    """
+    result = await scheduling.rotation("顏永進", weekday=3, period=3, max_depth=5)
+    print(result)

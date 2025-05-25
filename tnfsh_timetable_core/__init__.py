@@ -1,8 +1,9 @@
 from __future__ import annotations
 """台南一中課表系統核心模組"""
-from typing import List, Optional
-
-from tnfsh_timetable_core.timetable.models import TimeTable
+from typing import TYPE_CHECKING, List, Optional
+if TYPE_CHECKING:
+    from tnfsh_timetable_core.timetable.models import TimeTable
+    from tnfsh_timetable_core.index.index import Index
 
 class TNFSHTimetableCore:
     """台南一中課表核心功能的統一入口點
@@ -26,15 +27,6 @@ class TNFSHTimetableCore:
     """
     
     # deprecated
-    def get_timetable(self) -> TimeTable:
-        """取得課表物件
-        
-        Returns:
-            TimeTable: 課表物件實例
-        """
-        from tnfsh_timetable_core.timetable.models import TimeTable
-        return TimeTable()
-
     async def fetch_timetable(self, target: str, refresh: bool = False):
         """從網路獲取課表資料
         
@@ -46,18 +38,9 @@ class TNFSHTimetableCore:
             TimeTable: 包含課表資料的物件
         """
         from tnfsh_timetable_core.timetable.models import TimeTable
-        return await TimeTable.fetch_cached(target=target, refresh=refresh)
+        return await TimeTable.fetch_cached(target=target, refresh=refresh)    
 
-    def get_index(self):
-        """取得索引物件
-        
-        Returns:
-            Index: 索引物件實例
-        """
-        from tnfsh_timetable_core.index.index import Index
-        return Index()
-
-    def fetch_index(self):
+    async def fetch_index(self)-> Index:
         """從網路獲取索引資料
         
         Returns:
@@ -66,29 +49,19 @@ class TNFSHTimetableCore:
         from tnfsh_timetable_core.index.index import Index
         index = Index()
         index.fetch()
-        return index
+        return index    
     
-    def get_timetable_slot_log_dict(self):
-        """取得課表時段紀錄物件
-        
-        Returns:
-            TimetableSlotLogDict: 課表時段紀錄物件實例
-        """
-        from tnfsh_timetable_core.timetable_slot_log_dict.timetable_slot_log_dict import TimetableSlotLogDict
-        return TimetableSlotLogDict()
-    
-    def fetch_timetable_slot_log_dict(self):
+    async def fetch_timetable_slot_log_dict(self):
         """從網路獲取課表時段紀錄
-        
+
         Returns:
             TimetableSlotLogDict: 包含最新課表時段紀錄的物件
         """
         from tnfsh_timetable_core.timetable_slot_log_dict.timetable_slot_log_dict import TimetableSlotLogDict
-        timetable_slot_log_dict = TimetableSlotLogDict()
-        timetable_slot_log_dict.fetch()
+        timetable_slot_log_dict = await TimetableSlotLogDict.fetch()
         return timetable_slot_log_dict
 
-    def get_scheduling(self):
+    def fetch_scheduling(self):
         """取得排課物件
         
         Returns:

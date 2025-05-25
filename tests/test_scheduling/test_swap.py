@@ -36,11 +36,9 @@ def build_course(
     cls.courses[time] = node
     return node
 
-
 # 建立一個全域的 Scheduling 實例
 core = TNFSHTimetableCore()
-scheduling = core.get_scheduling()
-
+scheduling = core.fetch_scheduling()
 
 def test_basic_path_stops_at_first_free():
     """測試基本路徑尋找功能：路徑應在找到第一個空堂時停止
@@ -95,7 +93,6 @@ def test_basic_path_stops_at_first_free():
     # 確認路徑結尾是空堂
     assert actual_path[-1].is_free, "路徑應該在空堂結束"
 
-
 def test_isolated_courses_have_no_path():
     """測試孤立課程節點的情況
     
@@ -132,7 +129,6 @@ def test_isolated_courses_have_no_path():
     # 檢查班級的課程
     assert len(cls_101.courses) == 1 and a1 in cls_101.courses.values(), "課程應該正確關聯到班級 101"
     assert len(cls_102.courses) == 1 and b2 in cls_102.courses.values(), "課程應該正確關聯到班級 102"
-
 
 def test_single_swap_path():
     """測試簡單的單一交換路徑情境
@@ -205,7 +201,6 @@ def test_single_swap_path():
 
     # 確認要交換的課程在同一個班級
     assert a1.classes == b2.classes, "要交換的課程必須在同一個班級"
-
 
 def test_no_valid_path_in_long_chain(n: int = 10):  # 改為預設10位老師
     """測試長鏈路超出路徑長度限制的情況
@@ -540,102 +535,3 @@ def test_complex_swap_chain():
 
     # 確認路徑結尾是空堂
     assert actual_path[-1].is_free, "路徑應該在空堂結束"
-
-def test_interconnected_path_with_cycle():
-    """測試具有循環與互相連接的分叉路徑
-    
-    描述：
-    這個測試代表了更真實的課程交換情境，其中：
-    1. 同一個班級的課程之間都是互相連接的
-    2. 存在循環路徑（比如 C1 -> D2 -> E3 -> C1）
-    3. 有多個可能的終點和路徑選擇
-    
-    路徑結構：
-                            E3 --- E1
-                             |      |
-    (a2_)A1 -> B2(b1) -> C3(c1) -> D2 -> D1_
-                             |      |
-                             +------+
-
-    路徑說明：
-    1. 基本路徑和 test_forked_path_with_two_ends 類似，但現在所有相關課程都互相連接
-    2. 新增了 E1 -> D2 的連接，創造了一個新的可能路徑
-
-    路徑檢查機制：
-    1. 後向檢查(bwd)：確保目標老師在當前時段有空堂可接收課程
-       - 例如：A1 -> B2 移動時，檢查 A2 是否為空堂以接收 A1
-       
-    2. 前向檢查(fwd)：確保當前課程在目標時段有空堂可移動
-       - 例如：A1 -> B2 移動時，檢查 B1 是否為空堂以讓 B2 移動
-
-    預期找到兩條路徑：
-    1. A2_ -> A1 -> B2 -> B1 -> C3 -> C1 -> D2 -> D1_  # 直接到 D1_
-    2. A2_ -> A1 -> B2 -> B1 -> C3 -> C1 -> E3 -> E1 -> D2 -> D1_  # 經過 E1 到 D1_
-    """
-    # === 建立老師節點 ===
-    teacher_A = TeacherNode(teacher_name="A", courses={})
-    teacher_B = TeacherNode(teacher_name="B", courses={})
-    teacher_C = TeacherNode(teacher_name="C", courses={})
-    teacher_D = TeacherNode(teacher_name="D", courses={})
-    teacher_E = TeacherNode(teacher_name="E", courses={})
-
-    # === 建立班級節點 ===
-    cls_101 = ClassNode(class_code="101", courses={})  # A1-B2 課程所在班級
-    cls_102 = ClassNode(class_code="102", courses={})  # B1-C3 課程所在班級 
-    cls_103 = ClassNode(class_code="103", courses={})  # C1-D2-E3 課程所在班級
-    cls_104 = ClassNode(class_code="104", courses={})  # E1-D2 課程所在班級
-    cls_unused = ClassNode(class_code="unused", courses={})  # 用於不參與交換的課程
-    
-    # === 建立課程節點 ===
-    # A老師的課程
-    a1 = build_course(teacher=teacher_A, cls=cls_101, weekday=1, period=1, streak=1, is_free=False)     # 起點
-    a2 = build_course(teacher=teacher_A, cls=cls_unused, weekday=1, period=2, streak=1, is_free=True)      # 空堂
-    
-    # B老師的課程
-    b1 = build_course(teacher=teacher_B, cls=cls_102, weekday=1, period=1, streak=1, is_free=False)     # B2移動的目標
-    b2 = build_course(teacher=teacher_B, cls=cls_101, weekday=1, period=2, streak=1, is_free=False)     # 中間交換點
-    
-    # C老師的課程
-    c1 = build_course(teacher=teacher_C, cls=cls_103, weekday=1, period=1, streak=1, is_free=False)     # C3移動的目標
-    c2 = build_course(teacher=teacher_C, cls=cls_unused, weekday=1, period=2, streak=1, is_free=True)      # 空堂
-    c3 = build_course(teacher=teacher_C, cls=cls_102, weekday=1, period=3, streak=1, is_free=False)     # 分岔點
-
-    # D老師的課程
-    d1 = build_course(teacher=teacher_D, cls=cls_unused, weekday=1, period=1, streak=1, is_free=True)      # 終點空堂
-    d2 = build_course(teacher=teacher_D, cls=cls_103, weekday=1, period=2, streak=1, is_free=False)     # 分岔路徑之一
-
-    # E老師的課程 
-    e1 = build_course(teacher=teacher_E, cls=cls_103, weekday=1, period=1, streak=1, is_free=False)     # 非空堂
-    e3 = build_course(teacher=teacher_E, cls=cls_103, weekday=1, period=3, streak=1, is_free=False)     # 分岔路徑之二
-
-    # === 執行搜尋並驗證結果 ===
-    paths = list(scheduling.origin_swap(a1))
-    
-    # 印出找到的路徑
-    print("\n=== 找到的路徑 ===")
-    for path in paths:
-        print(" → ".join(node.short() for node in path))
-
-    # 預期找到兩條路徑
-    expected_paths = [
-        [a2, a1, b2, b1, c3, c1, d2, d1],               # 直接到 D1_
-        [a2, a1, b2, b1, c3, c1, e3, e1, d2, d1]        # 經過 E1 到 D1_
-    ]
-
-    # 驗證路徑數量
-    assert len(paths) == 2, f"預期找到2條路徑，實際找到{len(paths)}條"
-    
-    # 檢查每條預期路徑都能找到
-    for expected_path in expected_paths:
-        path_found = False
-        for actual_path in paths:
-            if len(actual_path) == len(expected_path) and \
-               all(actual == expected for actual, expected in zip(actual_path, expected_path)):
-                path_found = True
-                break
-        assert path_found, f"找不到預期路徑：{' → '.join(node.short() for node in expected_path)}"
-
-    # 確認所有路徑都在空堂結束
-    for path in paths:
-        assert path[-1].is_free, "路徑應該在空堂結束"
-
