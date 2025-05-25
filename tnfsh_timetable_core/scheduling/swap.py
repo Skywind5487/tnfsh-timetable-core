@@ -72,7 +72,14 @@ def merge_paths(start: CourseNode, max_depth: int=20) -> Generator[List[CourseNo
         freed: Set[CourseNode] = set(path)
         for next_node in get_neighbors(current):
             logger.debug(f"{indent}➡️ 檢查相鄰節點: {next_node.short()}")
-            
+            logger.debug(f"{indent}↪️ 當前路徑 ({len(path)}): {' → '.join(c.short() for c in path)}")
+            if next_node.time.period == 8:
+                logger.debug(f"{indent}❌ 跳過 {next_node.short()} (第8節課程)")
+                continue
+            if next_node.time.streak != current.time.streak:
+                logger.debug(f"{indent}❌ 跳過 {next_node.short()} (streak不匹配: {next_node.time.streak} != {current.time.streak})")
+                continue
+
             if next_node == current:
                 logger.debug(f"{indent}🔄 跳過 {next_node.short()} (當前節點)")
                 continue
@@ -111,7 +118,15 @@ def merge_paths(start: CourseNode, max_depth: int=20) -> Generator[List[CourseNo
 
     for course in get_neighbors(start):
         logger.debug(f"\n➡️ 檢查相鄰課程: {course.short()}")
-        
+
+        if course.time.period == 8:
+            logger.debug(f"❌ 跳過 {course.short()} (第8節課程)")
+            continue
+
+        if course.time.streak != start.time.streak:
+            logger.debug(f"❌ 跳過（streak不匹配: {course.time.streak} != {start.time.streak}）")
+            continue
+
         if course == start:
             logger.debug("🔄 跳過（當前節點）")
             continue        

@@ -50,6 +50,10 @@ def rotation(start: CourseNode, max_depth: int = 10) -> Generator[List[CourseNod
             logger.debug(f"\n{indent}➡️ 檢查相鄰課程: {next_course.short()}")
             logger.debug(f"{indent}↪️ 當前路徑 ({len(path)}): {' → '.join(n.short() for n in path)}")
 
+            if next_course.time.period == 8:
+                logger.debug(f"{indent}❌ 跳過 {next_course.short()} (第8節課程)")
+                continue
+            
             if next_course == current:
                 logger.debug(f"{indent}🔄 回到當前節點，跳過: {next_course.short()}")
                 continue
