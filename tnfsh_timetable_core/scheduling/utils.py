@@ -69,12 +69,16 @@ def is_free(
     if (freed is not None) and course in freed and mode == "swap":
         pass
     if course is None:
-        print(course)
+        #print(course)
         return False
     return course.is_free
 
 def find_streak_start_if_free(course: CourseNode) -> Optional[CourseNode]:
     src_class = list(course.classes.values())[0]
+    print(f"尋找 {src_class.class_name} 的空堂開始點")
+    if "陳婉玲" in course.teachers:
+        # 陳婉玲的特殊處理
+        print(f"陳婉玲的課程：{course}")
     time = course.time
     for i in range(time.period, 1):
         candidate = src_class.courses.get(StreakTime(
@@ -83,7 +87,7 @@ def find_streak_start_if_free(course: CourseNode) -> Optional[CourseNode]:
             streak=time.streak
         ))
         if candidate and candidate.is_free:
-            if candidate.streak >= (time.period - i) + time.streak:
+            if candidate.time.streak >= (time.period - i) + time.streak:
                 return candidate
             else:
                 return None
@@ -136,6 +140,8 @@ def get_1_hop(
     
     if hop_1:
         # 找到頭
+        if "陳婉玲" in hop_1.teachers:
+            print(f"陳婉玲的課程：{hop_1}")
         if is_free(hop_1, mode=mode, freed=freed):
             # 找到頭且為空堂
             if hop_1.time.streak >= dst_time.streak:

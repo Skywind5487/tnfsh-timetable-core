@@ -16,3 +16,11 @@ dependencies = [
 
 [tool.setuptools]
 packages = ["tnfsh_timetable_core"]
+
+[tool.pytest.ini_options]
+addopts = "-v"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+asyncio_mode = "auto"

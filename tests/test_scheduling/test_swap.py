@@ -561,3 +561,9 @@ async def test_yan_young_jing_3_2():
             print(f"{i}. {' → '.join(nodes)}")
     else:
         print("沒有找到任何互換路徑")
+
+
+if __name__ == "__main__":
+    # 執行測試
+    import asyncio
+    asyncio.run(test_yan_young_jing_3_2())
