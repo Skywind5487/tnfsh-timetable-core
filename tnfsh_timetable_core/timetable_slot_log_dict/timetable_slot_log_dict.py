@@ -25,7 +25,7 @@ class TimetableSlotLogDict(
     BaseDomainABC):
     
     @classmethod
-    async def fetch(cls, cache: "TimetableSlotLogCache" = None) -> "TimetableSlotLogDict":
+    async def fetch(cls, cache: "TimetableSlotLogCache" = None, refresh: bool = False) -> "TimetableSlotLogDict":
         """從快取獲取課表資料
 
         Args:
@@ -39,7 +39,7 @@ class TimetableSlotLogDict(
             from tnfsh_timetable_core.timetable_slot_log_dict.cache import TimetableSlotLogCache
             cache = TimetableSlotLogCache()
         
-        return await cache.fetch()
+        return await cache.fetch(refresh=refresh)
 
     @classmethod
     async def fetch_without_cache(cls):

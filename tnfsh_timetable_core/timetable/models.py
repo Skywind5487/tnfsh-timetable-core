@@ -39,6 +39,8 @@ class CourseInfo(BaseModel):
     counterpart: Optional[List[CounterPart]] = None # name of the class or teacher
 
 
+
+
 class TimeTable(BaseModel):
     table: List[List[Optional[CourseInfo]]]  # 5 weekdays x 8 periods
     type: Literal["class", "teacher"]

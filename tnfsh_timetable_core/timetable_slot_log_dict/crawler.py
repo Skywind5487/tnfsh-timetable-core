@@ -8,11 +8,14 @@ if TYPE_CHECKING:
     from tnfsh_timetable_core.index.index import Index
     from tnfsh_timetable_core.index.models import ReverseIndexResult
 
+from tnfsh_timetable_core.utils.logger import get_logger
+logger = get_logger(logger_level="DEBUG")
+
 class TimetableSlotLogCrawler(
     BaseCrawlerABC[List["CourseInfo"]]
 ):
         
-    async def fetch_raw(self, index: "Index" = None) -> List["TimeTable"]:
+    async def fetch_raw(self, index: "Index" = None, refresh: bool= False) -> List["TimeTable"]:
         if index is None:
             from tnfsh_timetable_core.index.index import Index
             index = Index()
@@ -24,7 +27,7 @@ class TimetableSlotLogCrawler(
         
         from tnfsh_timetable_core.timetable.models import TimeTable
         for target in reverse_index.root.keys():
-            result_list.append(await TimeTable.fetch_cached(target=target))
+            result_list.append(await TimeTable.fetch_cached(target=target, refresh=refresh))
 
         return result_list
 
@@ -35,14 +38,22 @@ class TimetableSlotLogCrawler(
         result = []
         for timetable in raw:
             source = getattr(timetable, "target", None)
+            
 
             for day_index, day in enumerate(timetable.table):
+                
                 prev_course: Optional[CourseInfo] = None
                 streak = 1
                 start_period = 0
 
                 for period_index, course in enumerate(day):
-
+                    if source == "陳婉玲":
+                        # 顯示時間
+                        logger.debug(f"source: {source}, day_index: {day_index}, period_index: {period_index}")
+                        if course is None or not isinstance(course, CourseInfo):
+                            logger.debug(f"course is None or not CourseInfo: {course}")
+                        else:
+                            logger.debug(f"course: {course.model_dump_json(indent=4)}")
                     if period_index == 0:
                         prev_course = course
                         continue
@@ -85,7 +96,7 @@ class TimetableSlotLogCrawler(
 
         return result
 
-    async def fetch(self, index = None) -> List[TimetableSlotLog]:
-        raw_data = await self.fetch_raw(index=index)
+    async def fetch(self, index = None, refresh: bool = False) -> List[TimetableSlotLog]:
+        raw_data = await self.fetch_raw(index=index, refresh=refresh)
         return self.parse(raw_data)
 

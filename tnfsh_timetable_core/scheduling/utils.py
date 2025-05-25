@@ -75,11 +75,14 @@ def is_free(
 
 def find_streak_start_if_free(course: CourseNode) -> Optional[CourseNode]:
     src_class = list(course.classes.values())[0]
-    print(f"尋找 {src_class.class_name} 的空堂開始點")
-    if "陳婉玲" in course.teachers:
-        # 陳婉玲的特殊處理
-        print(f"陳婉玲的課程：{course}")
+    teacher_name = list(course.teachers.keys())[0]
+    logger.debug(f"teacher_name: {teacher_name}")
+    if teacher_name == "陳婉玲": # debug
+        pass
+        #logger.debug(f"courses: {src_class.short()}")
     time = course.time
+    logger.debug(f"尋找 {src_class.class_code} 的空堂開始點，時間：{time}")
+    
     for i in range(time.period, 1):
         candidate = src_class.courses.get(StreakTime(
             weekday=time.weekday,
@@ -88,9 +91,12 @@ def find_streak_start_if_free(course: CourseNode) -> Optional[CourseNode]:
         ))
         if candidate and candidate.is_free:
             if candidate.time.streak >= (time.period - i) + time.streak:
+                logger.debug(f"找到空堂開始點：{candidate}")
                 return candidate
             else:
+                logger.debug(f"找到空堂開始點 {candidate} 但streak不足")
                 return None
+    logger.debug(f"在 {src_class.class_code} 中找不到空堂開始點")
     return None
 
 def get_1_hop(
@@ -132,32 +138,13 @@ def get_1_hop(
     src_teacher = list(src.teachers.values())[0]
     dst_time = dst.time
     src_courses = src_teacher.courses
+    if src_teacher.teacher_name == "陳婉玲":
+        logger.debug(f"src_courses: {src_teacher.short()}")
+
     hop_1 = src_courses.get(dst_time, None)
-    if hop_1 is None:
-        # 沒有找到對應的課程節點
-        logger.debug(f"Warning: {src_teacher.teacher_name}在 {dst_time} 找不到對應的課程節點")
-        return None
     
-    if hop_1:
-        # 找到頭
-        if "陳婉玲" in hop_1.teachers:
-            print(f"陳婉玲的課程：{hop_1}")
-        if is_free(hop_1, mode=mode, freed=freed):
-            # 找到頭且為空堂
-            if hop_1.time.streak >= dst_time.streak:
-                return hop_1 
-            else:
-                # 找到頭但streak不足
-                logger.debug(f"Warning: {src_teacher.teacher_name}在 {dst_time} 找到頭但streak不足")
-                return None
-        else:
-            # 找到頭且不為空堂
-            if hop_1.time.streak == dst_time.streak:
-                return hop_1
-            else:
-                logger.debug(f"Warning: {src_teacher.teacher_name}在 {dst_time} 找到頭但不為空堂")
-                return None
-    else:
+    if hop_1 is None:
+        logger.debug(f"Warning: {src_teacher.teacher_name}在 {dst_time} 找不到課程節點")
         # 找到中段
         candidate = find_streak_start_if_free(src)
         if candidate:
@@ -173,4 +160,22 @@ def get_1_hop(
             # 找不到中段的頭 或 streak 不合
             logger.debug(f"Warning: {src_teacher.teacher_name}在 {dst_time} 找不到中段的頭或streak不合")
             return None
-        
+    else:
+        # 找到頭
+        if src_teacher.teacher_name == "陳婉玲":
+            logger.debug(f"陳婉玲的課程：{hop_1}")
+        if is_free(hop_1, mode=mode, freed=freed):
+            # 找到頭且為空堂
+            if hop_1.time.streak >= dst_time.streak:
+                return hop_1 
+            else:
+                # 找到頭但streak不足
+                logger.debug(f"Warning: {src_teacher.teacher_name}在 {dst_time} 找到頭但streak不足")
+                return None
+        else:
+            # 找到頭且不為空堂
+            if hop_1.time.streak == dst_time.streak:
+                return hop_1
+            else:
+                logger.debug(f"Warning: {src_teacher.teacher_name}在 {dst_time} 找到頭但不為空堂")
+                return None       

@@ -51,14 +51,14 @@ class TNFSHTimetableCore:
         await index.fetch()
         return index
     
-    async def fetch_timetable_slot_log_dict(self):
+    async def fetch_timetable_slot_log_dict(self, refresh: bool = False):
         """從網路獲取課表時段紀錄
 
         Returns:
             TimetableSlotLogDict: 包含最新課表時段紀錄的物件
         """
         from tnfsh_timetable_core.timetable_slot_log_dict.timetable_slot_log_dict import TimetableSlotLogDict
-        timetable_slot_log_dict = await TimetableSlotLogDict.fetch()
+        timetable_slot_log_dict = await TimetableSlotLogDict.fetch(refresh=refresh)
         return timetable_slot_log_dict
 
     def fetch_scheduling(self):

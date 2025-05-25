@@ -182,7 +182,7 @@ def parse_html(soup: BeautifulSoup) -> RawParsedResult:
         def combine_class_name(class_ps) -> str:
             """組合課程名稱"""
             texts = [clean_text(p.text) for p in class_ps]
-            return ''.join(filter(None, texts)).replace("\n", ", ")
+            combine = ''.join(filter(None, texts)).replace("\n", ", ")
         
         ps = class_td.find_all('p')
         if not ps:
@@ -205,7 +205,7 @@ def parse_html(soup: BeautifulSoup) -> RawParsedResult:
         else:
             class_name = ""
         
-        if class_name or teachers_dict != {"": ""}:
+        if (class_name and class_name != " ") or teachers_dict != {"": ""}:
             return {class_name: teachers_dict}
         return {"": {"": ""}}
 

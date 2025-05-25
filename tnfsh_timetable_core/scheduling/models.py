@@ -54,10 +54,20 @@ class TeacherNode(BaseModel):
     teacher_name: str
     courses: Dict[StreakTime, "CourseNode"]
 
+    def short(self) -> str:
+        """返回教師節點的簡短表示"""
+        course_keys = ",".join([key.model_dump_json(indent=4) for key in sorted(self.courses.keys())])
+        return f"<T[{self.teacher_name}] {course_keys}>"
+
 
 class ClassNode(BaseModel):
     class_code: str
     courses: Dict[StreakTime, "CourseNode"]
+
+    def short(self) -> str:
+        """返回班級節點的簡短表示"""
+        course_keys = ",".join([key.model_dump_json(indent=4) for key in sorted(self.courses.keys())])
+        return f"<C[{self.class_code}] {course_keys}>"
 
 
 
@@ -264,11 +274,11 @@ class NodeDicts:
         """
         instance = cls()
         
-        if log_dict is None:
+        if (log_dict is None) or refresh:
             # 如果沒有提供 log_dict，則從快取獲取
             from tnfsh_timetable_core import TNFSHTimetableCore
             core = TNFSHTimetableCore()
-            log_dict = await core.fetch_timetable_slot_log_dict()
+            log_dict = await core.fetch_timetable_slot_log_dict(refresh=refresh)
             
         await instance.fetch_teacher_nodes(refresh=refresh)
         #print(f"teacher_nodes: {instance.teacher_nodes}")

@@ -1,6 +1,8 @@
 import json
 from typing import List, Optional, Dict, Tuple, TYPE_CHECKING
 from pathlib import Path
+from venv import logger
+from weakref import ref
 from tnfsh_timetable_core.abc.cache_abc import BaseCacheABC
 from tnfsh_timetable_core.timetable_slot_log_dict.models import StreakTime, TimetableSlotLog
 
@@ -8,6 +10,9 @@ if TYPE_CHECKING:
     from tnfsh_timetable_core.timetable_slot_log_dict.timetable_slot_log_dict import TimetableSlotLogDict
     from tnfsh_timetable_core.timetable_slot_log_dict.crawler import TimetableSlotLogCrawler
     from tnfsh_timetable_core.timetable.models import CourseInfo
+
+from tnfsh_timetable_core.utils.logger import get_logger
+logger = get_logger(logger_level="DEBUG")
 
 # 型別別名
 Source = str
@@ -53,13 +58,14 @@ class TimetableSlotLogCache(BaseCacheABC):
             return mem
         
         # 2. 檢查檔案快取
-        if disk := await self.fetch_from_file():
+        if (not refresh) and (disk := await self.fetch_from_file()):
             await self.save_to_memory(disk)
             return disk
             
         # 3. 從爬蟲取得資料
-        logs = await self.fetch_from_source()
-        
+        logs = await self.fetch_from_source(refresh=refresh)
+        logger.debug(f"從爬蟲取得 {len(logs)} 條課表時段紀錄")
+
         # 轉換並儲存到兩層快取
         data = self._convert_to_dict(logs)
         await self.save_to_memory(data)  # 記憶體存成 TimetableSlotLogDict
@@ -84,9 +90,9 @@ class TimetableSlotLogCache(BaseCacheABC):
         except (json.JSONDecodeError, FileNotFoundError):
             return None
 
-    async def fetch_from_source(self) -> List[TimetableSlotLog]:
+    async def fetch_from_source(self, refresh: bool = False) -> List[TimetableSlotLog]:
         """從爬蟲取得資料"""
-        return await self._crawler.fetch()    
+        return await self._crawler.fetch(refresh=refresh)    
             
     async def save_to_memory(self, data: "TimetableSlotLogDict") -> None:
         """儲存資料到記憶體快取"""
