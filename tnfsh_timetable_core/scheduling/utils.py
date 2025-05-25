@@ -128,8 +128,6 @@ def get_1_hop(
     src_teacher = list(src.teachers.values())[0]
     dst_time = dst.time
     src_courses = src_teacher.courses
-    logger.debug(f"get_1_hop: {src_teacher.teacher_name} 在 {dst_time} 的課程節點")
-    logger.debug(f"list_courses: {list(src_courses.keys())}")   
     hop_1 = src_courses.get(dst_time, None)
     if hop_1 is None:
         # 沒有找到對應的課程節點

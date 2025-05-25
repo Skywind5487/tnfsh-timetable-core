@@ -164,7 +164,8 @@ async def build_course_node_from_log_dict(log_dict:TimetableSlotLogDict):
                     teachers={},
                     classes={class_code: class_nodes[class_code]}
                 )
-                print()
+                #print()
+                #logger.debug(f"Adding free class course node: {course_node.short()}")
                 final_course_nodes_set.add(course_node)
                 continue
                 
@@ -184,8 +185,8 @@ async def build_course_node_from_log_dict(log_dict:TimetableSlotLogDict):
                 continue
             if counter_counterpart is None:
                 # 對應的老師沒有紀錄課程
-                print(f"{counter_log} has no counterpart for {streak_time}")
-                print(f"Warning: {teacher_name} has no counterpart in log_dict for {streak_time}")
+                #print(f"{counter_log} has no counterpart for {streak_time}")
+                #print(f"Warning: {teacher_name} has no counterpart in log_dict for {streak_time}")
                 continue
             if len(counter_counterpart) != 1:
                 # 多老師或多班級或無班級或無老師
@@ -205,7 +206,21 @@ async def build_course_node_from_log_dict(log_dict:TimetableSlotLogDict):
                 classes={class_code: class_nodes[class_code]}
             )
             final_course_nodes_set.add(course_node)
-            
+        else:
+            # 這是教師課程
+            teacher_name = source
+            if course_info is None:
+                # 空堂
+                course_node = CourseNode(
+                    time=streak_time,
+                    is_free=True,
+                    subject="",
+                    teachers={teacher_name: teacher_nodes[teacher_name]},
+                    classes={}
+                )
+                #logger.debug(f"Adding free teacher course node: {course_node.short()}")
+                final_course_nodes_set.add(course_node)
+               
     # 更新所有節點的課程資訊
     for node in final_course_nodes_set:
         for teacher_name, teacher_node in node.teachers.items():
@@ -213,8 +228,9 @@ async def build_course_node_from_log_dict(log_dict:TimetableSlotLogDict):
                 teacher_nodes[teacher_name].courses[node.time] = node
         for class_code, class_node in node.classes.items():
             if node.teachers is None:
-                print(f"Warning: {node} has no teachers, this may be a problem.")
-                logger.warning(f"hi")
+                #print(f"Warning: {node} has no teachers, this may be a problem.")
+                #logger.warning(f"hi")
+                pass
             if node.time not in class_node.courses:
                 class_nodes[class_code].courses[node.time] = node
 
@@ -223,29 +239,18 @@ class NodeDicts:
     def __init__(self):
         self.teacher_nodes = None
         self.class_nodes = None
-    
-    async def fetch_teacher_nodes(self) -> TeacherNodeDict:
-        if not self.teacher_nodes:
-            self.teacher_nodes = await TeacherNodeDict.fetch()
+
+    async def fetch_teacher_nodes(self, refresh: bool = False) -> TeacherNodeDict:
+        if not self.teacher_nodes or refresh:
+            self.teacher_nodes = await TeacherNodeDict.fetch(refresh=refresh)
         return self.teacher_nodes
-    
-    async def fetch_class_nodes(self) -> None:
+
+    async def fetch_class_nodes(self, refresh: bool = False) -> ClassNodeDict:
         """初始化 class nodes"""
         # 從全域的 index 中取出班級資料
-        from tnfsh_timetable_core import TNFSHTimetableCore
-        core = TNFSHTimetableCore()
-        index = await core.fetch_index()
-        categories = index.index.class_.data
-        temp_class_nodes = {}
-
-        for classes in categories.values():
-            for class_name, url in classes.items():
-                temp_class_nodes[class_name] = ClassNode(
-                    class_code=class_name,
-                    courses={}
-                )
-                
-        self.class_nodes = temp_class_nodes    
+        if not self.class_nodes or refresh:
+            self.class_nodes = await ClassNodeDict.fetch(refresh=refresh) 
+        return self.class_nodes
     
     @classmethod
     async def fetch(cls, log_dict: TimetableSlotLogDict = None, refresh: bool = False) -> "NodeDicts":
@@ -269,6 +274,6 @@ class NodeDicts:
         #print(f"teacher_nodes: {instance.teacher_nodes}")
         await instance.fetch_class_nodes(refresh=refresh)
         await build_course_node_from_log_dict(log_dict)
-        #print(f"class_nodes: {instance.class_nodes}")
+        print(f"build!")
         return instance
 

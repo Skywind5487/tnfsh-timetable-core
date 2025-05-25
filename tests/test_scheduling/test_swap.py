@@ -535,3 +535,29 @@ def test_complex_swap_chain():
 
     # 確認路徑結尾是空堂
     assert actual_path[-1].is_free, "路徑應該在空堂結束"
+
+
+@pytest.mark.asyncio
+async def test_yan_young_jing_3_2():
+    """測試顏永進老師的 3-2 課程配置
+    """    
+    cycles = await scheduling.swap("顏永進", weekday=3, period=2, max_depth=3, refresh=True)
+    cycles_list = list(cycles)
+    
+    # 列印找到的環路
+    print(f"\n找到 {len(cycles_list)} 條環路：")
+    if cycles_list:
+        print("\n=== 輪調路徑 ===")
+        for i, cycle in enumerate(cycles_list, 1):
+            nodes = []
+            for node in cycle:
+                teacher_names = []
+                for teacher in node.teachers.values():
+                    teacher_names.append(teacher.teacher_name)
+                class_codes = []
+                for cls in node.classes.values():
+                    class_codes.append(cls.class_code)
+                nodes.append(f"{node.time.weekday}-{node.time.period} ({','.join(teacher_names)}/{','.join(class_codes)})")
+            print(f"{i}. {' → '.join(nodes)}")
+    else:
+        print("沒有找到任何輪調路徑")

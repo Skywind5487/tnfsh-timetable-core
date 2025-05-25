@@ -82,23 +82,3 @@ def rotation(start: CourseNode, max_depth: int = 10) -> Generator[List[CourseNod
 
     yield from dfs_cycle(start)
 
-
-
-def _print_cycles(cycles):
-    """以更清晰的格式輸出找到的環路"""
-    if not cycles:
-        print("未找到任何環路")
-        return
-
-    # 依照環路長度排序
-    sorted_cycles = sorted(cycles, key=len)
-    print("\n=== 環路清單（依長度排序）===")
-    for i, cycle in enumerate(sorted_cycles, 1):
-        actual_length = len(cycle)  # 實際長度（包含重複的起點）
-        depth = actual_length - 1   # 深度（不含重複的起點）
-        path_str = " -> ".join(str(node) for node in cycle)
-        print(f"\n環路 {i}:")
-        print(f"深度: {depth}, 實際長度: {actual_length}")
-        print(f"路徑: {path_str}")
-
-    print("\n總共找到", len(cycles), "個環路")

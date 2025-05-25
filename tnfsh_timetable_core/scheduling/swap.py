@@ -71,6 +71,8 @@ def merge_paths(start: CourseNode, max_depth: int=20) -> Generator[List[CourseNo
 
         freed: Set[CourseNode] = set(path)
         for next_node in get_neighbors(current):
+            logger.debug(f"{indent}➡️ 檢查相鄰節點: {next_node.short()}")
+            
             if next_node == current:
                 logger.debug(f"{indent}🔄 跳過 {next_node.short()} (當前節點)")
                 continue

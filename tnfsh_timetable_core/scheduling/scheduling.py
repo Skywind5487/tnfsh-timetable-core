@@ -6,15 +6,27 @@ if TYPE_CHECKING:
 
 
 class Scheduling:
-    async def rotation(self, teacher_name: str, weekday: int, period: int, max_depth: int = 3, refresh: bool = False):        
+    async def rotation(self, teacher_name: str, weekday: int, period: int, max_depth: int = 3, refresh: bool = False) -> Generator[List[CourseNode], None, None]:
+        """搜尋從指定老師的課程開始的所有可能輪調環路
+        
+        Args:
+            teacher_name: 老師姓名
+            weekday: 星期幾 (1-5)
+            period: 第幾節課 (1-8)
+            max_depth: 最大搜尋深度，預設為3
+            refresh: 是否重新載入資料，預設為False
+
+        Returns:
+            Generator[List[CourseNode], None, None]: 生成所有找到的環路
+        """
         course_node = await self.fetch_course_node(teacher_name, weekday, period, refresh=refresh)
         if not course_node:
             raise ValueError(f"課程節點不存在：{teacher_name} 在 {weekday} 星期 {period} 節")
         return self.origin_rotation(course_node, max_depth=max_depth)
 
-    async def swap(self, teacher_name: str, weekday: int, period: int, max_depth: int = 3):
+    async def swap(self, teacher_name: str, weekday: int, period: int, max_depth: int = 3, refresh: bool = False):
         # fetch course node
-        course_node = await self.fetch_course_node(teacher_name, weekday, period)
+        course_node = await self.fetch_course_node(teacher_name, weekday, period, refresh=refresh)
         if not course_node:
             raise ValueError(f"課程節點不存在：{teacher_name} 在 {weekday} 星期 {period} 節")
 
