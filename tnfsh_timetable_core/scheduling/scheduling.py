@@ -6,8 +6,8 @@ if TYPE_CHECKING:
 
 
 class Scheduling:
-    async def rotation(self, teacher_name: str, weekday: int, period: int, max_depth: int = 3):        
-        course_node = await self.fetch_course_node(teacher_name, weekday, period)
+    async def rotation(self, teacher_name: str, weekday: int, period: int, max_depth: int = 3, refresh: bool = False):        
+        course_node = await self.fetch_course_node(teacher_name, weekday, period, refresh=refresh)
         if not course_node:
             raise ValueError(f"課程節點不存在：{teacher_name} 在 {weekday} 星期 {period} 節")
         return self.origin_rotation(course_node, max_depth=max_depth)
@@ -27,15 +27,15 @@ class Scheduling:
     def origin_swap(self, start: CourseNode, max_depth: int = 10) -> Generator[List[CourseNode], None, None]:
         from tnfsh_timetable_core.scheduling.swap import merge_paths
         return merge_paths(start, max_depth=max_depth)
-    
-    async def fetch_course_node(self, teacher_name: str, weekday: int, period: int) -> CourseNode:
+
+    async def fetch_course_node(self, teacher_name: str, weekday: int, period: int, refresh: bool = False) -> CourseNode:
         """從教師名稱、星期幾和第幾節獲取課程節點"""
         from tnfsh_timetable_core.scheduling.models import NodeDicts
         from tnfsh_timetable_core.timetable_slot_log_dict.models import StreakTime
         # Todo: streak要用算的
         streak_time = StreakTime(weekday=weekday, period=period, streak=1)
-        node_dicts = await NodeDicts.fetch()
-        
+        node_dicts = await NodeDicts.fetch(refresh=refresh)
+
         if not node_dicts.teacher_nodes:
             raise ValueError("教師節點字典為空")
             

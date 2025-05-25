@@ -2,10 +2,14 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING, List, Dict, Literal, Set, Optional
 
+from requests import get
+
 if TYPE_CHECKING:
     from tnfsh_timetable_core.scheduling.models import CourseNode, ClassNode, TeacherNode
     from tnfsh_timetable_core.timetable_slot_log_dict.models import StreakTime
 
+from tnfsh_timetable_core.utils.logger import get_logger
+logger = get_logger(logger_level="DEBUG")
 
 # deprecated
 def connect_neighbors(nodes: List[CourseNode]) -> None:
@@ -123,10 +127,13 @@ def get_1_hop(
 
     src_teacher = list(src.teachers.values())[0]
     dst_time = dst.time
-    hop_1 = src_teacher.courses.get(dst_time, None)
+    src_courses = src_teacher.courses
+    logger.debug(f"get_1_hop: {src_teacher.teacher_name} 在 {dst_time} 的課程節點")
+    logger.debug(f"list_courses: {list(src_courses.keys())}")   
+    hop_1 = src_courses.get(dst_time, None)
     if hop_1 is None:
         # 沒有找到對應的課程節點
-        print(f"Warning: {src_teacher.teacher_name}在 {dst_time} 沒有課程節點")
+        logger.debug(f"Warning: {src_teacher.teacher_name}在 {dst_time} 找不到對應的課程節點")
         return None
     
     if hop_1:
@@ -134,14 +141,17 @@ def get_1_hop(
         if is_free(hop_1, mode=mode, freed=freed):
             # 找到頭且為空堂
             if hop_1.time.streak >= dst_time.streak:
-                return hop_1
+                return hop_1 
             else:
+                # 找到頭但streak不足
+                logger.debug(f"Warning: {src_teacher.teacher_name}在 {dst_time} 找到頭但streak不足")
                 return None
         else:
             # 找到頭且不為空堂
             if hop_1.time.streak == dst_time.streak:
                 return hop_1
             else:
+                logger.debug(f"Warning: {src_teacher.teacher_name}在 {dst_time} 找到頭但不為空堂")
                 return None
     else:
         # 找到中段
@@ -152,9 +162,11 @@ def get_1_hop(
                 # 往前搜尋 streak 開始
                     return candidate
             else:
+                logger.debug(f"Warning: {src_teacher.teacher_name}在 {dst_time} 找到中段但不為空堂")
                 # 找到中段且不為空堂
                 return None
         else:
             # 找不到中段的頭 或 streak 不合
+            logger.debug(f"Warning: {src_teacher.teacher_name}在 {dst_time} 找不到中段的頭或streak不合")
             return None
         

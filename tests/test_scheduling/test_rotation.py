@@ -418,7 +418,7 @@ def test_isolated_course():
 async def test_yan_young_jing_3_2():
     """測試顏永進老師的 3-2 課程配置
     """
-    result = await scheduling.rotation("顏永進", weekday=3, period=2, max_depth=3)
+    result = await scheduling.rotation("顏永進", weekday=3, period=2, max_depth=3, refresh=True)
     if result is None:
         result = "沒有找到符合條件的輪調環路"
     print(f"{len(list(result))} 條符合條件的輪調環路：")

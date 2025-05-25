@@ -1,8 +1,10 @@
 from __future__ import annotations
+import logging
 from math import log
 import re
 from typing import Counter, Dict, TYPE_CHECKING
 from pydantic import BaseModel, RootModel
+from requests import get
 from tnfsh_timetable_core.timetable.models import CourseInfo
 from tnfsh_timetable_core.timetable_slot_log_dict.models import StreakTime
 from tnfsh_timetable_core.utils.dict_like import dict_like
@@ -10,6 +12,9 @@ from tnfsh_timetable_core.utils.dict_like import dict_like
 from tnfsh_timetable_core.scheduling.utils import is_free
 
 import tnfsh_timetable_core
+
+from tnfsh_timetable_core.utils.logger import get_logger
+logger = get_logger(logger_level="DEBUG")
 
 # Global variables for caching
 teacher_node_cache = {}
@@ -159,6 +164,7 @@ async def build_course_node_from_log_dict(log_dict:TimetableSlotLogDict):
                     teachers={},
                     classes={class_code: class_nodes[class_code]}
                 )
+                print()
                 final_course_nodes_set.add(course_node)
                 continue
                 
@@ -206,6 +212,9 @@ async def build_course_node_from_log_dict(log_dict:TimetableSlotLogDict):
             if node.time not in teacher_node.courses:
                 teacher_nodes[teacher_name].courses[node.time] = node
         for class_code, class_node in node.classes.items():
+            if node.teachers is None:
+                print(f"Warning: {node} has no teachers, this may be a problem.")
+                logger.warning(f"hi")
             if node.time not in class_node.courses:
                 class_nodes[class_code].courses[node.time] = node
 
@@ -239,7 +248,7 @@ class NodeDicts:
         self.class_nodes = temp_class_nodes    
     
     @classmethod
-    async def fetch(cls, log_dict: TimetableSlotLogDict = None) -> "NodeDicts":
+    async def fetch(cls, log_dict: TimetableSlotLogDict = None, refresh: bool = False) -> "NodeDicts":
         """從課表時段紀錄字典建立所有節點
         
         Args:
@@ -256,9 +265,9 @@ class NodeDicts:
             core = TNFSHTimetableCore()
             log_dict = await core.fetch_timetable_slot_log_dict()
             
-        await instance.fetch_teacher_nodes()
+        await instance.fetch_teacher_nodes(refresh=refresh)
         #print(f"teacher_nodes: {instance.teacher_nodes}")
-        await instance.fetch_class_nodes()
+        await instance.fetch_class_nodes(refresh=refresh)
         await build_course_node_from_log_dict(log_dict)
         #print(f"class_nodes: {instance.class_nodes}")
         return instance
