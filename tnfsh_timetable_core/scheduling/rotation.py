@@ -24,7 +24,7 @@ def rotation(start: CourseNode, max_depth: int = 10) -> Generator[List[CourseNod
     Returns:
         Generator[List[CourseNode], None, None]: 生成找到的所有環路，每個環路是一個 CourseNode 列表
     """
-    
+    max_depth = max_depth + 1  # 增加1以便包含起始節點
     def dfs_cycle(
         start: CourseNode,
         current: Optional[CourseNode] = None,
@@ -49,7 +49,7 @@ def rotation(start: CourseNode, max_depth: int = 10) -> Generator[List[CourseNod
         for next_course in get_neighbors(current):
             logger.debug(f"\n{indent}➡️ 檢查相鄰課程: {next_course.short()}")
             logger.debug(f"{indent}↪️ 當前路徑 ({len(path)}): {' → '.join(n.short() for n in path)}")
-
+            
             if next_course.time.period == 8:
                 logger.debug(f"{indent}❌ 跳過 {next_course.short()} (第8節課程)")
                 continue
@@ -72,8 +72,11 @@ def rotation(start: CourseNode, max_depth: int = 10) -> Generator[List[CourseNod
             if next_course.time.streak != current.time.streak:
                 logger.debug(f"{indent}❌ 不同streaks不可換課（{next_course.short()}與{current.short()}）")
                 continue
+            
+            
 
             hop_1_bwd = get_1_hop(current, next_course, type="bwd")
+
 
             if not is_free(hop_1_bwd):
                 logger.debug(f"{indent}❌ 非空堂不可換課（{hop_1_bwd.short() if hop_1_bwd else 'none'}）: {next_course.short()}")

@@ -541,7 +541,7 @@ def test_complex_swap_chain():
 async def test_yan_young_jing_3_2():
     """測試顏永進老師的 3-2 課程配置
     """    
-    cycles = await scheduling.swap("顏永進", weekday=3, period=2, max_depth=3, refresh=True)
+    cycles = await scheduling.swap("顏永進", weekday=3, period=2, max_depth=2, refresh=False)
     cycles_list = list(cycles)
 
     # 列印找到的互換路徑

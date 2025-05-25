@@ -25,6 +25,7 @@ def merge_paths(start: CourseNode, max_depth: int=20) -> Generator[List[CourseNo
     Yields:
         List[CourseNode]: 完整的交換路徑（後向路徑 + 起點 + 前向路徑）
     """
+    max_depth = max_depth - 1
     def _dfs_swap_path(
         start: CourseNode,
         current: CourseNode | None = None,

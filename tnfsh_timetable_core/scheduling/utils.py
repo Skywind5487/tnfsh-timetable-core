@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from tkinter import S
 from typing import TYPE_CHECKING, List, Dict, Literal, Set, Optional
 
 from requests import get
@@ -73,30 +74,48 @@ def is_free(
         return False
     return course.is_free
 
-def find_streak_start_if_free(course: CourseNode) -> Optional[CourseNode]:
-    src_class = list(course.classes.values())[0]
-    teacher_name = list(course.teachers.keys())[0]
-    logger.debug(f"teacher_name: {teacher_name}")
-    if teacher_name == "陳婉玲": # debug
-        pass
-        #logger.debug(f"courses: {src_class.short()}")
-    time = course.time
-    logger.debug(f"尋找 {src_class.class_code} 的空堂開始點，時間：{time}")
+def find_streak_start_if_free(course: CourseNode, streak_time: StreakTime = None, type: Literal["class", "teacher"]= "class") -> Optional[CourseNode]:
+    """尋找課程的空堂開始點"""
+    time = streak_time
     
-    for i in range(time.period, 1):
+    if streak_time is None:
+        # 如果沒有提供 streak_time，則使用課程的時間
+        if not course.time:
+            logger.debug(f"課程 {course.short()} 沒有時間資訊")
+            return None
+        streak_time = course.time
+
+
+    if type == "teacher":
+        # 如果是教師節點，則使用教師的課程
+        src_class = list(course.teachers.values())[0]
+
+    elif type == "class":
+        # 如果是班級節點，則使用班級的課程
+        src_class = list(course.classes.values())[0]
+
+    from tnfsh_timetable_core.timetable_slot_log_dict.models import StreakTime
+
+    for i in range(time.period, 0, -1):
         candidate = src_class.courses.get(StreakTime(
             weekday=time.weekday,
             period=i,
             streak=time.streak
         ))
+        
+
         if candidate and candidate.is_free:
             if candidate.time.streak >= (time.period - i) + time.streak:
-                logger.debug(f"找到空堂開始點：{candidate}")
+                logger.debug(f"找到空堂開始點：{candidate.short()}")
                 return candidate
             else:
-                logger.debug(f"找到空堂開始點 {candidate} 但streak不足")
+                logger.debug(f"找到空堂開始點 {candidate.short()} 但streak不足")
                 return None
-    logger.debug(f"在 {src_class.class_code} 中找不到空堂開始點")
+    
+    if type == "class":
+        logger.debug(f"在 {src_class.class_code} 中找不到空堂開始點")
+    elif type == "teacher":
+        logger.debug(f"在 {src_class.teacher_name} 中找不到空堂開始點")
     return None
 
 def get_1_hop(
@@ -138,15 +157,14 @@ def get_1_hop(
     src_teacher = list(src.teachers.values())[0]
     dst_time = dst.time
     src_courses = src_teacher.courses
-    if src_teacher.teacher_name == "陳婉玲":
-        logger.debug(f"src_courses: {src_teacher.short()}")
+
 
     hop_1 = src_courses.get(dst_time, None)
     
     if hop_1 is None:
         logger.debug(f"Warning: {src_teacher.teacher_name}在 {dst_time} 找不到課程節點")
         # 找到中段
-        candidate = find_streak_start_if_free(src)
+        candidate = find_streak_start_if_free(src, streak_time=dst_time, type="teacher")
         if candidate:
             # 找到中段且為空堂
             if is_free(candidate, mode=mode, freed=freed):
@@ -162,8 +180,6 @@ def get_1_hop(
             return None
     else:
         # 找到頭
-        if src_teacher.teacher_name == "陳婉玲":
-            logger.debug(f"陳婉玲的課程：{hop_1}")
         if is_free(hop_1, mode=mode, freed=freed):
             # 找到頭且為空堂
             if hop_1.time.streak >= dst_time.streak:

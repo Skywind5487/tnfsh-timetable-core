@@ -182,7 +182,8 @@ def parse_html(soup: BeautifulSoup) -> RawParsedResult:
         def combine_class_name(class_ps) -> str:
             """組合課程名稱"""
             texts = [clean_text(p.text) for p in class_ps]
-            combine = ''.join(filter(None, texts)).replace("\n", ", ")
+            combine = ''.join(filter(None, texts)).replace("\n", ", ").replace("\u00a0", "")
+            return combine
         
         ps = class_td.find_all('p')
         if not ps:
