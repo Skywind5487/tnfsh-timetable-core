@@ -80,9 +80,9 @@ class TeacherNodeDict(RootModel[
         if refresh:
             # 強制更新
             teacher_node_cache = {}
-          if teacher_node_cache:
+        if teacher_node_cache:
             # 如果快取中有資料，回傳新的實例
-            return TeacherNodeDict(root=teacher_node_cache)
+            return cls(root=teacher_node_cache)
         
         from tnfsh_timetable_core import TNFSHTimetableCore
         core = TNFSHTimetableCore()
@@ -94,7 +94,11 @@ class TeacherNodeDict(RootModel[
                 if teacher_name not in result:
                     result[teacher_name] = TeacherNode(teacher_name=teacher_name, courses={})
         teacher_node_cache = result
-        return TeacherNodeDict(result)
+        if result is None:
+            print(f"Warning: {result} is None, this may be a problem.")
+            raise ValueError("TeacherNodeDict fetch failed, result is None.")
+        print(result)
+        return cls(root=result)
 
 class ClassNodeDict(RootModel[
     Dict[str, ClassNode]
@@ -103,26 +107,26 @@ class ClassNodeDict(RootModel[
     @classmethod
     async def fetch(cls, *args, refresh: bool = False, **kwargs) -> ClassNodeDict:
         """三層快取的統一入口，回傳 domain 實例
-        此時 ClassNode 尚未新增course
         """
         global class_node_cache
         if refresh:
             # 強制更新
             class_node_cache = {}
         if class_node_cache:
-            return ClassNodeDict(root=class_node_cache)
-
+            # 如果快取中有資料，回傳新的實例
+            return cls(root=class_node_cache)
+        
         from tnfsh_timetable_core import TNFSHTimetableCore
         core = TNFSHTimetableCore()
         index:Index = await core.fetch_index()
-        categories = index.index.class_.data
+        categories = index.index.class_name.data
         result: Dict[str, ClassNode] = {}
         for category, items in categories.items():
-            for class_code, url in items.items():
-                if class_code not in result:
-                    result[class_code] = ClassNode(class_code=class_code, courses={})
+            for class_name, url in items.items():
+                if class_name not in result:
+                    result[class_name] = ClassNode(class_name=class_name, courses={})
         class_node_cache = result
-        return ClassNodeDict(result)
+        return cls(root=result)
         
 
 from tnfsh_timetable_core.timetable_slot_log_dict.timetable_slot_log_dict import TimetableSlotLogDict
@@ -195,13 +199,14 @@ class NodeDicts:
     
     async def fetch_teacher_nodes(self) -> TeacherNodeDict:
         if not self.teacher_nodes:
-            self.teacher_nodes = await TeacherNodeDict().fetch()
+            self.teacher_nodes = await TeacherNodeDict.fetch()
         return self.teacher_nodes
     
     async def fetch_class_nodes(self) -> ClassNodeDict:
         if not self.class_nodes:
-            self.class_nodes = await ClassNodeDict().fetch()
+            self.class_nodes = await ClassNodeDict.fetch()
         return self.class_nodes
+
     async def fetch(self, log_dict: TimetableSlotLogDict = None) -> Dict[str, CourseNode]:        
         if log_dict is None:
             # 如果沒有提供 log_dict，則從快取獲取
