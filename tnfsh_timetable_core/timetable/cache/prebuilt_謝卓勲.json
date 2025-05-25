@@ -80,10 +80,7 @@
                     }
                 ]
             },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
+            null,
             {
                 "subject": "全民國防教育",
                 "counterpart": [
@@ -105,10 +102,7 @@
                     }
                 ]
             },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
+            null,
             {
                 "subject": "全民國防教育",
                 "counterpart": [

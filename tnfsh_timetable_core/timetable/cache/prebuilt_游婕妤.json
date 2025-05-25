@@ -1,140 +1,44 @@
 {
     "table": [
         [
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            }
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         [
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            }
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         [
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            }
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         [
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            }
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         [
             {
@@ -145,30 +49,12 @@
                 "subject": "高一多元選修",
                 "counterpart": null
             },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            }
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     ],
     "type": "teacher",

@@ -1,140 +1,44 @@
 {
     "table": [
         [
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            }
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         [
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            }
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         [
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            }
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         [
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            }
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         [
             {
@@ -153,22 +57,10 @@
                 "subject": "彈性-多元選修",
                 "counterpart": null
             },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            }
+            null,
+            null,
+            null,
+            null
         ]
     ],
     "type": "teacher",

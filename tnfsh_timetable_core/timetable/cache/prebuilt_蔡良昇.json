@@ -120,10 +120,7 @@
                     }
                 ]
             },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
+            null,
             null,
             null,
             null,

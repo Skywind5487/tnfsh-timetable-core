@@ -281,19 +281,7 @@
     "streak_time": {
       "weekday": 3,
       "period": 1,
-      "streak": 1
-    },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
-  },
-  {
-    "source": "陳姿綉",
-    "streak_time": {
-      "weekday": 3,
-      "period": 2,
-      "streak": 2
+      "streak": 3
     },
     "log": null
   },
@@ -701,28 +689,7 @@
     "streak_time": {
       "weekday": 5,
       "period": 3,
-      "streak": 4
-    },
-    "log": null
-  },
-  {
-    "source": "歐美瑩",
-    "streak_time": {
-      "weekday": 5,
-      "period": 7,
-      "streak": 1
-    },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
-  },
-  {
-    "source": "歐美瑩",
-    "streak_time": {
-      "weekday": 5,
-      "period": 8,
-      "streak": 1
+      "streak": 6
     },
     "log": null
   },
@@ -1026,28 +993,7 @@
     "streak_time": {
       "weekday": 3,
       "period": 1,
-      "streak": 2
-    },
-    "log": null
-  },
-  {
-    "source": "陳婉玲",
-    "streak_time": {
-      "weekday": 3,
-      "period": 3,
-      "streak": 2
-    },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
-  },
-  {
-    "source": "陳婉玲",
-    "streak_time": {
-      "weekday": 3,
-      "period": 5,
-      "streak": 2
+      "streak": 6
     },
     "log": null
   },
@@ -2072,21 +2018,9 @@
     "streak_time": {
       "weekday": 2,
       "period": 3,
-      "streak": 2
+      "streak": 3
     },
     "log": null
-  },
-  {
-    "source": "林文瑜",
-    "streak_time": {
-      "weekday": 2,
-      "period": 5,
-      "streak": 1
-    },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
   },
   {
     "source": "林文瑜",
@@ -4323,28 +4257,7 @@
     "streak_time": {
       "weekday": 5,
       "period": 1,
-      "streak": 2
-    },
-    "log": null
-  },
-  {
-    "source": "華泓嘉",
-    "streak_time": {
-      "weekday": 5,
-      "period": 3,
-      "streak": 1
-    },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
-  },
-  {
-    "source": "華泓嘉",
-    "streak_time": {
-      "weekday": 5,
-      "period": 4,
-      "streak": 5
+      "streak": 8
     },
     "log": null
   },
@@ -5893,28 +5806,7 @@
     "streak_time": {
       "weekday": 3,
       "period": 2,
-      "streak": 1
-    },
-    "log": null
-  },
-  {
-    "source": "趙珮珽",
-    "streak_time": {
-      "weekday": 3,
-      "period": 3,
-      "streak": 1
-    },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
-  },
-  {
-    "source": "趙珮珽",
-    "streak_time": {
-      "weekday": 3,
-      "period": 4,
-      "streak": 5
+      "streak": 7
     },
     "log": null
   },
@@ -6999,10 +6891,7 @@
       "period": 1,
       "streak": 1
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "蔣銘鴻",
@@ -7035,28 +6924,7 @@
     "streak_time": {
       "weekday": 1,
       "period": 1,
-      "streak": 2
-    },
-    "log": null
-  },
-  {
-    "source": "洪鐘儒",
-    "streak_time": {
-      "weekday": 1,
-      "period": 3,
-      "streak": 1
-    },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
-  },
-  {
-    "source": "洪鐘儒",
-    "streak_time": {
-      "weekday": 1,
-      "period": 4,
-      "streak": 1
+      "streak": 4
     },
     "log": null
   },
@@ -7420,28 +7288,7 @@
     "streak_time": {
       "weekday": 4,
       "period": 1,
-      "streak": 2
-    },
-    "log": null
-  },
-  {
-    "source": "劉哲夫",
-    "streak_time": {
-      "weekday": 4,
-      "period": 3,
-      "streak": 1
-    },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
-  },
-  {
-    "source": "劉哲夫",
-    "streak_time": {
-      "weekday": 4,
-      "period": 4,
-      "streak": 5
+      "streak": 8
     },
     "log": null
   },
@@ -7709,33 +7556,9 @@
     "streak_time": {
       "weekday": 4,
       "period": 3,
-      "streak": 1
-    },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
-  },
-  {
-    "source": "農寶嫦",
-    "streak_time": {
-      "weekday": 4,
-      "period": 4,
-      "streak": 2
+      "streak": 4
     },
     "log": null
-  },
-  {
-    "source": "農寶嫦",
-    "streak_time": {
-      "weekday": 4,
-      "period": 6,
-      "streak": 1
-    },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
   },
   {
     "source": "農寶嫦",
@@ -8295,21 +8118,9 @@
     "streak_time": {
       "weekday": 3,
       "period": 1,
-      "streak": 1
+      "streak": 2
     },
     "log": null
-  },
-  {
-    "source": "梁力仁",
-    "streak_time": {
-      "weekday": 3,
-      "period": 2,
-      "streak": 1
-    },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
   },
   {
     "source": "梁力仁",
@@ -8985,10 +8796,7 @@
       "period": 5,
       "streak": 1
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "張惠智",
@@ -10123,19 +9931,7 @@
     "streak_time": {
       "weekday": 2,
       "period": 3,
-      "streak": 1
-    },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
-  },
-  {
-    "source": "宋忠義",
-    "streak_time": {
-      "weekday": 2,
-      "period": 4,
-      "streak": 5
+      "streak": 6
     },
     "log": null
   },
@@ -10144,21 +9940,9 @@
     "streak_time": {
       "weekday": 3,
       "period": 1,
-      "streak": 2
+      "streak": 3
     },
     "log": null
-  },
-  {
-    "source": "宋忠義",
-    "streak_time": {
-      "weekday": 3,
-      "period": 3,
-      "streak": 1
-    },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
   },
   {
     "source": "宋忠義",
@@ -12081,19 +11865,7 @@
     "streak_time": {
       "weekday": 1,
       "period": 4,
-      "streak": 1
-    },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
-  },
-  {
-    "source": "林郁敏",
-    "streak_time": {
-      "weekday": 1,
-      "period": 5,
-      "streak": 4
+      "streak": 5
     },
     "log": null
   },
@@ -17625,21 +17397,9 @@
     "streak_time": {
       "weekday": 3,
       "period": 1,
-      "streak": 2
+      "streak": 3
     },
     "log": null
-  },
-  {
-    "source": "黃棨堯",
-    "streak_time": {
-      "weekday": 3,
-      "period": 3,
-      "streak": 1
-    },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
   },
   {
     "source": "黃棨堯",
@@ -18237,21 +17997,9 @@
     "streak_time": {
       "weekday": 5,
       "period": 2,
-      "streak": 3
+      "streak": 4
     },
     "log": null
-  },
-  {
-    "source": "陳暐捷",
-    "streak_time": {
-      "weekday": 5,
-      "period": 5,
-      "streak": 1
-    },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
   },
   {
     "source": "陳暐捷",
@@ -18644,10 +18392,7 @@
       "period": 4,
       "streak": 1
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "鄭詠純",
@@ -19964,19 +19709,7 @@
     "streak_time": {
       "weekday": 2,
       "period": 1,
-      "streak": 1
-    },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
-  },
-  {
-    "source": "朱達鈞",
-    "streak_time": {
-      "weekday": 2,
-      "period": 2,
-      "streak": 2
+      "streak": 3
     },
     "log": null
   },
@@ -20442,19 +20175,7 @@
     "streak_time": {
       "weekday": 3,
       "period": 4,
-      "streak": 1
-    },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
-  },
-  {
-    "source": "蔡良昇",
-    "streak_time": {
-      "weekday": 3,
-      "period": 5,
-      "streak": 4
+      "streak": 5
     },
     "log": null
   },
@@ -21981,10 +21702,7 @@
       "period": 5,
       "streak": 1
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "黃詩珊",
@@ -25776,10 +25494,7 @@
       "period": 1,
       "streak": 1
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "鄭聖璋",
@@ -26048,10 +25763,7 @@
       "period": 1,
       "streak": 1
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "鄭聖璋",
@@ -26500,19 +26212,7 @@
     "streak_time": {
       "weekday": 3,
       "period": 1,
-      "streak": 1
-    },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
-  },
-  {
-    "source": "楊盛智",
-    "streak_time": {
-      "weekday": 3,
-      "period": 2,
-      "streak": 3
+      "streak": 4
     },
     "log": null
   },
@@ -26805,19 +26505,7 @@
     "streak_time": {
       "weekday": 3,
       "period": 1,
-      "streak": 1
-    },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
-  },
-  {
-    "source": "鄭名志",
-    "streak_time": {
-      "weekday": 3,
-      "period": 2,
-      "streak": 1
+      "streak": 2
     },
     "log": null
   },
@@ -27585,19 +27273,7 @@
     "streak_time": {
       "weekday": 5,
       "period": 5,
-      "streak": 1
-    },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
-  },
-  {
-    "source": "林季瑩",
-    "streak_time": {
-      "weekday": 5,
-      "period": 6,
-      "streak": 3
+      "streak": 4
     },
     "log": null
   },
@@ -28162,10 +27838,7 @@
       "period": 1,
       "streak": 2
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "宋照生",
@@ -28924,28 +28597,7 @@
     "streak_time": {
       "weekday": 5,
       "period": 1,
-      "streak": 4
-    },
-    "log": null
-  },
-  {
-    "source": "鄭淑君",
-    "streak_time": {
-      "weekday": 5,
-      "period": 5,
-      "streak": 1
-    },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
-  },
-  {
-    "source": "鄭淑君",
-    "streak_time": {
-      "weekday": 5,
-      "period": 6,
-      "streak": 1
+      "streak": 6
     },
     "log": null
   },
@@ -32225,10 +31877,7 @@
       "period": 4,
       "streak": 1
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "施怡如",
@@ -32593,21 +32242,9 @@
     "streak_time": {
       "weekday": 1,
       "period": 1,
-      "streak": 5
+      "streak": 6
     },
     "log": null
-  },
-  {
-    "source": "黃建彰",
-    "streak_time": {
-      "weekday": 1,
-      "period": 6,
-      "streak": 1
-    },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
   },
   {
     "source": "黃建彰",
@@ -32723,28 +32360,7 @@
     "streak_time": {
       "weekday": 5,
       "period": 1,
-      "streak": 2
-    },
-    "log": null
-  },
-  {
-    "source": "黃建彰",
-    "streak_time": {
-      "weekday": 5,
-      "period": 3,
-      "streak": 1
-    },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
-  },
-  {
-    "source": "黃建彰",
-    "streak_time": {
-      "weekday": 5,
-      "period": 4,
-      "streak": 5
+      "streak": 8
     },
     "log": null
   },
@@ -34711,19 +34327,7 @@
     "streak_time": {
       "weekday": 3,
       "period": 3,
-      "streak": 2
-    },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
-  },
-  {
-    "source": "高英耀",
-    "streak_time": {
-      "weekday": 3,
-      "period": 5,
-      "streak": 4
+      "streak": 6
     },
     "log": null
   },
@@ -35701,28 +35305,7 @@
     "streak_time": {
       "weekday": 2,
       "period": 4,
-      "streak": 3
-    },
-    "log": null
-  },
-  {
-    "source": "吳玟芷",
-    "streak_time": {
-      "weekday": 2,
-      "period": 7,
-      "streak": 1
-    },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
-  },
-  {
-    "source": "吳玟芷",
-    "streak_time": {
-      "weekday": 2,
-      "period": 8,
-      "streak": 1
+      "streak": 5
     },
     "log": null
   },
@@ -36640,28 +36223,7 @@
     "streak_time": {
       "weekday": 1,
       "period": 3,
-      "streak": 2
-    },
-    "log": null
-  },
-  {
-    "source": "黃素楨",
-    "streak_time": {
-      "weekday": 1,
-      "period": 5,
-      "streak": 1
-    },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
-  },
-  {
-    "source": "黃素楨",
-    "streak_time": {
-      "weekday": 1,
-      "period": 6,
-      "streak": 1
+      "streak": 4
     },
     "log": null
   },
@@ -36694,21 +36256,9 @@
     "streak_time": {
       "weekday": 2,
       "period": 1,
-      "streak": 4
+      "streak": 5
     },
     "log": null
-  },
-  {
-    "source": "黃素楨",
-    "streak_time": {
-      "weekday": 2,
-      "period": 5,
-      "streak": 1
-    },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
   },
   {
     "source": "黃素楨",
@@ -36781,28 +36331,7 @@
     "streak_time": {
       "weekday": 4,
       "period": 1,
-      "streak": 4
-    },
-    "log": null
-  },
-  {
-    "source": "黃素楨",
-    "streak_time": {
-      "weekday": 4,
-      "period": 5,
-      "streak": 1
-    },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
-  },
-  {
-    "source": "黃素楨",
-    "streak_time": {
-      "weekday": 4,
-      "period": 6,
-      "streak": 4
+      "streak": 9
     },
     "log": null
   },
@@ -36811,28 +36340,7 @@
     "streak_time": {
       "weekday": 5,
       "period": 1,
-      "streak": 4
-    },
-    "log": null
-  },
-  {
-    "source": "黃素楨",
-    "streak_time": {
-      "weekday": 5,
-      "period": 5,
-      "streak": 1
-    },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
-  },
-  {
-    "source": "黃素楨",
-    "streak_time": {
-      "weekday": 5,
-      "period": 6,
-      "streak": 4
+      "streak": 9
     },
     "log": null
   },
@@ -39905,19 +39413,7 @@
     "streak_time": {
       "weekday": 4,
       "period": 2,
-      "streak": 1
-    },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
-  },
-  {
-    "source": "柯東成",
-    "streak_time": {
-      "weekday": 4,
-      "period": 3,
-      "streak": 2
+      "streak": 3
     },
     "log": null
   },
@@ -40220,10 +39716,7 @@
       "period": 6,
       "streak": 1
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "謝卓勲",
@@ -40275,10 +39768,7 @@
       "period": 2,
       "streak": 1
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "謝卓勲",
@@ -40556,10 +40046,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "廖小慧",
@@ -40568,10 +40055,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "廖小慧",
@@ -40580,10 +40064,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "廖小慧",
@@ -40592,10 +40073,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "廖小慧",
@@ -40640,10 +40118,7 @@
       "period": 5,
       "streak": 4
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "杜建毅",
@@ -40652,10 +40127,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "杜建毅",
@@ -40664,10 +40136,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "杜建毅",
@@ -40676,10 +40145,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "杜建毅",
@@ -40688,10 +40154,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "杜建毅",
@@ -40736,10 +40199,7 @@
       "period": 5,
       "streak": 4
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "Nicole",
@@ -40748,10 +40208,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "Nicole",
@@ -40760,10 +40217,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "Nicole",
@@ -40772,10 +40226,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "Nicole",
@@ -40784,10 +40235,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "Nicole",
@@ -40832,10 +40280,7 @@
       "period": 5,
       "streak": 4
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "張水泉",
@@ -40844,10 +40289,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "張水泉",
@@ -40856,10 +40298,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "張水泉",
@@ -40868,10 +40307,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "張水泉",
@@ -40880,10 +40316,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "張水泉",
@@ -40928,10 +40361,7 @@
       "period": 5,
       "streak": 4
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "吳彥德",
@@ -40940,10 +40370,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "吳彥德",
@@ -40952,10 +40379,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "吳彥德",
@@ -40964,10 +40388,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "吳彥德",
@@ -40976,10 +40397,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "吳彥德",
@@ -41024,10 +40442,7 @@
       "period": 5,
       "streak": 4
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "江宓蓉",
@@ -41036,10 +40451,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "江宓蓉",
@@ -41048,10 +40460,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "江宓蓉",
@@ -41060,10 +40469,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "江宓蓉",
@@ -41072,10 +40478,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "江宓蓉",
@@ -41120,10 +40523,7 @@
       "period": 5,
       "streak": 4
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "包光輝",
@@ -41203,10 +40603,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "林鐿臻",
@@ -41215,10 +40612,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "林鐿臻",
@@ -41227,10 +40621,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "林鐿臻",
@@ -41239,10 +40630,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "林鐿臻",
@@ -41287,10 +40675,7 @@
       "period": 5,
       "streak": 4
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "劉柔秀",
@@ -41370,10 +40755,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "吳銘",
@@ -41382,10 +40764,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "吳銘",
@@ -41394,10 +40773,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "吳銘",
@@ -41406,10 +40782,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "吳銘",
@@ -41454,10 +40827,7 @@
       "period": 5,
       "streak": 4
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "高金玉",
@@ -41608,10 +40978,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "方柏舜",
@@ -41620,10 +40987,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "方柏舜",
@@ -41632,10 +40996,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "方柏舜",
@@ -41644,10 +41005,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "方柏舜",
@@ -41656,10 +41014,7 @@
       "period": 1,
       "streak": 2
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "方柏舜",
@@ -41692,10 +41047,7 @@
       "period": 5,
       "streak": 4
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "游婕妤",
@@ -41704,10 +41056,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "游婕妤",
@@ -41716,10 +41065,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "游婕妤",
@@ -41728,10 +41074,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "游婕妤",
@@ -41740,10 +41083,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "游婕妤",
@@ -41764,10 +41104,7 @@
       "period": 3,
       "streak": 6
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "夏水晶",
@@ -41776,10 +41113,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "夏水晶",
@@ -41788,10 +41122,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "夏水晶",
@@ -41800,10 +41131,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "夏水晶",
@@ -41812,10 +41140,7 @@
       "period": 1,
       "streak": 8
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "夏水晶",
@@ -41860,10 +41185,7 @@
       "period": 5,
       "streak": 4
     },
-    "log": {
-      "subject": " ",
-      "counterpart": null
-    }
+    "log": null
   },
   {
     "source": "101",

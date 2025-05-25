@@ -55,10 +55,7 @@
                     }
                 ]
             },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
+            null,
             {
                 "subject": "地理",
                 "counterpart": [

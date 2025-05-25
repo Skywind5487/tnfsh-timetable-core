@@ -191,14 +191,8 @@
                     }
                 ]
             },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
-            {
-                "subject": " ",
-                "counterpart": null
-            },
+            null,
+            null,
             null,
             null,
             null,
