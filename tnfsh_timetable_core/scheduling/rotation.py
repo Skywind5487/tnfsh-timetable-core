@@ -53,6 +53,10 @@ def rotation(start: CourseNode, max_depth: int = 10) -> Generator[List[CourseNod
             if next_course.time.period == 8:
                 logger.debug(f"{indent}❌ 跳過 {next_course.short()} (第8節課程)")
                 continue
+
+            if is_free(next_course):
+                logger.debug(f"{indent}✅ {next_course.short()} 是空堂不處理")
+                continue
             
             if next_course == current:
                 logger.debug(f"{indent}🔄 回到當前節點，跳過: {next_course.short()}")

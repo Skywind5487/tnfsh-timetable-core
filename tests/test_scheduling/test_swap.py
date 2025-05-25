@@ -543,11 +543,11 @@ async def test_yan_young_jing_3_2():
     """    
     cycles = await scheduling.swap("顏永進", weekday=3, period=2, max_depth=3, refresh=True)
     cycles_list = list(cycles)
-    
-    # 列印找到的環路
-    print(f"\n找到 {len(cycles_list)} 條環路：")
+
+    # 列印找到的互換路徑
+    print(f"\n找到 {len(cycles_list)} 條路：")
     if cycles_list:
-        print("\n=== 輪調路徑 ===")
+        print("\n=== 互換路徑 ===")
         for i, cycle in enumerate(cycles_list, 1):
             nodes = []
             for node in cycle:
@@ -560,4 +560,4 @@ async def test_yan_young_jing_3_2():
                 nodes.append(f"{node.time.weekday}-{node.time.period} ({','.join(teacher_names)}/{','.join(class_codes)})")
             print(f"{i}. {' → '.join(nodes)}")
     else:
-        print("沒有找到任何輪調路徑")
+        print("沒有找到任何互換路徑")
