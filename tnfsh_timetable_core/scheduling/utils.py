@@ -124,6 +124,11 @@ def get_1_hop(
     src_teacher = list(src.teachers.values())[0]
     dst_time = dst.time
     hop_1 = src_teacher.courses.get(dst_time, None)
+    if hop_1 is None:
+        # 沒有找到對應的課程節點
+        print(f"Warning: {src_teacher.teacher_name}在 {dst_time} 沒有課程節點")
+        return None
+    
     if hop_1:
         # 找到頭
         if is_free(hop_1, mode=mode, freed=freed):
