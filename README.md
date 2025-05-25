@@ -9,6 +9,7 @@ A Python package for handling TNFSH (Tainan First Senior High School) timetables
 - Export timetables in various formats (CSV, JSON, ICS)
 - Cache support for better performance
 
+
 ## Installation
 
 ```bash
