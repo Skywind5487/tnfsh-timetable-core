@@ -24,7 +24,7 @@ def rotation(start: CourseNode, max_depth: int = 10) -> Generator[List[CourseNod
     Returns:
         Generator[List[CourseNode], None, None]: 生成找到的所有環路，每個環路是一個 CourseNode 列表
     """
-
+    
     def dfs_cycle(
         start: CourseNode,
         current: Optional[CourseNode] = None,
@@ -64,7 +64,7 @@ def rotation(start: CourseNode, max_depth: int = 10) -> Generator[List[CourseNod
             hop_1_bwd = get_1_hop(current, next_course, type="bwd")
 
             if not is_free(hop_1_bwd):
-                logger.debug(f"{indent}❌ 不可換課（非空堂）: {next_course.short()}")
+                logger.debug(f"{indent}❌ 不可換課（{hop_1_bwd.short() if hop_1_bwd else ''}非空堂）: {next_course.short()}")
                 continue
 
             if next_course in visited:

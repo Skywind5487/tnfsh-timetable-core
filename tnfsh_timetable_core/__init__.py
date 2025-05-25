@@ -37,8 +37,8 @@ class TNFSHTimetableCore:
         Returns:
             TimeTable: 包含課表資料的物件
         """
-        from tnfsh_timetable_core.timetable.models import TimeTable
-        return await TimeTable.fetch_cached(target=target, refresh=refresh)    
+        from tnfsh_timetable_core.timetable.models import TimeTable        
+        return await TimeTable.fetch_cached(target=target, refresh=refresh)
 
     async def fetch_index(self)-> Index:
         """從網路獲取索引資料
@@ -48,8 +48,8 @@ class TNFSHTimetableCore:
         """
         from tnfsh_timetable_core.index.index import Index
         index = Index()
-        index.fetch()
-        return index    
+        await index.fetch()
+        return index
     
     async def fetch_timetable_slot_log_dict(self):
         """從網路獲取課表時段紀錄

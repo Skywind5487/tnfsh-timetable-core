@@ -26,8 +26,18 @@ async def get_timetable():
     print(teacher_name)
     return teacher_name
 
+async def get_specific_course():
+    core = TNFSHTimetableCore()
+    table = await core.fetch_timetable("陳暐捷")
+    table = table.table
+    for day_index, day in enumerate(table):
+        print(f"Day: {day_index}")
+        for period_index, period in enumerate(day):
+            print(f"  Period {period_index}: {period}")
+    return table
+
 if __name__ == "__main__":
     #asyncio.run(test_timetable_core())
 
     #time_table = TNFSHTimetableCore().get_timetable(target="307")
-    asyncio.run(get_timetable())    
+    asyncio.run(get_specific_course())    

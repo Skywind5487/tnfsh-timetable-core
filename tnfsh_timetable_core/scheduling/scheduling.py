@@ -6,13 +6,18 @@ if TYPE_CHECKING:
 
 
 class Scheduling:
-    async def rotation(self, teacher_name: str, weekday: int, period: int, max_depth: int = 3):
+    async def rotation(self, teacher_name: str, weekday: int, period: int, max_depth: int = 3):        
         course_node = await self.fetch_course_node(teacher_name, weekday, period)
+        if not course_node:
+            raise ValueError(f"課程節點不存在：{teacher_name} 在 {weekday} 星期 {period} 節")
         return self.origin_rotation(course_node, max_depth=max_depth)
 
     async def swap(self, teacher_name: str, weekday: int, period: int, max_depth: int = 3):
         # fetch course node
         course_node = await self.fetch_course_node(teacher_name, weekday, period)
+        if not course_node:
+            raise ValueError(f"課程節點不存在：{teacher_name} 在 {weekday} 星期 {period} 節")
+
         return self.origin_swap(course_node, max_depth=max_depth)
 
     def origin_rotation(self, start: CourseNode, max_depth: int = 10) -> Generator[List[CourseNode], None, None]:
@@ -29,8 +34,18 @@ class Scheduling:
         from tnfsh_timetable_core.timetable_slot_log_dict.models import StreakTime
         # Todo: streak要用算的
         streak_time = StreakTime(weekday=weekday, period=period, streak=1)
-        node_dicts = NodeDicts()
-        await node_dicts.fetch()
-        teacher_dict = node_dicts.teacher_nodes
-        course_node = teacher_dict[teacher_name].courses.get(streak_time)
+        node_dicts = await NodeDicts.fetch()
+        
+        if not node_dicts.teacher_nodes:
+            raise ValueError("教師節點字典為空")
+            
+        teacher = node_dicts.teacher_nodes.root.get(teacher_name)
+        if not teacher:
+            available_teachers = list(node_dicts.teacher_nodes.root.keys())
+            raise ValueError(f"找不到教師：{teacher_name}。可用的教師：{available_teachers}")
+            
+        course_node = teacher.courses.get(streak_time)
+        if not course_node:
+            raise ValueError(f"課程節點不存在：{teacher_name} 在 {streak_time}")
+            
         return course_node
