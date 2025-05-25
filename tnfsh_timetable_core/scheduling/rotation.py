@@ -62,13 +62,13 @@ def rotation(start: CourseNode, max_depth: int = 10) -> Generator[List[CourseNod
                 continue
 
             if next_course.time.streak != current.time.streak:
-                logger.debug(f"{indent}❌ 不可換課（{next_course.short()}與{current.short()}不同streaks）")
+                logger.debug(f"{indent}❌ 不同streaks不可換課（{next_course.short()}與{current.short()}）")
                 continue
 
             hop_1_bwd = get_1_hop(current, next_course, type="bwd")
 
             if not is_free(hop_1_bwd):
-                logger.debug(f"{indent}❌ 不可換課（{hop_1_bwd.short() if hop_1_bwd else 'none'}非空堂）: {next_course.short()}")
+                logger.debug(f"{indent}❌ 非空堂不可換課（{hop_1_bwd.short() if hop_1_bwd else 'none'}）: {next_course.short()}")
                 continue
 
             if next_course in visited:
