@@ -12,6 +12,7 @@ A Python package for handling TNFSH (Tainan First Senior High School) timetables
 ## usage
 
 統一 from tnfsh_time_table_core import TNFSHTIMETABLECORE。
+因為奇怪的原因 安裝完以後請用底線而不是-
 
 ## Installation
 

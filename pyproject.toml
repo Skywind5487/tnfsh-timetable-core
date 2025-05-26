@@ -1,17 +1,41 @@
 [project]
 name = "tnfsh-timetable-core"
-version = "0.1.0"
-description = "Add your description here"
+version = "0.0.1"
+description = "台南一中課表核心功能庫"
 readme = "README.md"
-requires-python = ">=3.13"
+authors = [
+    {name = "Skywind5487", email = "skywind5487@gmail.com"},
+]
+requires-python = ">=3.8"
 dependencies = [
-    "aiohttp>=3.11.18",
-    "bs4>=0.0.2",
+    "aiohttp>=3.8.0",
+    "beautifulsoup4>=4.9.3",
     "dotenv>=0.9.9",
-    "pydantic>=2.11.4",
-    "pytest>=8.3.5",
-    "pytest-asyncio>=0.26.0",
-    "requests>=2.32.3",
+    "pydantic>=2.0.0",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Education",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+keywords = ["timetable", "scheduling", "education"]
+
+[project.urls]
+Source = "https://github.com/skywind5487/tnfsh-timetable-core"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0.0",
+    "pytest-asyncio>=0.14.0",
+    "black>=22.0.0",
+    "isort>=5.0.0",
+    "mypy>=0.900",
 ]
 
 [tool.setuptools]
