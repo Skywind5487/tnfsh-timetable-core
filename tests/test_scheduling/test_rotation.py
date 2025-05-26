@@ -439,8 +439,35 @@ async def test_yan_young_jing_3_2():
     else:
         print("沒有找到任何輪調路徑")
 
+
+
+@pytest.mark.asyncio
+async def test_yan_young_jing_2_4():
+    """測試顏永進老師的 2-4兩截的 課程配置
+    """    
+    cycles = await scheduling.rotation("顏永進", weekday=2, period=4, max_depth=2, refresh=False)
+    cycles_list = list(cycles)
+    
+    # 列印找到的環路
+    print(f"\n找到 {len(cycles_list)} 條環路：")
+    if cycles_list:
+        print("\n=== 輪調路徑 ===")
+        for i, cycle in enumerate(cycles_list, 1):
+            nodes = []
+            for node in cycle:
+                teacher_names = []
+                for teacher in node.teachers.values():
+                    teacher_names.append(teacher.teacher_name)
+                class_codes = []
+                for cls in node.classes.values():
+                    class_codes.append(cls.class_code)
+                nodes.append(f"{node.time.weekday}-{node.time.period} ({','.join(teacher_names)}/{','.join(class_codes)})")
+            print(f"{i}. {' → '.join(nodes)}")
+    else:
+        print("沒有找到任何輪調路徑")
+
 if __name__ == "__main__":
 
     # 測試顏永進老師的 3-2 課程配置
     import asyncio
-    asyncio.run(test_yan_young_jing_3_2())
+    asyncio.run(test_yan_young_jing_2_4())

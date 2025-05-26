@@ -42,6 +42,11 @@ class CourseNode(BaseModel):
                 self.classes == other.classes
                 )
     
+    def __lt__(self, other: "CourseNode") -> bool:
+        if not isinstance(other, CourseNode):
+            return NotImplemented
+        return (self.time) < (other.time)
+
     def short(self) -> str:
         teacher_keys = ",".join(sorted(self.teachers))
         class_keys = ",".join(sorted(self.classes))

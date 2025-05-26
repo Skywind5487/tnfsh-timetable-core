@@ -83,7 +83,7 @@ def find_streak_start_if_free(course: CourseNode, streak_time: StreakTime = None
         if not course.time:
             logger.debug(f"課程 {course.short()} 沒有時間資訊")
             return None
-        streak_time = course.time
+        time = course.time
 
 
     if type == "teacher":

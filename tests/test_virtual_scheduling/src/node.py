@@ -26,6 +26,12 @@ class TeacherNode:
 
     def __hash__(self) -> int:          # 🔥 必加：讓 TeacherNode 可當 dict key
         return hash(self.name)
+    
+    def short(self) -> str:
+        """返回教師節點的簡短表示"""
+        course_keys = sorted(self.courses.keys())
+        return f"{self.name.lower()}({', '.join(course_keys)})"
+    
 
 
 @total_ordering
@@ -35,6 +41,8 @@ class CourseNode:
     time: str
     teacher: TeacherNode
     is_free: bool = False
+    
+    # deprecated
     neighbors: List['CourseNode'] = field(default_factory=list)
     
     def __post_init__(self):
@@ -65,3 +73,5 @@ class CourseNode:
     
     def __hash__(self):
         return hash((self.teacher.name, self.time))
+    
+   
