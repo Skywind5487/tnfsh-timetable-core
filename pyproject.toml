@@ -9,9 +9,12 @@ authors = [
 requires-python = ">=3.8"
 dependencies = [
     "aiohttp>=3.8.0",
+    "async>=0.6.2",
     "beautifulsoup4>=4.9.3",
+    "bs4>=0.0.2",
     "dotenv>=0.9.9",
     "pydantic>=2.0.0",
+    "requests>=2.32.3",
 ]
 classifiers = [
     "Development Status :: 3 - Alpha",
