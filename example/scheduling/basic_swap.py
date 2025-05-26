@@ -7,7 +7,7 @@ async def yan_young_jing_3_2():
     # 調用 scheduling
     scheduling = core.fetch_scheduling()
     # 搜尋顏永進老師週三第2節的交換路徑
-    cycles = await scheduling.swap("顏永進", weekday=3, period=2, max_depth=1, refresh=False)
+    cycles = await scheduling.swap("顏永進", weekday=3, period=2, max_depth=2, refresh=False)
     # max_depth: 在交換中，max_depth代表一組(兩人)老師的課要「交換」幾次
     cycles_list = list(cycles)
 

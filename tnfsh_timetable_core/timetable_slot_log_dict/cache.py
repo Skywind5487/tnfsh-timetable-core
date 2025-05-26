@@ -32,7 +32,7 @@ class TimetableSlotLogCache(BaseCacheABC):
             from tnfsh_timetable_core.timetable_slot_log_dict.crawler import TimetableSlotLogCrawler
             self._crawler = TimetableSlotLogCrawler()
             
-        self._cache_dir = Path("cache")
+        self._cache_dir = Path(__file__).resolve().parent / "cache"
         self._cache_file = self._cache_dir / "timetable_slot_log.json"
         self._cache_dir.mkdir(exist_ok=True)
     
