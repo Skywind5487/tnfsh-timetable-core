@@ -51,7 +51,7 @@ class CourseNode(BaseModel):
         teacher_keys = ",".join(sorted(self.teachers))
         class_keys = ",".join(sorted(self.classes))
         t = self.time
-        result = f"<T[{teacher_keys}] {t.weekday}-{t.period}(x{t.streak}) {'free' if self.is_free else 'busy'}  C[{class_keys}]>"
+        result = f"<T[{teacher_keys}] {t.weekday}-{t.period}(x{t.streak}) {'free' if self.is_free else 'busy'} C[{class_keys}]>"
         #result = f"{teacher_keys}[{t.period}]"
         return result
 
@@ -289,6 +289,6 @@ class NodeDicts:
         #print(f"teacher_nodes: {instance.teacher_nodes}")
         await instance.fetch_class_nodes(refresh=refresh)
         await build_course_node_from_log_dict(log_dict)
-        print(f"build!")
+        #print(f"build!")
         return instance
 

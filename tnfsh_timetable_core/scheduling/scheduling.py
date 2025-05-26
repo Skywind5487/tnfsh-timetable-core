@@ -1,4 +1,5 @@
 from __future__ import annotations
+from ast import Await
 from token import OP
 from typing import TYPE_CHECKING, List, Set, Optional, Generator, Literal, Union
 from venv import logger
@@ -22,19 +23,35 @@ class Scheduling:
             teacher_name: 老師姓名
             weekday: 星期幾 (1-5)
             period: 第幾節課 (1-8)
-            max_depth: 最大搜尋深度，預設為3
+            max_depth: 最大搜尋深度，預設為3。這裡指的是老師要移動幾次，必須大於1
             refresh: 是否重新載入資料，預設為False
 
         Returns:
             Generator[List[CourseNode], None, None]: 生成所有找到的環路
         """
+        if max_depth <= 1:       
+            raise ValueError("最大搜尋深度必須大於1")
         course_node = await self.fetch_course_node(teacher_name, weekday, period, refresh=refresh)
         if not course_node:
             raise ValueError(f"課程節點不存在：{teacher_name} 在 {weekday} 星期 {period} 節")
         return self._origin_rotation(course_node, max_depth=max_depth)
 
     async def swap(self, teacher_name: str, weekday: int, period: int, max_depth: int = 3, refresh: bool = False):
-        # fetch course node
+        """
+        搜尋從指定老師的課程開始的所有可能互換路徑
+
+        Args:
+            teacher_name: 老師姓名
+            weekday: 星期幾 (1-5)
+            period: 第幾節課 (1-8)
+            max_depth: 最大搜尋深度，預設為3。這裡指的是一組(兩個老師)要互換幾次，不須大於1，只需大於0
+            refresh: 是否重新載入資料，預設為False
+
+        Returns:
+            Generator[List[CourseNode], None, None]: 生成所有找到的互換路徑
+        """
+        if max_depth <= 0:
+            raise ValueError("最大搜尋深度必須大於0")
         course_node = await self.fetch_course_node(teacher_name, weekday, period, refresh=refresh)
         if not course_node:
             raise ValueError(f"課程節點不存在：{teacher_name} 在 {weekday} 星期 {period} 節")
@@ -51,6 +68,9 @@ class Scheduling:
 
     async def fetch_course_node(self, teacher_name: str, weekday: int, period: int, refresh: bool = False) -> CourseNode:
         """從教師名稱、星期幾和第幾節獲取課程節點"""
+        if not await self._check_course_valid(teacher_name, weekday, period, refresh=refresh):
+            raise ValueError(f"無效的課程資訊：{teacher_name} 在 {weekday} 星期 {period} 節")
+                
         from tnfsh_timetable_core.scheduling.models import NodeDicts
         from tnfsh_timetable_core.timetable_slot_log_dict.models import StreakTime
         # Todo: streak要用算的
@@ -90,10 +110,11 @@ class Scheduling:
 
         return None
     
-    async def _check_course_valid(self, teacher_name: str, weekday: int, period: int, refresh: bool = False ):
+    async def _check_course_valid(self, teacher_name: str, weekday: int, period: int, refresh: bool = False) -> bool:
         from tnfsh_timetable_core import TNFSHTimetableCore
         core = TNFSHTimetableCore()
         table = await core.fetch_timetable(target=teacher_name, refresh=refresh)
+        table = table.table
         from tnfsh_timetable_core.timetable.models import CourseInfo
         course_info: CourseInfo = table[weekday-1][period-1]
         if course_info is None:
@@ -102,38 +123,10 @@ class Scheduling:
         # 處理有課程資訊的情況
         counter_parts = course_info.counterpart
         if not counter_parts:
-            # 這節有課但沒老師
-            
+            # 這節有課但沒參加的班級
+            raise ValueError(f"{teacher_name}的星期{weekday}第{period}節沒有參加的班級")
         if len(counter_parts) != 1:
             # 多老師或多班級或無班級或無老師
-            continue
-        teacher_name = counter_parts[0].participant
-        counter_log: CourseInfo = log_dict.get((teacher_name, streak_time))
-        counter_counterpart = counter_log.counterpart if counter_log else None
-        if counter_log is None:
-            # 沒有對應的老師課程
-            continue
-        if counter_counterpart is None:
-            # 對應的老師沒有紀錄課程
-            #print(f"{counter_log} has no counterpart for {streak_time}")
-            #print(f"Warning: {teacher_name} has no counterpart in log_dict for {streak_time}")
-            continue
-        if len(counter_counterpart) != 1:
-            # 多老師或多班級或無班級或無老師
-            continue
-        if counter_log.counterpart[0].participant != class_code:
-            # 班級不對
-            continue
-        if counter_log.subject != course_info.subject:
-            # 科目不對
-            continue
+            raise ValueError(f"{teacher_name}的星期{weekday}第{period}節有多個對應班級或老師，無法計算調課")
         
-        course_node = CourseNode(
-            time=streak_time,
-            is_free=False,
-            subject=course_info.subject,
-            teachers={teacher_name: teacher_nodes[teacher_name]},
-            classes={class_code: class_nodes[class_code]}
-        )
-        final_course_nodes_set.add(course_node)
-    
+        return True

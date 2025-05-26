@@ -221,11 +221,12 @@ def parse_html(soup: BeautifulSoup) -> RawParsedResult:
             table.append(row_data)
 
     logger.info("✅ HTML 解析完成")
-    return RawParsedResult(
+    result = RawParsedResult(
         last_update=last_update,
         periods=periods,
         table=table
     )
+    return result
 
 
 if __name__ == "__main__":

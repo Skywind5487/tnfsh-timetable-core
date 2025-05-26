@@ -5,7 +5,7 @@ import inspect
 from dotenv import load_dotenv
 
 load_dotenv()
-default_log_level = "DEBUG"
+default_log_level = "DEBUG"  # 預設日誌等級
 LOG_LEVEL = os.getenv("LOG_LEVEL", default_log_level).upper()
 
 def get_logger(logger_level:str="DEBUG") -> logging.Logger:

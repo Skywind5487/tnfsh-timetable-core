@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING, List, Optional
 if TYPE_CHECKING:
     from tnfsh_timetable_core.timetable.models import TimeTable
     from tnfsh_timetable_core.index.index import Index
+    from tnfsh_timetable_core.scheduling.scheduling import Scheduling
 
 class TNFSHTimetableCore:
     """台南一中課表核心功能的統一入口點
@@ -61,7 +62,7 @@ class TNFSHTimetableCore:
         timetable_slot_log_dict = await TimetableSlotLogDict.fetch(refresh=refresh)
         return timetable_slot_log_dict
 
-    def fetch_scheduling(self):
+    def fetch_scheduling(self) -> Scheduling:
         """取得排課物件
         
         Returns:

@@ -24,7 +24,7 @@ def rotation(start: CourseNode, max_depth: int = 10) -> Generator[List[CourseNod
     Returns:
         Generator[List[CourseNode], None, None]: 生成找到的所有環路，每個環路是一個 CourseNode 列表
     """
-    max_depth = max_depth + 1  # 增加1以便包含起始節點
+    max_depth = max_depth
     def dfs_cycle(
         start: CourseNode,
         current: Optional[CourseNode] = None,
