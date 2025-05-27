@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "tnfsh-timetable-core"
-version = "0.0.3"
+version = "0.0.4"
 description = "台南一中課表核心功能庫"
 readme = "README.md"
 authors = [
