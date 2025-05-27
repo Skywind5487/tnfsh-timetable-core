@@ -62,7 +62,7 @@ class TNFSHTimetableCore:
         timetable_slot_log_dict = await TimetableSlotLogDict.fetch(refresh=refresh)
         return timetable_slot_log_dict
 
-    def fetch_scheduling(self) -> Scheduling:
+    async def fetch_scheduling(self) -> Scheduling:
         """取得排課物件
         
         Returns:
@@ -71,7 +71,7 @@ class TNFSHTimetableCore:
         from tnfsh_timetable_core.scheduling.scheduling import Scheduling
         return Scheduling()
 
-    def scheduling_rotation(self, teacher_name: str, weekday: int, period: int, max_depth: int = 3):
+    async def scheduling_rotation(self, teacher_name: str, weekday: int, period: int, max_depth: int = 3):
         """執行課程輪調搜尋
         
         搜尋指定教師在特定時段的所有可能輪調路徑。
@@ -89,9 +89,10 @@ class TNFSHTimetableCore:
             ValueError: 當 weekday 不在 1-5 之間或 period 不在 1-8 之間時
         """
         from tnfsh_timetable_core.scheduling.scheduling import Scheduling
-        return Scheduling().rotation(teacher_name=teacher_name, weekday=weekday, period=period, max_depth=max_depth)
+        scheduling = Scheduling()
+        return await scheduling.rotation(teacher_name=teacher_name, weekday=weekday, period=period, max_depth=max_depth)
 
-    def scheduling_swap(self, teacher_name: str, weekday: int, period: int, max_depth: int = 3):
+    async def scheduling_swap(self, teacher_name: str, weekday: int, period: int, max_depth: int = 3):
         """執行課程交換搜尋
         
         搜尋指定教師在特定時段的所有可能交換路徑。
@@ -109,4 +110,5 @@ class TNFSHTimetableCore:
             ValueError: 當 weekday 不在 1-5 之間或 period 不在 1-8 之間時
         """
         from tnfsh_timetable_core.scheduling.scheduling import Scheduling
-        return Scheduling().swap(teacher_name=teacher_name, weekday=weekday, period=period, max_depth=max_depth)
+        scheduling = Scheduling()
+        return await scheduling.swap(teacher_name=teacher_name, weekday=weekday, period=period, max_depth=max_depth)

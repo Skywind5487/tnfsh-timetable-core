@@ -2,7 +2,6 @@ from __future__ import annotations
 from ast import Await
 from token import OP
 from typing import TYPE_CHECKING, List, Set, Optional, Generator, Literal, Union
-from venv import logger
 
 
 if TYPE_CHECKING:

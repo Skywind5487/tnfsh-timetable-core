@@ -38,9 +38,15 @@ def build_course(
 
 # 建立一個全域的 Scheduling 實例
 core = TNFSHTimetableCore()
-scheduling = core.fetch_scheduling()
+scheduling = None
 
-def test_basic_path_stops_at_first_free():
+async def setup_scheduling():
+    global scheduling
+    if scheduling is None:
+        scheduling = await core.fetch_scheduling()
+
+@pytest.mark.asyncio
+async def test_basic_path_stops_at_first_free():
     """測試基本路徑尋找功能：路徑應在找到第一個空堂時停止
     
     情境：最簡單的交換情況，建立兩個課程之間的交換
@@ -56,6 +62,7 @@ def test_basic_path_stops_at_first_free():
     1. 應找到一條路徑：a2_ -> a1 -> b2 -> b1_
     2. 路徑應在第一個空堂 (b1_) 結束
     """
+    await setup_scheduling()
     # === 建立老師與班級 ===
     teacher_A = TeacherNode(teacher_name="A", courses={})
     teacher_B = TeacherNode(teacher_name="B", courses={})
@@ -93,7 +100,8 @@ def test_basic_path_stops_at_first_free():
     # 確認路徑結尾是空堂
     assert actual_path[-1].is_free, "路徑應該在空堂結束"
 
-def test_isolated_courses_have_no_path():
+@pytest.mark.asyncio
+async def test_isolated_courses_have_no_path():
     """測試孤立課程節點的情況
     
     情境：
@@ -105,6 +113,7 @@ def test_isolated_courses_have_no_path():
     1. 確認無法找到任何交換路徑
     2. swap.merge_paths 函數應該返回空列表
     """
+    await setup_scheduling()
     # === 建立老師與班級 ===
     teacher_A = TeacherNode(teacher_name="A", courses={})
     teacher_B = TeacherNode(teacher_name="B", courses={})
@@ -130,7 +139,8 @@ def test_isolated_courses_have_no_path():
     assert len(cls_101.courses) == 1 and a1 in cls_101.courses.values(), "課程應該正確關聯到班級 101"
     assert len(cls_102.courses) == 1 and b2 in cls_102.courses.values(), "課程應該正確關聯到班級 102"
 
-def test_single_swap_path():
+@pytest.mark.asyncio
+async def test_single_swap_path():
     """測試簡單的單一交換路徑情境
     
     情境：
@@ -152,6 +162,7 @@ def test_single_swap_path():
     3. 路徑應該在找到第一個空堂時停止
     4. 不應該探索其他可能但更長的路徑
     """
+    await setup_scheduling()
     # === 建立老師與班級 ===
     teacher_A = TeacherNode(teacher_name="A", courses={})
     teacher_B = TeacherNode(teacher_name="B", courses={})
@@ -202,7 +213,8 @@ def test_single_swap_path():
     # 確認要交換的課程在同一個班級
     assert a1.classes == b2.classes, "要交換的課程必須在同一個班級"
 
-def test_no_valid_path_in_long_chain(n: int = 10):  # 改為預設10位老師
+@pytest.mark.asyncio
+async def test_no_valid_path_in_long_chain(n: int = 10):  # 改為預設10位老師
     """測試長鏈路超出路徑長度限制的情況
     
     描述：
@@ -233,6 +245,7 @@ def test_no_valid_path_in_long_chain(n: int = 10):  # 改為預設10位老師
     預期：
     - 由於路徑長度超過限制（設為5），不會找到任何路徑
     """
+    await setup_scheduling()
     # === 建立老師、班級、交換規則 ===
     teacher_names = "ABCDEFGHIJ"[:n]  # 最多10位老師
     teachers = {
@@ -330,7 +343,8 @@ def test_no_valid_path_in_long_chain(n: int = 10):  # 改為預設10位老師
     # 1. 不應該找到任何路徑（因為超出深度限制）
     assert len(paths) == 0, f"預期找不到任何路徑（深度限制5），但找到了{len(paths)}條路徑"
 
-def test_forked_path_with_two_ends():
+@pytest.mark.asyncio
+async def test_forked_path_with_two_ends():
     """測試分叉路徑的情況，路徑有兩個可能的終點
     
     情境：
@@ -361,6 +375,7 @@ def test_forked_path_with_two_ends():
     2. 確保同一位老師或同一個班級內的課程時間不衝突
     3. bwd_hop的終點必須是空堂（c1）
     """
+    await setup_scheduling()
     # === 建立老師 ===
     teacher_A = TeacherNode(teacher_name="A", courses={})
     teacher_B = TeacherNode(teacher_name="B", courses={})
@@ -427,7 +442,8 @@ def test_forked_path_with_two_ends():
     assert cls_101.class_code in a1.classes and cls_101.class_code in c3.classes, \
         "a1和c3應該在同一個班級（102班）"
 
-def test_complex_swap_chain():
+@pytest.mark.asyncio
+async def test_complex_swap_chain():
     """測試複雜的交換鏈路徑
     
     路徑結構：
@@ -450,6 +466,7 @@ def test_complex_swap_chain():
     2. 路徑應該包含所有必要的中間交換節點
     3. 最終到達空堂 D1_
     """    
+    await setup_scheduling()
     # === 建立教師節點 ===
     teacher_A = TeacherNode(teacher_name='A', courses={})
     teacher_B = TeacherNode(teacher_name='B', courses={})
@@ -541,6 +558,7 @@ def test_complex_swap_chain():
 async def test_yan_young_jing_3_2():
     """測試顏永進老師的 3-2 課程 一節的配置
     """    
+    await setup_scheduling()
     cycles = await scheduling.swap("顏永進", weekday=3, period=2, max_depth=2, refresh=False)
     cycles_list = list(cycles)
 
@@ -567,6 +585,7 @@ async def test_yan_young_jing_2_4():
     """
     測試兩節的
     """
+    await setup_scheduling()
     cycles = await scheduling.swap("顏永進", weekday=2, period=4, max_depth=2, refresh=False)
     cycles_list = list(cycles)
 
