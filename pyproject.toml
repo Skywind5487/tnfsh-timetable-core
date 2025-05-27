@@ -1,22 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "tnfsh-timetable-core"
-version = "0.0.1"
+version = "0.0.3"
 description = "台南一中課表核心功能庫"
 readme = "README.md"
 authors = [
     {name = "Skywind5487", email = "skywind5487@gmail.com"},
 ]
+license = "MIT"
+license-files = ["LICENSE"]
 requires-python = ">=3.8"
 dependencies = [
     "aiohttp>=3.8.0",
+    "async>=0.6.2",
     "beautifulsoup4>=4.9.3",
+    "bs4>=0.0.2",
     "dotenv>=0.9.9",
     "pydantic>=2.0.0",
+    "pytest>=8.3.5",
+    "pytest-asyncio>=0.24.0",
+    "requests>=2.32.3",
 ]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Education",
-    "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
@@ -36,10 +46,15 @@ dev = [
     "black>=22.0.0",
     "isort>=5.0.0",
     "mypy>=0.900",
+    "build>=1.2.2.post1",    
+    "pytest>=8.3.5",
+    "pytest-asyncio>=0.24.0",
 ]
 
-[tool.setuptools]
-packages = ["tnfsh_timetable_core"]
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["tnfsh_timetable_core*"]
+exclude = ["tests*"]
 
 [tool.pytest.ini_options]
 addopts = "-v"
@@ -48,3 +63,13 @@ python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
 asyncio_mode = "auto"
+
+[[tool.uv.index]]
+name = "pypi"
+url = "https://pypi.org/simple/"
+publish-url = "https://upload.pypi.org/legacy/"
+
+[[tool.uv.index]]
+name = "testpypi"
+url = "https://test.pypi.org/simple/"
+publish-url = "https://test.pypi.org/legacy/"

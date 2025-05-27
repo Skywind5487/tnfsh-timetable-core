@@ -73,7 +73,7 @@ def test_basic_path_stops_at_first_free():
     b2 = build_course(teacher_B, cls_101, weekday=1, period=2, streak=1, is_free=False)  # 要和 a1 交換的課程
 
     # === 執行交換路徑搜尋 ===
-    paths = list(scheduling.origin_swap(a1))    # === 驗證 ===
+    paths = list(scheduling._origin_swap(a1))    # === 驗證 ===
     # 應該只找到一條路徑
     assert len(paths) == 1, f"預期找到1條路徑，實際找到{len(paths)}條"
 
@@ -116,7 +116,7 @@ def test_isolated_courses_have_no_path():
     b2 = build_course(teacher_B, cls_102, weekday=1, period=2, streak=1, is_free=False)
 
     # === 執行交換路徑搜尋 ===
-    paths = list(scheduling.origin_swap(a1))
+    paths = list(scheduling._origin_swap(a1))
 
     # === 驗證：不應該找到任何路徑 ===
     assert len(paths) == 0, "孤立的課程節點不應該找到任何交換路徑"
@@ -177,7 +177,7 @@ def test_single_swap_path():
     b5 = build_course(teacher_B, cls_103, weekday=1, period=5, streak=1, is_free=True)   # B的空堂
 
     # === 執行交換路徑搜尋 ===
-    paths = list(scheduling.origin_swap(a1))
+    paths = list(scheduling._origin_swap(a1))
 
     # === 驗證 ===
     # 應該只找到一條路徑
@@ -324,7 +324,7 @@ def test_no_valid_path_in_long_chain(n: int = 10):  # 改為預設10位老師
     
     # === 執行搜尋（深度限制=5）===
     start_course = courses["A1"]
-    paths = list(scheduling.origin_swap(start_course, max_depth=5))
+    paths = list(scheduling._origin_swap(start_course, max_depth=5))
     
     # === 驗證結果 ===
     # 1. 不應該找到任何路徑（因為超出深度限制）
@@ -389,7 +389,7 @@ def test_forked_path_with_two_ends():
     c2 = build_course(teacher_C, cls_102, weekday=1, period=2, streak=1, is_free=False)  # 要和a1交換的課程
     c3 = build_course(teacher_C, cls_101, weekday=1, period=3, streak=1, is_free=False)       
     # === 執行交換路徑搜尋 ===
-    paths = list(scheduling.origin_swap(a1))
+    paths = list(scheduling._origin_swap(a1))
     
     # === 驗證 ===
     # 應該找到兩條路徑
@@ -431,7 +431,7 @@ def test_complex_swap_chain():
     """測試複雜的交換鏈路徑
     
     路徑結構：
-    D2_ -> D5 -> A2 -> A1 -> B2 -> B1 -> C2 -> C1 -> D3 -> D1_
+    D2_ -> D5 -> A2 -> A1 -> B2 -> B1 -> C3 -> C1 -> D4 -> D1_
     
     情境：
     - 需要通過多個老師的課程進行連續交換
@@ -474,22 +474,22 @@ def test_complex_swap_chain():
     # B老師的課程
     b1 = build_course(teacher=teacher_B, cls=cls_104, weekday=1, period=1, streak=1, is_free=False)  # 非空堂，和c2交換
     b2 = build_course(teacher=teacher_B, cls=cls_101, weekday=1, period=2, streak=1, is_free=False)  # 非空堂，和a1交換
-    b3 = build_course(teacher=teacher_B, cls=spare, weekday=1, period=3, streak=1, is_free=False)    # 非空堂
+    b3 = build_course(teacher=teacher_B, cls=spare, weekday=1, period=3, streak=1, is_free=True)    # 非空堂
     b4 = build_course(teacher=teacher_B, cls=spare, weekday=1, period=4, streak=1, is_free=False)    # 非空堂
     b5 = build_course(teacher=teacher_B, cls=spare, weekday=1, period=5, streak=1, is_free=True)     # 空堂
 
     # C老師的課程
     c1 = build_course(teacher=teacher_C, cls=cls_103, weekday=1, period=1, streak=1, is_free=False)  # 非空堂，和d3交換
-    c2 = build_course(teacher=teacher_C, cls=cls_104, weekday=1, period=2, streak=1, is_free=False)  # 非空堂，和b1交換
-    c3 = build_course(teacher=teacher_C, cls=spare, weekday=1, period=3, streak=1, is_free=True)     # 空堂
-    c4 = build_course(teacher=teacher_C, cls=spare, weekday=1, period=4, streak=1, is_free=False)    # 非空堂
+    c2 = build_course(teacher=teacher_C, cls=spare, weekday=1, period=2, streak=1, is_free=False)  # 非空堂，和b1交換
+    c3 = build_course(teacher=teacher_C, cls=cls_104, weekday=1, period=3, streak=1, is_free=False)     # 空堂
+    c4 = build_course(teacher=teacher_C, cls=spare, weekday=1, period=4, streak=1, is_free=True)    # 非空堂
     c5 = build_course(teacher=teacher_C, cls=spare, weekday=1, period=5, streak=1, is_free=False)    # 非空堂
 
     # D老師的課程
     d1 = build_course(teacher=teacher_D, cls=spare, weekday=1, period=1, streak=1, is_free=True)     # 空堂
     d2 = build_course(teacher=teacher_D, cls=spare, weekday=1, period=2, streak=1, is_free=True)     # 空堂
-    d3 = build_course(teacher=teacher_D, cls=cls_103, weekday=1, period=3, streak=1, is_free=False)  # 非空堂，和c1交換
-    d4 = build_course(teacher=teacher_D, cls=spare, weekday=1, period=4, streak=1, is_free=False)    # 非空堂
+    d3 = build_course(teacher=teacher_D, cls=spare, weekday=1, period=3, streak=1, is_free=False)  # 非空堂，和c1交換
+    d4 = build_course(teacher=teacher_D, cls=cls_103, weekday=1, period=4, streak=1, is_free=False)    # 非空堂
     d5 = build_course(teacher=teacher_D, cls=cls_102, weekday=1, period=5, streak=1, is_free=False)  # 非空堂，和a2交換
 
     # === 建立課程間的關係（透過在同一個班級中） ===
@@ -501,24 +501,24 @@ def test_complex_swap_chain():
     assert cls_102.class_code in a2.classes and cls_102.class_code in d5.classes, \
         "a2 和 d5 應該在同一個班級 (102班)"
     
-    # 3. c1-d3 關係（103班）
-    assert cls_103.class_code in c1.classes and cls_103.class_code in d3.classes, \
-        "c1 和 d3 應該在同一個班級 (103班)"
+    # 3. c1-d4 關係（103班）
+    assert cls_103.class_code in c1.classes and cls_103.class_code in d4.classes, \
+        "c1 和 d4 應該在同一個班級 (103班)"
     
-    # 4. b1-c2 關係（104班）
-    assert cls_104.class_code in b1.classes and cls_104.class_code in c2.classes, \
-        "b1 和 c2 應該在同一個班級 (104班)"
+    # 4. b1-c3 關係（104班）
+    assert cls_104.class_code in b1.classes and cls_104.class_code in c3.classes, \
+        "b1 和 c3 應該在同一個班級 (104班)"
 
     # === 執行搜尋並驗證結果 ===
-    paths = list(scheduling.origin_swap(a1))
+    paths = list(scheduling._origin_swap(a1))
     
     # 印出找到的路徑
     print("\n=== 找到的路徑 ===")
     for path in paths:
         print(" → ".join(node.short() for node in path))
     
-    # 預期的路徑：d2 -> d5 -> a2 -> a1 -> b2 -> b1 -> c2 -> c1 -> d3 -> d1
-    expected_path = [d2, d5, a2, a1, b2, b1, c2, c1, d3, d1]
+    # 預期的路徑： D2_ -> D5 -> A2 -> A1 -> B2 -> B1 -> C3 -> C1 -> D4 -> D1_
+    expected_path = [d2, d5, a2, a1, b2, b1, c3, c1, d4, d1]
 
     # 驗證找到的路徑
     assert len(paths) == 1, f"預期找到1條路徑，實際找到{len(paths)}條"

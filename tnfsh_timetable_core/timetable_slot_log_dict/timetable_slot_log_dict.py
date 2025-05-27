@@ -1,4 +1,3 @@
-from sqlite3 import Time
 from pydantic import RootModel
 from typing import TypeAlias, Dict, Tuple, Optional, TYPE_CHECKING 
 from tnfsh_timetable_core.utils.dict_like import dict_like

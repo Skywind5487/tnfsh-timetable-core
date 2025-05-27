@@ -63,7 +63,7 @@ def test_simplest_rotation_path():
     # 所以不再需要手動 connect_neighbors
 
     # === 執行 rotation ===
-    paths = list(scheduling.origin_rotation(a1, max_depth=5))
+    paths = list(scheduling._origin_rotation(a1, max_depth=5))
 
     # === 驗證：找到一條以自己結尾的環路 ===
     assert len(paths) >= 1
@@ -129,7 +129,7 @@ def test_no_cycle_when_teacher_busy():
     # 手動檢查 a1 -> b2 的移動是否被阻止（因為 A2 非空堂）
     hop_1_bwd = get_1_hop(a1, b2, type="bwd")
     assert not is_free(hop_1_bwd), "A2 非空堂時，is_free 應該返回 False"    # === 第二階段：執行 rotation 並檢查結果 ===
-    paths = list(scheduling.origin_rotation(a1))
+    paths = list(scheduling._origin_rotation(a1))
 
     # 將所有路徑轉換成字串格式以方便檢查
     path_strs = set(" → ".join(node.short() for node in path) for path in paths)
@@ -204,7 +204,7 @@ def test_basic_cycle():
     d4 = build_course(teacher_D, cls_101, weekday=1, period=4, streak=1, is_free=False)  # 要和 c3 交換的課程（在環路中）
 
     # === 執行 rotation ===
-    cycles = list(scheduling.origin_rotation(a1))
+    cycles = list(scheduling._origin_rotation(a1))
 
     # 找到所有可能的環路組合
     sorted_cycles = sorted(cycles, key=len)
@@ -326,7 +326,7 @@ def test_long_cycle_max_depth():
     d4 = build_course(teacher_D, cls_101, weekday=1, period=4, streak=1, is_free=False)  # 要和 c3 交換的課程（在環路中）
 
     # === 執行 rotation ===
-    cycles = list(scheduling.origin_rotation(a1, max_depth=3))  # 設定最大深度為 3
+    cycles = list(scheduling._origin_rotation(a1, max_depth=3))  # 設定最大深度為 3
 
     # 找到所有可能的環路組合
     sorted_cycles = sorted(cycles, key=len)
@@ -404,7 +404,7 @@ def test_isolated_course():
     a2 = build_course(teacher_A, cls_102, weekday=1, period=2, streak=1, is_free=True)   
 
     # === 執行 rotation ===
-    cycles = list(scheduling.origin_rotation(a1))
+    cycles = list(scheduling._origin_rotation(a1))
     
     # === 驗證：不應該找到任何環路 ===
     assert len(cycles) == 0, "孤立的課程節點不應該能找到任何輪調環路"

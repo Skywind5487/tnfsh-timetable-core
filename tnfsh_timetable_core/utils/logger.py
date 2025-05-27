@@ -42,6 +42,7 @@ def get_logger(logger_level: str = None) -> logging.Logger:
         
     logger.setLevel(getattr(logging, level))
 
+    # 避免重複加 handler
     if not logger.hasHandlers():
         formatter = logging.Formatter(f"[%(levelname)s] [{name}] %(message)s")
         handler.setFormatter(formatter)
