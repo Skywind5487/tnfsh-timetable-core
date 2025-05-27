@@ -112,3 +112,21 @@ class TNFSHTimetableCore:
         from tnfsh_timetable_core.scheduling.scheduling import Scheduling
         scheduling = Scheduling()
         return await scheduling.swap(teacher_name=teacher_name, weekday=weekday, period=period, max_depth=max_depth)
+
+    def get_logger(self):
+        """取得核心模組的日誌記錄器
+        
+        Returns:
+            Logger: 日誌記錄器實例
+        """
+        from tnfsh_timetable_core.utils.logger import get_logger
+        return get_logger(logger_level="DEBUG")
+    
+    def set_logger_level(self, level: str):
+        """設定核心模組的日誌記錄器等級
+        
+        Args:
+            level: 日誌等級，例如 "DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"
+        """
+        from tnfsh_timetable_core.utils.logger import set_log_level
+        set_log_level(level)
