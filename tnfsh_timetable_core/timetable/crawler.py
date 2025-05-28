@@ -1,18 +1,26 @@
 from typing import List, Set, Dict, Optional, Literal, Tuple, TypedDict, TypeAlias
+import logging
 import aiohttp
+from aiohttp import client_exceptions
+import asyncio
 from bs4 import BeautifulSoup
+import json
+
 from tnfsh_timetable_core.index.index import Index
 from tnfsh_timetable_core.utils.logger import get_logger
-import json
+
+class FetchError(Exception):
+    """爬取課表時可能發生的錯誤"""
+    def __init__(self, message: str):
+        super().__init__(message)
+        self.message = message
 
 # 設定日誌
 logger = get_logger(logger_level="INFO")
 
-class FetchError(Exception):
-    pass
-
+# 別名列表
 aliases: List[Set[str]] = [
-        {"朱蒙", "吳銘"}
+    {"朱蒙", "吳銘"}
 ]
 
 
@@ -54,9 +62,21 @@ def resolve_target(
 
     return None
 
-async def fetch_raw_html(target: str, refresh: bool = False) -> BeautifulSoup:
+async def fetch_raw_html(target: str, refresh: bool = False, max_retries: int = 3, retry_delay: float = 1.0) -> BeautifulSoup:
     """
     非同步抓取原始課表 HTML
+
+    Args:
+        target (str): 目標名稱（班級或教師）
+        refresh (bool, optional): 是否刷新索引快取. 預設為 False
+        max_retries (int, optional): 最大重試次數. 預設為 3
+        retry_delay (float, optional): 重試間隔秒數. 預設為 1.0
+
+    Returns:
+        BeautifulSoup: 解析後的 HTML 内容
+
+    Raises:
+        FetchError: 當發生網路請求錯誤或無法解析目標時拋出
     """
     from tnfsh_timetable_core.index.index import Index
     from tnfsh_timetable_core.index.models import ReverseIndexResult
@@ -83,27 +103,65 @@ async def fetch_raw_html(target: str, refresh: bool = False) -> BeautifulSoup:
     full_url = base_url + relative_url
     logger.debug(f"🌐 準備請求網址：{full_url}")
 
-    try:
-        headers = {
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-            'Accept-Encoding': 'gzip, deflate',
-            'Accept-Language': 'zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7',
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-        }
-        
-        async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=10)) as session:
-            logger.debug(f"📡 發送請求：{target}")
-            async with session.get(full_url, headers=headers) as response:
-                response.raise_for_status()
-                content = await response.read()
-                logger.debug(f"📥 收到回應：{target}")
-                soup = BeautifulSoup(content, 'html.parser')
-                logger.debug(f"✅ HTML 解析完成：{target}")
-                return soup
-                
-    except Exception as e:
-        logger.error(f"❌ 網路請求失敗：{target}，錯誤：{e}")
-        raise FetchError(f"請求失敗: {e}")
+    headers = {
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept-Encoding': 'gzip, deflate',
+        'Accept-Language': 'zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+    }
+
+    for attempt in range(max_retries):
+        try:
+            async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=10)) as session:
+                logger.debug(f"📡 發送請求：{target} (嘗試 {attempt + 1}/{max_retries})")
+                async with session.get(full_url, headers=headers) as response:
+                    response.raise_for_status()
+                    content = await response.read()
+                    logger.debug(f"📥 收到回應：{target}")
+                    soup = BeautifulSoup(content, 'html.parser')
+                    logger.debug(f"✅ HTML 解析完成：{target}")
+                    return soup
+
+        except client_exceptions.ClientResponseError as e:
+            error_msg = f"HTTP 狀態碼錯誤 {e.status}: {e.message}"
+            logger.warning(f"⚠️ {error_msg}")
+            if attempt + 1 < max_retries:
+                logger.info(f"🔄 等待 {retry_delay} 秒後重試...")
+                await asyncio.sleep(retry_delay)
+            else:
+                raise FetchError(error_msg)
+
+        except client_exceptions.ClientConnectorError as e:
+            error_msg = f"連線錯誤：{str(e)}"
+            logger.warning(f"⚠️ {error_msg}")
+            if attempt + 1 < max_retries:
+                logger.info(f"🔄 等待 {retry_delay} 秒後重試...")
+                await asyncio.sleep(retry_delay)
+            else:
+                raise FetchError(error_msg)
+
+        except (client_exceptions.ServerTimeoutError, asyncio.TimeoutError):
+            error_msg = "請求超時"
+            logger.warning(f"⚠️ {error_msg}")
+            if attempt + 1 < max_retries:
+                logger.info(f"🔄 等待 {retry_delay} 秒後重試...")
+                await asyncio.sleep(retry_delay)
+            else:
+                raise FetchError(error_msg)
+
+        except client_exceptions.ClientError as e:
+            error_msg = f"網路請求錯誤：{str(e)}"
+            logger.warning(f"⚠️ {error_msg}")
+            if attempt + 1 < max_retries:
+                logger.info(f"🔄 等待 {retry_delay} 秒後重試...")
+                await asyncio.sleep(retry_delay)
+            else:
+                raise FetchError(error_msg)
+
+        except Exception as e:
+            error_msg = f"未預期的錯誤：{str(e)}"
+            logger.error(f"❌ {error_msg}")
+            raise FetchError(error_msg)
 
 def parse_html(soup: BeautifulSoup) -> RawParsedResult:
     """

@@ -9,7 +9,7 @@ logger = get_logger(logger_level="INFO")
 async def test_preload_all():
     """測試預載入所有課表"""
 
-    await preload_all(only_missing=True, max_concurrent=5)
+    await preload_all(only_missing=True, max_concurrent=2, delay=0.1)
     assert True
 
 
