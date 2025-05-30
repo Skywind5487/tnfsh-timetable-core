@@ -62,37 +62,44 @@ def save_to_disk(target: str, table: TimeTable) -> bool:
         return False
 
 
-async def preload_all(only_missing: bool = True, max_concurrent: int = 5):
+async def preload_all(
+    only_missing: bool = True,
+    max_concurrent: int = 5,
+    delay: float = 0.0  # ✅ 新增：每個請求的延遲秒數
+):
     """
-    預載入所有課表，加入併發上限控制，避免同時連線過多導致請求失敗。
+    預載入所有課表，加入併發上限與延遲控制。
+    
     Args:
-        only_missing (bool): 是否只預載入缺少的課表，預設為 True
+        only_missing (bool): 是否只載入缺少的課表，預設為 True
         max_concurrent (int): 最大併發請求數量，預設為 5
+        delay (float): 每筆請求前的延遲秒數，預設為 0（不延遲）
     """
 
     from tnfsh_timetable_core.index.index import Index
     import asyncio
 
-    # 初始化並載入索引
     index = Index()
     await index.fetch()
     
     if not index.reverse_index:
         logger.error("❌ 無法獲取課表索引")
         return
-        
+
     targets = list(index.reverse_index.keys())
-    logger.info(f"🔄 開始預載入所有課表，共 {len(targets)} 項")
+    logger.info(f"🔄 開始預載入所有課表，共 {len(targets)} 項，延遲：{delay} 秒，併發上限：{max_concurrent}")
 
     semaphore = asyncio.Semaphore(max_concurrent)
 
     async def process(target: str):
         if only_missing and (target in prebuilt_cache or load_from_disk(target)):
-            logger.debug(f"快取已存在，略過：{target}")
+            logger.debug(f"⚡ 快取已存在，略過：{target}")
             return
         async with semaphore:
             try:
                 logger.debug(f"➡️ 開始預載入：{target}")
+                if delay > 0:
+                    await asyncio.sleep(delay)  # ✅ 模擬延遲
                 await TimeTable.fetch_cached(target)
                 logger.debug(f"✅ 預載入成功：{target}")
             except Exception as e:
@@ -100,6 +107,7 @@ async def preload_all(only_missing: bool = True, max_concurrent: int = 5):
 
     await asyncio.gather(*(process(t) for t in targets))
     logger.info("🏁 預載入完成")
+
 
 
 if __name__ == "__main__":

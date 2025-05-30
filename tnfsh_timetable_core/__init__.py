@@ -1,10 +1,13 @@
 from __future__ import annotations
 """台南一中課表系統核心模組"""
-from typing import TYPE_CHECKING, List, Optional
+from typing import TYPE_CHECKING, Generator, List, Optional
 if TYPE_CHECKING:
     from tnfsh_timetable_core.timetable.models import TimeTable
     from tnfsh_timetable_core.index.index import Index
     from tnfsh_timetable_core.scheduling.scheduling import Scheduling
+    from tnfsh_timetable_core.timetable_slot_log_dict.timetable_slot_log_dict import TimetableSlotLogDict
+    from tnfsh_timetable_core.scheduling.models import CourseNode
+    from logging import Logger
 
 class TNFSHTimetableCore:
     """台南一中課表核心功能的統一入口點
@@ -52,7 +55,7 @@ class TNFSHTimetableCore:
         await index.fetch()
         return index
     
-    async def fetch_timetable_slot_log_dict(self, refresh: bool = False):
+    async def fetch_timetable_slot_log_dict(self, refresh: bool = False) -> TimetableSlotLogDict:
         """從網路獲取課表時段紀錄
 
         Returns:
@@ -62,7 +65,7 @@ class TNFSHTimetableCore:
         timetable_slot_log_dict = await TimetableSlotLogDict.fetch(refresh=refresh)
         return timetable_slot_log_dict
 
-    def fetch_scheduling(self) -> Scheduling:
+    async def fetch_scheduling(self) -> Scheduling:
         """取得排課物件
         
         Returns:
@@ -71,7 +74,7 @@ class TNFSHTimetableCore:
         from tnfsh_timetable_core.scheduling.scheduling import Scheduling
         return Scheduling()
 
-    def scheduling_rotation(self, teacher_name: str, weekday: int, period: int, max_depth: int = 3):
+    async def scheduling_rotation(self, teacher_name: str, weekday: int, period: int, max_depth: int = 3) -> Generator[List[CourseNode], None, None]:
         """執行課程輪調搜尋
         
         搜尋指定教師在特定時段的所有可能輪調路徑。
@@ -89,9 +92,10 @@ class TNFSHTimetableCore:
             ValueError: 當 weekday 不在 1-5 之間或 period 不在 1-8 之間時
         """
         from tnfsh_timetable_core.scheduling.scheduling import Scheduling
-        return Scheduling().rotation(teacher_name=teacher_name, weekday=weekday, period=period, max_depth=max_depth)
+        scheduling = Scheduling()
+        return await scheduling.rotation(teacher_name=teacher_name, weekday=weekday, period=period, max_depth=max_depth)
 
-    def scheduling_swap(self, teacher_name: str, weekday: int, period: int, max_depth: int = 3):
+    async def scheduling_swap(self, teacher_name: str, weekday: int, period: int, max_depth: int = 3) -> Generator[List[CourseNode], None, None]:
         """執行課程交換搜尋
         
         搜尋指定教師在特定時段的所有可能交換路徑。
@@ -109,4 +113,36 @@ class TNFSHTimetableCore:
             ValueError: 當 weekday 不在 1-5 之間或 period 不在 1-8 之間時
         """
         from tnfsh_timetable_core.scheduling.scheduling import Scheduling
-        return Scheduling().swap(teacher_name=teacher_name, weekday=weekday, period=period, max_depth=max_depth)
+        scheduling = Scheduling()
+        return await scheduling.swap(teacher_name=teacher_name, weekday=weekday, period=period, max_depth=max_depth)
+
+    async def preload_all_timetables(self, only_missing: bool = True, max_concurrent: int = 5) -> None:
+        """預載入所有課表資料
+        
+        Args:
+            only_missing: 是否只預載入缺少的課表，預設為 True
+            max_concurrent: 最大併發請求數量，預設為 5
+            
+        Returns:
+            None
+        """
+        from tnfsh_timetable_core.timetable.cache import preload_all
+        await preload_all(only_missing=only_missing, max_concurrent=max_concurrent)
+
+    def get_logger(self) -> Logger:
+        """取得核心模組的日誌記錄器
+        
+        Returns:
+            Logger: 日誌記錄器實例
+        """
+        from tnfsh_timetable_core.utils.logger import get_logger
+        return get_logger(logger_level="DEBUG")
+    
+    def set_logger_level(self, level: str) -> None:
+        """設定核心模組的日誌記錄器等級
+        
+        Args:
+            level: 日誌等級，例如 "DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"
+        """
+        from tnfsh_timetable_core.utils.logger import set_log_level
+        set_log_level(level)
