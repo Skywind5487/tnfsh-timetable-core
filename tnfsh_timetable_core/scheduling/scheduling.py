@@ -65,9 +65,9 @@ class Scheduling:
         from tnfsh_timetable_core.scheduling.swap import merge_paths
         return merge_paths(start, max_depth=max_depth)
 
-    async def fetch_course_node(self, teacher_name: str, weekday: int, period: int, refresh: bool = False) -> CourseNode:
+    async def fetch_course_node(self, teacher_name: str, weekday: int, period: int, refresh: bool = False, ignore_condition: bool = False) -> CourseNode:
         """從教師名稱、星期幾和第幾節獲取課程節點"""
-        if not await self._check_course_valid(teacher_name, weekday, period, refresh=refresh):
+        if not ignore_condition and not await self._check_course_valid(teacher_name, weekday, period, refresh=refresh):
             raise ValueError(f"無效的課程資訊：{teacher_name} 在 {weekday} 星期 {period} 節")
                 
         from tnfsh_timetable_core.scheduling.models import NodeDicts
