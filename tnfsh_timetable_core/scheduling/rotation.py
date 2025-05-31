@@ -62,21 +62,11 @@ def rotation(start: CourseNode, max_depth: int = 10) -> Generator[List[CourseNod
                 logger.debug(f"{indent}🔄 回到當前節點，跳過: {next_course.short()}")
                 continue
 
-            if next_course == start and depth > 0:
-                complete_path = path + [start]
-                logger.info(f"{indent}✅ 找到環路，長度 {len(complete_path)}")
-                logger.info(f"{indent}🔄 路徑: {' → '.join(n.short() for n in complete_path)}")
-                yield complete_path
-                continue
-
             if next_course.time.streak != current.time.streak:
                 logger.debug(f"{indent}❌ 不同streaks不可換課（{next_course.short()}與{current.short()}）")
                 continue
-            
-            
 
             hop_1_bwd = get_1_hop(current, next_course, type="bwd")
-
 
             if not is_free(hop_1_bwd):
                 logger.debug(f"{indent}❌ 非空堂不可換課（{hop_1_bwd.short() if hop_1_bwd else 'none'}）: {next_course.short()}")
@@ -84,6 +74,13 @@ def rotation(start: CourseNode, max_depth: int = 10) -> Generator[List[CourseNod
 
             if next_course in visited:
                 logger.debug(f"{indent}🔁 已訪問過，跳過: {next_course.short()}")
+                continue
+
+            if next_course == start and depth > 0:
+                complete_path = path + [start]
+                logger.info(f"{indent}✅ 找到環路，長度 {len(complete_path)}")
+                logger.info(f"{indent}🔄 路徑: {' → '.join(n.short() for n in complete_path)}")
+                yield complete_path
                 continue
 
             visited.add(next_course)
