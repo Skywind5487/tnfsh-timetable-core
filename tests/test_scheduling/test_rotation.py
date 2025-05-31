@@ -29,10 +29,16 @@ def build_course(
 
 # 建立一個全域的 Scheduling 實例
 core = TNFSHTimetableCore()
-scheduling = core.fetch_scheduling()
+scheduling = None
+
+async def setup_scheduling():
+    global scheduling
+    if scheduling is None:
+        scheduling = await core.fetch_scheduling()
 
 
-def test_simplest_rotation_path():
+@pytest.mark.asyncio
+async def test_simplest_rotation_path():
     """測試基本的輪調環路搜尋功能
     
     情境：
@@ -44,6 +50,7 @@ def test_simplest_rotation_path():
       - 102班：a2
       - 103班：b1
     """
+    await setup_scheduling()
     # === 建立老師與班級 ===
     teacher_A = TeacherNode(teacher_name="A", courses={})
     teacher_B = TeacherNode(teacher_name="B", courses={})
@@ -74,7 +81,8 @@ def test_simplest_rotation_path():
     assert found, "應該找到一條從 a1 出發、以 a1 結尾的環路"
 
 
-def test_no_cycle_when_teacher_busy():
+@pytest.mark.asyncio
+async def test_no_cycle_when_teacher_busy():
     """測試當老師沒有空堂時無法形成輪調環路
     
     情境：
@@ -87,6 +95,7 @@ def test_no_cycle_when_teacher_busy():
       - a4 (第四節，空堂)
     - 其他老師類似配置 
     """
+    await setup_scheduling()
     # === 建立老師 ===
     teacher_A = TeacherNode(teacher_name="A", courses={})
     teacher_B = TeacherNode(teacher_name="B", courses={})
@@ -153,7 +162,8 @@ def test_no_cycle_when_teacher_busy():
             assert is_free(hop_1), f"路徑中存在不合法的移動：{curr.short()} -> {next_node.short()}"
 
 
-def test_basic_cycle():
+@pytest.mark.asyncio
+async def test_basic_cycle():
     """測試基本環路的所有可能組合
     
     情境：
@@ -166,6 +176,7 @@ def test_basic_cycle():
       - D4：在 101 班，要和 C3 交換
     - 其他老師的課大多都在不同班級
     """
+    await setup_scheduling()
     # === 建立老師 ===
     teacher_A = TeacherNode(teacher_name="A", courses={})
     teacher_B = TeacherNode(teacher_name="B", courses={})
@@ -267,7 +278,8 @@ def test_basic_cycle():
             assert is_free(hop_1), f"路徑中存在不合法的移動：{curr.short()} → {next_node.short()}"
 
 
-def test_long_cycle_max_depth():
+@pytest.mark.asyncio
+async def test_long_cycle_max_depth():
     """測試最大深度限制下的輪調環路
     
     情境：
@@ -288,6 +300,7 @@ def test_long_cycle_max_depth():
     不應該出現的路徑：
     深度4路徑 (實際長度5): a1 -> b2 -> c3 -> d4 -> a1
     """
+    await setup_scheduling()
     # === 建立老師 ===
     teacher_A = TeacherNode(teacher_name="A", courses={})
     teacher_B = TeacherNode(teacher_name="B", courses={})
@@ -382,7 +395,8 @@ def test_long_cycle_max_depth():
         assert len(path) <= 4, "路徑長度超過最大深度限制"  # max_depth=3 時，最長路徑為 4（包含重複的起點）
 
 
-def test_isolated_course():
+@pytest.mark.asyncio
+async def test_isolated_course():
     """測試孤立課程的情況
     
     情境：
@@ -394,6 +408,7 @@ def test_isolated_course():
     1. 確認孤立的課程節點無法形成環路
     2. rotation 函數應該返回空列表
     """
+    await setup_scheduling()
     # === 建立老師與班級 ===
     teacher_A = TeacherNode(teacher_name="A", courses={})
     cls_101 = ClassNode(class_code="101", courses={})    # === 建立班級 ===

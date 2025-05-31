@@ -15,9 +15,9 @@ async def yan_young_jing_2_4():
     # 初始化 core
     core = TNFSHTimetableCore()
     # 調用 scheduling
-    scheduling = core.fetch_scheduling()
+    scheduling = await core.fetch_scheduling()
     # 搜尋顏永進老師週二第4節的輪調路徑
-    cycles = await scheduling.rotation("顏永進", weekday=3, period=2, max_depth=20, refresh=False)
+    cycles = await scheduling.rotation("顏永進", weekday=3, period=2, max_depth=2, refresh=False)
     # max_depth: 在輪換中，max_depth代表老師的課要「移動」幾次
     cycles_list = list(cycles)
     
