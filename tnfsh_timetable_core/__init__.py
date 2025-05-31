@@ -1,4 +1,5 @@
 from __future__ import annotations
+from venv import logger
 """台南一中課表系統核心模組"""
 from typing import TYPE_CHECKING, Generator, List, Optional
 if TYPE_CHECKING:
@@ -129,14 +130,14 @@ class TNFSHTimetableCore:
         from tnfsh_timetable_core.timetable.cache import preload_all
         await preload_all(only_missing=only_missing, max_concurrent=max_concurrent)
 
-    def get_logger(self) -> Logger:
+    def get_logger(self, logger_level: str = "DEBUG") -> Logger:
         """取得核心模組的日誌記錄器
         
         Returns:
             Logger: 日誌記錄器實例
         """
         from tnfsh_timetable_core.utils.logger import get_logger
-        return get_logger(logger_level="DEBUG")
+        return get_logger(logger_level=logger_level)
     
     def set_logger_level(self, level: str) -> None:
         """設定核心模組的日誌記錄器等級
