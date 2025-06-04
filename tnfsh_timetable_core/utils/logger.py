@@ -16,33 +16,43 @@ handler = logging.StreamHandler()
 handler.setLevel(getattr(logging, LOG_LEVEL, logging.INFO))
 
 
-def get_logger(logger_level: str = None) -> logging.Logger:
-    """獲取 logger 實例
-    
+def _get_caller_module_name(default_name: str = "unknown") -> str:
+    """
+    嘗試從呼叫者的 frame 取得 __name__，若取不到就回傳 default_name
+    """
+    try:
+        frame_info = inspect.stack()[1]
+        frame = frame_info.frame
+        module_name = frame.f_globals.get("__name__", None)
+        if isinstance(module_name, str) and module_name:
+            return module_name
+        else:
+            return default_name
+    except Exception:
+        return default_name
+
+
+def get_logger(logger_level: str = None, default_module: str = "core_default") -> logging.Logger:
+    """
+    獲取 logger 實例
+
     Args:
         logger_level (str, optional): 日誌等級，如果未指定則使用全域設定的 LOG_LEVEL。
-            可用等級：DEBUG、INFO、WARNING、ERROR、CRITICAL
+        default_module (str, optional): 如果無法從呼叫者 frame 取得模組名稱，則使用此預設名稱。
 
     Returns:
         logging.Logger: 配置好的 logger 實例
     """
-    # 自動取得呼叫此函數的模組名稱
-    caller_frame = inspect.stack()[1]
-    module = inspect.getmodule(caller_frame[0])
-    name = module.__name__ if module else "unknown"
+    name = _get_caller_module_name(default_name=default_module)
 
     logger = logging.getLogger(name)
-    
-    # 如果沒有指定等級，使用全域設定
+
     level = (logger_level or LOG_LEVEL).upper()
-    
-    # 確保日誌等級有效
     if level not in valid_levels:
         level = LOG_LEVEL
-        
+
     logger.setLevel(getattr(logging, level))
 
-    # 避免重複加 handler
     if not logger.hasHandlers():
         formatter = logging.Formatter(f"[%(levelname)s] [{name}] %(message)s")
         handler.setFormatter(formatter)
@@ -50,18 +60,19 @@ def get_logger(logger_level: str = None) -> logging.Logger:
 
     return logger
 
+
 def set_log_level(level: str):
-    """設定全域日誌等級
+    """
+    設定全域日誌等級
 
     Args:
         level (str): 日誌等級，例如 "DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"
-            如果提供了無效的等級，將使用預設等級 (INFO)
     """
     global LOG_LEVEL
     level = level.upper()
     if level not in valid_levels:
         level = default_log_level
-    
+
     LOG_LEVEL = level
     handler.setLevel(getattr(logging, LOG_LEVEL))
     logging.getLogger().setLevel(getattr(logging, LOG_LEVEL))
