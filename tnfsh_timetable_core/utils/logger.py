@@ -1,62 +1,103 @@
 # logger.py
 import logging
 import os
-import inspect
+from pathlib import Path
+from typing import Any, Optional
+from functools import partialmethod
 from dotenv import load_dotenv
 
-load_dotenv()
-default_log_level = "INFO"  # 預設日誌等級
-valid_levels = ['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL']
+# 定義新的日誌等級 DETAIL（比 DEBUG 更詳細）
+DETAIL_LEVEL = 5  # DEBUG 是 10，所以這個要更低
+logging.addLevelName(DETAIL_LEVEL, 'DETAIL')
+
+# 擴展 Logger 類別
+class DetailLogger(logging.Logger):
+    """
+    擴展的 Logger 類別，添加 DETAIL 等級
+    """
+    def detail(self, msg: Any, *args: Any, **kwargs: Any) -> None:
+        """
+        以 DETAIL 等級記錄日誌消息
+
+        Args:
+            msg: 要記錄的消息
+            *args: 格式化參數
+            **kwargs: 關鍵字參數
+        """
+        if self.isEnabledFor(DETAIL_LEVEL):
+            self._log(DETAIL_LEVEL, msg, args, **kwargs)
+
+# 註冊擴展的 Logger 類別
+logging.setLoggerClass(DetailLogger)
+
+# 嘗試從不同位置加載 .env 文件
+possible_env_paths = [
+    Path.cwd() / '.env',  # 當前工作目錄
+    Path(__file__).parent.parent.parent / '.env',  # 專案根目錄
+]
+
+for env_path in possible_env_paths:
+    if env_path.exists():
+        load_dotenv(env_path)
+        break
+
+default_log_level = "INFO"
+valid_levels = ['DETAIL', 'DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL']
 
 # 取得並驗證環境變數中的日誌等級
 env_level = os.getenv("LOG_LEVEL", default_log_level).upper()
 LOG_LEVEL = env_level if env_level in valid_levels else default_log_level
 
-handler = logging.StreamHandler()
-handler.setLevel(getattr(logging, LOG_LEVEL, logging.INFO))
+# 創建全局的 handler
+console_handler = logging.StreamHandler()
+console_handler.setLevel(getattr(logging, LOG_LEVEL))
+
+# 設定格式化器，包含更詳細的信息
+formatter = logging.Formatter(
+    '[%(levelname)s] [%(name)s:%(filename)s:%(lineno)d] %(message)s'
+)
+console_handler.setFormatter(formatter)
 
 
-def _get_caller_module_name(default_name: str = "unknown") -> str:
-    """
-    嘗試從呼叫者的 frame 取得 __name__，若取不到就回傳 default_name
-    """
-    try:
-        frame_info = inspect.stack()[1]
-        frame = frame_info.frame
-        module_name = frame.f_globals.get("__name__", None)
-        if isinstance(module_name, str) and module_name:
-            return module_name
-        else:
-            return default_name
-    except Exception:
-        return default_name
-
-
-def get_logger(logger_level: str = None, default_module: str = "core_default") -> logging.Logger:
+def get_logger(name: str = None, logger_level : str = None) -> logging.Logger:
     """
     獲取 logger 實例
 
     Args:
-        logger_level (str, optional): 日誌等級，如果未指定則使用全域設定的 LOG_LEVEL。
-        default_module (str, optional): 如果無法從呼叫者 frame 取得模組名稱，則使用此預設名稱。
+        name (str, optional): logger 名稱。如果未指定，將使用調用模組的 __name__
+        level (str, optional): 日誌等級，如果未指定則使用全域設定的 LOG_LEVEL
 
     Returns:
         logging.Logger: 配置好的 logger 實例
     """
-    name = _get_caller_module_name(default_name=default_module)
+    # 如果沒有提供名稱，使用調用模組的 __name__
+    if name is None:
+        import inspect
+        frame = inspect.currentframe()
+        try:
+            # 獲取調用者的幀
+            caller_frame = frame.f_back
+            if caller_frame is not None:
+                name = caller_frame.f_globals.get('__name__', 'unknown')
+            else:
+                name = 'unknown'
+        finally:
+            del frame  # 清理引用，避免循環引用
 
     logger = logging.getLogger(name)
 
-    level = (logger_level or LOG_LEVEL).upper()
-    if level not in valid_levels:
-        level = LOG_LEVEL
+    # 設置日誌等級
+    log_level = (logger_level or LOG_LEVEL).upper()
+    if log_level not in valid_levels:
+        log_level = LOG_LEVEL
+    logger.setLevel(getattr(logging, log_level))
 
-    logger.setLevel(getattr(logging, level))
+    # 如果 logger 還沒有處理器，添加控制台處理器
+    if not logger.handlers:
+        logger.addHandler(console_handler)
 
-    if not logger.hasHandlers():
-        formatter = logging.Formatter(f"[%(levelname)s] [{name}] %(message)s")
-        handler.setFormatter(formatter)
-        logger.addHandler(handler)
+    # 禁用向上傳播，避免重複日誌
+    logger.propagate = False
 
     return logger
 
@@ -74,5 +115,9 @@ def set_log_level(level: str):
         level = default_log_level
 
     LOG_LEVEL = level
-    handler.setLevel(getattr(logging, LOG_LEVEL))
-    logging.getLogger().setLevel(getattr(logging, LOG_LEVEL))
+    console_handler.setLevel(getattr(logging, LOG_LEVEL))
+
+    # 更新所有現有的 logger
+    for logger_name in logging.root.manager.loggerDict:
+        logger = logging.getLogger(logger_name)
+        logger.setLevel(getattr(logging, LOG_LEVEL))

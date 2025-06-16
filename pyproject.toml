@@ -23,6 +23,7 @@ dependencies = [
     "pytest>=8.3.5",
     "pytest-asyncio>=0.24.0",
     "requests>=2.32.3",
+    "tenacity>=9.0.0",
 ]
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -73,3 +74,11 @@ publish-url = "https://upload.pypi.org/legacy/"
 name = "testpypi"
 url = "https://test.pypi.org/simple/"
 publish-url = "https://test.pypi.org/legacy/"
+
+[tool.uv.sources]
+tnfsh-timetable-core = { workspace = true }
+
+[dependency-groups]
+dev = [
+    "tnfsh-timetable-core",
+]

@@ -1,226 +1,200 @@
-from typing import Optional, TypeAlias, Dict, Union
+from typing import Optional, Dict, Tuple
+from unittest.mock import DEFAULT
 import aiohttp
-from aiohttp import client_exceptions
 import asyncio
 from bs4 import BeautifulSoup
 import re
-from tnfsh_timetable_core.index.models import IndexResult, ReverseIndexResult, GroupIndex, ReverseMap, AllTypeIndexResult
+from tenacity import (
+    retry,
+    stop_after_attempt,
+    wait_exponential,
+    retry_if_exception_type,
+    before_sleep_log,
+)
+import logging
 
+from tnfsh_timetable_core.abc.crawler_abc import BaseCrawlerABC
+from tnfsh_timetable_core.index.models import IndexResult, GroupIndex
 from tnfsh_timetable_core import TNFSHTimetableCore
+
 core = TNFSHTimetableCore()
 logger = core.get_logger()
 
-class FetchError(Exception):
-    """爬取課表時可能發生的錯誤"""
-    def __init__(self, message: str):
-        super().__init__(message)
-        self.message = message
+class IndexCrawler(BaseCrawlerABC):
+    """首頁索引爬蟲，負責獲取課表首頁的索引資訊"""
 
-async def request_html(base_url: str, url: str, timeout: int = 15, from_file_path: Optional[str] = None, max_retries: int = 3, retry_delay: float = 1.0) -> BeautifulSoup:
-    """非同步取得網頁內容並解析
-    
-    Args:
-        base_url (str): 基礎 URL
-        url (str): 相對路徑 URL
-        timeout (int): 請求超時時間
-        from_file_path (Optional[str]): 可選的檔案路徑，若提供則從該檔案讀取
-        max_retries (int, optional): 最大重試次數. 預設為 3
-        retry_delay (float, optional): 重試間隔秒數. 預設為 1.0
+    DEFAULT_BASE_URL = "http://w3.tnfsh.tn.edu.tw/deanofstudies/course"
+    DEFAULT_TEACHER_PAGE = "_TeachIndex.html"
+    DEFAULT_CLASS_PAGE = "_ClassIndex.html"
+    DEFAULT_ROOT = "index.html"
+
+    def __init__(self, 
+                 base_url: Optional[str] = None,
+                 root_page: Optional[str] = None,
+                 teacher_page: Optional[str] = None,
+                 class_page: Optional[str] = None
+                 ):
+        """
+        初始化爬蟲
         
-    Returns:
-        BeautifulSoup: 解析後的 BeautifulSoup 物件
+        Args:
+            base_url: 基礎 URL，如果未指定則使用預設值
+        """
+        self.base_url = base_url or self.DEFAULT_BASE_URL
+        self.root = root_page or self.DEFAULT_ROOT
+        self.teacher_page = teacher_page or self.DEFAULT_TEACHER_PAGE
+        self.class_page = class_page or self.DEFAULT_CLASS_PAGE
         
-    Raises:
-        aiohttp.ClientError: 當網頁請求失敗時
-        Exception: 當解析 HTML 失敗時
-    """
-    if from_file_path:
-        logger.debug(f"📂 從檔案讀取：{from_file_path}")
-        with open(from_file_path, 'r', encoding='utf-8') as f:
-            return BeautifulSoup(f.read(), 'html.parser')
-    
-    full_url = base_url + url
-    logger.debug(f"🌐 準備請求網址：{full_url}")
-    
-    headers = {
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        'Accept-Encoding': 'gzip, deflate',
-        'Accept-Language': 'zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-    }
 
-    for attempt in range(max_retries):
-        try:
-            logger.debug(f"📡 發送請求 (嘗試 {attempt + 1}/{max_retries})")
-            async with aiohttp.ClientSession() as session:
-                async with session.get(full_url, headers=headers, timeout=aiohttp.ClientTimeout(total=timeout)) as response:
-                    response.raise_for_status()
-                    content = await response.read()
-                    logger.debug(f"📥 收到回應")
-                    soup = BeautifulSoup(content, 'html.parser')
-                    logger.debug(f"✅ HTML 解析完成")
-                    return soup
+    @retry(
+        stop=stop_after_attempt(3),
+        wait=wait_exponential(multiplier=1, min=4, max=10),
+        retry=retry_if_exception_type((
+            aiohttp.ClientError,
+            aiohttp.ServerTimeoutError,
+            asyncio.TimeoutError
+        )),
+        before_sleep=before_sleep_log(logger, logging.WARNING)
+    )
+    async def fetch_raw(
+        self,
+        url: str,
+        *,
+        from_file: Optional[str] = None,
+        timeout: int = 15
+    ) -> BeautifulSoup:
+        """獲取原始 HTML 內容
+        
+        Args:
+            url: 相對 URL 路徑
+            from_file: 可選的本地文件路徑
+            timeout: 請求超時時間（秒）
+            
+        Returns:
+            BeautifulSoup: 解析後的 HTML
+            
+        Raises:
+            aiohttp.ClientError: 當發生網路錯誤時
+            asyncio.TimeoutError: 當請求超時時
+        """
+        if from_file:
+            logger.debug(f"📂 從檔案讀取：{from_file}")
+            with open(from_file, 'r', encoding='utf-8') as f:
+                return BeautifulSoup(f.read(), 'html.parser')
+        
+        logger.debug(f"🌐 請求網址：{url}")
+        
+        async with aiohttp.ClientSession() as session:
+            async with session.get(
+                url,
+                headers=self.get_headers(),
+                timeout=aiohttp.ClientTimeout(total=timeout)
+            ) as response:
+                response.raise_for_status()
+                content = await response.read()
+                logger.debug(f"📥 收到回應：{len(content)} bytes")
+                return BeautifulSoup(content, 'html.parser')
 
-        except client_exceptions.ClientResponseError as e:
-            error_msg = f"HTTP 狀態碼錯誤 {e.status}: {e.message}"
-            logger.warning(f"⚠️ {error_msg}")
-            if attempt + 1 < max_retries:
-                logger.info(f"🔄 等待 {retry_delay} 秒後重試...")
-                await asyncio.sleep(retry_delay)
+    def parse(self, raw: BeautifulSoup, url: str) -> GroupIndex:
+        """解析 HTML 內容為索引結構
+        
+        Args:
+            raw: BeautifulSoup 物件
+            url: 索引的相對 URL
+            
+        Returns:
+            GroupIndex: 解析後的索引資料
+        """
+        parsed_data: Dict[str, Dict[str, str]] = {}
+        current_category = None
+        
+        for tr in raw.find_all("tr"):
+            # 處理分類標題
+            if self._is_category_row(tr):
+                current_category = tr.find("span").text.strip()
+                parsed_data[current_category] = {}
                 continue
-            raise aiohttp.ClientError(error_msg)
-
-        except client_exceptions.ClientConnectorError as e:
-            error_msg = f"連線錯誤：{str(e)}"
-            logger.warning(f"⚠️ {error_msg}")
-            if attempt + 1 < max_retries:
-                logger.info(f"🔄 等待 {retry_delay} 秒後重試...")
-                await asyncio.sleep(retry_delay)
-                continue
-            raise aiohttp.ClientError(error_msg)
-
-        except (client_exceptions.ServerTimeoutError, asyncio.TimeoutError):
-            error_msg = "請求超時"
-            logger.warning(f"⚠️ {error_msg}")
-            if attempt + 1 < max_retries:
-                logger.info(f"🔄 等待 {retry_delay} 秒後重試...")
-                await asyncio.sleep(retry_delay)
-                continue
-            raise aiohttp.ClientError(error_msg)
-
-        except client_exceptions.ClientError as e:
-            error_msg = f"網路請求錯誤：{str(e)}"
-            logger.warning(f"⚠️ {error_msg}")
-            if attempt + 1 < max_retries:
-                logger.info(f"🔄 等待 {retry_delay} 秒後重試...")
-                await asyncio.sleep(retry_delay)
-                continue
-            raise aiohttp.ClientError(error_msg)
-
-        except Exception as e:
-            error_msg = f"未預期的錯誤：{str(e)}"
-            logger.error(f"❌ {error_msg}")
-            raise FetchError(error_msg)
-
-def parse_html(soup: BeautifulSoup, url: str) -> GroupIndex:
-    """解析網頁內容
+            
+            # 處理分類內容
+            if current_category:
+                self._process_links(tr, current_category, parsed_data)
+        
+        return GroupIndex(url=url, data=parsed_data)
     
-    Args:
-        soup (BeautifulSoup): 要解析的 BeautifulSoup 物件
-        url (str): 該索引的 URL
-
-    Returns:
-        GroupIndex: 解析後的索引資料結構
-    """
-    parsed_data = {}
-    current_category = None
+    def _is_category_row(self, tr: BeautifulSoup) -> bool:
+        """判斷是否為分類標題行"""
+        return bool(tr.find("span") and not tr.find("a"))
     
-    for tr in soup.find_all("tr"):
-        category_tag = tr.find("span")
-        if category_tag and not tr.find("a"):
-            current_category = category_tag.text.strip()
-            parsed_data[current_category] = {}
+    def _process_links(
+        self,
+        tr: BeautifulSoup,
+        category: str,
+        data: Dict[str, Dict[str, str]]
+    ) -> None:
+        """處理表格行中的連結"""
         for a in tr.find_all("a"):
             link = a.get("href")
+            if not link:
+                continue
+                
             text = a.text.strip()
-            if text.isdigit() and link:
-                parsed_data[current_category][text] = link
+            if text.isdigit():
+                # 班級代碼
+                data[category][text] = link
             else:
-                match = re.search(r'([\u4e00-\u9fa5]+)', text)
-                if match:
-                    text = match.group(1)
-                    parsed_data[current_category][text] = link
-                else:
-                    text = text.replace("\r", "").replace("\n", "").replace(" ", "").strip()
-                    if len(text) > 3:
-                        text = text[3:].strip()
-                        parsed_data[current_category][text] = link
+                # 教師名稱或其他
+                clean_text = self._clean_text(text)
+                if clean_text:
+                    data[category][clean_text] = link
     
-    return GroupIndex(url=url, data=parsed_data)
-
-
-def reverse_index(index: IndexResult) -> ReverseIndexResult:
-    """將索引資料轉換為反查表格式
-    
-    將 IndexResult 中的班級和老師資料轉換為 ReverseIndexResult 格式，
-    方便快速查找特定班級或老師的資訊。
-    
-    Args:
-        index (IndexResult): 原始索引資料
+    def _clean_text(self, text: str) -> Optional[str]:
+        """清理並格式化文字"""
+        # 嘗試提取中文名稱
+        match = re.search(r'([\u4e00-\u9fa5]+)', text)
+        if match:
+            return match.group(1)
         
-    Returns:
-        ReverseIndexResult: 反查表格式的資料
-    """
-    result: ReverseIndexResult = {}
-    
-    # 處理老師資料
-    for category, teachers in index.teacher.data.items():
-        for teacher_name, url in teachers.items():
-            result[teacher_name] = ReverseMap(url=url, category=category)
-    
-    # 處理班級資料
-    for category, classes in index.class_.data.items():
-        for class_name, url in classes.items():
-            result[class_name] = ReverseMap(url=url, category=category)
-    
-    return result
+        # 處理其他格式
+        text = text.replace("\r", "").replace("\n", "").replace(" ", "").strip()
+        if len(text) > 3:
+            return text[3:].strip()
+        return None
 
-async def request_all_index(base_url: str) -> IndexResult:
-    """非同步獲取完整的課表索引
+
     
-    Args:
-        base_url (str): 基礎 URL
+    async def _fetch_all_pages(self) -> Tuple[BeautifulSoup, BeautifulSoup]:
+        """並行獲取所有需要的頁面"""
+
+        tasks = [
+            self.fetch_raw(f"{self.base_url}/{self.teacher_page}"),
+            self.fetch_raw(f"{self.base_url}/{self.class_page}")
+        ]
+        return await asyncio.gather(*tasks)
+    
+    def _create_index_result(
+        self,
+        teacher_soup: BeautifulSoup,
+        class_soup: BeautifulSoup
+    ) -> IndexResult:
+        """創建索引結果"""
+        return IndexResult(
+            base_url=self.base_url,
+            root=self.root,
+            class_=self.parse(raw=class_soup, url=self.class_page),
+            teacher=self.parse(raw=teacher_soup, url=self.teacher_page)
+        )
+    
+    async def fetch(self, *, refresh: bool = False) -> IndexResult:
+        """獲取完整的索引資料
         
-    Returns:
-        IndexResult: 完整的課表索引資料
-    """
-    # 並行獲取教師和班級索引
-    tasks = [
-        request_html(base_url, "_TeachIndex.html"),
-        request_html(base_url, "_ClassIndex.html")
-    ]
-    teacher_soup, class_soup = await asyncio.gather(*tasks)
-    
-    # 解析資料
-    teacher_result = parse_html(teacher_soup, "_TeachIndex.html")
-    class_result = parse_html(class_soup, "_ClassIndex.html")
-    
-    # 建立完整索引
-    return IndexResult(
-        base_url=base_url,
-        root="index.html",
-        class_=class_result,
-        teacher=teacher_result
-    )
-
-def merge_results(index: IndexResult, reverse_index: ReverseIndexResult) -> AllTypeIndexResult:
-    """合併索引和反查表結果
-    
-    Args:
-        index (IndexResult): 完整的課表索引資料
-        reverse_index (ReverseIndexResult): 反查表資料
+        Args:
+            refresh: 是否強制更新快取
+            
+        Returns:
+            IndexResult: 完整的索引資料
+        """
+        # 並行獲取教師和班級索引
+        teacher_soup, class_soup = await self._fetch_all_pages()
         
-    Returns:
-        AllTypeIndexResult: 合併後的結果
-    """
-    return AllTypeIndexResult(
-        index=index,
-        reverse_index=reverse_index
-    )
-
-async def fetch_all_index(base_url: str) -> AllTypeIndexResult:
-    """獲取所有類型的索引資料
-    
-    Args:
-        base_url (str): 基礎 URL
-        
-    Returns:
-        AllTypeIndexResult: 所有類型的索引資料
-    """
-    index_result = await request_all_index(base_url)
-    reverse_index_result = reverse_index(index_result)
-    return merge_results(index_result, reverse_index_result)
-
-if __name__ == "__main__":
-    # For test cases, see: tests/test_index/test_crawler.py
-    pass
+        # 解析資料並返回結果
+        return self._create_index_result(teacher_soup, class_soup)
