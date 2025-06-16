@@ -52,10 +52,22 @@ LOG_LEVEL = env_level if env_level in valid_levels else default_log_level
 console_handler = logging.StreamHandler()
 console_handler.setLevel(getattr(logging, LOG_LEVEL))
 
-# 設定格式化器，包含更詳細的信息
-formatter = logging.Formatter(
-    '[%(levelname)s] [%(name)s:%(filename)s:%(lineno)d] %(message)s'
-)
+class ColorFormatter(logging.Formatter):
+    COLORS = {
+        logging.DEBUG:    "\033[34m",  # 藍
+        logging.INFO:     "\033[32m",  # 綠
+        logging.WARNING:  "\033[33m",  # 黃
+        logging.ERROR:    "\033[31m",  # 紅
+        logging.CRITICAL: "\033[41m\033[97m",  # 白字紅底
+    }
+    RESET = "\033[0m"
+
+    def format(self, record):
+        color = self.COLORS.get(record.levelno, self.RESET)
+        prefix = f"{color}[{record.module}:{record.lineno}] {self.RESET}"
+        return f"{prefix} {record.getMessage()}"
+
+formatter = ColorFormatter('%(message)s')
 console_handler.setFormatter(formatter)
 
 
@@ -85,7 +97,7 @@ def get_logger(name: str = None, logger_level : str = None) -> logging.Logger:
             del frame  # 清理引用，避免循環引用
 
     logger = logging.getLogger(name)
-
+    
     # 設置日誌等級
     log_level = (logger_level or LOG_LEVEL).upper()
     if log_level not in valid_levels:

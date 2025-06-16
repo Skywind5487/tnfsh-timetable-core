@@ -18,7 +18,7 @@ from tnfsh_timetable_core.index.models import IndexResult, GroupIndex
 from tnfsh_timetable_core import TNFSHTimetableCore
 
 core = TNFSHTimetableCore()
-logger = core.get_logger()
+logger = core.get_logger(logger_level="DEBUG")
 
 class IndexCrawler(BaseCrawlerABC):
     """首頁索引爬蟲，負責獲取課表首頁的索引資訊"""
@@ -197,4 +197,6 @@ class IndexCrawler(BaseCrawlerABC):
         teacher_soup, class_soup = await self._fetch_all_pages()
         
         # 解析資料並返回結果
-        return self._create_index_result(teacher_soup, class_soup)
+        result = self._create_index_result(teacher_soup, class_soup)
+        logger.info(f"✅ Index索引抓取完成")
+        return result
