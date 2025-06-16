@@ -198,5 +198,5 @@ class IndexCrawler(BaseCrawlerABC):
         
         # 解析資料並返回結果
         result = self._create_index_result(teacher_soup, class_soup)
-        logger.info(f"✅ Index索引抓取完成")
+        logger.info(f"✅ Index抓取完成")
         return result

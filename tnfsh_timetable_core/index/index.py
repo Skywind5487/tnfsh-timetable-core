@@ -1,8 +1,7 @@
 from datetime import datetime
 from typing import Dict, Optional
 from tnfsh_timetable_core.index.models import IndexResult, ReverseIndexResult, AllTypeIndexResult
-from tnfsh_timetable_core.index.crawler import request_all_index
-from tnfsh_timetable_core.index.cache import fetch_with_cache
+
 import json
 
 class Index:

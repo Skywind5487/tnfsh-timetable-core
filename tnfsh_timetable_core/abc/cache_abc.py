@@ -56,12 +56,12 @@ class BaseCacheABC(ABC):
 
     @abstractmethod
     async def fetch_from_memory(self, *args, **kwargs) -> Optional[Any]:
-        """從記憶體快取取得資料"""
+        """從全域變數快取取得資料"""
         pass
 
     @abstractmethod
     async def save_to_memory(self, data: Any, *args, **kwargs) -> None:
-        """儲存資料到記憶體快取"""
+        """儲存資料到全域變數快取"""
         pass
 
     async def fetch_from_file(self, filepath: str, *args, **kwargs) -> Optional[Any]:
