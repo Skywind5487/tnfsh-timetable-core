@@ -1,169 +1,209 @@
 {
-    "table": [
-        [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            {
-                "subject": "英文閱讀與寫作",
-                "counterpart": [
-                    {
-                        "participant": "318",
-                        "url": "C106318.HTML"
-                    }
-                ]
-            },
-            null
+    "metadata": {
+        "cache_fetch_at": "2025-06-18T20:30:06.236905"
+    },
+    "data": {
+        "table": [
+            [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "英文閱讀與寫作",
+                    "counterpart": [
+                        {
+                            "participant": "318",
+                            "url": "C106318.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                {
+                    "subject": "英語聽講",
+                    "counterpart": [
+                        {
+                            "participant": "304",
+                            "url": "C101304.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "英語聽講",
+                    "counterpart": [
+                        {
+                            "participant": "304",
+                            "url": "C101304.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "英語聽講",
+                    "counterpart": [
+                        {
+                            "participant": "317",
+                            "url": "C101317.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "英語聽講",
+                    "counterpart": [
+                        {
+                            "participant": "317",
+                            "url": "C101317.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "英文閱讀與寫作",
+                    "counterpart": [
+                        {
+                            "participant": "317",
+                            "url": "C101317.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "英文閱讀與寫作",
+                    "counterpart": [
+                        {
+                            "participant": "317",
+                            "url": "C101317.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "英文閱讀與寫作",
+                    "counterpart": [
+                        {
+                            "participant": "318",
+                            "url": "C106318.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                {
+                    "subject": "團體活動時間",
+                    "counterpart": [
+                        {
+                            "participant": "317",
+                            "url": "C101317.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "團體活動時間",
+                    "counterpart": [
+                        {
+                            "participant": "317",
+                            "url": "C101317.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                {
+                    "subject": "英文閱讀與寫作",
+                    "counterpart": [
+                        {
+                            "participant": "304",
+                            "url": "C101304.HTML"
+                        }
+                    ]
+                },
+                null,
+                {
+                    "subject": "英文閱讀與寫作",
+                    "counterpart": [
+                        {
+                            "participant": "304",
+                            "url": "C101304.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                {
+                    "subject": "英語聽講",
+                    "counterpart": [
+                        {
+                            "participant": "318",
+                            "url": "C106318.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "英語聽講",
+                    "counterpart": [
+                        {
+                            "participant": "318",
+                            "url": "C106318.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
         ],
-        [
-            {
-                "subject": "英語聽講",
-                "counterpart": [
-                    {
-                        "participant": "304",
-                        "url": "C101304.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "英語聽講",
-                "counterpart": [
-                    {
-                        "participant": "304",
-                        "url": "C101304.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "英語聽講",
-                "counterpart": [
-                    {
-                        "participant": "317",
-                        "url": "C101317.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "英語聽講",
-                "counterpart": [
-                    {
-                        "participant": "317",
-                        "url": "C101317.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null,
-            null
-        ],
-        [
-            null,
-            null,
-            null,
-            null,
-            {
-                "subject": "英文閱讀與寫作",
-                "counterpart": [
-                    {
-                        "participant": "317",
-                        "url": "C101317.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "英文閱讀與寫作",
-                "counterpart": [
-                    {
-                        "participant": "317",
-                        "url": "C101317.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "英文閱讀與寫作",
-                "counterpart": [
-                    {
-                        "participant": "318",
-                        "url": "C106318.HTML"
-                    }
-                ]
-            },
-            null
-        ],
-        [
-            {
-                "subject": "團體活動時間",
-                "counterpart": [
-                    {
-                        "participant": "317",
-                        "url": "C101317.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "團體活動時間",
-                "counterpart": [
-                    {
-                        "participant": "317",
-                        "url": "C101317.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            {
-                "subject": "英文閱讀與寫作",
-                "counterpart": [
-                    {
-                        "participant": "304",
-                        "url": "C101304.HTML"
-                    }
-                ]
-            },
-            null,
-            {
-                "subject": "英文閱讀與寫作",
-                "counterpart": [
-                    {
-                        "participant": "304",
-                        "url": "C101304.HTML"
-                    }
-                ]
-            },
-            null
-        ],
-        [
-            {
-                "subject": "英語聽講",
-                "counterpart": [
-                    {
-                        "participant": "318",
-                        "url": "C106318.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "英語聽講",
-                "counterpart": [
-                    {
-                        "participant": "318",
-                        "url": "C106318.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-        ]
-    ],
-    "type": "teacher",
-    "target": "留郁涵",
-    "target_url": "TB32.html"
+        "periods": {
+            "第一節": [
+                "08:00",
+                "08:50"
+            ],
+            "第二節": [
+                "09:00",
+                "09:50"
+            ],
+            "第三節": [
+                "10:10",
+                "11:00"
+            ],
+            "第四節": [
+                "11:10",
+                "12:00"
+            ],
+            "第五節": [
+                "13:10",
+                "14:00"
+            ],
+            "第六節": [
+                "14:10",
+                "15:00"
+            ],
+            "第七節": [
+                "15:10",
+                "16:00"
+            ],
+            "第八節": [
+                "16:10",
+                "17:00"
+            ]
+        },
+        "type": "teacher",
+        "target": "留郁涵",
+        "target_url": "TB32.html",
+        "last_update": "2025/02/03 18:59:34"
+    }
 }

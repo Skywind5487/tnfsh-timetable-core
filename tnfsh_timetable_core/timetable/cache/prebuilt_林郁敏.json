@@ -1,175 +1,215 @@
 {
-    "table": [
-        [
-            null,
-            {
-                "subject": "數學",
-                "counterpart": [
-                    {
-                        "participant": "116",
-                        "url": "C101116.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學",
-                "counterpart": [
-                    {
-                        "participant": "105",
-                        "url": "C101105.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null,
-            null,
-            null
+    "metadata": {
+        "cache_fetch_at": "2025-06-18T20:30:05.404607"
+    },
+    "data": {
+        "table": [
+            [
+                null,
+                {
+                    "subject": "數學",
+                    "counterpart": [
+                        {
+                            "participant": "116",
+                            "url": "C101116.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學",
+                    "counterpart": [
+                        {
+                            "participant": "105",
+                            "url": "C101105.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "數學",
+                    "counterpart": [
+                        {
+                            "participant": "105",
+                            "url": "C101105.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學",
+                    "counterpart": [
+                        {
+                            "participant": "116",
+                            "url": "C101116.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學甲",
+                    "counterpart": [
+                        {
+                            "participant": "311",
+                            "url": "C101311.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                null,
+                {
+                    "subject": "數學甲",
+                    "counterpart": [
+                        {
+                            "participant": "311",
+                            "url": "C101311.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學",
+                    "counterpart": [
+                        {
+                            "participant": "116",
+                            "url": "C101116.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學",
+                    "counterpart": [
+                        {
+                            "participant": "105",
+                            "url": "C101105.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                {
+                    "subject": "團體活動時間",
+                    "counterpart": [
+                        {
+                            "participant": "105",
+                            "url": "C101105.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                {
+                    "subject": "團體活動時間",
+                    "counterpart": [
+                        {
+                            "participant": "105",
+                            "url": "C101105.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學",
+                    "counterpart": [
+                        {
+                            "participant": "105",
+                            "url": "C101105.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                {
+                    "subject": "高二多元選修",
+                    "counterpart": null
+                },
+                {
+                    "subject": "彈性-多元選修",
+                    "counterpart": null
+                },
+                {
+                    "subject": "數學甲",
+                    "counterpart": [
+                        {
+                            "participant": "311",
+                            "url": "C101311.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學甲",
+                    "counterpart": [
+                        {
+                            "participant": "311",
+                            "url": "C101311.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學",
+                    "counterpart": [
+                        {
+                            "participant": "116",
+                            "url": "C101116.HTML"
+                        }
+                    ]
+                },
+                null
+            ]
         ],
-        [
-            null,
-            null,
-            null,
-            null,
-            {
-                "subject": "數學",
-                "counterpart": [
-                    {
-                        "participant": "105",
-                        "url": "C101105.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學",
-                "counterpart": [
-                    {
-                        "participant": "116",
-                        "url": "C101116.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學甲",
-                "counterpart": [
-                    {
-                        "participant": "311",
-                        "url": "C101311.HTML"
-                    }
-                ]
-            },
-            null
-        ],
-        [
-            null,
-            {
-                "subject": "數學甲",
-                "counterpart": [
-                    {
-                        "participant": "311",
-                        "url": "C101311.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學",
-                "counterpart": [
-                    {
-                        "participant": "116",
-                        "url": "C101116.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學",
-                "counterpart": [
-                    {
-                        "participant": "105",
-                        "url": "C101105.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            {
-                "subject": "團體活動時間",
-                "counterpart": [
-                    {
-                        "participant": "105",
-                        "url": "C101105.HTML"
-                    }
-                ]
-            },
-            null
-        ],
-        [
-            {
-                "subject": "團體活動時間",
-                "counterpart": [
-                    {
-                        "participant": "105",
-                        "url": "C101105.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學",
-                "counterpart": [
-                    {
-                        "participant": "105",
-                        "url": "C101105.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-        ],
-        [
-            null,
-            null,
-            {
-                "subject": "高二多元選修",
-                "counterpart": null
-            },
-            {
-                "subject": "彈性-多元選修",
-                "counterpart": null
-            },
-            {
-                "subject": "數學甲",
-                "counterpart": [
-                    {
-                        "participant": "311",
-                        "url": "C101311.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學甲",
-                "counterpart": [
-                    {
-                        "participant": "311",
-                        "url": "C101311.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學",
-                "counterpart": [
-                    {
-                        "participant": "116",
-                        "url": "C101116.HTML"
-                    }
-                ]
-            },
-            null
-        ]
-    ],
-    "type": "teacher",
-    "target": "林郁敏",
-    "target_url": "TC05.html"
+        "periods": {
+            "第一節": [
+                "08:00",
+                "08:50"
+            ],
+            "第二節": [
+                "09:00",
+                "09:50"
+            ],
+            "第三節": [
+                "10:10",
+                "11:00"
+            ],
+            "第四節": [
+                "11:10",
+                "12:00"
+            ],
+            "第五節": [
+                "13:10",
+                "14:00"
+            ],
+            "第六節": [
+                "14:10",
+                "15:00"
+            ],
+            "第七節": [
+                "15:10",
+                "16:00"
+            ],
+            "第八節": [
+                "16:10",
+                "17:00"
+            ]
+        },
+        "type": "teacher",
+        "target": "林郁敏",
+        "target_url": "TC05.html",
+        "last_update": "2025/02/03 18:59:34"
+    }
 }

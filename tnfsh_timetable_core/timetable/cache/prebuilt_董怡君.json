@@ -1,215 +1,255 @@
 {
-    "table": [
-        [
-            {
-                "subject": "音樂",
-                "counterpart": [
-                    {
-                        "participant": "108",
-                        "url": "C101108.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "音樂",
-                "counterpart": [
-                    {
-                        "participant": "111",
-                        "url": "C101111.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "藝術生活",
-                "counterpart": [
-                    {
-                        "participant": "304",
-                        "url": "C101304.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "藝術生活",
-                "counterpart": [
-                    {
-                        "participant": "304",
-                        "url": "C101304.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "音樂",
-                "counterpart": [
-                    {
-                        "participant": "115",
-                        "url": "C101115.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "藝術生活",
-                "counterpart": [
-                    {
-                        "participant": "303",
-                        "url": "C101303.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "藝術生活",
-                "counterpart": [
-                    {
-                        "participant": "303",
-                        "url": "C101303.HTML"
-                    }
-                ]
-            },
-            null
+    "metadata": {
+        "cache_fetch_at": "2025-06-18T20:30:18.400334"
+    },
+    "data": {
+        "table": [
+            [
+                {
+                    "subject": "音樂",
+                    "counterpart": [
+                        {
+                            "participant": "108",
+                            "url": "C101108.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "音樂",
+                    "counterpart": [
+                        {
+                            "participant": "111",
+                            "url": "C101111.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "藝術生活",
+                    "counterpart": [
+                        {
+                            "participant": "304",
+                            "url": "C101304.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "藝術生活",
+                    "counterpart": [
+                        {
+                            "participant": "304",
+                            "url": "C101304.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "音樂",
+                    "counterpart": [
+                        {
+                            "participant": "115",
+                            "url": "C101115.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "藝術生活",
+                    "counterpart": [
+                        {
+                            "participant": "303",
+                            "url": "C101303.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "藝術生活",
+                    "counterpart": [
+                        {
+                            "participant": "303",
+                            "url": "C101303.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "藝術生活",
+                    "counterpart": [
+                        {
+                            "participant": "306",
+                            "url": "C101306.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "藝術生活",
+                    "counterpart": [
+                        {
+                            "participant": "306",
+                            "url": "C101306.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "音樂",
+                    "counterpart": [
+                        {
+                            "participant": "116",
+                            "url": "C101116.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                {
+                    "subject": "藝術生活",
+                    "counterpart": [
+                        {
+                            "participant": "307",
+                            "url": "C101307.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "藝術生活",
+                    "counterpart": [
+                        {
+                            "participant": "307",
+                            "url": "C101307.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "音樂",
+                    "counterpart": [
+                        {
+                            "participant": "110",
+                            "url": "C101110.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "音樂",
+                    "counterpart": [
+                        {
+                            "participant": "109",
+                            "url": "C101109.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                {
+                    "subject": "音樂",
+                    "counterpart": [
+                        {
+                            "participant": "113",
+                            "url": "C101113.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "藝術生活",
+                    "counterpart": [
+                        {
+                            "participant": "305",
+                            "url": "C101305.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "藝術生活",
+                    "counterpart": [
+                        {
+                            "participant": "305",
+                            "url": "C101305.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "音樂",
+                    "counterpart": [
+                        {
+                            "participant": "112",
+                            "url": "C101112.HTML"
+                        }
+                    ]
+                },
+                null,
+                {
+                    "subject": "音樂",
+                    "counterpart": [
+                        {
+                            "participant": "114",
+                            "url": "C101114.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                {
+                    "subject": "高一多元選修",
+                    "counterpart": null
+                },
+                {
+                    "subject": "高一多元選修",
+                    "counterpart": null
+                },
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
         ],
-        [
-            null,
-            null,
-            null,
-            null,
-            {
-                "subject": "藝術生活",
-                "counterpart": [
-                    {
-                        "participant": "306",
-                        "url": "C101306.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "藝術生活",
-                "counterpart": [
-                    {
-                        "participant": "306",
-                        "url": "C101306.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "音樂",
-                "counterpart": [
-                    {
-                        "participant": "116",
-                        "url": "C101116.HTML"
-                    }
-                ]
-            },
-            null
-        ],
-        [
-            {
-                "subject": "藝術生活",
-                "counterpart": [
-                    {
-                        "participant": "307",
-                        "url": "C101307.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "藝術生活",
-                "counterpart": [
-                    {
-                        "participant": "307",
-                        "url": "C101307.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "音樂",
-                "counterpart": [
-                    {
-                        "participant": "110",
-                        "url": "C101110.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "音樂",
-                "counterpart": [
-                    {
-                        "participant": "109",
-                        "url": "C101109.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null,
-            null
-        ],
-        [
-            null,
-            {
-                "subject": "音樂",
-                "counterpart": [
-                    {
-                        "participant": "113",
-                        "url": "C101113.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "藝術生活",
-                "counterpart": [
-                    {
-                        "participant": "305",
-                        "url": "C101305.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "藝術生活",
-                "counterpart": [
-                    {
-                        "participant": "305",
-                        "url": "C101305.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "音樂",
-                "counterpart": [
-                    {
-                        "participant": "112",
-                        "url": "C101112.HTML"
-                    }
-                ]
-            },
-            null,
-            {
-                "subject": "音樂",
-                "counterpart": [
-                    {
-                        "participant": "114",
-                        "url": "C101114.HTML"
-                    }
-                ]
-            },
-            null
-        ],
-        [
-            {
-                "subject": "高一多元選修",
-                "counterpart": null
-            },
-            {
-                "subject": "高一多元選修",
-                "counterpart": null
-            },
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-        ]
-    ],
-    "type": "teacher",
-    "target": "董怡君",
-    "target_url": "TJ06.html"
+        "periods": {
+            "第一節": [
+                "08:00",
+                "08:50"
+            ],
+            "第二節": [
+                "09:00",
+                "09:50"
+            ],
+            "第三節": [
+                "10:10",
+                "11:00"
+            ],
+            "第四節": [
+                "11:10",
+                "12:00"
+            ],
+            "第五節": [
+                "13:10",
+                "14:00"
+            ],
+            "第六節": [
+                "14:10",
+                "15:00"
+            ],
+            "第七節": [
+                "15:10",
+                "16:00"
+            ],
+            "第八節": [
+                "16:10",
+                "17:00"
+            ]
+        },
+        "type": "teacher",
+        "target": "董怡君",
+        "target_url": "TJ06.html",
+        "last_update": "2025/02/03 18:59:34"
+    }
 }

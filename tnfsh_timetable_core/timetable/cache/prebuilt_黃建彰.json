@@ -1,97 +1,137 @@
 {
-    "table": [
-        [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            {
-                "subject": "地球科學",
-                "counterpart": [
-                    {
-                        "participant": "117",
-                        "url": "C101117.HTML"
-                    }
-                ]
-            },
-            null
+    "metadata": {
+        "cache_fetch_at": "2025-06-18T20:30:18.370583"
+    },
+    "data": {
+        "table": [
+            [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "地球科學",
+                    "counterpart": [
+                        {
+                            "participant": "117",
+                            "url": "C101117.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "地球科學",
+                    "counterpart": [
+                        {
+                            "participant": "117",
+                            "url": "C101117.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                null,
+                null,
+                {
+                    "subject": "獨立研究, 專題研究",
+                    "counterpart": [
+                        {
+                            "participant": "118",
+                            "url": "C106118.HTML"
+                        },
+                        {
+                            "participant": "119",
+                            "url": "C108119.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "獨立研究, 專題研究",
+                    "counterpart": [
+                        {
+                            "participant": "118",
+                            "url": "C106118.HTML"
+                        },
+                        {
+                            "participant": "119",
+                            "url": "C108119.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
         ],
-        [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            {
-                "subject": "地球科學",
-                "counterpart": [
-                    {
-                        "participant": "117",
-                        "url": "C101117.HTML"
-                    }
-                ]
-            },
-            null
-        ],
-        [
-            null,
-            null,
-            {
-                "subject": "獨立研究, 專題研究",
-                "counterpart": [
-                    {
-                        "participant": "118",
-                        "url": "C106118.HTML"
-                    },
-                    {
-                        "participant": "119",
-                        "url": "C108119.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "獨立研究, 專題研究",
-                "counterpart": [
-                    {
-                        "participant": "118",
-                        "url": "C106118.HTML"
-                    },
-                    {
-                        "participant": "119",
-                        "url": "C108119.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null,
-            null
-        ],
-        [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-        ],
-        [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-        ]
-    ],
-    "type": "teacher",
-    "target": "黃建彰",
-    "target_url": "TI25.html"
+        "periods": {
+            "第一節": [
+                "08:00",
+                "08:50"
+            ],
+            "第二節": [
+                "09:00",
+                "09:50"
+            ],
+            "第三節": [
+                "10:10",
+                "11:00"
+            ],
+            "第四節": [
+                "11:10",
+                "12:00"
+            ],
+            "第五節": [
+                "13:10",
+                "14:00"
+            ],
+            "第六節": [
+                "14:10",
+                "15:00"
+            ],
+            "第七節": [
+                "15:10",
+                "16:00"
+            ],
+            "第八節": [
+                "16:10",
+                "17:00"
+            ]
+        },
+        "type": "teacher",
+        "target": "黃建彰",
+        "target_url": "TI25.html",
+        "last_update": "2025/02/03 18:59:34"
+    }
 }

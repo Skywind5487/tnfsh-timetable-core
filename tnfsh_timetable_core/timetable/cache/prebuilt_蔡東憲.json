@@ -1,185 +1,225 @@
 {
-    "table": [
-        [
-            {
-                "subject": "數學甲",
-                "counterpart": [
-                    {
-                        "participant": "305",
-                        "url": "C101305.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "邏輯辯證（2）：邏輯性思考與Excel之應用",
-                "counterpart": [
-                    {
-                        "participant": "118",
-                        "url": "C106118.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
+    "metadata": {
+        "cache_fetch_at": "2025-06-18T20:30:06.852657"
+    },
+    "data": {
+        "table": [
+            [
+                {
+                    "subject": "數學甲",
+                    "counterpart": [
+                        {
+                            "participant": "305",
+                            "url": "C101305.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "邏輯辯證（2）：邏輯性思考與Excel之應用",
+                    "counterpart": [
+                        {
+                            "participant": "118",
+                            "url": "C106118.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                {
+                    "subject": "數學",
+                    "counterpart": [
+                        {
+                            "participant": "118",
+                            "url": "C106118.HTML"
+                        }
+                    ]
+                },
+                null,
+                {
+                    "subject": "數學甲",
+                    "counterpart": [
+                        {
+                            "participant": "305",
+                            "url": "C101305.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學甲",
+                    "counterpart": [
+                        {
+                            "participant": "305",
+                            "url": "C101305.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學輔",
+                    "counterpart": [
+                        {
+                            "participant": "118",
+                            "url": "C106118.HTML"
+                        }
+                    ]
+                }
+            ],
+            [
+                {
+                    "subject": "邏輯辯證（2）：邏輯性思考與Excel之應用",
+                    "counterpart": [
+                        {
+                            "participant": "118",
+                            "url": "C106118.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學甲",
+                    "counterpart": [
+                        {
+                            "participant": "305",
+                            "url": "C101305.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "獨立研究",
+                    "counterpart": [
+                        {
+                            "participant": "118",
+                            "url": "C106118.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "獨立研究",
+                    "counterpart": [
+                        {
+                            "participant": "118",
+                            "url": "C106118.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                {
+                    "subject": "團體活動時間",
+                    "counterpart": [
+                        {
+                            "participant": "305",
+                            "url": "C101305.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "團體活動時間",
+                    "counterpart": [
+                        {
+                            "participant": "305",
+                            "url": "C101305.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                {
+                    "subject": "補強-數學",
+                    "counterpart": [
+                        {
+                            "participant": "305",
+                            "url": "C101305.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學",
+                    "counterpart": [
+                        {
+                            "participant": "118",
+                            "url": "C106118.HTML"
+                        }
+                    ]
+                },
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                {
+                    "subject": "補強-數學",
+                    "counterpart": [
+                        {
+                            "participant": "305",
+                            "url": "C101305.HTML"
+                        }
+                    ]
+                },
+                null,
+                {
+                    "subject": "數學",
+                    "counterpart": [
+                        {
+                            "participant": "118",
+                            "url": "C106118.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null
+            ]
         ],
-        [
-            null,
-            null,
-            null,
-            {
-                "subject": "數學",
-                "counterpart": [
-                    {
-                        "participant": "118",
-                        "url": "C106118.HTML"
-                    }
-                ]
-            },
-            null,
-            {
-                "subject": "數學甲",
-                "counterpart": [
-                    {
-                        "participant": "305",
-                        "url": "C101305.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學甲",
-                "counterpart": [
-                    {
-                        "participant": "305",
-                        "url": "C101305.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學輔",
-                "counterpart": [
-                    {
-                        "participant": "118",
-                        "url": "C106118.HTML"
-                    }
-                ]
-            }
-        ],
-        [
-            {
-                "subject": "邏輯辯證（2）：邏輯性思考與Excel之應用",
-                "counterpart": [
-                    {
-                        "participant": "118",
-                        "url": "C106118.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學甲",
-                "counterpart": [
-                    {
-                        "participant": "305",
-                        "url": "C101305.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "獨立研究",
-                "counterpart": [
-                    {
-                        "participant": "118",
-                        "url": "C106118.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "獨立研究",
-                "counterpart": [
-                    {
-                        "participant": "118",
-                        "url": "C106118.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null,
-            null
-        ],
-        [
-            {
-                "subject": "團體活動時間",
-                "counterpart": [
-                    {
-                        "participant": "305",
-                        "url": "C101305.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "團體活動時間",
-                "counterpart": [
-                    {
-                        "participant": "305",
-                        "url": "C101305.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            {
-                "subject": "補強-數學",
-                "counterpart": [
-                    {
-                        "participant": "305",
-                        "url": "C101305.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學",
-                "counterpart": [
-                    {
-                        "participant": "118",
-                        "url": "C106118.HTML"
-                    }
-                ]
-            },
-            null,
-            null
-        ],
-        [
-            null,
-            null,
-            {
-                "subject": "補強-數學",
-                "counterpart": [
-                    {
-                        "participant": "305",
-                        "url": "C101305.HTML"
-                    }
-                ]
-            },
-            null,
-            {
-                "subject": "數學",
-                "counterpart": [
-                    {
-                        "participant": "118",
-                        "url": "C106118.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null
-        ]
-    ],
-    "type": "teacher",
-    "target": "蔡東憲",
-    "target_url": "TC11.html"
+        "periods": {
+            "第一節": [
+                "08:00",
+                "08:50"
+            ],
+            "第二節": [
+                "09:00",
+                "09:50"
+            ],
+            "第三節": [
+                "10:10",
+                "11:00"
+            ],
+            "第四節": [
+                "11:10",
+                "12:00"
+            ],
+            "第五節": [
+                "13:10",
+                "14:00"
+            ],
+            "第六節": [
+                "14:10",
+                "15:00"
+            ],
+            "第七節": [
+                "15:10",
+                "16:00"
+            ],
+            "第八節": [
+                "16:10",
+                "17:00"
+            ]
+        },
+        "type": "teacher",
+        "target": "蔡東憲",
+        "target_url": "TC11.html",
+        "last_update": "2025/02/03 18:59:34"
+    }
 }

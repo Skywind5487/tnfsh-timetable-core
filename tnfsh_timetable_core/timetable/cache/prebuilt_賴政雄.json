@@ -1,223 +1,263 @@
 {
-    "table": [
-        [
-            null,
-            null,
-            {
-                "subject": "體育",
-                "counterpart": [
-                    {
-                        "participant": "115",
-                        "url": "C101115.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "體育",
-                "counterpart": [
-                    {
-                        "participant": "114",
-                        "url": "C101114.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "體育",
-                "counterpart": [
-                    {
-                        "participant": "106",
-                        "url": "C101106.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "體育",
-                "counterpart": [
-                    {
-                        "participant": "116",
-                        "url": "C101116.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "體育",
-                "counterpart": [
-                    {
-                        "participant": "110",
-                        "url": "C101110.HTML"
-                    }
-                ]
-            },
-            null
+    "metadata": {
+        "cache_fetch_at": "2025-06-18T20:30:24.592791"
+    },
+    "data": {
+        "table": [
+            [
+                null,
+                null,
+                {
+                    "subject": "體育",
+                    "counterpart": [
+                        {
+                            "participant": "115",
+                            "url": "C101115.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "體育",
+                    "counterpart": [
+                        {
+                            "participant": "114",
+                            "url": "C101114.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "體育",
+                    "counterpart": [
+                        {
+                            "participant": "106",
+                            "url": "C101106.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "體育",
+                    "counterpart": [
+                        {
+                            "participant": "116",
+                            "url": "C101116.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "體育",
+                    "counterpart": [
+                        {
+                            "participant": "110",
+                            "url": "C101110.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                {
+                    "subject": "體育",
+                    "counterpart": [
+                        {
+                            "participant": "102",
+                            "url": "C101102.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "體育",
+                    "counterpart": [
+                        {
+                            "participant": "108",
+                            "url": "C101108.HTML"
+                        }
+                    ]
+                },
+                null,
+                {
+                    "subject": "體育",
+                    "counterpart": [
+                        {
+                            "participant": "112",
+                            "url": "C101112.HTML"
+                        }
+                    ]
+                },
+                null,
+                {
+                    "subject": "體育",
+                    "counterpart": [
+                        {
+                            "participant": "104",
+                            "url": "C101104.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "體育",
+                    "counterpart": [
+                        {
+                            "participant": "118",
+                            "url": "C106118.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                {
+                    "subject": "體育",
+                    "counterpart": [
+                        {
+                            "participant": "106",
+                            "url": "C101106.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                {
+                    "subject": "體育",
+                    "counterpart": [
+                        {
+                            "participant": "110",
+                            "url": "C101110.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                {
+                    "subject": "體育",
+                    "counterpart": [
+                        {
+                            "participant": "116",
+                            "url": "C101116.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "體育",
+                    "counterpart": [
+                        {
+                            "participant": "102",
+                            "url": "C101102.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "體育",
+                    "counterpart": [
+                        {
+                            "participant": "118",
+                            "url": "C106118.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "體育",
+                    "counterpart": [
+                        {
+                            "participant": "114",
+                            "url": "C101114.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "體育",
+                    "counterpart": [
+                        {
+                            "participant": "104",
+                            "url": "C101104.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "體育",
+                    "counterpart": [
+                        {
+                            "participant": "108",
+                            "url": "C101108.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                null,
+                null,
+                {
+                    "subject": "高二多元選修",
+                    "counterpart": null
+                },
+                {
+                    "subject": "彈性-多元選修",
+                    "counterpart": null
+                },
+                {
+                    "subject": "體育",
+                    "counterpart": [
+                        {
+                            "participant": "112",
+                            "url": "C101112.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "體育",
+                    "counterpart": [
+                        {
+                            "participant": "115",
+                            "url": "C101115.HTML"
+                        }
+                    ]
+                },
+                null,
+                null
+            ]
         ],
-        [
-            {
-                "subject": "體育",
-                "counterpart": [
-                    {
-                        "participant": "102",
-                        "url": "C101102.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "體育",
-                "counterpart": [
-                    {
-                        "participant": "108",
-                        "url": "C101108.HTML"
-                    }
-                ]
-            },
-            null,
-            {
-                "subject": "體育",
-                "counterpart": [
-                    {
-                        "participant": "112",
-                        "url": "C101112.HTML"
-                    }
-                ]
-            },
-            null,
-            {
-                "subject": "體育",
-                "counterpart": [
-                    {
-                        "participant": "104",
-                        "url": "C101104.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "體育",
-                "counterpart": [
-                    {
-                        "participant": "118",
-                        "url": "C106118.HTML"
-                    }
-                ]
-            },
-            null
-        ],
-        [
-            {
-                "subject": "體育",
-                "counterpart": [
-                    {
-                        "participant": "106",
-                        "url": "C101106.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            {
-                "subject": "體育",
-                "counterpart": [
-                    {
-                        "participant": "110",
-                        "url": "C101110.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null,
-            null
-        ],
-        [
-            null,
-            {
-                "subject": "體育",
-                "counterpart": [
-                    {
-                        "participant": "116",
-                        "url": "C101116.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "體育",
-                "counterpart": [
-                    {
-                        "participant": "102",
-                        "url": "C101102.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "體育",
-                "counterpart": [
-                    {
-                        "participant": "118",
-                        "url": "C106118.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "體育",
-                "counterpart": [
-                    {
-                        "participant": "114",
-                        "url": "C101114.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "體育",
-                "counterpart": [
-                    {
-                        "participant": "104",
-                        "url": "C101104.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "體育",
-                "counterpart": [
-                    {
-                        "participant": "108",
-                        "url": "C101108.HTML"
-                    }
-                ]
-            },
-            null
-        ],
-        [
-            null,
-            null,
-            {
-                "subject": "高二多元選修",
-                "counterpart": null
-            },
-            {
-                "subject": "彈性-多元選修",
-                "counterpart": null
-            },
-            {
-                "subject": "體育",
-                "counterpart": [
-                    {
-                        "participant": "112",
-                        "url": "C101112.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "體育",
-                "counterpart": [
-                    {
-                        "participant": "115",
-                        "url": "C101115.HTML"
-                    }
-                ]
-            },
-            null,
-            null
-        ]
-    ],
-    "type": "teacher",
-    "target": "賴政雄",
-    "target_url": "TK06.html"
+        "periods": {
+            "第一節": [
+                "08:00",
+                "08:50"
+            ],
+            "第二節": [
+                "09:00",
+                "09:50"
+            ],
+            "第三節": [
+                "10:10",
+                "11:00"
+            ],
+            "第四節": [
+                "11:10",
+                "12:00"
+            ],
+            "第五節": [
+                "13:10",
+                "14:00"
+            ],
+            "第六節": [
+                "14:10",
+                "15:00"
+            ],
+            "第七節": [
+                "15:10",
+                "16:00"
+            ],
+            "第八節": [
+                "16:10",
+                "17:00"
+            ]
+        },
+        "type": "teacher",
+        "target": "賴政雄",
+        "target_url": "TK06.html",
+        "last_update": "2025/02/03 18:59:34"
+    }
 }

@@ -1,89 +1,129 @@
 {
-    "table": [
-        [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
+    "metadata": {
+        "cache_fetch_at": "2025-06-18T20:29:59.039981"
+    },
+    "data": {
+        "table": [
+            [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "國語文",
+                    "counterpart": [
+                        {
+                            "participant": "211",
+                            "url": "C101211.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "國語文",
+                    "counterpart": [
+                        {
+                            "participant": "211",
+                            "url": "C101211.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "國語文",
+                    "counterpart": [
+                        {
+                            "participant": "211",
+                            "url": "C101211.HTML"
+                        }
+                    ]
+                },
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "國語文",
+                    "counterpart": [
+                        {
+                            "participant": "211",
+                            "url": "C101211.HTML"
+                        }
+                    ]
+                },
+                null
+            ]
         ],
-        [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            {
-                "subject": "國語文",
-                "counterpart": [
-                    {
-                        "participant": "211",
-                        "url": "C101211.HTML"
-                    }
-                ]
-            },
-            null
-        ],
-        [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-        ],
-        [
-            null,
-            null,
-            null,
-            null,
-            {
-                "subject": "國語文",
-                "counterpart": [
-                    {
-                        "participant": "211",
-                        "url": "C101211.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "國語文",
-                "counterpart": [
-                    {
-                        "participant": "211",
-                        "url": "C101211.HTML"
-                    }
-                ]
-            },
-            null,
-            null
-        ],
-        [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            {
-                "subject": "國語文",
-                "counterpart": [
-                    {
-                        "participant": "211",
-                        "url": "C101211.HTML"
-                    }
-                ]
-            },
-            null
-        ]
-    ],
-    "type": "teacher",
-    "target": "鄭浩文",
-    "target_url": "TA42.html"
+        "periods": {
+            "第一節": [
+                "08:00",
+                "08:50"
+            ],
+            "第二節": [
+                "09:00",
+                "09:50"
+            ],
+            "第三節": [
+                "10:10",
+                "11:00"
+            ],
+            "第四節": [
+                "11:10",
+                "12:00"
+            ],
+            "第五節": [
+                "13:10",
+                "14:00"
+            ],
+            "第六節": [
+                "14:10",
+                "15:00"
+            ],
+            "第七節": [
+                "15:10",
+                "16:00"
+            ],
+            "第八節": [
+                "16:10",
+                "17:00"
+            ]
+        },
+        "type": "teacher",
+        "target": "鄭浩文",
+        "target_url": "TA42.html",
+        "last_update": "2025/02/03 18:59:34"
+    }
 }

@@ -1,193 +1,233 @@
 {
-    "table": [
-        [
-            {
-                "subject": "自然科學探究與實作",
-                "counterpart": [
-                    {
-                        "participant": "113",
-                        "url": "C101113.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "自然科學探究與實作",
-                "counterpart": [
-                    {
-                        "participant": "113",
-                        "url": "C101113.HTML"
-                    }
-                ]
-            },
-            null,
-            {
-                "subject": "手機實驗室第二季",
-                "counterpart": [
-                    {
-                        "participant": "218",
-                        "url": "C106218.HTML"
-                    }
-                ]
-            },
-            null,
-            {
-                "subject": "自然科學探究與實作",
-                "counterpart": [
-                    {
-                        "participant": "101",
-                        "url": "C101101.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "自然科學探究與實作",
-                "counterpart": [
-                    {
-                        "participant": "101",
-                        "url": "C101101.HTML"
-                    }
-                ]
-            },
-            null
+    "metadata": {
+        "cache_fetch_at": "2025-06-18T20:30:15.759389"
+    },
+    "data": {
+        "table": [
+            [
+                {
+                    "subject": "自然科學探究與實作",
+                    "counterpart": [
+                        {
+                            "participant": "113",
+                            "url": "C101113.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "自然科學探究與實作",
+                    "counterpart": [
+                        {
+                            "participant": "113",
+                            "url": "C101113.HTML"
+                        }
+                    ]
+                },
+                null,
+                {
+                    "subject": "手機實驗室第二季",
+                    "counterpart": [
+                        {
+                            "participant": "218",
+                            "url": "C106218.HTML"
+                        }
+                    ]
+                },
+                null,
+                {
+                    "subject": "自然科學探究與實作",
+                    "counterpart": [
+                        {
+                            "participant": "101",
+                            "url": "C101101.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "自然科學探究與實作",
+                    "counterpart": [
+                        {
+                            "participant": "101",
+                            "url": "C101101.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                {
+                    "subject": "自然科學探究與實作",
+                    "counterpart": [
+                        {
+                            "participant": "103",
+                            "url": "C101103.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "自然科學探究與實作",
+                    "counterpart": [
+                        {
+                            "participant": "103",
+                            "url": "C101103.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                {
+                    "subject": "自然科學探究與實作",
+                    "counterpart": [
+                        {
+                            "participant": "114",
+                            "url": "C101114.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "自然科學探究與實作",
+                    "counterpart": [
+                        {
+                            "participant": "114",
+                            "url": "C101114.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                null,
+                {
+                    "subject": "選修物理-力學二與熱學",
+                    "counterpart": [
+                        {
+                            "participant": "218",
+                            "url": "C106218.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "獨立研究",
+                    "counterpart": [
+                        {
+                            "participant": "218",
+                            "url": "C106218.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "獨立研究",
+                    "counterpart": [
+                        {
+                            "participant": "218",
+                            "url": "C106218.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                {
+                    "subject": "自然科學探究與實作",
+                    "counterpart": [
+                        {
+                            "participant": "117",
+                            "url": "C101117.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "自然科學探究與實作",
+                    "counterpart": [
+                        {
+                            "participant": "117",
+                            "url": "C101117.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "自然科學探究與實作",
+                    "counterpart": [
+                        {
+                            "participant": "108",
+                            "url": "C101108.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "自然科學探究與實作",
+                    "counterpart": [
+                        {
+                            "participant": "108",
+                            "url": "C101108.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "選修物理-力學二與熱學",
+                    "counterpart": [
+                        {
+                            "participant": "218",
+                            "url": "C106218.HTML"
+                        }
+                    ]
+                },
+                null
+            ]
         ],
-        [
-            {
-                "subject": "自然科學探究與實作",
-                "counterpart": [
-                    {
-                        "participant": "103",
-                        "url": "C101103.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "自然科學探究與實作",
-                "counterpart": [
-                    {
-                        "participant": "103",
-                        "url": "C101103.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null,
-            {
-                "subject": "自然科學探究與實作",
-                "counterpart": [
-                    {
-                        "participant": "114",
-                        "url": "C101114.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "自然科學探究與實作",
-                "counterpart": [
-                    {
-                        "participant": "114",
-                        "url": "C101114.HTML"
-                    }
-                ]
-            },
-            null
-        ],
-        [
-            null,
-            {
-                "subject": "選修物理-力學二與熱學",
-                "counterpart": [
-                    {
-                        "participant": "218",
-                        "url": "C106218.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "獨立研究",
-                "counterpart": [
-                    {
-                        "participant": "218",
-                        "url": "C106218.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "獨立研究",
-                "counterpart": [
-                    {
-                        "participant": "218",
-                        "url": "C106218.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null,
-            null
-        ],
-        [
-            null,
-            null,
-            {
-                "subject": "自然科學探究與實作",
-                "counterpart": [
-                    {
-                        "participant": "117",
-                        "url": "C101117.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "自然科學探究與實作",
-                "counterpart": [
-                    {
-                        "participant": "117",
-                        "url": "C101117.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null,
-            null
-        ],
-        [
-            null,
-            null,
-            null,
-            null,
-            {
-                "subject": "自然科學探究與實作",
-                "counterpart": [
-                    {
-                        "participant": "108",
-                        "url": "C101108.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "自然科學探究與實作",
-                "counterpart": [
-                    {
-                        "participant": "108",
-                        "url": "C101108.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "選修物理-力學二與熱學",
-                "counterpart": [
-                    {
-                        "participant": "218",
-                        "url": "C106218.HTML"
-                    }
-                ]
-            },
-            null
-        ]
-    ],
-    "type": "teacher",
-    "target": "王俊乃",
-    "target_url": "TG13.html"
+        "periods": {
+            "第一節": [
+                "08:00",
+                "08:50"
+            ],
+            "第二節": [
+                "09:00",
+                "09:50"
+            ],
+            "第三節": [
+                "10:10",
+                "11:00"
+            ],
+            "第四節": [
+                "11:10",
+                "12:00"
+            ],
+            "第五節": [
+                "13:10",
+                "14:00"
+            ],
+            "第六節": [
+                "14:10",
+                "15:00"
+            ],
+            "第七節": [
+                "15:10",
+                "16:00"
+            ],
+            "第八節": [
+                "16:10",
+                "17:00"
+            ]
+        },
+        "type": "teacher",
+        "target": "王俊乃",
+        "target_url": "TG13.html",
+        "last_update": "2025/02/03 18:59:34"
+    }
 }

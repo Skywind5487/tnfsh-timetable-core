@@ -1,95 +1,135 @@
 {
-    "table": [
-        [
-            null,
-            null,
-            null,
-            null,
-            {
-                "subject": "生命教育",
-                "counterpart": [
-                    {
-                        "participant": "109",
-                        "url": "C101109.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "生命教育",
-                "counterpart": [
-                    {
-                        "participant": "119",
-                        "url": "C108119.HTML"
-                    }
-                ]
-            },
-            null,
-            null
+    "metadata": {
+        "cache_fetch_at": "2025-06-18T20:30:22.638887"
+    },
+    "data": {
+        "table": [
+            [
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "生命教育",
+                    "counterpart": [
+                        {
+                            "participant": "109",
+                            "url": "C101109.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "生命教育",
+                    "counterpart": [
+                        {
+                            "participant": "119",
+                            "url": "C108119.HTML"
+                        }
+                    ]
+                },
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                {
+                    "subject": "生命教育",
+                    "counterpart": [
+                        {
+                            "participant": "108",
+                            "url": "C101108.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                {
+                    "subject": "高一多元選修",
+                    "counterpart": null
+                },
+                {
+                    "subject": "高一多元選修",
+                    "counterpart": null
+                },
+                {
+                    "subject": "生命教育",
+                    "counterpart": [
+                        {
+                            "participant": "117",
+                            "url": "C101117.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
         ],
-        [
-            null,
-            null,
-            {
-                "subject": "生命教育",
-                "counterpart": [
-                    {
-                        "participant": "108",
-                        "url": "C101108.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null,
-            null,
-            null
-        ],
-        [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-        ],
-        [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-        ],
-        [
-            {
-                "subject": "高一多元選修",
-                "counterpart": null
-            },
-            {
-                "subject": "高一多元選修",
-                "counterpart": null
-            },
-            {
-                "subject": "生命教育",
-                "counterpart": [
-                    {
-                        "participant": "117",
-                        "url": "C101117.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null,
-            null,
-            null
-        ]
-    ],
-    "type": "teacher",
-    "target": "吳玟芷",
-    "target_url": "TJ17.html"
+        "periods": {
+            "第一節": [
+                "08:00",
+                "08:50"
+            ],
+            "第二節": [
+                "09:00",
+                "09:50"
+            ],
+            "第三節": [
+                "10:10",
+                "11:00"
+            ],
+            "第四節": [
+                "11:10",
+                "12:00"
+            ],
+            "第五節": [
+                "13:10",
+                "14:00"
+            ],
+            "第六節": [
+                "14:10",
+                "15:00"
+            ],
+            "第七節": [
+                "15:10",
+                "16:00"
+            ],
+            "第八節": [
+                "16:10",
+                "17:00"
+            ]
+        },
+        "type": "teacher",
+        "target": "吳玟芷",
+        "target_url": "TJ17.html",
+        "last_update": "2025/02/03 18:59:34"
+    }
 }

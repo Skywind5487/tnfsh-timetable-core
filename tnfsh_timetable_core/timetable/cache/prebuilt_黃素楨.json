@@ -1,116 +1,160 @@
 {
-    "table": [
-        [
-            {
-                "subject": "臺灣手語",
-                "counterpart": [
-                    {
-                        "participant": "105",
-                        "url": "C101105.HTML"
-                    },
-                    {
-                        "participant": "117",
-                        "url": "C101117.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "臺灣手語",
-                "counterpart": [
-                    {
-                        "participant": "104",
-                        "url": "C101104.HTML"
-                    },
-                    {
-                        "participant": "119",
-                        "url": "C108119.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null,
-            null,
-            {
-                "subject": "＊間接服務",
-                "counterpart": null
-            },
-            {
-                "subject": "＊特殊需求課程\r, , , -學習策略",
-                "counterpart": null
-            },
-            {
-                "subject": "＊特殊需求課程\r, , , -學習策略",
-                "counterpart": null
-            }
+    "metadata": {
+        "cache_fetch_at": "2025-06-18T20:30:23.765820"
+    },
+    "data": {
+        "table": [
+            [
+                {
+                    "subject": "臺灣手語",
+                    "counterpart": [
+                        {
+                            "participant": "105",
+                            "url": "C101105.HTML"
+                        },
+                        {
+                            "participant": "117",
+                            "url": "C101117.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "臺灣手語",
+                    "counterpart": [
+                        {
+                            "participant": "104",
+                            "url": "C101104.HTML"
+                        },
+                        {
+                            "participant": "119",
+                            "url": "C108119.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "＊間接服務",
+                    "counterpart": null
+                },
+                {
+                    "subject": "＊特殊需求課程\r, , , -學習策略",
+                    "counterpart": null
+                },
+                {
+                    "subject": "＊特殊需求課程\r, , , -學習策略",
+                    "counterpart": null
+                }
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "＊間接服務",
+                    "counterpart": null
+                },
+                {
+                    "subject": "＊間接服務",
+                    "counterpart": null
+                },
+                {
+                    "subject": "＊間接服務",
+                    "counterpart": null
+                },
+                {
+                    "subject": "＊特殊需求課程\r, , , -社會技巧",
+                    "counterpart": null
+                }
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "＊特殊需求課程\r, , , -社會技巧",
+                    "counterpart": null
+                },
+                {
+                    "subject": "＊特殊需求課程\r, , , -學習策略",
+                    "counterpart": null
+                },
+                {
+                    "subject": "＊特殊需求課程\r, , , -學習策略",
+                    "counterpart": null
+                },
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
         ],
-        [
-            null,
-            null,
-            null,
-            null,
-            null,
-            {
-                "subject": "＊間接服務",
-                "counterpart": null
-            },
-            {
-                "subject": "＊間接服務",
-                "counterpart": null
-            },
-            {
-                "subject": "＊間接服務",
-                "counterpart": null
-            },
-            {
-                "subject": "＊特殊需求課程\r, , , -社會技巧",
-                "counterpart": null
-            }
-        ],
-        [
-            null,
-            null,
-            null,
-            null,
-            {
-                "subject": "＊特殊需求課程\r, , , -社會技巧",
-                "counterpart": null
-            },
-            {
-                "subject": "＊特殊需求課程\r, , , -學習策略",
-                "counterpart": null
-            },
-            {
-                "subject": "＊特殊需求課程\r, , , -學習策略",
-                "counterpart": null
-            },
-            null,
-            null
-        ],
-        [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-        ],
-        [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-        ]
-    ],
-    "type": "teacher",
-    "target": "黃素楨",
-    "target_url": "TJ24.html"
+        "periods": {
+            "第一節": [
+                "08:00",
+                "08:50"
+            ],
+            "第二節": [
+                "09:00",
+                "09:50"
+            ],
+            "第三節": [
+                "10:10",
+                "11:00"
+            ],
+            "第四節": [
+                "11:10",
+                "12:00"
+            ],
+            "午休": [
+                "12:10",
+                "13:00"
+            ],
+            "第五節": [
+                "13:10",
+                "14:00"
+            ],
+            "第六節": [
+                "14:10",
+                "15:00"
+            ],
+            "第七節": [
+                "15:10",
+                "16:00"
+            ],
+            "第八節": [
+                "16:10",
+                "17:00"
+            ]
+        },
+        "type": "teacher",
+        "target": "黃素楨",
+        "target_url": "TJ24.html",
+        "last_update": "2025/02/03 18:59:34"
+    }
 }

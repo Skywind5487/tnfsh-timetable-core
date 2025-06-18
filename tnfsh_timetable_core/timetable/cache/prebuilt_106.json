@@ -1,329 +1,369 @@
 {
-    "table": [
-        [
-            {
-                "subject": "生命教育",
-                "counterpart": [
-                    {
-                        "participant": "施冠汝",
-                        "url": "TJ28.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "音樂",
-                "counterpart": [
-                    {
-                        "participant": "李芬蘭",
-                        "url": "TJ22.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "自然科學探究與實作",
-                "counterpart": [
-                    {
-                        "participant": "黃聖勛",
-                        "url": "TH28.HTML"
-                    },
-                    {
-                        "participant": "詹濠先",
-                        "url": "TI01.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "自然科學探究與實作",
-                "counterpart": [
-                    {
-                        "participant": "黃聖勛",
-                        "url": "TH28.HTML"
-                    },
-                    {
-                        "participant": "詹濠先",
-                        "url": "TI01.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "體育",
-                "counterpart": [
-                    {
-                        "participant": "賴政雄",
-                        "url": "TK06.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "英語文",
-                "counterpart": [
-                    {
-                        "participant": "梁力仁",
-                        "url": "TB14.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "歷史",
-                "counterpart": [
-                    {
-                        "participant": "陳建宏",
-                        "url": "TD02.HTML"
-                    }
-                ]
-            },
-            null
+    "metadata": {
+        "cache_fetch_at": "2025-06-18T20:30:29.212345"
+    },
+    "data": {
+        "table": [
+            [
+                {
+                    "subject": "生命教育",
+                    "counterpart": [
+                        {
+                            "participant": "施冠汝",
+                            "url": "TJ28.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "音樂",
+                    "counterpart": [
+                        {
+                            "participant": "李芬蘭",
+                            "url": "TJ22.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "自然科學探究與實作",
+                    "counterpart": [
+                        {
+                            "participant": "黃聖勛",
+                            "url": "TH28.HTML"
+                        },
+                        {
+                            "participant": "詹濠先",
+                            "url": "TI01.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "自然科學探究與實作",
+                    "counterpart": [
+                        {
+                            "participant": "黃聖勛",
+                            "url": "TH28.HTML"
+                        },
+                        {
+                            "participant": "詹濠先",
+                            "url": "TI01.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "體育",
+                    "counterpart": [
+                        {
+                            "participant": "賴政雄",
+                            "url": "TK06.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "英語文",
+                    "counterpart": [
+                        {
+                            "participant": "梁力仁",
+                            "url": "TB14.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "歷史",
+                    "counterpart": [
+                        {
+                            "participant": "陳建宏",
+                            "url": "TD02.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                {
+                    "subject": "地理",
+                    "counterpart": [
+                        {
+                            "participant": "賴秀茹",
+                            "url": "TE05.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "歷史",
+                    "counterpart": [
+                        {
+                            "participant": "陳建宏",
+                            "url": "TD02.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "英語文",
+                    "counterpart": [
+                        {
+                            "participant": "梁力仁",
+                            "url": "TB14.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "國語文",
+                    "counterpart": [
+                        {
+                            "participant": "丘念佳",
+                            "url": "TA43.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "美術",
+                    "counterpart": [
+                        {
+                            "participant": "賴勇達",
+                            "url": "TJ10.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "美術",
+                    "counterpart": [
+                        {
+                            "participant": "賴勇達",
+                            "url": "TJ10.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學",
+                    "counterpart": [
+                        {
+                            "participant": "鄭詠純",
+                            "url": "TC33.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                {
+                    "subject": "體育",
+                    "counterpart": [
+                        {
+                            "participant": "賴政雄",
+                            "url": "TK06.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學",
+                    "counterpart": [
+                        {
+                            "participant": "鄭詠純",
+                            "url": "TC33.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "化學",
+                    "counterpart": [
+                        {
+                            "participant": "顏詠哲",
+                            "url": "TH27.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "地理",
+                    "counterpart": [
+                        {
+                            "participant": "賴秀茹",
+                            "url": "TE05.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "彈性學習時間",
+                    "counterpart": null
+                },
+                {
+                    "subject": "彈性學習時間",
+                    "counterpart": null
+                },
+                {
+                    "subject": "團體活動時間",
+                    "counterpart": [
+                        {
+                            "participant": "陳建宏",
+                            "url": "TD02.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                {
+                    "subject": "團體活動時間",
+                    "counterpart": [
+                        {
+                            "participant": "陳建宏",
+                            "url": "TD02.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "公民與社會",
+                    "counterpart": [
+                        {
+                            "participant": "鄭妍臻",
+                            "url": "TF13.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "國語文",
+                    "counterpart": [
+                        {
+                            "participant": "丘念佳",
+                            "url": "TA43.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "國語文",
+                    "counterpart": [
+                        {
+                            "participant": "丘念佳",
+                            "url": "TA43.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "英語文",
+                    "counterpart": [
+                        {
+                            "participant": "梁力仁",
+                            "url": "TB14.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "閩南語文, 原住民族語文-布農語",
+                    "counterpart": [
+                        {
+                            "participant": "黃子容",
+                            "url": "TA29.HTML"
+                        },
+                        {
+                            "participant": "林秋琴",
+                            "url": "TZ53.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學",
+                    "counterpart": [
+                        {
+                            "participant": "鄭詠純",
+                            "url": "TC33.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                {
+                    "subject": "高一多元選修",
+                    "counterpart": null
+                },
+                {
+                    "subject": "高一多元選修",
+                    "counterpart": null
+                },
+                {
+                    "subject": "數學",
+                    "counterpart": [
+                        {
+                            "participant": "鄭詠純",
+                            "url": "TC33.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "英語文",
+                    "counterpart": [
+                        {
+                            "participant": "梁力仁",
+                            "url": "TB14.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "國語文",
+                    "counterpart": [
+                        {
+                            "participant": "丘念佳",
+                            "url": "TA43.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "公民與社會",
+                    "counterpart": [
+                        {
+                            "participant": "鄭妍臻",
+                            "url": "TF13.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "化學",
+                    "counterpart": [
+                        {
+                            "participant": "顏詠哲",
+                            "url": "TH27.HTML"
+                        }
+                    ]
+                },
+                null
+            ]
         ],
-        [
-            {
-                "subject": "地理",
-                "counterpart": [
-                    {
-                        "participant": "賴秀茹",
-                        "url": "TE05.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "歷史",
-                "counterpart": [
-                    {
-                        "participant": "陳建宏",
-                        "url": "TD02.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "英語文",
-                "counterpart": [
-                    {
-                        "participant": "梁力仁",
-                        "url": "TB14.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "國語文",
-                "counterpart": [
-                    {
-                        "participant": "丘念佳",
-                        "url": "TA43.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "美術",
-                "counterpart": [
-                    {
-                        "participant": "賴勇達",
-                        "url": "TJ10.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "美術",
-                "counterpart": [
-                    {
-                        "participant": "賴勇達",
-                        "url": "TJ10.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學",
-                "counterpart": [
-                    {
-                        "participant": "鄭詠純",
-                        "url": "TC33.HTML"
-                    }
-                ]
-            },
-            null
-        ],
-        [
-            {
-                "subject": "體育",
-                "counterpart": [
-                    {
-                        "participant": "賴政雄",
-                        "url": "TK06.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學",
-                "counterpart": [
-                    {
-                        "participant": "鄭詠純",
-                        "url": "TC33.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "化學",
-                "counterpart": [
-                    {
-                        "participant": "顏詠哲",
-                        "url": "TH27.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "地理",
-                "counterpart": [
-                    {
-                        "participant": "賴秀茹",
-                        "url": "TE05.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "彈性學習時間",
-                "counterpart": null
-            },
-            {
-                "subject": "彈性學習時間",
-                "counterpart": null
-            },
-            {
-                "subject": "團體活動時間",
-                "counterpart": [
-                    {
-                        "participant": "陳建宏",
-                        "url": "TD02.HTML"
-                    }
-                ]
-            },
-            null
-        ],
-        [
-            {
-                "subject": "團體活動時間",
-                "counterpart": [
-                    {
-                        "participant": "陳建宏",
-                        "url": "TD02.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "公民與社會",
-                "counterpart": [
-                    {
-                        "participant": "鄭妍臻",
-                        "url": "TF13.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "國語文",
-                "counterpart": [
-                    {
-                        "participant": "丘念佳",
-                        "url": "TA43.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "國語文",
-                "counterpart": [
-                    {
-                        "participant": "丘念佳",
-                        "url": "TA43.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "英語文",
-                "counterpart": [
-                    {
-                        "participant": "梁力仁",
-                        "url": "TB14.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "閩南語文, 原住民族語文-布農語",
-                "counterpart": [
-                    {
-                        "participant": "黃子容",
-                        "url": "TA29.HTML"
-                    },
-                    {
-                        "participant": "林秋琴",
-                        "url": "TZ53.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學",
-                "counterpart": [
-                    {
-                        "participant": "鄭詠純",
-                        "url": "TC33.HTML"
-                    }
-                ]
-            },
-            null
-        ],
-        [
-            {
-                "subject": "高一多元選修",
-                "counterpart": null
-            },
-            {
-                "subject": "高一多元選修",
-                "counterpart": null
-            },
-            {
-                "subject": "數學",
-                "counterpart": [
-                    {
-                        "participant": "鄭詠純",
-                        "url": "TC33.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "英語文",
-                "counterpart": [
-                    {
-                        "participant": "梁力仁",
-                        "url": "TB14.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "國語文",
-                "counterpart": [
-                    {
-                        "participant": "丘念佳",
-                        "url": "TA43.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "公民與社會",
-                "counterpart": [
-                    {
-                        "participant": "鄭妍臻",
-                        "url": "TF13.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "化學",
-                "counterpart": [
-                    {
-                        "participant": "顏詠哲",
-                        "url": "TH27.HTML"
-                    }
-                ]
-            },
-            null
-        ]
-    ],
-    "type": "class",
-    "target": "106",
-    "target_url": "C101106.html"
+        "periods": {
+            "第一節": [
+                "08:00",
+                "08:50"
+            ],
+            "第二節": [
+                "09:00",
+                "09:50"
+            ],
+            "第三節": [
+                "10:10",
+                "11:00"
+            ],
+            "第四節": [
+                "11:10",
+                "12:00"
+            ],
+            "第五節": [
+                "13:10",
+                "14:00"
+            ],
+            "第六節": [
+                "14:10",
+                "15:00"
+            ],
+            "第七節": [
+                "15:10",
+                "16:00"
+            ],
+            "第八節": [
+                "16:10",
+                "17:00"
+            ]
+        },
+        "type": "class",
+        "target": "106",
+        "target_url": "C101106.html",
+        "last_update": "2025/02/03 18:59:34"
+    }
 }

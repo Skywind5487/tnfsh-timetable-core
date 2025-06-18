@@ -1,169 +1,209 @@
 {
-    "table": [
-        [
-            null,
-            null,
-            null,
-            null,
-            null,
-            {
-                "subject": "數學",
-                "counterpart": [
-                    {
-                        "participant": "110",
-                        "url": "C101110.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學A",
-                "counterpart": [
-                    {
-                        "participant": "207",
-                        "url": "C101207.HTML"
-                    }
-                ]
-            },
-            null
+    "metadata": {
+        "cache_fetch_at": "2025-06-18T20:30:09.740488"
+    },
+    "data": {
+        "table": [
+            [
+                null,
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "數學",
+                    "counterpart": [
+                        {
+                            "participant": "110",
+                            "url": "C101110.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學A",
+                    "counterpart": [
+                        {
+                            "participant": "207",
+                            "url": "C101207.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                null,
+                null,
+                {
+                    "subject": "數學A",
+                    "counterpart": [
+                        {
+                            "participant": "207",
+                            "url": "C101207.HTML"
+                        }
+                    ]
+                },
+                null,
+                {
+                    "subject": "數學",
+                    "counterpart": [
+                        {
+                            "participant": "110",
+                            "url": "C101110.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                {
+                    "subject": "數學",
+                    "counterpart": [
+                        {
+                            "participant": "110",
+                            "url": "C101110.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學A",
+                    "counterpart": [
+                        {
+                            "participant": "208",
+                            "url": "C101208.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學A",
+                    "counterpart": [
+                        {
+                            "participant": "208",
+                            "url": "C101208.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                {
+                    "subject": "團體活動時間",
+                    "counterpart": [
+                        {
+                            "participant": "207",
+                            "url": "C101207.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                {
+                    "subject": "團體活動時間",
+                    "counterpart": [
+                        {
+                            "participant": "207",
+                            "url": "C101207.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學A",
+                    "counterpart": [
+                        {
+                            "participant": "208",
+                            "url": "C101208.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                {
+                    "subject": "數學A",
+                    "counterpart": [
+                        {
+                            "participant": "207",
+                            "url": "C101207.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學A",
+                    "counterpart": [
+                        {
+                            "participant": "207",
+                            "url": "C101207.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "數學A",
+                    "counterpart": [
+                        {
+                            "participant": "208",
+                            "url": "C101208.HTML"
+                        }
+                    ]
+                },
+                null,
+                {
+                    "subject": "數學",
+                    "counterpart": [
+                        {
+                            "participant": "110",
+                            "url": "C101110.HTML"
+                        }
+                    ]
+                },
+                null
+            ]
         ],
-        [
-            null,
-            null,
-            {
-                "subject": "數學A",
-                "counterpart": [
-                    {
-                        "participant": "207",
-                        "url": "C101207.HTML"
-                    }
-                ]
-            },
-            null,
-            {
-                "subject": "數學",
-                "counterpart": [
-                    {
-                        "participant": "110",
-                        "url": "C101110.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null
-        ],
-        [
-            null,
-            {
-                "subject": "數學",
-                "counterpart": [
-                    {
-                        "participant": "110",
-                        "url": "C101110.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學A",
-                "counterpart": [
-                    {
-                        "participant": "208",
-                        "url": "C101208.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學A",
-                "counterpart": [
-                    {
-                        "participant": "208",
-                        "url": "C101208.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            {
-                "subject": "團體活動時間",
-                "counterpart": [
-                    {
-                        "participant": "207",
-                        "url": "C101207.HTML"
-                    }
-                ]
-            },
-            null
-        ],
-        [
-            {
-                "subject": "團體活動時間",
-                "counterpart": [
-                    {
-                        "participant": "207",
-                        "url": "C101207.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學A",
-                "counterpart": [
-                    {
-                        "participant": "208",
-                        "url": "C101208.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null,
-            {
-                "subject": "數學A",
-                "counterpart": [
-                    {
-                        "participant": "207",
-                        "url": "C101207.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學A",
-                "counterpart": [
-                    {
-                        "participant": "207",
-                        "url": "C101207.HTML"
-                    }
-                ]
-            },
-            null
-        ],
-        [
-            null,
-            null,
-            null,
-            null,
-            {
-                "subject": "數學A",
-                "counterpart": [
-                    {
-                        "participant": "208",
-                        "url": "C101208.HTML"
-                    }
-                ]
-            },
-            null,
-            {
-                "subject": "數學",
-                "counterpart": [
-                    {
-                        "participant": "110",
-                        "url": "C101110.HTML"
-                    }
-                ]
-            },
-            null
-        ]
-    ],
-    "type": "teacher",
-    "target": "黃天賜",
-    "target_url": "TC08.html"
+        "periods": {
+            "第一節": [
+                "08:00",
+                "08:50"
+            ],
+            "第二節": [
+                "09:00",
+                "09:50"
+            ],
+            "第三節": [
+                "10:10",
+                "11:00"
+            ],
+            "第四節": [
+                "11:10",
+                "12:00"
+            ],
+            "第五節": [
+                "13:10",
+                "14:00"
+            ],
+            "第六節": [
+                "14:10",
+                "15:00"
+            ],
+            "第七節": [
+                "15:10",
+                "16:00"
+            ],
+            "第八節": [
+                "16:10",
+                "17:00"
+            ]
+        },
+        "type": "teacher",
+        "target": "黃天賜",
+        "target_url": "TC08.html",
+        "last_update": "2025/02/03 18:59:34"
+    }
 }

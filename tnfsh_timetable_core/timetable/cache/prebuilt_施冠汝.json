@@ -1,113 +1,153 @@
 {
-    "table": [
-        [
-            {
-                "subject": "生命教育",
-                "counterpart": [
-                    {
-                        "participant": "106",
-                        "url": "C101106.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "生命教育",
-                "counterpart": [
-                    {
-                        "participant": "107",
-                        "url": "C101107.HTML"
-                    }
-                ]
-            },
-            null,
-            {
-                "subject": "生命教育",
-                "counterpart": [
-                    {
-                        "participant": "110",
-                        "url": "C101110.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null,
-            null
+    "metadata": {
+        "cache_fetch_at": "2025-06-18T20:30:28.161741"
+    },
+    "data": {
+        "table": [
+            [
+                {
+                    "subject": "生命教育",
+                    "counterpart": [
+                        {
+                            "participant": "106",
+                            "url": "C101106.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "生命教育",
+                    "counterpart": [
+                        {
+                            "participant": "107",
+                            "url": "C101107.HTML"
+                        }
+                    ]
+                },
+                null,
+                {
+                    "subject": "生命教育",
+                    "counterpart": [
+                        {
+                            "participant": "110",
+                            "url": "C101110.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                {
+                    "subject": "生命教育",
+                    "counterpart": [
+                        {
+                            "participant": "318",
+                            "url": "C106318.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                {
+                    "subject": "生命教育",
+                    "counterpart": [
+                        {
+                            "participant": "114",
+                            "url": "C101114.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                {
+                    "subject": "生命教育",
+                    "counterpart": [
+                        {
+                            "participant": "102",
+                            "url": "C101102.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "生命教育",
+                    "counterpart": [
+                        {
+                            "participant": "103",
+                            "url": "C101103.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null
+            ]
         ],
-        [
-            null,
-            null,
-            null,
-            {
-                "subject": "生命教育",
-                "counterpart": [
-                    {
-                        "participant": "318",
-                        "url": "C106318.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null,
-            null
-        ],
-        [
-            null,
-            null,
-            {
-                "subject": "生命教育",
-                "counterpart": [
-                    {
-                        "participant": "114",
-                        "url": "C101114.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null,
-            null,
-            null
-        ],
-        [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-        ],
-        [
-            null,
-            null,
-            {
-                "subject": "生命教育",
-                "counterpart": [
-                    {
-                        "participant": "102",
-                        "url": "C101102.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "生命教育",
-                "counterpart": [
-                    {
-                        "participant": "103",
-                        "url": "C101103.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null,
-            null
-        ]
-    ],
-    "type": "teacher",
-    "target": "施冠汝",
-    "target_url": "TJ28.html"
+        "periods": {
+            "第一節": [
+                "08:00",
+                "08:50"
+            ],
+            "第二節": [
+                "09:00",
+                "09:50"
+            ],
+            "第三節": [
+                "10:10",
+                "11:00"
+            ],
+            "第四節": [
+                "11:10",
+                "12:00"
+            ],
+            "第五節": [
+                "13:10",
+                "14:00"
+            ],
+            "第六節": [
+                "14:10",
+                "15:00"
+            ],
+            "第七節": [
+                "15:10",
+                "16:00"
+            ],
+            "第八節": [
+                "16:10",
+                "17:00"
+            ]
+        },
+        "type": "teacher",
+        "target": "施冠汝",
+        "target_url": "TJ28.html",
+        "last_update": "2025/02/03 18:59:34"
+    }
 }

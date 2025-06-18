@@ -1,175 +1,215 @@
 {
-    "table": [
-        [
-            null,
-            {
-                "subject": "數學甲",
-                "counterpart": [
-                    {
-                        "participant": "313",
-                        "url": "C101313.HTML"
-                    }
-                ]
-            },
-            null,
-            {
-                "subject": "補強-數學",
-                "counterpart": [
-                    {
-                        "participant": "303",
-                        "url": "C101303.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學甲",
-                "counterpart": [
-                    {
-                        "participant": "303",
-                        "url": "C101303.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學A",
-                "counterpart": [
-                    {
-                        "participant": "210",
-                        "url": "C101210.HTML"
-                    }
-                ]
-            },
-            null,
-            null
+    "metadata": {
+        "cache_fetch_at": "2025-06-18T20:30:06.711455"
+    },
+    "data": {
+        "table": [
+            [
+                null,
+                {
+                    "subject": "數學甲",
+                    "counterpart": [
+                        {
+                            "participant": "313",
+                            "url": "C101313.HTML"
+                        }
+                    ]
+                },
+                null,
+                {
+                    "subject": "補強-數學",
+                    "counterpart": [
+                        {
+                            "participant": "303",
+                            "url": "C101303.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學甲",
+                    "counterpart": [
+                        {
+                            "participant": "303",
+                            "url": "C101303.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學A",
+                    "counterpart": [
+                        {
+                            "participant": "210",
+                            "url": "C101210.HTML"
+                        }
+                    ]
+                },
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                {
+                    "subject": "數學A",
+                    "counterpart": [
+                        {
+                            "participant": "210",
+                            "url": "C101210.HTML"
+                        }
+                    ]
+                },
+                null,
+                {
+                    "subject": "數學甲",
+                    "counterpart": [
+                        {
+                            "participant": "303",
+                            "url": "C101303.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學甲",
+                    "counterpart": [
+                        {
+                            "participant": "303",
+                            "url": "C101303.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學甲",
+                    "counterpart": [
+                        {
+                            "participant": "313",
+                            "url": "C101313.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                null,
+                {
+                    "subject": "數學甲",
+                    "counterpart": [
+                        {
+                            "participant": "313",
+                            "url": "C101313.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學甲",
+                    "counterpart": [
+                        {
+                            "participant": "303",
+                            "url": "C101303.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學A",
+                    "counterpart": [
+                        {
+                            "participant": "210",
+                            "url": "C101210.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "補強-數學",
+                    "counterpart": [
+                        {
+                            "participant": "303",
+                            "url": "C101303.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學A",
+                    "counterpart": [
+                        {
+                            "participant": "210",
+                            "url": "C101210.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                {
+                    "subject": "數學甲",
+                    "counterpart": [
+                        {
+                            "participant": "313",
+                            "url": "C101313.HTML"
+                        }
+                    ]
+                },
+                null,
+                {
+                    "subject": "高二多元選修",
+                    "counterpart": null
+                },
+                {
+                    "subject": "彈性-多元選修",
+                    "counterpart": null
+                },
+                null,
+                null,
+                null,
+                null
+            ]
         ],
-        [
-            null,
-            null,
-            {
-                "subject": "數學A",
-                "counterpart": [
-                    {
-                        "participant": "210",
-                        "url": "C101210.HTML"
-                    }
-                ]
-            },
-            null,
-            {
-                "subject": "數學甲",
-                "counterpart": [
-                    {
-                        "participant": "303",
-                        "url": "C101303.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學甲",
-                "counterpart": [
-                    {
-                        "participant": "303",
-                        "url": "C101303.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學甲",
-                "counterpart": [
-                    {
-                        "participant": "313",
-                        "url": "C101313.HTML"
-                    }
-                ]
-            },
-            null
-        ],
-        [
-            null,
-            {
-                "subject": "數學甲",
-                "counterpart": [
-                    {
-                        "participant": "313",
-                        "url": "C101313.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學甲",
-                "counterpart": [
-                    {
-                        "participant": "303",
-                        "url": "C101303.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學A",
-                "counterpart": [
-                    {
-                        "participant": "210",
-                        "url": "C101210.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null,
-            null
-        ],
-        [
-            null,
-            null,
-            null,
-            null,
-            null,
-            {
-                "subject": "補強-數學",
-                "counterpart": [
-                    {
-                        "participant": "303",
-                        "url": "C101303.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學A",
-                "counterpart": [
-                    {
-                        "participant": "210",
-                        "url": "C101210.HTML"
-                    }
-                ]
-            },
-            null
-        ],
-        [
-            {
-                "subject": "數學甲",
-                "counterpart": [
-                    {
-                        "participant": "313",
-                        "url": "C101313.HTML"
-                    }
-                ]
-            },
-            null,
-            {
-                "subject": "高二多元選修",
-                "counterpart": null
-            },
-            {
-                "subject": "彈性-多元選修",
-                "counterpart": null
-            },
-            null,
-            null,
-            null,
-            null
-        ]
-    ],
-    "type": "teacher",
-    "target": "蔡仲彬",
-    "target_url": "TC10.html"
+        "periods": {
+            "第一節": [
+                "08:00",
+                "08:50"
+            ],
+            "第二節": [
+                "09:00",
+                "09:50"
+            ],
+            "第三節": [
+                "10:10",
+                "11:00"
+            ],
+            "第四節": [
+                "11:10",
+                "12:00"
+            ],
+            "第五節": [
+                "13:10",
+                "14:00"
+            ],
+            "第六節": [
+                "14:10",
+                "15:00"
+            ],
+            "第七節": [
+                "15:10",
+                "16:00"
+            ],
+            "第八節": [
+                "16:10",
+                "17:00"
+            ]
+        },
+        "type": "teacher",
+        "target": "蔡仲彬",
+        "target_url": "TC10.html",
+        "last_update": "2025/02/03 18:59:34"
+    }
 }

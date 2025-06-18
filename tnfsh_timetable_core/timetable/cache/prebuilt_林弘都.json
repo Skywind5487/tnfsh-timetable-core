@@ -1,153 +1,193 @@
 {
-    "table": [
-        [
-            null,
-            null,
-            null,
-            null,
-            {
-                "subject": "選修生物-生態、演化及生物多樣性",
-                "counterpart": [
-                    {
-                        "participant": "317",
-                        "url": "C101317.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "生物",
-                "counterpart": [
-                    {
-                        "participant": "219",
-                        "url": "C108219.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "生物",
-                "counterpart": [
-                    {
-                        "participant": "219",
-                        "url": "C108219.HTML"
-                    }
-                ]
-            },
-            null
+    "metadata": {
+        "cache_fetch_at": "2025-06-18T20:30:18.992768"
+    },
+    "data": {
+        "table": [
+            [
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "選修生物-生態、演化及生物多樣性",
+                    "counterpart": [
+                        {
+                            "participant": "317",
+                            "url": "C101317.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "生物",
+                    "counterpart": [
+                        {
+                            "participant": "219",
+                            "url": "C108219.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "生物",
+                    "counterpart": [
+                        {
+                            "participant": "219",
+                            "url": "C108219.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "選修生物-生命的起源與植物體的構造與功能",
+                    "counterpart": [
+                        {
+                            "participant": "317",
+                            "url": "C101317.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "選修生物-生命的起源與植物體的構造與功能",
+                    "counterpart": [
+                        {
+                            "participant": "317",
+                            "url": "C101317.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                null,
+                {
+                    "subject": "專題研究",
+                    "counterpart": [
+                        {
+                            "participant": "219",
+                            "url": "C108219.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "專題研究",
+                    "counterpart": [
+                        {
+                            "participant": "219",
+                            "url": "C108219.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "專題研究",
+                    "counterpart": [
+                        {
+                            "participant": "219",
+                            "url": "C108219.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                {
+                    "subject": "生物",
+                    "counterpart": [
+                        {
+                            "participant": "219",
+                            "url": "C108219.HTML"
+                        }
+                    ]
+                }
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "補強-生物",
+                    "counterpart": [
+                        {
+                            "participant": "217",
+                            "url": "C101217.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "補強-生物",
+                    "counterpart": [
+                        {
+                            "participant": "217",
+                            "url": "C101217.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "選修生物-生態、演化及生物多樣性",
+                    "counterpart": [
+                        {
+                            "participant": "317",
+                            "url": "C101317.HTML"
+                        }
+                    ]
+                },
+                null
+            ]
         ],
-        [
-            null,
-            null,
-            null,
-            null,
-            null,
-            {
-                "subject": "選修生物-生命的起源與植物體的構造與功能",
-                "counterpart": [
-                    {
-                        "participant": "317",
-                        "url": "C101317.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "選修生物-生命的起源與植物體的構造與功能",
-                "counterpart": [
-                    {
-                        "participant": "317",
-                        "url": "C101317.HTML"
-                    }
-                ]
-            },
-            null
-        ],
-        [
-            null,
-            {
-                "subject": "專題研究",
-                "counterpart": [
-                    {
-                        "participant": "219",
-                        "url": "C108219.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "專題研究",
-                "counterpart": [
-                    {
-                        "participant": "219",
-                        "url": "C108219.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "專題研究",
-                "counterpart": [
-                    {
-                        "participant": "219",
-                        "url": "C108219.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null,
-            {
-                "subject": "生物",
-                "counterpart": [
-                    {
-                        "participant": "219",
-                        "url": "C108219.HTML"
-                    }
-                ]
-            }
-        ],
-        [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-        ],
-        [
-            null,
-            null,
-            null,
-            null,
-            {
-                "subject": "補強-生物",
-                "counterpart": [
-                    {
-                        "participant": "217",
-                        "url": "C101217.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "補強-生物",
-                "counterpart": [
-                    {
-                        "participant": "217",
-                        "url": "C101217.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "選修生物-生態、演化及生物多樣性",
-                "counterpart": [
-                    {
-                        "participant": "317",
-                        "url": "C101317.HTML"
-                    }
-                ]
-            },
-            null
-        ]
-    ],
-    "type": "teacher",
-    "target": "林弘都",
-    "target_url": "TI06.html"
+        "periods": {
+            "第一節": [
+                "08:00",
+                "08:50"
+            ],
+            "第二節": [
+                "09:00",
+                "09:50"
+            ],
+            "第三節": [
+                "10:10",
+                "11:00"
+            ],
+            "第四節": [
+                "11:10",
+                "12:00"
+            ],
+            "第五節": [
+                "13:10",
+                "14:00"
+            ],
+            "第六節": [
+                "14:10",
+                "15:00"
+            ],
+            "第七節": [
+                "15:10",
+                "16:00"
+            ],
+            "第八節": [
+                "16:10",
+                "17:00"
+            ]
+        },
+        "type": "teacher",
+        "target": "林弘都",
+        "target_url": "TI06.html",
+        "last_update": "2025/02/03 18:59:34"
+    }
 }

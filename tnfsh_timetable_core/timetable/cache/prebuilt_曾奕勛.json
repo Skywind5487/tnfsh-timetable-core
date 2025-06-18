@@ -1,217 +1,257 @@
 {
-    "table": [
-        [
-            null,
-            null,
-            null,
-            null,
-            {
-                "subject": "竹園物理",
-                "counterpart": [
-                    {
-                        "participant": "119",
-                        "url": "C108119.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "選修物理-電磁現象一",
-                "counterpart": [
-                    {
-                        "participant": "317",
-                        "url": "C101317.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "選修物理-電磁現象一",
-                "counterpart": [
-                    {
-                        "participant": "317",
-                        "url": "C101317.HTML"
-                    }
-                ]
-            },
-            null
+    "metadata": {
+        "cache_fetch_at": "2025-06-18T20:30:15.841684"
+    },
+    "data": {
+        "table": [
+            [
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "竹園物理",
+                    "counterpart": [
+                        {
+                            "participant": "119",
+                            "url": "C108119.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "選修物理-電磁現象一",
+                    "counterpart": [
+                        {
+                            "participant": "317",
+                            "url": "C101317.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "選修物理-電磁現象一",
+                    "counterpart": [
+                        {
+                            "participant": "317",
+                            "url": "C101317.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                {
+                    "subject": "彈性-物理",
+                    "counterpart": [
+                        {
+                            "participant": "317",
+                            "url": "C101317.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "物理",
+                    "counterpart": [
+                        {
+                            "participant": "215",
+                            "url": "C101215.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "竹園物理",
+                    "counterpart": [
+                        {
+                            "participant": "119",
+                            "url": "C108119.HTML"
+                        }
+                    ]
+                },
+                null,
+                {
+                    "subject": "補強-物理",
+                    "counterpart": [
+                        {
+                            "participant": "206",
+                            "url": "C101206.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "補強-物理",
+                    "counterpart": [
+                        {
+                            "participant": "206",
+                            "url": "C101206.HTML"
+                        }
+                    ]
+                },
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                {
+                    "subject": "專題研究",
+                    "counterpart": [
+                        {
+                            "participant": "119",
+                            "url": "C108119.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "專題研究",
+                    "counterpart": [
+                        {
+                            "participant": "119",
+                            "url": "C108119.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                {
+                    "subject": "團體活動時間",
+                    "counterpart": [
+                        {
+                            "participant": "206",
+                            "url": "C101206.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "竹園物理",
+                    "counterpart": [
+                        {
+                            "participant": "119",
+                            "url": "C108119.HTML"
+                        }
+                    ]
+                }
+            ],
+            [
+                {
+                    "subject": "團體活動時間",
+                    "counterpart": [
+                        {
+                            "participant": "206",
+                            "url": "C101206.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "物理",
+                    "counterpart": [
+                        {
+                            "participant": "119",
+                            "url": "C108119.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "物理",
+                    "counterpart": [
+                        {
+                            "participant": "119",
+                            "url": "C108119.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "物理",
+                    "counterpart": [
+                        {
+                            "participant": "206",
+                            "url": "C101206.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                {
+                    "subject": "選修物理-電磁現象二與量子現象",
+                    "counterpart": [
+                        {
+                            "participant": "317",
+                            "url": "C101317.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "選修物理-電磁現象二與量子現象",
+                    "counterpart": [
+                        {
+                            "participant": "317",
+                            "url": "C101317.HTML"
+                        }
+                    ]
+                },
+                null,
+                {
+                    "subject": "補強-物理",
+                    "counterpart": [
+                        {
+                            "participant": "215",
+                            "url": "C101215.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "補強-物理",
+                    "counterpart": [
+                        {
+                            "participant": "215",
+                            "url": "C101215.HTML"
+                        }
+                    ]
+                },
+                null
+            ]
         ],
-        [
-            {
-                "subject": "彈性-物理",
-                "counterpart": [
-                    {
-                        "participant": "317",
-                        "url": "C101317.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "物理",
-                "counterpart": [
-                    {
-                        "participant": "215",
-                        "url": "C101215.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "竹園物理",
-                "counterpart": [
-                    {
-                        "participant": "119",
-                        "url": "C108119.HTML"
-                    }
-                ]
-            },
-            null,
-            {
-                "subject": "補強-物理",
-                "counterpart": [
-                    {
-                        "participant": "206",
-                        "url": "C101206.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "補強-物理",
-                "counterpart": [
-                    {
-                        "participant": "206",
-                        "url": "C101206.HTML"
-                    }
-                ]
-            },
-            null,
-            null
-        ],
-        [
-            null,
-            null,
-            {
-                "subject": "專題研究",
-                "counterpart": [
-                    {
-                        "participant": "119",
-                        "url": "C108119.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "專題研究",
-                "counterpart": [
-                    {
-                        "participant": "119",
-                        "url": "C108119.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            {
-                "subject": "團體活動時間",
-                "counterpart": [
-                    {
-                        "participant": "206",
-                        "url": "C101206.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "竹園物理",
-                "counterpart": [
-                    {
-                        "participant": "119",
-                        "url": "C108119.HTML"
-                    }
-                ]
-            }
-        ],
-        [
-            {
-                "subject": "團體活動時間",
-                "counterpart": [
-                    {
-                        "participant": "206",
-                        "url": "C101206.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "物理",
-                "counterpart": [
-                    {
-                        "participant": "119",
-                        "url": "C108119.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "物理",
-                "counterpart": [
-                    {
-                        "participant": "119",
-                        "url": "C108119.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "物理",
-                "counterpart": [
-                    {
-                        "participant": "206",
-                        "url": "C101206.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null,
-            null
-        ],
-        [
-            null,
-            null,
-            {
-                "subject": "選修物理-電磁現象二與量子現象",
-                "counterpart": [
-                    {
-                        "participant": "317",
-                        "url": "C101317.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "選修物理-電磁現象二與量子現象",
-                "counterpart": [
-                    {
-                        "participant": "317",
-                        "url": "C101317.HTML"
-                    }
-                ]
-            },
-            null,
-            {
-                "subject": "補強-物理",
-                "counterpart": [
-                    {
-                        "participant": "215",
-                        "url": "C101215.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "補強-物理",
-                "counterpart": [
-                    {
-                        "participant": "215",
-                        "url": "C101215.HTML"
-                    }
-                ]
-            },
-            null
-        ]
-    ],
-    "type": "teacher",
-    "target": "曾奕勛",
-    "target_url": "TG23.html"
+        "periods": {
+            "第一節": [
+                "08:00",
+                "08:50"
+            ],
+            "第二節": [
+                "09:00",
+                "09:50"
+            ],
+            "第三節": [
+                "10:10",
+                "11:00"
+            ],
+            "第四節": [
+                "11:10",
+                "12:00"
+            ],
+            "第五節": [
+                "13:10",
+                "14:00"
+            ],
+            "第六節": [
+                "14:10",
+                "15:00"
+            ],
+            "第七節": [
+                "15:10",
+                "16:00"
+            ],
+            "第八節": [
+                "16:10",
+                "17:00"
+            ]
+        },
+        "type": "teacher",
+        "target": "曾奕勛",
+        "target_url": "TG23.html",
+        "last_update": "2025/02/03 18:59:34"
+    }
 }

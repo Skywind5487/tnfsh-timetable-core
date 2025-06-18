@@ -1,199 +1,239 @@
 {
-    "table": [
-        [
-            null,
-            null,
-            {
-                "subject": "資訊科技",
-                "counterpart": [
-                    {
-                        "participant": "119",
-                        "url": "C108119.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "資訊科技",
-                "counterpart": [
-                    {
-                        "participant": "119",
-                        "url": "C108119.HTML"
-                    }
-                ]
-            },
-            null,
-            {
-                "subject": "領域課程：科技應用專題",
-                "counterpart": [
-                    {
-                        "participant": "304",
-                        "url": "C101304.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "領域課程：科技應用專題",
-                "counterpart": [
-                    {
-                        "participant": "304",
-                        "url": "C101304.HTML"
-                    }
-                ]
-            },
-            null
+    "metadata": {
+        "cache_fetch_at": "2025-06-18T20:30:17.187634"
+    },
+    "data": {
+        "table": [
+            [
+                null,
+                null,
+                {
+                    "subject": "資訊科技",
+                    "counterpart": [
+                        {
+                            "participant": "119",
+                            "url": "C108119.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "資訊科技",
+                    "counterpart": [
+                        {
+                            "participant": "119",
+                            "url": "C108119.HTML"
+                        }
+                    ]
+                },
+                null,
+                {
+                    "subject": "領域課程：科技應用專題",
+                    "counterpart": [
+                        {
+                            "participant": "304",
+                            "url": "C101304.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "領域課程：科技應用專題",
+                    "counterpart": [
+                        {
+                            "participant": "304",
+                            "url": "C101304.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                {
+                    "subject": "領域課程：科技應用專題",
+                    "counterpart": [
+                        {
+                            "participant": "307",
+                            "url": "C101307.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "領域課程：科技應用專題",
+                    "counterpart": [
+                        {
+                            "participant": "307",
+                            "url": "C101307.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "領域課程：科技應用專題",
+                    "counterpart": [
+                        {
+                            "participant": "305",
+                            "url": "C101305.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "領域課程：科技應用專題",
+                    "counterpart": [
+                        {
+                            "participant": "305",
+                            "url": "C101305.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                {
+                    "subject": "資訊科技",
+                    "counterpart": [
+                        {
+                            "participant": "119",
+                            "url": "C108119.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "獨立研究, 專題研究",
+                    "counterpart": [
+                        {
+                            "participant": "118",
+                            "url": "C106118.HTML"
+                        },
+                        {
+                            "participant": "218",
+                            "url": "C106218.HTML"
+                        },
+                        {
+                            "participant": "119",
+                            "url": "C108119.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "獨立研究, 專題研究",
+                    "counterpart": [
+                        {
+                            "participant": "118",
+                            "url": "C106118.HTML"
+                        },
+                        {
+                            "participant": "218",
+                            "url": "C106218.HTML"
+                        },
+                        {
+                            "participant": "119",
+                            "url": "C108119.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "領域課程：科技應用專題",
+                    "counterpart": [
+                        {
+                            "participant": "306",
+                            "url": "C101306.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "領域課程：科技應用專題",
+                    "counterpart": [
+                        {
+                            "participant": "306",
+                            "url": "C101306.HTML"
+                        }
+                    ]
+                },
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                {
+                    "subject": "領域課程：科技應用專題",
+                    "counterpart": [
+                        {
+                            "participant": "303",
+                            "url": "C101303.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "領域課程：科技應用專題",
+                    "counterpart": [
+                        {
+                            "participant": "303",
+                            "url": "C101303.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "高二多元選修",
+                    "counterpart": null
+                },
+                {
+                    "subject": "彈性-多元選修",
+                    "counterpart": null
+                },
+                null,
+                null,
+                null,
+                null
+            ]
         ],
-        [
-            {
-                "subject": "領域課程：科技應用專題",
-                "counterpart": [
-                    {
-                        "participant": "307",
-                        "url": "C101307.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "領域課程：科技應用專題",
-                "counterpart": [
-                    {
-                        "participant": "307",
-                        "url": "C101307.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "領域課程：科技應用專題",
-                "counterpart": [
-                    {
-                        "participant": "305",
-                        "url": "C101305.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "領域課程：科技應用專題",
-                "counterpart": [
-                    {
-                        "participant": "305",
-                        "url": "C101305.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null,
-            null
-        ],
-        [
-            null,
-            {
-                "subject": "資訊科技",
-                "counterpart": [
-                    {
-                        "participant": "119",
-                        "url": "C108119.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "獨立研究, 專題研究",
-                "counterpart": [
-                    {
-                        "participant": "118",
-                        "url": "C106118.HTML"
-                    },
-                    {
-                        "participant": "218",
-                        "url": "C106218.HTML"
-                    },
-                    {
-                        "participant": "119",
-                        "url": "C108119.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "獨立研究, 專題研究",
-                "counterpart": [
-                    {
-                        "participant": "118",
-                        "url": "C106118.HTML"
-                    },
-                    {
-                        "participant": "218",
-                        "url": "C106218.HTML"
-                    },
-                    {
-                        "participant": "119",
-                        "url": "C108119.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "領域課程：科技應用專題",
-                "counterpart": [
-                    {
-                        "participant": "306",
-                        "url": "C101306.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "領域課程：科技應用專題",
-                "counterpart": [
-                    {
-                        "participant": "306",
-                        "url": "C101306.HTML"
-                    }
-                ]
-            },
-            null,
-            null
-        ],
-        [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-        ],
-        [
-            {
-                "subject": "領域課程：科技應用專題",
-                "counterpart": [
-                    {
-                        "participant": "303",
-                        "url": "C101303.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "領域課程：科技應用專題",
-                "counterpart": [
-                    {
-                        "participant": "303",
-                        "url": "C101303.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "高二多元選修",
-                "counterpart": null
-            },
-            {
-                "subject": "彈性-多元選修",
-                "counterpart": null
-            },
-            null,
-            null,
-            null,
-            null
-        ]
-    ],
-    "type": "teacher",
-    "target": "顏永進",
-    "target_url": "TJ04.html"
+        "periods": {
+            "第一節": [
+                "08:00",
+                "08:50"
+            ],
+            "第二節": [
+                "09:00",
+                "09:50"
+            ],
+            "第三節": [
+                "10:10",
+                "11:00"
+            ],
+            "第四節": [
+                "11:10",
+                "12:00"
+            ],
+            "第五節": [
+                "13:10",
+                "14:00"
+            ],
+            "第六節": [
+                "14:10",
+                "15:00"
+            ],
+            "第七節": [
+                "15:10",
+                "16:00"
+            ],
+            "第八節": [
+                "16:10",
+                "17:00"
+            ]
+        },
+        "type": "teacher",
+        "target": "顏永進",
+        "target_url": "TJ04.html",
+        "last_update": "2025/02/03 18:59:34"
+    }
 }

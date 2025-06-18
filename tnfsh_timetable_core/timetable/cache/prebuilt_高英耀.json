@@ -1,247 +1,287 @@
 {
-    "table": [
-        [
-            {
-                "subject": "竹園專題探索",
-                "counterpart": [
-                    {
-                        "participant": "209",
-                        "url": "C101209.HTML"
-                    },
-                    {
-                        "participant": "210",
-                        "url": "C101210.HTML"
-                    },
-                    {
-                        "participant": "211",
-                        "url": "C101211.HTML"
-                    },
-                    {
-                        "participant": "212",
-                        "url": "C101212.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "竹園專題探索",
-                "counterpart": [
-                    {
-                        "participant": "209",
-                        "url": "C101209.HTML"
-                    },
-                    {
-                        "participant": "210",
-                        "url": "C101210.HTML"
-                    },
-                    {
-                        "participant": "211",
-                        "url": "C101211.HTML"
-                    },
-                    {
-                        "participant": "212",
-                        "url": "C101212.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "竹園專題探索",
-                "counterpart": [
-                    {
-                        "participant": "205",
-                        "url": "C101205.HTML"
-                    },
-                    {
-                        "participant": "206",
-                        "url": "C101206.HTML"
-                    },
-                    {
-                        "participant": "207",
-                        "url": "C101207.HTML"
-                    },
-                    {
-                        "participant": "208",
-                        "url": "C101208.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "竹園專題探索",
-                "counterpart": [
-                    {
-                        "participant": "205",
-                        "url": "C101205.HTML"
-                    },
-                    {
-                        "participant": "206",
-                        "url": "C101206.HTML"
-                    },
-                    {
-                        "participant": "207",
-                        "url": "C101207.HTML"
-                    },
-                    {
-                        "participant": "208",
-                        "url": "C101208.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null,
-            null
+    "metadata": {
+        "cache_fetch_at": "2025-06-18T20:30:18.529105"
+    },
+    "data": {
+        "table": [
+            [
+                {
+                    "subject": "竹園專題探索",
+                    "counterpart": [
+                        {
+                            "participant": "209",
+                            "url": "C101209.HTML"
+                        },
+                        {
+                            "participant": "210",
+                            "url": "C101210.HTML"
+                        },
+                        {
+                            "participant": "211",
+                            "url": "C101211.HTML"
+                        },
+                        {
+                            "participant": "212",
+                            "url": "C101212.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "竹園專題探索",
+                    "counterpart": [
+                        {
+                            "participant": "209",
+                            "url": "C101209.HTML"
+                        },
+                        {
+                            "participant": "210",
+                            "url": "C101210.HTML"
+                        },
+                        {
+                            "participant": "211",
+                            "url": "C101211.HTML"
+                        },
+                        {
+                            "participant": "212",
+                            "url": "C101212.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "竹園專題探索",
+                    "counterpart": [
+                        {
+                            "participant": "205",
+                            "url": "C101205.HTML"
+                        },
+                        {
+                            "participant": "206",
+                            "url": "C101206.HTML"
+                        },
+                        {
+                            "participant": "207",
+                            "url": "C101207.HTML"
+                        },
+                        {
+                            "participant": "208",
+                            "url": "C101208.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "竹園專題探索",
+                    "counterpart": [
+                        {
+                            "participant": "205",
+                            "url": "C101205.HTML"
+                        },
+                        {
+                            "participant": "206",
+                            "url": "C101206.HTML"
+                        },
+                        {
+                            "participant": "207",
+                            "url": "C101207.HTML"
+                        },
+                        {
+                            "participant": "208",
+                            "url": "C101208.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                {
+                    "subject": "竹園專題探索",
+                    "counterpart": [
+                        {
+                            "participant": "201",
+                            "url": "C101201.HTML"
+                        },
+                        {
+                            "participant": "202",
+                            "url": "C101202.HTML"
+                        },
+                        {
+                            "participant": "203",
+                            "url": "C101203.HTML"
+                        },
+                        {
+                            "participant": "204",
+                            "url": "C101204.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "竹園專題探索",
+                    "counterpart": [
+                        {
+                            "participant": "201",
+                            "url": "C101201.HTML"
+                        },
+                        {
+                            "participant": "202",
+                            "url": "C101202.HTML"
+                        },
+                        {
+                            "participant": "203",
+                            "url": "C101203.HTML"
+                        },
+                        {
+                            "participant": "204",
+                            "url": "C101204.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                {
+                    "subject": "竹園專題探索",
+                    "counterpart": [
+                        {
+                            "participant": "213",
+                            "url": "C101213.HTML"
+                        },
+                        {
+                            "participant": "214",
+                            "url": "C101214.HTML"
+                        },
+                        {
+                            "participant": "215",
+                            "url": "C101215.HTML"
+                        },
+                        {
+                            "participant": "216",
+                            "url": "C101216.HTML"
+                        },
+                        {
+                            "participant": "217",
+                            "url": "C101217.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "竹園專題探索",
+                    "counterpart": [
+                        {
+                            "participant": "213",
+                            "url": "C101213.HTML"
+                        },
+                        {
+                            "participant": "214",
+                            "url": "C101214.HTML"
+                        },
+                        {
+                            "participant": "215",
+                            "url": "C101215.HTML"
+                        },
+                        {
+                            "participant": "216",
+                            "url": "C101216.HTML"
+                        },
+                        {
+                            "participant": "217",
+                            "url": "C101217.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                {
+                    "subject": "資訊科技",
+                    "counterpart": [
+                        {
+                            "participant": "116",
+                            "url": "C101116.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "資訊科技",
+                    "counterpart": [
+                        {
+                            "participant": "116",
+                            "url": "C101116.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                {
+                    "subject": "高二多元選修",
+                    "counterpart": null
+                },
+                {
+                    "subject": "彈性-多元選修",
+                    "counterpart": null
+                },
+                null,
+                null,
+                null,
+                null
+            ]
         ],
-        [
-            {
-                "subject": "竹園專題探索",
-                "counterpart": [
-                    {
-                        "participant": "201",
-                        "url": "C101201.HTML"
-                    },
-                    {
-                        "participant": "202",
-                        "url": "C101202.HTML"
-                    },
-                    {
-                        "participant": "203",
-                        "url": "C101203.HTML"
-                    },
-                    {
-                        "participant": "204",
-                        "url": "C101204.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "竹園專題探索",
-                "counterpart": [
-                    {
-                        "participant": "201",
-                        "url": "C101201.HTML"
-                    },
-                    {
-                        "participant": "202",
-                        "url": "C101202.HTML"
-                    },
-                    {
-                        "participant": "203",
-                        "url": "C101203.HTML"
-                    },
-                    {
-                        "participant": "204",
-                        "url": "C101204.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-        ],
-        [
-            {
-                "subject": "竹園專題探索",
-                "counterpart": [
-                    {
-                        "participant": "213",
-                        "url": "C101213.HTML"
-                    },
-                    {
-                        "participant": "214",
-                        "url": "C101214.HTML"
-                    },
-                    {
-                        "participant": "215",
-                        "url": "C101215.HTML"
-                    },
-                    {
-                        "participant": "216",
-                        "url": "C101216.HTML"
-                    },
-                    {
-                        "participant": "217",
-                        "url": "C101217.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "竹園專題探索",
-                "counterpart": [
-                    {
-                        "participant": "213",
-                        "url": "C101213.HTML"
-                    },
-                    {
-                        "participant": "214",
-                        "url": "C101214.HTML"
-                    },
-                    {
-                        "participant": "215",
-                        "url": "C101215.HTML"
-                    },
-                    {
-                        "participant": "216",
-                        "url": "C101216.HTML"
-                    },
-                    {
-                        "participant": "217",
-                        "url": "C101217.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-        ],
-        [
-            null,
-            null,
-            {
-                "subject": "資訊科技",
-                "counterpart": [
-                    {
-                        "participant": "116",
-                        "url": "C101116.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "資訊科技",
-                "counterpart": [
-                    {
-                        "participant": "116",
-                        "url": "C101116.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null,
-            null
-        ],
-        [
-            null,
-            null,
-            {
-                "subject": "高二多元選修",
-                "counterpart": null
-            },
-            {
-                "subject": "彈性-多元選修",
-                "counterpart": null
-            },
-            null,
-            null,
-            null,
-            null
-        ]
-    ],
-    "type": "teacher",
-    "target": "高英耀",
-    "target_url": "TJ09.html"
+        "periods": {
+            "第一節": [
+                "08:00",
+                "08:50"
+            ],
+            "第二節": [
+                "09:00",
+                "09:50"
+            ],
+            "第三節": [
+                "10:10",
+                "11:00"
+            ],
+            "第四節": [
+                "11:10",
+                "12:00"
+            ],
+            "第五節": [
+                "13:10",
+                "14:00"
+            ],
+            "第六節": [
+                "14:10",
+                "15:00"
+            ],
+            "第七節": [
+                "15:10",
+                "16:00"
+            ],
+            "第八節": [
+                "16:10",
+                "17:00"
+            ]
+        },
+        "type": "teacher",
+        "target": "高英耀",
+        "target_url": "TJ09.html",
+        "last_update": "2025/02/03 18:59:34"
+    }
 }

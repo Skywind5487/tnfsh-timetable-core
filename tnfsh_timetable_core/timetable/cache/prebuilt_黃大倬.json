@@ -1,153 +1,193 @@
 {
-    "table": [
-        [
-            {
-                "subject": "各類文學選讀",
-                "counterpart": [
-                    {
-                        "participant": "313",
-                        "url": "C101313.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "各類文學選讀",
-                "counterpart": [
-                    {
-                        "participant": "304",
-                        "url": "C101304.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "各類文學選讀",
-                "counterpart": [
-                    {
-                        "participant": "303",
-                        "url": "C101303.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null,
-            null,
-            null
+    "metadata": {
+        "cache_fetch_at": "2025-06-18T20:29:51.059044"
+    },
+    "data": {
+        "table": [
+            [
+                {
+                    "subject": "各類文學選讀",
+                    "counterpart": [
+                        {
+                            "participant": "313",
+                            "url": "C101313.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "各類文學選讀",
+                    "counterpart": [
+                        {
+                            "participant": "304",
+                            "url": "C101304.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "各類文學選讀",
+                    "counterpart": [
+                        {
+                            "participant": "303",
+                            "url": "C101303.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "語文表達與傳播應用",
+                    "counterpart": [
+                        {
+                            "participant": "303",
+                            "url": "C101303.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "語文表達與傳播應用",
+                    "counterpart": [
+                        {
+                            "participant": "303",
+                            "url": "C101303.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "各類文學選讀",
+                    "counterpart": [
+                        {
+                            "participant": "304",
+                            "url": "C101304.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "各類文學選讀",
+                    "counterpart": [
+                        {
+                            "participant": "313",
+                            "url": "C101313.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "各類文學選讀",
+                    "counterpart": [
+                        {
+                            "participant": "303",
+                            "url": "C101303.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                {
+                    "subject": "語文表達與傳播應用",
+                    "counterpart": [
+                        {
+                            "participant": "304",
+                            "url": "C101304.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "語文表達與傳播應用",
+                    "counterpart": [
+                        {
+                            "participant": "304",
+                            "url": "C101304.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "語文表達與傳播應用",
+                    "counterpart": [
+                        {
+                            "participant": "313",
+                            "url": "C101313.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "語文表達與傳播應用",
+                    "counterpart": [
+                        {
+                            "participant": "313",
+                            "url": "C101313.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null
+            ]
         ],
-        [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-        ],
-        [
-            null,
-            null,
-            null,
-            null,
-            {
-                "subject": "語文表達與傳播應用",
-                "counterpart": [
-                    {
-                        "participant": "303",
-                        "url": "C101303.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "語文表達與傳播應用",
-                "counterpart": [
-                    {
-                        "participant": "303",
-                        "url": "C101303.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "各類文學選讀",
-                "counterpart": [
-                    {
-                        "participant": "304",
-                        "url": "C101304.HTML"
-                    }
-                ]
-            },
-            null
-        ],
-        [
-            null,
-            null,
-            null,
-            null,
-            null,
-            {
-                "subject": "各類文學選讀",
-                "counterpart": [
-                    {
-                        "participant": "313",
-                        "url": "C101313.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "各類文學選讀",
-                "counterpart": [
-                    {
-                        "participant": "303",
-                        "url": "C101303.HTML"
-                    }
-                ]
-            },
-            null
-        ],
-        [
-            {
-                "subject": "語文表達與傳播應用",
-                "counterpart": [
-                    {
-                        "participant": "304",
-                        "url": "C101304.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "語文表達與傳播應用",
-                "counterpart": [
-                    {
-                        "participant": "304",
-                        "url": "C101304.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "語文表達與傳播應用",
-                "counterpart": [
-                    {
-                        "participant": "313",
-                        "url": "C101313.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "語文表達與傳播應用",
-                "counterpart": [
-                    {
-                        "participant": "313",
-                        "url": "C101313.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null,
-            null
-        ]
-    ],
-    "type": "teacher",
-    "target": "黃大倬",
-    "target_url": "TA01.html"
+        "periods": {
+            "第一節": [
+                "08:00",
+                "08:50"
+            ],
+            "第二節": [
+                "09:00",
+                "09:50"
+            ],
+            "第三節": [
+                "10:10",
+                "11:00"
+            ],
+            "第四節": [
+                "11:10",
+                "12:00"
+            ],
+            "第五節": [
+                "13:10",
+                "14:00"
+            ],
+            "第六節": [
+                "14:10",
+                "15:00"
+            ],
+            "第七節": [
+                "15:10",
+                "16:00"
+            ],
+            "第八節": [
+                "16:10",
+                "17:00"
+            ]
+        },
+        "type": "teacher",
+        "target": "黃大倬",
+        "target_url": "TA01.html",
+        "last_update": "2025/02/03 18:59:34"
+    }
 }

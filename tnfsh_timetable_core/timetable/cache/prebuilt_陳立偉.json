@@ -1,151 +1,191 @@
 {
-    "table": [
-        [
-            null,
-            null,
-            null,
-            null,
-            {
-                "subject": "選修化學-有機化學與應用科技",
-                "counterpart": [
-                    {
-                        "participant": "310",
-                        "url": "C101310.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "自然科學探究與實作",
-                "counterpart": [
-                    {
-                        "participant": "105",
-                        "url": "C101105.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "自然科學探究與實作",
-                "counterpart": [
-                    {
-                        "participant": "105",
-                        "url": "C101105.HTML"
-                    }
-                ]
-            },
-            null
+    "metadata": {
+        "cache_fetch_at": "2025-06-18T20:30:16.047265"
+    },
+    "data": {
+        "table": [
+            [
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "選修化學-有機化學與應用科技",
+                    "counterpart": [
+                        {
+                            "participant": "310",
+                            "url": "C101310.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "自然科學探究與實作",
+                    "counterpart": [
+                        {
+                            "participant": "105",
+                            "url": "C101105.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "自然科學探究與實作",
+                    "counterpart": [
+                        {
+                            "participant": "105",
+                            "url": "C101105.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                {
+                    "subject": "選修化學-化學反應與平衡二",
+                    "counterpart": [
+                        {
+                            "participant": "310",
+                            "url": "C101310.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "選修化學-化學反應與平衡二",
+                    "counterpart": [
+                        {
+                            "participant": "310",
+                            "url": "C101310.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "自然科學探究與實作",
+                    "counterpart": [
+                        {
+                            "participant": "104",
+                            "url": "C101104.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "自然科學探究與實作",
+                    "counterpart": [
+                        {
+                            "participant": "104",
+                            "url": "C101104.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "個別科學研究",
+                    "counterpart": [
+                        {
+                            "participant": "319",
+                            "url": "C108319.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "個別科學研究",
+                    "counterpart": [
+                        {
+                            "participant": "319",
+                            "url": "C108319.HTML"
+                        }
+                    ]
+                },
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "選修化學-有機化學與應用科技",
+                    "counterpart": [
+                        {
+                            "participant": "310",
+                            "url": "C101310.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                {
+                    "subject": "高二多元選修",
+                    "counterpart": null
+                },
+                {
+                    "subject": "彈性-多元選修",
+                    "counterpart": null
+                },
+                null,
+                null,
+                {
+                    "subject": "彈性-化學",
+                    "counterpart": [
+                        {
+                            "participant": "310",
+                            "url": "C101310.HTML"
+                        }
+                    ]
+                },
+                null
+            ]
         ],
-        [
-            {
-                "subject": "選修化學-化學反應與平衡二",
-                "counterpart": [
-                    {
-                        "participant": "310",
-                        "url": "C101310.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "選修化學-化學反應與平衡二",
-                "counterpart": [
-                    {
-                        "participant": "310",
-                        "url": "C101310.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "自然科學探究與實作",
-                "counterpart": [
-                    {
-                        "participant": "104",
-                        "url": "C101104.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "自然科學探究與實作",
-                "counterpart": [
-                    {
-                        "participant": "104",
-                        "url": "C101104.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "個別科學研究",
-                "counterpart": [
-                    {
-                        "participant": "319",
-                        "url": "C108319.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "個別科學研究",
-                "counterpart": [
-                    {
-                        "participant": "319",
-                        "url": "C108319.HTML"
-                    }
-                ]
-            },
-            null,
-            null
-        ],
-        [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            {
-                "subject": "選修化學-有機化學與應用科技",
-                "counterpart": [
-                    {
-                        "participant": "310",
-                        "url": "C101310.HTML"
-                    }
-                ]
-            },
-            null
-        ],
-        [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-        ],
-        [
-            null,
-            null,
-            {
-                "subject": "高二多元選修",
-                "counterpart": null
-            },
-            {
-                "subject": "彈性-多元選修",
-                "counterpart": null
-            },
-            null,
-            null,
-            {
-                "subject": "彈性-化學",
-                "counterpart": [
-                    {
-                        "participant": "310",
-                        "url": "C101310.HTML"
-                    }
-                ]
-            },
-            null
-        ]
-    ],
-    "type": "teacher",
-    "target": "陳立偉",
-    "target_url": "TH10.html"
+        "periods": {
+            "第一節": [
+                "08:00",
+                "08:50"
+            ],
+            "第二節": [
+                "09:00",
+                "09:50"
+            ],
+            "第三節": [
+                "10:10",
+                "11:00"
+            ],
+            "第四節": [
+                "11:10",
+                "12:00"
+            ],
+            "第五節": [
+                "13:10",
+                "14:00"
+            ],
+            "第六節": [
+                "14:10",
+                "15:00"
+            ],
+            "第七節": [
+                "15:10",
+                "16:00"
+            ],
+            "第八節": [
+                "16:10",
+                "17:00"
+            ]
+        },
+        "type": "teacher",
+        "target": "陳立偉",
+        "target_url": "TH10.html",
+        "last_update": "2025/02/03 18:59:34"
+    }
 }

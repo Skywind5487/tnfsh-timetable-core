@@ -1,225 +1,265 @@
 {
-    "table": [
-        [
-            {
-                "subject": "數學甲",
-                "counterpart": [
-                    {
-                        "participant": "304",
-                        "url": "C101304.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學甲",
-                "counterpart": [
-                    {
-                        "participant": "307",
-                        "url": "C101307.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            {
-                "subject": "數學乙",
-                "counterpart": [
-                    {
-                        "participant": "301",
-                        "url": "C101301.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學乙",
-                "counterpart": [
-                    {
-                        "participant": "301",
-                        "url": "C101301.HTML"
-                    }
-                ]
-            },
-            null,
-            null
+    "metadata": {
+        "cache_fetch_at": "2025-06-18T20:30:05.444344"
+    },
+    "data": {
+        "table": [
+            [
+                {
+                    "subject": "數學甲",
+                    "counterpart": [
+                        {
+                            "participant": "304",
+                            "url": "C101304.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學甲",
+                    "counterpart": [
+                        {
+                            "participant": "307",
+                            "url": "C101307.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                {
+                    "subject": "數學乙",
+                    "counterpart": [
+                        {
+                            "participant": "301",
+                            "url": "C101301.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學乙",
+                    "counterpart": [
+                        {
+                            "participant": "301",
+                            "url": "C101301.HTML"
+                        }
+                    ]
+                },
+                null,
+                null
+            ],
+            [
+                {
+                    "subject": "竹園專題探索",
+                    "counterpart": [
+                        {
+                            "participant": "201",
+                            "url": "C101201.HTML"
+                        },
+                        {
+                            "participant": "202",
+                            "url": "C101202.HTML"
+                        },
+                        {
+                            "participant": "203",
+                            "url": "C101203.HTML"
+                        },
+                        {
+                            "participant": "204",
+                            "url": "C101204.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "竹園專題探索",
+                    "counterpart": [
+                        {
+                            "participant": "201",
+                            "url": "C101201.HTML"
+                        },
+                        {
+                            "participant": "202",
+                            "url": "C101202.HTML"
+                        },
+                        {
+                            "participant": "203",
+                            "url": "C101203.HTML"
+                        },
+                        {
+                            "participant": "204",
+                            "url": "C101204.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學甲",
+                    "counterpart": [
+                        {
+                            "participant": "304",
+                            "url": "C101304.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "補強-數學",
+                    "counterpart": [
+                        {
+                            "participant": "307",
+                            "url": "C101307.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學乙",
+                    "counterpart": [
+                        {
+                            "participant": "301",
+                            "url": "C101301.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null
+            ],
+            [
+                {
+                    "subject": "補強-數學",
+                    "counterpart": [
+                        {
+                            "participant": "304",
+                            "url": "C101304.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "補強-數學",
+                    "counterpart": [
+                        {
+                            "participant": "304",
+                            "url": "C101304.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "補強-數學",
+                    "counterpart": [
+                        {
+                            "participant": "307",
+                            "url": "C101307.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                {
+                    "subject": "數學甲",
+                    "counterpart": [
+                        {
+                            "participant": "304",
+                            "url": "C101304.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學乙",
+                    "counterpart": [
+                        {
+                            "participant": "301",
+                            "url": "C101301.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學甲",
+                    "counterpart": [
+                        {
+                            "participant": "307",
+                            "url": "C101307.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "數學甲",
+                    "counterpart": [
+                        {
+                            "participant": "304",
+                            "url": "C101304.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學甲",
+                    "counterpart": [
+                        {
+                            "participant": "307",
+                            "url": "C101307.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學甲",
+                    "counterpart": [
+                        {
+                            "participant": "307",
+                            "url": "C101307.HTML"
+                        }
+                    ]
+                },
+                null
+            ]
         ],
-        [
-            {
-                "subject": "竹園專題探索",
-                "counterpart": [
-                    {
-                        "participant": "201",
-                        "url": "C101201.HTML"
-                    },
-                    {
-                        "participant": "202",
-                        "url": "C101202.HTML"
-                    },
-                    {
-                        "participant": "203",
-                        "url": "C101203.HTML"
-                    },
-                    {
-                        "participant": "204",
-                        "url": "C101204.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "竹園專題探索",
-                "counterpart": [
-                    {
-                        "participant": "201",
-                        "url": "C101201.HTML"
-                    },
-                    {
-                        "participant": "202",
-                        "url": "C101202.HTML"
-                    },
-                    {
-                        "participant": "203",
-                        "url": "C101203.HTML"
-                    },
-                    {
-                        "participant": "204",
-                        "url": "C101204.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學甲",
-                "counterpart": [
-                    {
-                        "participant": "304",
-                        "url": "C101304.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "補強-數學",
-                "counterpart": [
-                    {
-                        "participant": "307",
-                        "url": "C101307.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學乙",
-                "counterpart": [
-                    {
-                        "participant": "301",
-                        "url": "C101301.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null
-        ],
-        [
-            {
-                "subject": "補強-數學",
-                "counterpart": [
-                    {
-                        "participant": "304",
-                        "url": "C101304.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "補強-數學",
-                "counterpart": [
-                    {
-                        "participant": "304",
-                        "url": "C101304.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "補強-數學",
-                "counterpart": [
-                    {
-                        "participant": "307",
-                        "url": "C101307.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null,
-            null,
-            null
-        ],
-        [
-            null,
-            null,
-            {
-                "subject": "數學甲",
-                "counterpart": [
-                    {
-                        "participant": "304",
-                        "url": "C101304.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學乙",
-                "counterpart": [
-                    {
-                        "participant": "301",
-                        "url": "C101301.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學甲",
-                "counterpart": [
-                    {
-                        "participant": "307",
-                        "url": "C101307.HTML"
-                    }
-                ]
-            },
-            null,
-            null,
-            null
-        ],
-        [
-            null,
-            null,
-            null,
-            null,
-            {
-                "subject": "數學甲",
-                "counterpart": [
-                    {
-                        "participant": "304",
-                        "url": "C101304.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學甲",
-                "counterpart": [
-                    {
-                        "participant": "307",
-                        "url": "C101307.HTML"
-                    }
-                ]
-            },
-            {
-                "subject": "數學甲",
-                "counterpart": [
-                    {
-                        "participant": "307",
-                        "url": "C101307.HTML"
-                    }
-                ]
-            },
-            null
-        ]
-    ],
-    "type": "teacher",
-    "target": "巫權祐",
-    "target_url": "TC06.html"
+        "periods": {
+            "第一節": [
+                "08:00",
+                "08:50"
+            ],
+            "第二節": [
+                "09:00",
+                "09:50"
+            ],
+            "第三節": [
+                "10:10",
+                "11:00"
+            ],
+            "第四節": [
+                "11:10",
+                "12:00"
+            ],
+            "第五節": [
+                "13:10",
+                "14:00"
+            ],
+            "第六節": [
+                "14:10",
+                "15:00"
+            ],
+            "第七節": [
+                "15:10",
+                "16:00"
+            ],
+            "第八節": [
+                "16:10",
+                "17:00"
+            ]
+        },
+        "type": "teacher",
+        "target": "巫權祐",
+        "target_url": "TC06.html",
+        "last_update": "2025/02/03 18:59:34"
+    }
 }
