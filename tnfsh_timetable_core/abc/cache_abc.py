@@ -106,7 +106,8 @@ class BaseCacheABC(ABC):
 
     @abstractmethod
     async def fetch_from_source(self, *args, **kwargs) -> Any:
-        """從最終來源取得資料（如網路、其他服務等）"""
+        """從最終來源取得資料（如網路、其他服務等）
+        因為涉及網路io 因此要logger info"""
         pass
 
 

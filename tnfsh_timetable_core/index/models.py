@@ -60,8 +60,9 @@ class ReverseMap(BaseModel):
         elif key == "category":
             return self.category
 
-@dict_like
-class ReverseIndexResult(RootModel[Dict[str, ReverseMap]]): 
+
+from tnfsh_timetable_core.utils.dict_root_model import DictRootModel
+class ReverseIndexResult(DictRootModel[str, ReverseMap]): 
     
     """
     表示反查表的主結構，將班級和老師的資料轉換為可快速查詢的格式。
