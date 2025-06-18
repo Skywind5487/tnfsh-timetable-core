@@ -1,5 +1,4 @@
 from __future__ import annotations
-from venv import logger
 """台南一中課表系統核心模組"""
 from typing import TYPE_CHECKING, Generator, List, Optional
 if TYPE_CHECKING:
@@ -45,15 +44,14 @@ class TNFSHTimetableCore:
         from tnfsh_timetable_core.timetable.models import TimeTable        
         return await TimeTable.fetch_cached(target=target, refresh=refresh)
 
-    async def fetch_index(self)-> Index:
+    async def fetch_index(self, refresh: bool = False) -> Index:
         """從網路獲取索引資料
         
         Returns:
             Index: 包含最新索引資料的物件
         """
         from tnfsh_timetable_core.index.index import Index
-        index = Index()
-        await index.fetch()
+        index = await Index.fetch(refresh=refresh)
         return index
     
     async def fetch_timetable_slot_log_dict(self, refresh: bool = False) -> TimetableSlotLogDict:
