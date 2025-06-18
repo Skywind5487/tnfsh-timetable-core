@@ -1,5 +1,6 @@
 from typing import Optional, TypeAlias, Dict, Union
-from pydantic import BaseModel, RootModel
+from datetime import datetime
+from pydantic import BaseModel, RootModel, Field
 from tnfsh_timetable_core.utils.dict_like import dict_like
 
 
@@ -78,5 +79,29 @@ class AllTypeIndexResult(BaseModel):
     
     index: IndexResult
     reverse_index: ReverseIndexResult
+
+class CacheMetadata(BaseModel):
+    """快取的元數據，包含時間戳記"""
+    cache_fetch_at: datetime = Field(description="資料從遠端抓取的時間")
+
+class CachedIndexResult(BaseModel):
+    """完整的快取資料結構，包含元數據和索引資料"""
+    metadata: CacheMetadata
+    data: AllTypeIndexResult
+
+class CachedIndexOnly(BaseModel):
+    """只包含正向索引的快取資料結構"""
+    metadata: CacheMetadata
+    data: IndexResult
+
+class CachedReverseIndexOnly(BaseModel):
+    """只包含反向索引的快取資料結構"""
+    metadata: CacheMetadata
+    data: ReverseIndexResult
+
+class CachedAllIndexResult(BaseModel):
+    """完整的快取資料結構，包含正向和反向索引"""
+    metadata: CacheMetadata
+    data: AllTypeIndexResult
 
 

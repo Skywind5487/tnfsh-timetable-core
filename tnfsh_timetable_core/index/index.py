@@ -4,7 +4,15 @@ from typing import List
 from datetime import datetime
 from typing import Dict, Optional
 from tnfsh_timetable_core.abc.domain_abc import BaseDomainABC
-from tnfsh_timetable_core.index.models import IndexResult, ReverseIndexResult, AllTypeIndexResult
+from tnfsh_timetable_core.index.models import (
+    IndexResult, 
+    ReverseIndexResult, 
+    AllTypeIndexResult,
+    CacheMetadata,
+    CachedIndexOnly,
+    CachedReverseIndexOnly,
+    CachedAllIndexResult
+)
 from tnfsh_timetable_core.index.cache import IndexCache
 from tnfsh_timetable_core.index.crawler import IndexCrawler
 from tnfsh_timetable_core.utils.logger import get_logger
@@ -21,6 +29,7 @@ class Index(BaseDomainABC):
         *,
         index: Optional[IndexResult] = None,
         reverse_index: Optional[ReverseIndexResult] = None,
+        cache_fetch_at: Optional[datetime] = None,
         base_url: str = "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/"
     ) -> None:
         """初始化索引管理器
@@ -28,12 +37,14 @@ class Index(BaseDomainABC):
         Args:
             index: 正向索引，可選
             reverse_index: 反向索引，可選
+            cache_fetch_at: 快取抓取時間，可選
             base_url: 課表系統基礎 URL
         """
         # 公開屬性
         self.base_url = base_url
-        self.index: IndexResult| None = index
-        self.reverse_index: ReverseIndexResult| None = reverse_index
+        self.index: IndexResult | None = index
+        self.reverse_index: ReverseIndexResult | None = reverse_index
+        self.cache_fetch_at: datetime | None = cache_fetch_at
 
         # 私有屬性
         self._cache = IndexCache()
@@ -57,11 +68,13 @@ class Index(BaseDomainABC):
         instance = cls(base_url=base_url or "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/")
         
         # 獲取資料
-        result = await instance._cache.fetch(refresh=refresh)
-        instance.index = result.index
-        instance.reverse_index = result.reverse_index
+        cached_result = await instance._cache.fetch(refresh=refresh)
+        instance.index = cached_result.data.index
+        instance.reverse_index = cached_result.data.reverse_index
+        instance.cache_fetch_at = cached_result.metadata.cache_fetch_at
         
-        logger.info(f"✅ Index載入完成！")
+        logger.debug(f"⏰ 快取抓取時間：{instance.cache_fetch_at}")
+        logger.info("✅ Index[載入]完成！")
         return instance
 
     def export_json(self, export_type: str = "all", filepath: Optional[str] = None) -> str:
@@ -87,36 +100,44 @@ class Index(BaseDomainABC):
         if export_type.lower() not in valid_types:
             raise ValueError(f"不支援的匯出類型。請使用 {', '.join(valid_types)}")
         
-        if export_type == "all":
-            export_type = "index_all"
-            
+        # 準備元數據
+        metadata = CacheMetadata(cache_fetch_at=self.cache_fetch_at or datetime.now())
+        
         # 準備要匯出的資料
-        export_data = {}
-        if export_type.lower() == "index":
-            export_data["index"] = self.index.model_dump()
-        elif export_type.lower() == "reverse_index":
-            export_data["reverse_index"] = self.reverse_index.model_dump()
-        else:  # all
-            export_data = {
-                "index": self.index.model_dump(),
-                "reverse_index": self.reverse_index.model_dump()
-            }
-
-        # 加入匯出時間
-        export_data["export_time"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-        # 如果未指定檔案路徑，則自動生成
+        if export_type == "all":
+            export_data = CachedAllIndexResult(
+                metadata=metadata,
+                data=AllTypeIndexResult(
+                    index=self.index,
+                    reverse_index=self.reverse_index
+                )
+            ).model_dump()
+        elif export_type == "index":
+            export_data = CachedIndexOnly(
+                metadata=metadata,
+                data=self.index
+            ).model_dump()
+        else:  # reverse_index
+            export_data = CachedReverseIndexOnly(
+                metadata=metadata,
+                data=self.reverse_index
+            ).model_dump()
+        
+        # 生成檔案路徑
         if filepath is None:
-            filepath = f"tnfsh_class_table_{export_type}.json"
-
-        # 寫入 JSON 檔案
+            filepath = f"index_{export_type}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+            
+        # 寫入檔案
         try:
-            with open(filepath, 'w', encoding='utf-8') as f:
-                json.dump(export_data, f, ensure_ascii=False, indent=2)
-            logger.info(f"✅ 已匯出索引資料至 {filepath}")
-            return filepath
+            with open(filepath, "w", encoding="utf-8") as f:
+                json.dump(export_data, f, indent=4, ensure_ascii=False)
+                logger.debug(f"📝 索引資料已匯出至：{filepath}")
+                logger.debug(f"⏰ 快取時間戳記：{metadata.cache_fetch_at}")
         except Exception as e:
-            raise Exception(f"寫入 JSON 檔案失敗: {str(e)}")
+            logger.error(f"❌ 匯出失敗：{str(e)}")
+            raise
+            
+        return filepath
 
     def __getitem__(self, key: str) -> str:
         """快速查詢任何教師或班級的課表 URL
@@ -168,4 +189,3 @@ class Index(BaseDomainABC):
         for category_name, classes in self.index.class_.data.items():
             result.extend(classes.keys())
         return result
-    
