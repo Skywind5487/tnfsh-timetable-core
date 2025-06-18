@@ -4,6 +4,7 @@ from typing import Any, Dict
 class BaseCrawlerABC(ABC):
     """
     Crawler 層的抽象基底類，規範所有爬蟲/資料抓取器的標準介面。
+    使用tenacity進行重試
     """
     def get_headers(self) -> Dict[str, str]:
         """
@@ -46,6 +47,7 @@ class BaseCrawlerABC(ABC):
     async def fetch(self, *args, **kwargs) -> Any:
         """
         完整的抓取流程，通常是 fetch_raw 後進行 parse
+        因為一定會有網路請求，所以不用加refresh
         
         Returns:
             Any: 解析後的數據
