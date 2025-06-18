@@ -20,26 +20,18 @@ from tnfsh_timetable_core.utils.logger import get_logger
 from tnfsh_timetable_core.abc.crawler_abc import BaseCrawlerABC
 from tnfsh_timetable_core.index.models import ReverseIndexResult
 
-class FetchError(Exception):
-    """爬取課表時可能發生的錯誤"""
-    def __init__(self, message: str):
-        super().__init__(message)
-        self.message = message
+
 
 # 設定日誌
 logger = get_logger(logger_level="DEBUG")
 
-TimeInfo: TypeAlias = Tuple[str, str]
-PeriodName: TypeAlias = str
-Subject: TypeAlias = str
-CounterPart: TypeAlias = str
-Url: TypeAlias = str
-Course: TypeAlias = Dict[Subject, Dict[CounterPart, Url]]
+from tnfsh_timetable_core.timetable.models import (
+    TimetableSchema,
+    FetchError,
+    CourseInfo,
+    CounterPart
+)
 
-class RawParsedResult(TypedDict):
-    last_update: str
-    periods: Dict[PeriodName, TimeInfo]
-    table: List[List[Course]]
 
 class TimetableCrawler(BaseCrawlerABC):
     """課表爬蟲實作"""
@@ -72,11 +64,10 @@ class TimetableCrawler(BaseCrawlerABC):
         times = [re.sub(re_pattern, re_sub, t.replace(" ", "")) for t in time_text.split("｜")]
         if len(times) == 2:
             return (lesson_name, (times[0], times[1]))
-        return None
-
+        return None    
     @staticmethod
-    def _parse_cell(class_td: BeautifulSoup) -> Dict[str, Dict[str, str]]:
-        """分析課程td元素為課程名稱和教師名稱"""
+    def _parse_cell(class_td: BeautifulSoup) -> Optional[CourseInfo]:
+        """分析課程td元素為 CourseInfo 格式"""
         def clean_text(text: str) -> str:
             """清理文字內容，移除多餘空格與換行"""
             return text.strip("\n").strip("\r").strip(" ").replace(" ", ", ")
@@ -99,10 +90,9 @@ class TimetableCrawler(BaseCrawlerABC):
             """組合課程名稱"""
             texts = [clean_text(p.text) for p in class_ps]
             return ''.join(filter(None, texts)).replace("\n", ", ").replace("\u00a0", "")
-        
         ps = class_td.find_all('p')
         if not ps:
-            return {"": {"": ""}}
+            return None
         
         teacher_ps = []
         class_ps = []
@@ -112,18 +102,30 @@ class TimetableCrawler(BaseCrawlerABC):
             else:
                 class_ps.append(p)
         
-        teachers_dict = parse_teachers(teacher_ps) if teacher_ps else {"": ""}
+        # 解析教師資訊為 CounterPart 列表
+        counterparts = []
+        if teacher_ps:
+            for p in teacher_ps:
+                for link in p.find_all('a'):
+                    name = clean_text(link.text)
+                    href = link.get('href', '')
+                    if name and href:  # 只有當名字和連結都存在時才加入
+                        counterparts.append(CounterPart(participant=name, url=href))
         
+        # 解析課程名稱
+        subject = ""
         if class_ps:
-            class_name = combine_class_name(class_ps)
-        elif teacher_ps == {'':''}:
-            class_name = "找不到課程"
-        else:
-            class_name = ""
+            subject = combine_class_name(class_ps)
+        elif not counterparts:  # 如果既沒有課程名稱也沒有教師
+            return None
         
-        if (class_name and class_name != " ") or teachers_dict != {"": ""}:
-            return {class_name: teachers_dict}
-        return {"": {"": ""}}
+        # 返回 CourseInfo 物件
+        if subject or counterparts:
+            return CourseInfo(
+                subject=subject,
+                counterpart=counterparts if counterparts else None
+            )
+        return None
     
     def _resolve_target(self, target: str, reverse_index: ReverseIndexResult) -> Optional[str]:
         """根據目標名稱解析別名"""
@@ -226,15 +228,17 @@ class TimetableCrawler(BaseCrawlerABC):
             logger.error(f"❌ {error_msg}")
             raise FetchError(error_msg)
 
-    def parse(self, soup: BeautifulSoup, *args, **kwargs) -> RawParsedResult:
+    def parse(self, soup: BeautifulSoup, target: str, target_url: str, *args, **kwargs) -> TimetableSchema:
         """
         解析 BeautifulSoup 物件為結構化資料
 
         Args:
             soup (BeautifulSoup): HTML 解析樹
+            target: 目標名稱（班級或教師）
+            target_url: 目標的課表連結
 
         Returns:
-            RawParsedResult: 解析後的結構化資料
+            TimetableSchema: 解析後的結構化資料
 
         Raises:
             FetchError: 當解析失敗時拋出
@@ -279,7 +283,8 @@ class TimetableCrawler(BaseCrawlerABC):
                     periods[lesson_name] = times
 
             # 擷取 table raw 格式
-            table: List[List[Dict[str, Dict[str, str]]]] = []
+            from tnfsh_timetable_core.timetable.models import CourseInfo
+            table: List[List[CourseInfo | None]] = []
             for row in main_table.find_all("tr"):
                 cells = row.find_all("td")[2:]  # 跳過前兩列（節次和時間）
                 row_data = []
@@ -287,18 +292,25 @@ class TimetableCrawler(BaseCrawlerABC):
                     row_data.append(self._parse_cell(cell))
                 if row_data:
                     table.append(row_data)
+            # 行列互換
+            table = list(map(list, zip(*table)))  # 轉置表格
 
-            return RawParsedResult(
-                last_update=last_update,
+            simple_target_url = str(target_url.split("/")[-1])
+            # 直接回傳 TimetableSchema
+            return TimetableSchema(
+                table=table, 
                 periods=periods,
-                table=table
+                type="class" if target.isdigit() else "teacher",
+                target=target,
+                target_url=simple_target_url,
+                last_update=last_update
             )
         except Exception as e:
             error_msg = f"解析錯誤：{str(e)}"
             logger.error(f"❌ {error_msg}")
-            raise FetchError(error_msg)
-
-    async def fetch(self, target: str, refresh: bool = False, *args, **kwargs) -> RawParsedResult:
+            raise FetchError(error_msg)    
+    
+    async def fetch(self, target: str, refresh: bool = False, *args, **kwargs) -> TimetableSchema:
         """
         完整的課表抓取流程
 
@@ -307,13 +319,15 @@ class TimetableCrawler(BaseCrawlerABC):
             refresh (bool, optional): 是否強制更新索引快取. 預設為 False
 
         Returns:
-            RawParsedResult: 解析後的課表資料
+            TimetableSchema: 解析後的課表資料
 
         Raises:
             FetchError: 當抓取或解析失敗時拋出
         """
         raw_html = await self.fetch_raw(target, refresh=refresh)
-        result = self.parse(raw_html)
+        target_url = await self._get_url(target, refresh=refresh)
+        result = self.parse(raw_html, target=target, target_url=target_url)
+        
         logger.info(f"✅ {target}[抓取]完成")
         return result
 
