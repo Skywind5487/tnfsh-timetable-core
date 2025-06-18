@@ -1,10 +1,11 @@
-import re
+from __future__ import annotations
 from typing import List, Dict, Optional, Tuple, TYPE_CHECKING
 from tnfsh_timetable_core.abc.crawler_abc import BaseCrawlerABC
 from tnfsh_timetable_core.timetable_slot_log_dict.models import StreakTime, TimetableSlotLog
 
 if TYPE_CHECKING:
-    from tnfsh_timetable_core.timetable.models import CourseInfo, TimeTable
+    from tnfsh_timetable_core.timetable.models import CourseInfo
+    from tnfsh_timetable_core.timetable.models import Timetable
     from tnfsh_timetable_core.index.index import Index
     from tnfsh_timetable_core.index.models import ReverseIndexResult
 
@@ -14,8 +15,8 @@ logger = get_logger(logger_level="DEBUG")
 class TimetableSlotLogCrawler(
     BaseCrawlerABC[List["CourseInfo"]]
 ):
-        
-    async def fetch_raw(self, index: "Index" = None, refresh: bool= False) -> List["TimeTable"]:
+
+    async def fetch_raw(self, index: "Index" = None, refresh: bool= False) -> List["Timetable"]:
         if index is None:
             from tnfsh_timetable_core.index.index import Index
             index = Index()
@@ -23,15 +24,15 @@ class TimetableSlotLogCrawler(
         
         from tnfsh_timetable_core.index.models import ReverseIndexResult
         reverse_index: ReverseIndexResult = index.reverse_index
-        result_list: List["TimeTable"] = []
+        result_list: List["Timetable"] = []
         
-        from tnfsh_timetable_core.timetable.models import TimeTable
+        from tnfsh_timetable_core.timetable.models import Timetable
         for target in reverse_index.root.keys():
-            result_list.append(await TimeTable.fetch_cached(target=target, refresh=refresh))
+            result_list.append(await Timetable.fetch_cached(target=target, refresh=refresh))
 
         return result_list
 
-    def parse(self, raw: List["TimeTable"]) -> List[TimetableSlotLog]:
+    def parse(self, raw: List["Timetable"]) -> List[TimetableSlotLog]:
         # 動態引入，避免循環引用
         from tnfsh_timetable_core.timetable.models import CourseInfo
         
