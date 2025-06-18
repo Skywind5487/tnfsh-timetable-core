@@ -63,8 +63,13 @@ class ColorFormatter(logging.Formatter):
     RESET = "\033[0m"
 
     def format(self, record):
+        # 獲取完整路徑
+        pathname = Path(record.pathname)
+        # 只取最後兩層：父資料夾/檔案名
+        relative_path = f"{pathname.parent.name}/{pathname.name}"
+        
         color = self.COLORS.get(record.levelno, self.RESET)
-        prefix = f"{color}[{record.module}:{record.lineno}] {self.RESET}"
+        prefix = f"{color}[{relative_path}:{record.lineno}] {self.RESET}"
         return f"{prefix} {record.getMessage()}"
 
 formatter = ColorFormatter('%(message)s')
