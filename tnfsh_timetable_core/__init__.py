@@ -39,10 +39,11 @@ class TNFSHTimetableCore:
             refresh: 是否強制重新抓取，預設為 False
             
         Returns:
-            TimeTable: 包含課表資料的物件
+            Timetable: 包含課表資料的物件
         """
-        from tnfsh_timetable_core.timetable.models import TimeTable        
-        return await TimeTable.fetch_cached(target=target, refresh=refresh)
+        from tnfsh_timetable_core.timetable.timetable import Timetable
+        # 使用 Timetable.fetch 方法來獲取課表資料 
+        return await Timetable.fetch(target=target, refresh=refresh)
 
     async def fetch_index(self, refresh: bool = False) -> Index:
         """從網路獲取索引資料
@@ -115,7 +116,11 @@ class TNFSHTimetableCore:
         scheduling = Scheduling()
         return await scheduling.swap(teacher_name=teacher_name, weekday=weekday, period=period, max_depth=max_depth)
 
-    async def preload_all_timetables(self, only_missing: bool = True, max_concurrent: int = 5) -> None:
+    async def preload_all_timetables(
+            self, 
+            only_missing: bool = True, 
+            max_concurrent: int = 5, 
+            delay: int = 0.0) -> None:
         """預載入所有課表資料
         
         Args:
@@ -126,7 +131,7 @@ class TNFSHTimetableCore:
             None
         """
         from tnfsh_timetable_core.timetable.cache import preload_all
-        await preload_all(only_missing=only_missing, max_concurrent=max_concurrent)
+        await preload_all(only_missing=only_missing, max_concurrent=max_concurrent, delay=delay)
 
     def get_logger(self, logger_level: str = "DEBUG", name: str| None = None) -> Logger:
         """取得核心模組的日誌記錄器
