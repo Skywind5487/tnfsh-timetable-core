@@ -189,3 +189,9 @@ class Index(BaseDomainABC):
         for category_name, classes in self.index.class_.data.items():
             result.extend(classes.keys())
         return result
+
+    def get_all_targets(self) -> List[str]:
+        """獲取所有教師和班級的名稱列表"""
+        if self.reverse_index is None:
+            raise RuntimeError("尚未載入Index資料")
+        return list(self.reverse_index.keys())
