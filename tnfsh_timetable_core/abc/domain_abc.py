@@ -4,7 +4,7 @@ from typing import Any
 class BaseDomainABC(ABC):
     """
     Domain 層的抽象基底類，規範所有核心資料結構（業務模型）的標準介面。
-    建議用於：TimeTable、CourseInfo、OriginLog、TeacherNode、ClassNode 等。
+    建議用於：Timetable、CourseInfo、OriginLog、TeacherNode、ClassNode 等。
     
     """
     @classmethod
