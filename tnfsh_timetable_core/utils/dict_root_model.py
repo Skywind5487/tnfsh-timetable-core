@@ -13,7 +13,8 @@ class DictRootModel(RootModel[Dict[K, V]], MutableMapping[K, V], Generic[K, V]):
 
     ✅ 繼承結構說明（依 MRO 順序）：
     - RootModel[Dict[K, V]] → 繼承自 BaseModel
-        提供整體以 dict 為 root 的 Pydantic 驗證、序列化與型別支援。可直接接收一個字典作為資料模型的根、或以(key=value, ...)的形式傳入。
+        提供整體以 dict 為 root 的 Pydantic 驗證、序列化與型別支援。
+        可直接接收一個字典作為資料模型的根、或以(key=value, ...)的形式傳入。
     - MutableMapping[K, V] → 繼承自 Mapping
         提供 dict-like 的可變操作行為。
 
