@@ -256,7 +256,7 @@ class DetailedIndex(BaseModel):
     class_: NewGroupIndex
     teacher: NewGroupIndex
 
-class AllTypeIndexResult(BaseModel):
+class FullIndexResult(BaseModel):
     """完整索引系統
     
     整合所有索引功能，提供多種查找途徑：
@@ -323,5 +323,5 @@ class CachedFullIndex(BaseModel):
     3. 檔案過期時從網路更新
     """
     metadata: CacheMetadata
-    data: AllTypeIndexResult
+    data: FullIndexResult
 
