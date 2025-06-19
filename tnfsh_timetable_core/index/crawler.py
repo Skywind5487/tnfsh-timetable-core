@@ -1,3 +1,4 @@
+from math import log
 from typing import Optional, Dict, Tuple, List
 import aiohttp
 import asyncio
@@ -85,7 +86,7 @@ class IndexCrawler(BaseCrawlerABC):
     # 索引頁面路徑，依據實際部署環境可能需要調整
     DEFAULT_TEACHER_PAGE = "_TeachIndex.html"  # 教師索引頁面
     DEFAULT_CLASS_PAGE = "_ClassIndex.html"    # 班級索引頁面
-    DEFAULT_ROOT = "index.html"                # 根目錄頁面
+    DEFAULT_ROOT = "course.html"                # 根目錄頁面
 
     def __init__(
         self, 
@@ -166,6 +167,7 @@ class IndexCrawler(BaseCrawlerABC):
             Tuple[BeautifulSoup, BeautifulSoup]: (教師頁面, 班級頁面)
         """
         tasks = [
+            self.fetch_raw(f"{self.base_url}/{self.root}"),
             self.fetch_raw(f"{self.base_url}/{self.teacher_page}"),
             self.fetch_raw(f"{self.base_url}/{self.class_page}")
         ]
@@ -205,11 +207,63 @@ class IndexCrawler(BaseCrawlerABC):
             bool: 是否為分類標題
         """
         return bool(tr.find("span") and not tr.find("a"))    
+    
+    def _parse_root(
+        self,
+        raw: BeautifulSoup
+    ) -> Tuple[str, str, str]: # Teacher_url, class_url, last_update
+        """解析根目錄頁面以獲取教師和班級索引的 URL 以及最後更新時間"""
+        # 班級:
+        # tr style="mso-yfti-irow:1;height:36.0pt"
+        # a
+        # text == 班級索引一覽表
+        # url->a
+        # 教師: 相同
+        # text == 教師索引一覽表
+        # url->a
+        # 更新日期
+        # tr
+        # span style="font-size:22.0pt;font-family:&quot;微軟正黑體&quot;,sans-serif;color:red"
+        # span
+        # text == 2023/10/01 12:00:00
+
+        teacher_url = "_TeachIndex.html"
+        class_url = "_ClassIndex.html"
+        last_update = "No update date found."
+
+        for tr in raw.find_all("tr"):
+            # 處理教師索引
+            if tr.find("span", string="教師索引一覽表"):
+                a = tr.find("a")
+                if a and a.get("href"):
+                    teacher_url = a.get("href")
+                    logger.debug(f"📚 教師索引 URL: {teacher_url}")
+            # 處理班級索引
+            elif tr.find("span", string="班級索引一覽表"):
+                a = tr.find("a")
+                if a and a.get("href"):
+                    class_url = a.get("href")
+                    logger.debug(f"📚 班級索引 URL: {class_url}")
+            # 擷取更新日期
+            elif tr.find("span", style=lambda s: s and "font-size:22.0pt" in s and "color:red" in s):
+                span = tr.find("span")
+                if span:
+                    last_update = span.find("span").text
+                    logger.debug(f"📅 root 的更新日期：{last_update}")
+            if teacher_url and class_url and last_update != "No update date found.":
+                break
+
+        if not teacher_url or not class_url:
+            logger.warning("⚠️ 找不到教師或班級索引 URL，將使用預設值")
+        if not last_update:
+            logger.warning("⚠️ 找不到更新日期，將使用預設值")
+        return teacher_url, class_url, last_update
+
     def _parse_page(
         self,
         raw: BeautifulSoup,
         is_teacher: bool
-    ) -> NewCategoryMap:
+    ) -> Tuple[NewCategoryMap, str]: # (分類映射, 最後更新時間)
         """解析單一頁面的內容並返回分類映射
         
         Args:
@@ -254,14 +308,23 @@ class IndexCrawler(BaseCrawlerABC):
                 
                 # 更新分類映射，使用 ID 作為鍵值
                 result[current_category][info.id] = info
-                    
+        # 擷取更新日期
+        update_element = raw.find('p', class_='MsoNormal', align='center')
+        if update_element:
+            spans = update_element.find_all('span')
+            last_update = spans[1].text if len(spans) > 1 else "No update date found."
+            logger.debug(f"📅 {"教師索引一覽表" if is_teacher else "班級索引一覽表"} 的更新日期：{last_update}")
+        else:
+            last_update = "No update date found."
+            logger.warning("⚠️ 找不到更新日期") 
+
         # 建立巢狀結構：先建立每個分類的 NewItemMap，再包成 NewCategoryMap
         category_map = {
             category: NewItemMap.model_validate(items)
             for category, items in result.items()
         }
-        
-        return NewCategoryMap.model_validate(category_map)
+        return NewCategoryMap.model_validate(category_map), last_update
+    
 
     # ====================================
     # 📊 索引處理：衍生索引的生成與管理
@@ -421,6 +484,7 @@ class IndexCrawler(BaseCrawlerABC):
     
     def parse(
         self, 
+        root_raw: BeautifulSoup,
         teacher_raw: BeautifulSoup, 
         class_raw: BeautifulSoup
     ) -> FullIndexResult:
@@ -448,15 +512,17 @@ class IndexCrawler(BaseCrawlerABC):
             - index: 舊版格式索引
         """
         # 第一階段：解析原始頁面，建立 detailed_index
-        teacher_detailed = self._parse_page(teacher_raw, is_teacher=True)
-        class_detailed = self._parse_page(class_raw, is_teacher=False)
+        teacher_page, class_page, last_update = self._parse_root(root_raw)
+        teacher_detailed, teacher_last_update = self._parse_page(teacher_raw, is_teacher=True)
+        class_detailed, class_last_update = self._parse_page(class_raw, is_teacher=False)
 
         # 合併為完整的 detailed_index
         detailed = DetailedIndex(
             base_url=self.base_url,
             root=self.root,
-            teacher=NewGroupIndex(data=teacher_detailed, url=f"{self.teacher_page}"),
-            class_=NewGroupIndex(data=class_detailed, url=f"{self.class_page}")
+            last_update=last_update,
+            teacher=NewGroupIndex(data=teacher_detailed, url=f"{self.teacher_page}", last_update=teacher_last_update),
+            class_=NewGroupIndex(data=class_detailed, url=f"{self.class_page}", last_update=class_last_update)
         )
 
         # 第二階段：從 detailed_index 派生其他索引
@@ -493,10 +559,10 @@ class IndexCrawler(BaseCrawlerABC):
             FullIndexResult: 完整的索引結果
         """
         # 第一階段：並行獲取教師和班級索引頁面
-        teacher_soup, class_soup = await self._fetch_all_pages()
+        root_soup, teacher_soup, class_soup = await self._fetch_all_pages()
         
         # 第二階段：解析並建立完整的索引結構
-        result = self.parse(teacher_raw=teacher_soup, class_raw=class_soup)
+        result = self.parse(root_raw=root_soup, teacher_raw=teacher_soup, class_raw=class_soup)
         logger.info("✅ Index[抓取]完成")
         return result
     
@@ -507,6 +573,6 @@ if __name__ == "__main__":
         result = await crawler.fetch()
         with open("index_result.json", "w", encoding="utf-8") as f:
             f.write(result.model_dump_json(indent=4, exclude_none=False))
-        print(result.model_dump_json(indent=4, exclude_none=False))
+        # print(result.model_dump_json(indent=4, exclude_none=False))
 
     asyncio.run(main())
