@@ -9,9 +9,9 @@ from tnfsh_timetable_core.index.models import (
     ReverseIndexResult, 
     AllTypeIndexResult,
     CacheMetadata,
-    CachedIndexOnly,
-    CachedReverseIndexOnly,
-    CachedAllIndexResult
+    CachedIndex,
+    CachedReverseIndex,
+    CachedFullIndex
 )
 from tnfsh_timetable_core.index.cache import IndexCache
 from tnfsh_timetable_core.index.crawler import IndexCrawler
@@ -105,7 +105,7 @@ class Index(BaseDomainABC):
         
         # 準備要匯出的資料
         if export_type == "all":
-            export_data = CachedAllIndexResult(
+            export_data = CachedFullIndex(
                 metadata=metadata,
                 data=AllTypeIndexResult(
                     index=self.index,
@@ -113,12 +113,12 @@ class Index(BaseDomainABC):
                 )
             ).model_dump()
         elif export_type == "index":
-            export_data = CachedIndexOnly(
+            export_data = CachedIndex(
                 metadata=metadata,
                 data=self.index
             ).model_dump()
         else:  # reverse_index
-            export_data = CachedReverseIndexOnly(
+            export_data = CachedReverseIndex(
                 metadata=metadata,
                 data=self.reverse_index
             ).model_dump()
