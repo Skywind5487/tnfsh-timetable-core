@@ -12,7 +12,7 @@ raw HTML -> 基礎結構 -> 進階索引 -> 快取結構
 
 from functools import cached_property
 from typing import Optional, TypeAlias, Dict, List, Literal
-from datetime import datetime
+from datetime import date, datetime
 import re
 from pydantic import BaseModel, RootModel, Field, computed_field
 from tnfsh_timetable_core.utils.dict_root_model import DictRootModel
@@ -204,10 +204,17 @@ class NewGroupIndex(BaseModel):
     
     欄位：
     - url: 群組的基礎URL（如 _TeachIndex.html）
+    - last_update: 最後更新時間
     - data: 分類索引結構，詳見 NewCategoryMap
     """
     url: str
+    last_update: str
     data: NewCategoryMap
+
+    @property
+    def last_update_datetime(self) -> datetime:
+        """將 last_update 字符串轉換為 datetime 對象"""
+        return datetime.strptime(self.last_update, "%Y/%m/%d %H:%M:%S")
 
 # ========================
 # 🔍 組合索引結構
@@ -253,8 +260,14 @@ class DetailedIndex(BaseModel):
     """
     base_url: str
     root: str
+    last_update: str  # 最後更新時間
     class_: NewGroupIndex
     teacher: NewGroupIndex
+
+    @property
+    def last_update_datetime(self) -> datetime:
+        """將 last_update 字符串轉換為 datetime 對象"""
+        return datetime.strptime(self.last_update, "%Y/%m/%d %H:%M:%S")
 
 class FullIndexResult(BaseModel):
     """完整索引系統
