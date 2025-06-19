@@ -15,7 +15,7 @@ import logging
 
 from tnfsh_timetable_core.abc.crawler_abc import BaseCrawlerABC
 from tnfsh_timetable_core.index.models import (
-    AllTypeIndexResult,
+    FullIndexResult,
     DetailedIndex,
     GroupIndex,
     IndexResult,
@@ -51,7 +51,7 @@ class IndexCrawler(BaseCrawlerABC):
        - 舊版格式轉換
        
     4. 最終資料整合
-       所有索引 -> AllTypeIndexResult
+       所有索引 -> FullIndexResult
     
     元件依賴：
     1. 網路工具 (底層)
@@ -423,7 +423,7 @@ class IndexCrawler(BaseCrawlerABC):
         self, 
         teacher_raw: BeautifulSoup, 
         class_raw: BeautifulSoup
-    ) -> AllTypeIndexResult:
+    ) -> FullIndexResult:
         """解析教師和班級的原始資料，並建立完整的索引結構
         
         此方法整合了所有解析和索引處理流程，是主要的邏輯控制中心。
@@ -441,7 +441,7 @@ class IndexCrawler(BaseCrawlerABC):
             class_raw: 班級頁面的 BeautifulSoup 物件
             
         Returns:
-            AllTypeIndexResult: 完整的索引結果，包含：
+            FullIndexResult: 完整的索引結果，包含：
             - detailed_index: 詳細索引資訊
             - id_to_info: ID 映射
             - name_*: 名稱相關映射
@@ -466,7 +466,7 @@ class IndexCrawler(BaseCrawlerABC):
         old_reverse_index = self._derive_old_reverse_index(detailed) 
         
         # 最終階段：組裝完整結果
-        return AllTypeIndexResult(
+        return FullIndexResult(
             index=old_index,
             reverse_index=old_reverse_index,
             detailed_index=detailed,
@@ -475,7 +475,7 @@ class IndexCrawler(BaseCrawlerABC):
             name_to_conflicting_ids=name_to_conflicting_ids
         )
 
-    async def fetch(self) -> AllTypeIndexResult:
+    async def fetch(self) -> FullIndexResult:
         """取得完整的索引結果
         
         此方法是整個爬蟲的最高層級入口，整合了所有功能：
@@ -490,7 +490,7 @@ class IndexCrawler(BaseCrawlerABC):
           |- _derive_* (索引處理)
         
         Returns:
-            AllTypeIndexResult: 完整的索引結果
+            FullIndexResult: 完整的索引結果
         """
         # 第一階段：並行獲取教師和班級索引頁面
         teacher_soup, class_soup = await self._fetch_all_pages()
