@@ -7,7 +7,7 @@ from tnfsh_timetable_core.abc.domain_abc import BaseDomainABC
 from tnfsh_timetable_core.index.models import (
     IndexResult, 
     ReverseIndexResult, 
-    AllTypeIndexResult,
+    FullIndexResult,
     CacheMetadata,
     CachedIndex,
     CachedReverseIndex,
@@ -107,7 +107,7 @@ class Index(BaseDomainABC):
         if export_type == "all":
             export_data = CachedFullIndex(
                 metadata=metadata,
-                data=AllTypeIndexResult(
+                data=FullIndexResult(
                     index=self.index,
                     reverse_index=self.reverse_index
                 )
