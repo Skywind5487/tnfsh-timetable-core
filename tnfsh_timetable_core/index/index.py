@@ -1,5 +1,6 @@
 """台南一中課表系統的索引管理器"""
 
+from operator import index
 from typing import List
 from datetime import datetime
 from typing import Dict, Optional
@@ -33,8 +34,8 @@ class Index(BaseDomainABC):
         reverse_index: Optional[ReverseIndexResult] = None,
         detail_index: DetailedIndex | None = None,
         id_to_info: Dict[str, TargetInfo] | None = None,
-        name_to_unique_info: Dict[str, TargetInfo] | None = None,
-        name_to_conflicting_ids: Dict[str, List[str]] | None = None,
+        target_to_unique_info: Dict[str, TargetInfo] | None = None,
+        target_to_conflicting_ids: Dict[str, List[str]] | None = None,
         cache_fetch_at: Optional[datetime] = None,
         base_url: str = "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/"
     ) -> None:
@@ -57,8 +58,8 @@ class Index(BaseDomainABC):
         self.cache_fetch_at: datetime | None = cache_fetch_at
         self.detailed_index: DetailedIndex | None = detail_index
         self.id_to_info: Dict[str, TargetInfo] | None = id_to_info
-        self.name_to_unique_info: Dict[str, TargetInfo] | None = name_to_unique_info
-        self.name_to_conflicting_ids: Dict[str, List[str]] | None = name_to_conflicting_ids
+        self.target_to_unique_info: Dict[str, TargetInfo] | None = target_to_unique_info
+        self.target_to_conflicting_ids: Dict[str, List[str]] | None = target_to_conflicting_ids
 
         # 私有屬性
         self._cache = IndexCache()
@@ -91,8 +92,8 @@ class Index(BaseDomainABC):
         # new
         instance.detailed_index = cached_result.data.detailed_index
         instance.id_to_info =  cached_result.data.id_to_info
-        instance.name_to_unique_info = cached_result.data.name_to_unique_info
-        instance.name_to_conflicting_ids = cached_result.data.name_to_conflicting_ids
+        instance.target_to_unique_info = cached_result.data.target_to_unique_info
+        instance.target_to_conflicting_ids = cached_result.data.target_to_conflicting_ids
         instance.cache_fetch_at = cached_result.metadata.cache_fetch_at
         
         logger.debug(f"⏰ 快取抓取時間：{instance.cache_fetch_at}")
@@ -171,38 +172,29 @@ class Index(BaseDomainABC):
             
         Returns:
             TargetInfo: 正確找到
-            List[str]: 在conname_to_conflicting_ids當中
+            List[str]: 在contarget_to_conflicting_ids當中
             
         Raises:
             KeyError: 當找不到指定的教師或班級時
             RuntimeError: 當尚未載入索引資料時
         """
-        if self.reverse_index is None:
-            raise RuntimeError("尚未載入索引資料")
-        
-        import re
-        match = re.match(r'^([A-Za-z]+[0-9]+)([\u4e00-\u9fff]+)$', key)
+        from tnfsh_timetable_core.index.identify_index_key import get_fuzzy_target_info
 
-        result = self.name_to_unique_info.get(match[0], None)
-        if result is not None:
-            return result
-        
-        result = self.name_to_conflicting_ids.get(key, None)
-        if result is not None:
-            return result
-        
-        result = self.id_to_info.get(key, None)
-        if result is not None:
-            return result
-        
-        
-        re_key = match[1]
-        result = self.id_to_info.get(re_key, None)
-        if result is not None:
-            return result
-        
-        raise KeyError(f"找不到指定的教師或班級：{key}")
-    
+        if (self.id_to_info is None or 
+            self.target_to_unique_info is None or 
+            self.target_to_conflicting_ids is None):
+            raise RuntimeError("尚未載入索引資料")
+        return get_fuzzy_target_info(
+            key,
+            FullIndexResult(
+                index=self.index,
+                reverse_index=self.reverse_index,
+                detailed_index=self.detailed_index,
+                id_to_info=self.id_to_info,
+                target_to_unique_info=self.target_to_unique_info,
+                target_to_conflicting_ids=self.target_to_conflicting_ids
+            )
+        )
 
     def get_all_categories(self) -> List[str]:
         """獲取所有教師的分類科目列表"""
@@ -239,3 +231,34 @@ class Index(BaseDomainABC):
         if self.reverse_index is None:
             raise RuntimeError("尚未載入Index資料")
         return list(self.reverse_index.keys())
+    
+
+if __name__ == "__main__":
+    
+    async def test_index():
+        """測試索引功能"""
+        index = await Index.fetch()
+        print(index["顏永進"])  # 測試查詢教師
+        print(index["J04"])
+        print(index["119"])
+        print(index["Nicole"])
+
+        # 僅用 index 內實際存在的 target/ID/班級做測試
+        examples = [
+            "顏永進",    # target (teacher)
+            "Nicole",    # target (teacher)
+            "J04",       # teacher ID (短)
+            "TJ04",      # teacher ID (全)
+            "Z09",       # teacher ID (短)
+            "TZ09",      # teacher ID (全)
+            "119",       # class id_suffix
+            "C108119"    # class id (全)
+        ]
+        for example in examples:
+            try:
+                result = index[example]
+                print(result)
+            except Exception as e:
+                print(f"{example!r:15} → ❌ {e}")
+    import asyncio
+    asyncio.run(test_index())
