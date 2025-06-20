@@ -71,6 +71,7 @@ class GroupIndex(BaseModel):
     def __getitem__(self, key: str) -> ItemMap:
         return self.data[key]
 
+
 # ========================
 # 🎯 核心資料結構（新版）
 # ========================
@@ -95,45 +96,46 @@ class TargetInfo(BaseModel):
     category: str
     url: str
     
-    @computed_field
-    @cached_property
-    def role(self) -> Literal["teacher", "class"]:
-        """根據 URL 的前綴判斷角色"""
-        if self.url[0] == 'T':
-            return "teacher"
-        else:
-            return "class"
+    
         
     @computed_field
     @cached_property
     def id(self) -> str:
         """從 URL 中提取 ID"""
         return (self
-                .url[1:]
+                .url
                 .removesuffix(".html")
                 .removesuffix(".HTML")
         )  # 提取ID部分，不包含Role，去除前的 'T' 或 'C' 前綴和後綴的 .html
-
+    
+    @computed_field
+    @cached_property
+    def role(self) -> Literal["teacher", "class"]:
+        """根據 URL 的前綴判斷角色"""
+        if self.id[0] == 'T':
+            return "teacher"
+        else:
+            return "class"
+        
     @computed_field
     @cached_property
     def id_prefix(self) -> str:
         """提取 ID 的前綴部分"""
         if self.role == "teacher":
-            match = re.match(r"^([A-Za-z]+)", self.id)
+            match = re.match(r"^([A-Za-z]+)", self.id[1:])
             return match.group(1) if match else ""
         else:
-            return ""  # 班級沒有前綴部分，記得判斷是否為 "" ，而非 is not None
-    
+            return self.id.removesuffix(self.target)   # 班級的前綴就是ID本身去掉target
+
     @computed_field
     @cached_property
     def id_suffix(self) -> str | None:
         """提取 ID 的後綴部分"""
         if self.role == "teacher":
-            match = re.match(r"^[A-Za-z]+(\d+)$", self.id)
+            match = re.match(r"^[A-Za-z]+(\d+)$", self.id[1:])
             return match.group(1) if match else None
         else:
-            return self.id.removesuffix(self.target)  # 班級ID不含前綴
-    
+            return self.target  # 班級的後綴就是目標名稱，沒有額外的後綴部分
 
 
 def get_id_from_parts(role:Literal["teacher", "class"], id_prefix: str, id_suffix: str | None, target: str | None) -> str:
@@ -285,9 +287,9 @@ class FullIndexResult(BaseModel):
     4. 可用 detailed_index 瀏覽分類結構
     """
     # 舊版相容層（已棄用）
-    index: IndexResult
-    reverse_index: ReverseIndexResult
-    
+    index: IndexResult | None = None
+    reverse_index: ReverseIndexResult | None = None
+
     # 新版核心功能
     detailed_index: DetailedIndex
     id_to_info: Dict[str, TargetInfo]  # ID -> 目標資訊的全域映射

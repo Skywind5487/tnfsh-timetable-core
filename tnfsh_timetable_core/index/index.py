@@ -5,13 +5,15 @@ from datetime import datetime
 from typing import Dict, Optional
 from tnfsh_timetable_core.abc.domain_abc import BaseDomainABC
 from tnfsh_timetable_core.index.models import (
+    DetailedIndex,
     IndexResult, 
     ReverseIndexResult, 
     FullIndexResult,
     CacheMetadata,
     CachedIndex,
     CachedReverseIndex,
-    CachedFullIndex
+    CachedFullIndex,
+    TargetInfo
 )
 from tnfsh_timetable_core.index.cache import IndexCache
 from tnfsh_timetable_core.index.crawler import IndexCrawler
@@ -29,6 +31,10 @@ class Index(BaseDomainABC):
         *,
         index: Optional[IndexResult] = None,
         reverse_index: Optional[ReverseIndexResult] = None,
+        detail_index: DetailedIndex | None = None,
+        id_to_info: Dict[str, TargetInfo] | None = None,
+        name_to_unique_info: Dict[str, TargetInfo] | None = None,
+        name_to_conflicting_ids: Dict[str, List[str]] | None = None,
         cache_fetch_at: Optional[datetime] = None,
         base_url: str = "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/"
     ) -> None:
@@ -42,9 +48,17 @@ class Index(BaseDomainABC):
         """
         # 公開屬性
         self.base_url = base_url
+        # deprecated
         self.index: IndexResult | None = index
         self.reverse_index: ReverseIndexResult | None = reverse_index
+
+
+        # new
         self.cache_fetch_at: datetime | None = cache_fetch_at
+        self.detailed_index: DetailedIndex | None = detail_index
+        self.id_to_info: Dict[str, TargetInfo] | None = id_to_info
+        self.name_to_unique_info: Dict[str, TargetInfo] | None = name_to_unique_info
+        self.name_to_conflicting_ids: Dict[str, List[str]] | None = name_to_conflicting_ids
 
         # 私有屬性
         self._cache = IndexCache()
@@ -69,8 +83,16 @@ class Index(BaseDomainABC):
         
         # 獲取資料
         cached_result = await instance._cache.fetch(refresh=refresh)
+
+        # deprecated
         instance.index = cached_result.data.index
         instance.reverse_index = cached_result.data.reverse_index
+        
+        # new
+        instance.detailed_index = cached_result.data.detailed_index
+        instance.id_to_info =  cached_result.data.id_to_info
+        instance.name_to_unique_info = cached_result.data.name_to_unique_info
+        instance.name_to_conflicting_ids = cached_result.data.name_to_conflicting_ids
         instance.cache_fetch_at = cached_result.metadata.cache_fetch_at
         
         logger.debug(f"⏰ 快取抓取時間：{instance.cache_fetch_at}")
@@ -139,14 +161,17 @@ class Index(BaseDomainABC):
             
         return filepath
 
-    def __getitem__(self, key: str) -> str:
-        """快速查詢任何教師或班級的課表 URL
+    def __getitem__(self, key: str) -> TargetInfo | List[str]:
+        """
+        快速查詢任何教師或班級的課表 TargetInfo
+        推薦使用的方法
         
         Args:
-            key: 教師名稱或班級代碼
+            key: 教師名稱、班級代碼、或ID
             
         Returns:
-            str: 課表的完整 URL
+            TargetInfo: 正確找到
+            List[str]: 在conname_to_conflicting_ids當中
             
         Raises:
             KeyError: 當找不到指定的教師或班級時
@@ -155,11 +180,30 @@ class Index(BaseDomainABC):
         if self.reverse_index is None:
             raise RuntimeError("尚未載入索引資料")
         
-        try:
-            return f"{self.base_url}{self.reverse_index[key]['url']}"
-        except KeyError:
-            raise KeyError(f"找不到 {key} 的課表")
+        import re
+        match = re.match(r'^([A-Za-z]+[0-9]+)([\u4e00-\u9fff]+)$', key)
+
+        result = self.name_to_unique_info.get(match[0], None)
+        if result is not None:
+            return result
+        
+        result = self.name_to_conflicting_ids.get(key, None)
+        if result is not None:
+            return result
+        
+        result = self.id_to_info.get(key, None)
+        if result is not None:
+            return result
+        
+        
+        re_key = match[1]
+        result = self.id_to_info.get(re_key, None)
+        if result is not None:
+            return result
+        
+        raise KeyError(f"找不到指定的教師或班級：{key}")
     
+
     def get_all_categories(self) -> List[str]:
         """獲取所有教師的分類科目列表"""
         if self.index is None:

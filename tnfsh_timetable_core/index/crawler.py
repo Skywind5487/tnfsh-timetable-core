@@ -613,13 +613,3 @@ class IndexCrawler(BaseCrawlerABC):
         logger.info("✅ Index[抓取]完成")
         return result
     
-if __name__ == "__main__":
-    # 測試用例：直接運行爬蟲
-    async def main():
-        crawler = IndexCrawler()
-        result = await crawler.fetch()
-        with open("index_result.json", "w", encoding="utf-8") as f:
-            f.write(result.model_dump_json(indent=4, exclude_none=False))
-        # print(result.model_dump_json(indent=4, exclude_none=False))
-
-    asyncio.run(main())

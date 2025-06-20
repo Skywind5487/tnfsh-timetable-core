@@ -59,7 +59,7 @@ class IndexCache(BaseCacheABC):
             raise
 
     async def fetch_from_source(self, *args, **kwargs) -> CachedFullIndex:
-        logger.info("🌐 從網路抓取 Index (新版)")
+        logger.info("🌐 從網路抓取 Index")
         result: FullIndexResult = await self._crawler.fetch()
         return CachedFullIndex(
             metadata=CacheMetadata(cache_fetch_at=datetime.now()),
