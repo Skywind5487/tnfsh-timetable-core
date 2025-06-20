@@ -531,7 +531,6 @@ class IndexCrawler(BaseCrawlerABC):
     
     def parse(
         self, 
-        root_raw: BeautifulSoup,
         teacher_raw: BeautifulSoup, 
         class_raw: BeautifulSoup,
         root_last_update: str,
@@ -607,10 +606,10 @@ class IndexCrawler(BaseCrawlerABC):
             FullIndexResult: 完整的索引結果
         """
         # 第一階段：並行獲取教師和班級索引頁面
-        root_soup, teacher_soup, class_soup = await self._fetch_all_pages()
+        _, teacher_soup, class_soup, root_last_update = await self._fetch_all_pages()
         
         # 第二階段：解析並建立完整的索引結構
-        result = self.parse(root_raw=root_soup, teacher_raw=teacher_soup, class_raw=class_soup)
+        result = self.parse(teacher_raw=teacher_soup, class_raw=class_soup, root_last_update=root_last_update)
         logger.info("✅ Index[抓取]完成")
         return result
     
