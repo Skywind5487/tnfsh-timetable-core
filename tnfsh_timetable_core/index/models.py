@@ -277,12 +277,12 @@ class FullIndexResult(BaseModel):
     整合所有索引功能，提供多種查找途徑：
     1. 舊版相容：通過 index 和 reverse_index（已棄用）
     2. 結構化查找：通過 detailed_index
-    3. 直接查找：通過 id_to_info 和 name_to_unique_info
-    4. 衝突處理：通過 name_to_conflicting_ids
+    3. 直接查找：通過 id_to_info 和 target_to_unique_info
+    4. 衝突處理：通過 target_to_conflicting_ids
     
     資料查找順序：
-    1. 先用 name_to_unique_info 嘗試直接查找
-    2. 如果名稱在 name_to_conflicting_ids 中，表示有重複
+    1. 先用 target_to_unique_info 嘗試直接查找
+    2. 如果名稱在 target_to_conflicting_ids 中，表示有重複
     3. 需要通過 id_to_info 取得特定目標
     4. 可用 detailed_index 瀏覽分類結構
     """
@@ -293,8 +293,8 @@ class FullIndexResult(BaseModel):
     # 新版核心功能
     detailed_index: DetailedIndex
     id_to_info: Dict[str, TargetInfo]  # ID -> 目標資訊的全域映射
-    name_to_unique_info: Dict[str, TargetInfo]  # 唯一名稱 -> 目標資訊
-    name_to_conflicting_ids: Dict[str, List[str]]  # 重複名稱 -> ID列表
+    target_to_unique_info: Dict[str, TargetInfo]  # 唯一名稱 -> 目標資訊
+    target_to_conflicting_ids: Dict[str, List[str]]  # 重複名稱 -> ID列表
 
 
 # ========================
