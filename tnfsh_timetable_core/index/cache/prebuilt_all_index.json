@@ -5069,7 +5069,7 @@
                 "id_suffix": "319"
             }
         },
-        "name_to_unique_info": {
+        "target_to_unique_info": {
             "黃大倬": {
                 "target": "黃大倬",
                 "category": "國文科",
@@ -7024,6 +7024,6 @@
                 "id_suffix": "319"
             }
         },
-        "name_to_conflicting_ids": {}
+        "target_to_conflicting_ids": {}
     }
 }
