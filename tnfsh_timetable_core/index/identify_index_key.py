@@ -44,7 +44,7 @@
 
 import re
 import regex
-from typing import Optional, Literal
+from typing import Optional, Literal, List
 from pydantic import BaseModel
 from tnfsh_timetable_core import TNFSHTimetableCore
 
@@ -70,10 +70,10 @@ def identify_type(text: str, class_code_len: int = 3) -> Optional[Identification
     if regex.search(r'[^A-Za-z0-9\p{Han}]', text):
         logger.warning(f"⚠️ 輸入 `{text}` 含有非法符號，將略過處理或僅保留有效部分")
 
-    # T1a / T1b: 純中文或純英文 → 教師姓名。例如: "王大明" 或 "Tim"
-    if regex.fullmatch(r'\p{Han}+', text):
-        return IdentificationResult(role="teacher", match_case="T1a", target=text)
+    # T1a / T1b: 純英文或純中文 → 教師姓名。例如: "Tim" 或 "王大明"
     if regex.fullmatch(r'[A-Za-z]+', text):
+        return IdentificationResult(role="teacher", match_case="T1a", target=text)
+    if regex.fullmatch(r'\p{Han}+', text):
         return IdentificationResult(role="teacher", match_case="T1b", target=text)
 
     role = text[0]
@@ -168,15 +168,46 @@ def identify_type(text: str, class_code_len: int = 3) -> Optional[Identification
 
 
 from tnfsh_timetable_core.index.models import TargetInfo, FullIndexResult
-def get_fuzzy_target_info(text: str, source_index: FullIndexResult) -> TargetInfo:
+def get_fuzzy_target_info(text: str, source_index: FullIndexResult) -> TargetInfo| List[str]| None:
+    result = None
+
+    result = source_index.target_to_unique_info.get(text)
+    if result:
+        return result
+    result = source_index.target_to_conflicting_ids.get(text)
+    if result:
+        return result
+
     identify_result = identify_type(text)
     if not identify_result:
         raise ValueError(f"無法識別的輸入：{text}")
-    
-    result = None
-    result = source_index.id
-        raise ValueError(f"無法找到對應的目標資訊：{identify_result.ID}")
-    return result
+
+    if identify_result.ID:
+        id = identify_result.ID
+        result = source_index.id_to_info.get(id)
+        if result:
+            return result
+    if identify_result.target:
+        target = identify_result.target
+        result = source_index.target_to_unique_info.get(target)
+        if result:
+            return result
+        result = source_index.target_to_conflicting_ids.get(target)
+        if result:
+            return result
+        if identify_result.match_case == "T1a": # T1a 可能是純英文名
+            # 嘗試去掉前綴後再查找
+            target = target[1:] if target.startswith('T') else target
+            result = source_index.target_to_unique_info.get(target)
+            if result:
+                return result
+            result = source_index.target_to_conflicting_ids.get(target)
+            if result:
+                return result
+            
+    if not result:
+        raise ValueError(f"無法找到對應的目標資訊：{text} (ID: {identify_result.ID}, Target: {identify_result.target})")
+
 
 if __name__ == "__main__":
     examples = [
@@ -194,6 +225,8 @@ if __name__ == "__main__":
         "T王大明Nicole",  # T6d
         "T",         # T7
         "T@zhen",     # T8
+        "T03" ,  # fallback
+        "TT03", # fallback
         "Tzhen@",  # T8
         "101",       # C1
         "110123123", # C2
