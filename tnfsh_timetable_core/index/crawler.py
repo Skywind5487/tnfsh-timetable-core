@@ -412,27 +412,27 @@ class IndexCrawler(BaseCrawlerABC):
             
         Returns:
             Tuple[Dict[str, TargetInfo], Dict[str, List[str]]]: 
-            - name_to_unique_info: 唯一名稱到目標資訊的映射
-            - name_to_conflicting_ids: 重複名稱到 ID 列表的映射
+            - target_to_unique_info: 唯一名稱到目標資訊的映射
+            - target_to_conflicting_ids: 重複名稱到 ID 列表的映射
         """
-        name_to_unique_info: Dict[str, TargetInfo] = {}
-        name_to_conflicting_ids: Dict[str, List[str]] = {}
+        target_to_unique_info: Dict[str, TargetInfo] = {}
+        target_to_conflicting_ids: Dict[str, List[str]] = {}
         
         def process_info(info: TargetInfo) -> None:
             """處理單一目標資訊的名稱映射"""
-            if info.target in name_to_conflicting_ids:
+            if info.target in target_to_conflicting_ids:
                 # 如果已在衝突表中，直接加入 ID
-                name_to_conflicting_ids[info.target].append(info.id)
-            elif info.target in name_to_unique_info:
+                target_to_conflicting_ids[info.target].append(info.id)
+            elif info.target in target_to_unique_info:
                 # 如果已有唯一映射，移至衝突表
-                name_to_conflicting_ids[info.target] = [
-                    name_to_unique_info[info.target].id,
+                target_to_conflicting_ids[info.target] = [
+                    target_to_unique_info[info.target].id,
                     info.id
                 ]
-                del name_to_unique_info[info.target]
+                del target_to_unique_info[info.target]
             else:
                 # 新增唯一映射
-                name_to_unique_info[info.target] = info
+                target_to_unique_info[info.target] = info
         
         # 處理所有教師和班級的目標資訊
         for data in (detailed.teacher.data, detailed.class_.data):
@@ -440,7 +440,7 @@ class IndexCrawler(BaseCrawlerABC):
                 for info in data[category].values():
                     process_info(info)
                 
-        return name_to_unique_info, name_to_conflicting_ids
+        return target_to_unique_info, target_to_conflicting_ids
 
     def _derive_old_index(self, detailed: DetailedIndex) -> IndexResult:
         """從 detailed_index 派生舊格式的索引結果
@@ -457,11 +457,11 @@ class IndexCrawler(BaseCrawlerABC):
             IndexResult: 舊格式的索引結果
         """
         # 先取得衝突映射
-        _, name_to_conflicting_ids = self._derive_name_mappings(detailed)
+        _, target_to_conflicting_ids = self._derive_name_mappings(detailed)
         
         def get_display_name(info: TargetInfo) -> str| None:
             """根據衝突情況取得顯示名稱"""
-            if info.target in name_to_conflicting_ids:
+            if info.target in target_to_conflicting_ids:
                 return None
             return info.target
         
@@ -501,11 +501,11 @@ class IndexCrawler(BaseCrawlerABC):
             ReverseIndexResult: 反向索引結果
         """
         result: Dict[str, Dict[str, str]] = {} # {target_name: {"url": <url>, "category": <category>}}
-        _, name_to_conflicting_ids = self._derive_name_mappings(detailed)
+        _, target_to_conflicting_ids = self._derive_name_mappings(detailed)
         
         def get_display_name(info: TargetInfo) -> str| None:
             """根據衝突情況取得顯示名稱"""
-            if info.target in name_to_conflicting_ids:
+            if info.target in target_to_conflicting_ids:
                 return None
             return info.target
 
@@ -574,7 +574,7 @@ class IndexCrawler(BaseCrawlerABC):
 
         # 第二階段：從 detailed_index 派生其他索引
         id_to_info = self._derive_id_to_info(detailed)
-        name_to_unique_info, name_to_conflicting_ids = self._derive_name_mappings(detailed)
+        target_to_unique_info, target_to_conflicting_ids = self._derive_name_mappings(detailed)
         old_index = self._derive_old_index(detailed)
         old_reverse_index = self._derive_old_reverse_index(detailed) 
         
@@ -584,8 +584,8 @@ class IndexCrawler(BaseCrawlerABC):
             reverse_index=old_reverse_index,
             detailed_index=detailed,
             id_to_info=id_to_info,
-            name_to_unique_info=name_to_unique_info,
-            name_to_conflicting_ids=name_to_conflicting_ids
+            target_to_unique_info=target_to_unique_info,
+            target_to_conflicting_ids=target_to_conflicting_ids
         )
 
     async def fetch(self) -> FullIndexResult:
