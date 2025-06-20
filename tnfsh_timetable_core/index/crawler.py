@@ -169,7 +169,7 @@ class IndexCrawler(BaseCrawlerABC):
         """
 
         # 並行抓 root / 預設 teacher / 預設 class（如果沒被注入）
-        logger.info("📥 開始併發抓取 root + teacher/class 頁面")
+        logger.debug("📥 開始併發抓取 root + teacher/class 頁面")
         root_task = self.fetch_raw(f"{self.base_url}/{self.root}")
 
         teacher_task = None
