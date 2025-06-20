@@ -30,7 +30,7 @@ from tnfsh_timetable_core.index.models import (
 from tnfsh_timetable_core import TNFSHTimetableCore
 
 core = TNFSHTimetableCore()
-logger = core.get_logger(logger_level="DEBUG")
+logger = core.get_logger(logger_level="INFO")
 
 class IndexCrawler(BaseCrawlerABC):    
     """首頁索引爬蟲，負責爬取、解析和組織課表系統的索引資訊
