@@ -13,6 +13,7 @@ from tenacity import (
     before_sleep_log,
 )
 import logging
+from functools import cache
 
 from tnfsh_timetable_core.abc.crawler_abc import BaseCrawlerABC
 from tnfsh_timetable_core.index.models import (
@@ -29,7 +30,7 @@ from tnfsh_timetable_core.index.models import (
 from tnfsh_timetable_core import TNFSHTimetableCore
 
 core = TNFSHTimetableCore()
-logger = core.get_logger(logger_level="INFO")
+logger = core.get_logger(logger_level="DEBUG")
 
 class IndexCrawler(BaseCrawlerABC):    
     """首頁索引爬蟲，負責爬取、解析和組織課表系統的索引資訊
@@ -160,18 +161,64 @@ class IndexCrawler(BaseCrawlerABC):
                 logger.debug(f"📥 收到回應：{len(content)} bytes")
                 return BeautifulSoup(content, 'html.parser')
 
-    async def _fetch_all_pages(self) -> Tuple[BeautifulSoup, BeautifulSoup]:
-        """並行獲取所有需要的頁面
-        
+    async def _fetch_all_pages(self) -> Tuple[BeautifulSoup, BeautifulSoup, BeautifulSoup]:
+        """優化：先抓 root，再決定是否重抓 teacher/class
+
         Returns:
-            Tuple[BeautifulSoup, BeautifulSoup]: (教師頁面, 班級頁面)
+            Tuple: (root, teacher, class)
         """
-        tasks = [
-            self.fetch_raw(f"{self.base_url}/{self.root}"),
-            self.fetch_raw(f"{self.base_url}/{self.teacher_page}"),
-            self.fetch_raw(f"{self.base_url}/{self.class_page}")
-        ]
-        return await asyncio.gather(*tasks)
+
+        # 並行抓 root / 預設 teacher / 預設 class（如果沒被注入）
+        logger.info("📥 開始併發抓取 root + teacher/class 頁面")
+        root_task = self.fetch_raw(f"{self.base_url}/{self.root}")
+
+        teacher_task = None
+        class_task = None
+        if not self.teacher_page:
+            logger.debug("🧩 teacher_page 未注入，使用預設值")
+            teacher_task = self.fetch_raw(f"{self.base_url}/{self.DEFAULT_TEACHER_PAGE}")
+        else:
+            logger.debug(f"✅ teacher_page 已注入：{self.teacher_page}")
+            teacher_task = self.fetch_raw(f"{self.base_url}/{self.teacher_page}")
+
+        if not self.class_page:
+            logger.debug("🧩 class_page 未注入，使用預設值")
+            class_task = self.fetch_raw(f"{self.base_url}/{self.DEFAULT_CLASS_PAGE}")
+        else:
+            logger.debug(f"✅ class_page 已注入：{self.class_page}")
+            class_task = self.fetch_raw(f"{self.base_url}/{self.class_page}")
+
+        root_soup, teacher_soup, class_soup = await asyncio.gather(
+            root_task,
+            teacher_task,
+            class_task,
+            return_exceptions=True  # ✅ 讓錯誤變成例外物件傳回
+
+        )
+
+        logger.debug("📖 root 頁面抓取完成，開始解析")
+        root_teacher_url, root_class_url, last_update = self._parse_root(root_soup)
+
+        # 若未注入，檢查是否需 fallback 重抓
+        if not self.teacher_page or isinstance(teacher_soup, Exception):
+            if root_teacher_url != self.DEFAULT_TEACHER_PAGE or isinstance(teacher_soup, Exception):
+                logger.warning(f"🔁 root 指定的 teacher_url（{root_teacher_url}）與預設不同，重新抓取")
+                teacher_soup = await self.fetch_raw(f"{self.base_url}/{root_teacher_url}")
+            else:
+                logger.debug("✅ root teacher_url 與預設一致，使用預抓內容")
+            self.teacher_page = root_teacher_url
+
+        if not self.class_page or isinstance(class_soup, Exception):
+            if root_class_url != self.DEFAULT_CLASS_PAGE or isinstance(class_soup, Exception):
+                logger.warning(f"🔁 root 指定的 class_url（{root_class_url}）與預設不同，重新抓取")
+                class_soup = await self.fetch_raw(f"{self.base_url}/{root_class_url}")
+            else:
+                logger.debug("✅ root class_url 與預設一致，使用預抓內容")
+            self.class_page = root_class_url
+
+        logger.debug("✅ 所有index頁面準備完成")
+        return root_soup, teacher_soup, class_soup, last_update
+
 
     # ====================================
     # 📝 內容解析：HTML 解析與資料提取
@@ -486,7 +533,8 @@ class IndexCrawler(BaseCrawlerABC):
         self, 
         root_raw: BeautifulSoup,
         teacher_raw: BeautifulSoup, 
-        class_raw: BeautifulSoup
+        class_raw: BeautifulSoup,
+        root_last_update: str,
     ) -> FullIndexResult:
         """解析教師和班級的原始資料，並建立完整的索引結構
         
@@ -512,7 +560,7 @@ class IndexCrawler(BaseCrawlerABC):
             - index: 舊版格式索引
         """
         # 第一階段：解析原始頁面，建立 detailed_index
-        teacher_page, class_page, last_update = self._parse_root(root_raw)
+        last_update = root_last_update
         teacher_detailed, teacher_last_update = self._parse_page(teacher_raw, is_teacher=True)
         class_detailed, class_last_update = self._parse_page(class_raw, is_teacher=False)
 
