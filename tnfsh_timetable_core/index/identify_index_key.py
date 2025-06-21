@@ -42,6 +42,7 @@
 """
 
 
+from email.mime import base
 import re
 import regex
 from typing import Optional, Literal, List
@@ -63,60 +64,127 @@ class IdentificationResult(BaseModel):
 
 
 # 🌟 主函式：根據輸入文字判斷其類型並回傳識別結果
-def identify_type(text: str, class_code_len: int = 3) -> Optional[IdentificationResult]:
-    if not text or len(text) < 2:
+def identify_type(text: str, 
+                  class_code_len: int = 3, 
+                  base_url: str = "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/"
+) -> Optional[IdentificationResult]:
+    """
+    根據輸入文字自動判斷其為教師或班級，並回傳識別結果。
+
+    Args:
+        text (str): 欲識別的文字，可為教師姓名、教師代碼、班級代碼等。
+        class_code_len (int, optional): 班級代碼長度，預設為 3。
+
+    可接受的輸入：
+        - 教師姓名（純中文或純英文，如 "王大明"、"Tim"）
+        - 教師代碼（如 "TJA04"、"JA04王大明"、"T王大明Nicole"）
+        - 班級代碼（如 "C108119"、"119"、"C110123123"）
+        - 其他常見的教師/班級編碼組合
+
+    處理流程：
+        1. 先判斷是否為純英文或純中文（教師名）。
+        2. 若有 T/C 前綴，依據結構拆解 prefix/suffix/target，判斷教師或班級型態。
+        3. 若無前綴，嘗試以常見教師/班級編碼規則比對。
+        4. 若有非法符號，僅警告不阻斷。
+        5. 無法識別時回傳 None。
+
+    Returns:
+        IdentificationResult | None: 識別結果，包含角色（teacher/class）、類型代號（如 T1a、C5）、主要名稱、ID 等欄位。
+        若無法識別，回傳 None。
+    """
+    # 預處理網址與非法符號
+    origin_text_len = len(text)
+    is_url = False
+    if not text or origin_text_len < 2:
         return None  # T0, C0, T7, C7: 空字串或單字元無效輸入
+    base_url = base_url.replace('http://', '').replace('https://', '')
+    text = text.replace('http://', '').replace('https://', '')
+    text = text.replace(base_url, '').replace('.html', '').replace('.HTML', '')
+    if len(text) != origin_text_len:
+        is_url = True
 
-    if regex.search(r'[^A-Za-z0-9\p{Han}]', text):
-        logger.warning(f"⚠️ 輸入 `{text}` 含有非法符號，將略過處理或僅保留有效部分")
-
-    # T1a / T1b: 純英文或純中文 → 教師姓名。例如: "Tim" 或 "王大明"
+    # T1a: 純英文教師名（如 Tim）
     if regex.fullmatch(r'[A-Za-z]+', text):
+        if is_url:
+            logger.warning(f"⚠️ `{text}` is not a valid url for this type")
         return IdentificationResult(role="teacher", match_case="T1a", target=text)
+    # T1b: 純中文教師名（如 王大明）
     if regex.fullmatch(r'\p{Han}+', text):
+        if is_url:
+            logger.warning(f"⚠️ `{text}` is not a valid url for this type")
         return IdentificationResult(role="teacher", match_case="T1b", target=text)
 
+    # 進入 T/C 前綴分支
     role = text[0]
     body = text[1:]  # 去掉 T / C 前綴
 
     if role == 'T':
+        # 解析 T 開頭的教師代碼，分 prefix(英文)、suffix(數字)、target(姓名)
         match = regex.match(r'^([A-Za-z]*)(\d*)([A-Za-z\p{Han}]*)$', body)
         if not match:
+            if is_url:
+                logger.warning(f"⚠️ `{text}` is not a valid url for this type")
             return None
         prefix, suffix, target = match.groups()
+        match_case = None
+        # 依據 prefix/suffix/target 組合判斷教師類型
         match (bool(prefix), bool(suffix), bool(target)):
-            case (True, True, True):  # ✅ T4：T + ID + 中文名
+            case (True, True, True):  # T4：T + ID + 中文名
+                match_case = "T4"
                 if regex.fullmatch(r'\p{Han}+', target):
-                    return IdentificationResult(role="teacher", match_case="T4", target=target, ID=f"T{prefix}{suffix}")
-            case (True, True, False):  # ✅ T5：T + ID
-                return IdentificationResult(role="teacher", match_case="T5", target=None, ID=f"T{prefix}{suffix}")
-            case (False, True, False):  # ✅ fallback：T + 數字
-                return IdentificationResult(role="teacher", match_case="fallback", target=None, ID=f"T{'T'}{suffix}")
-            case (True, False, False):  # ✅ T6a：T + 英文名
+                    if is_url:
+                        logger.warning(f"⚠️ `{text}` is not a valid url for this type")
+                    return IdentificationResult(role="teacher", match_case=match_case, target=target, ID=f"T{prefix}{suffix}")
+            case (True, True, False):  # T5：T + ID
+                match_case = "T5"
+                if is_url:
+                    pass  # T5 合法網址不 warning
+                return IdentificationResult(role="teacher", match_case=match_case, target=None, ID=f"T{prefix}{suffix}")
+            case (False, True, False):  # fallback：T + 數字
+                match_case = "fallback"
+                if is_url:
+                    logger.warning(f"⚠️ `{text}` is not a valid url for this type")
+                return IdentificationResult(role="teacher", match_case=match_case, target=None, ID=f"T{'T'}{suffix}")
+            case (True, False, False):  # T6a：T + 英文名
+                match_case = "T6a"
                 if regex.fullmatch(r'[A-Za-z]+', prefix):
-                    return IdentificationResult(role="teacher", match_case="T6a", target=prefix, ID=None)
+                    if is_url:
+                        logger.warning(f"⚠️ `{text}` is not a valid url for this type")
+                    return IdentificationResult(role="teacher", match_case=match_case, target=prefix, ID=None)
                 raise ValueError(f"❌ 無法識別的教師代碼：{prefix}")
-            case (False, False, True):  # ✅ T6b / T6d：T + 中文名 / T + 中文名 + 英文名
+            case (False, False, True):  # T6b / T6d：T + 中文名 或混合
+                match_case = "T6b/T6d"
                 if regex.fullmatch(r'\p{Han}+', target):
+                    if is_url:
+                        logger.warning(f"⚠️ `{text}` is not a valid url for this type")
                     return IdentificationResult(role="teacher", match_case="T6b", target=target, ID=None)
+                # 混合中英文，僅保留英文
                 if regex.search(r'\p{Han}+', target) and regex.search(r'[A-Za-z]+', target):
                     zh = ''.join(regex.findall(r'\p{Han}+', target))
                     en = ''.join(regex.findall(r'[A-Za-z]+', target))
                     if zh and en:
+                        if is_url:
+                            logger.warning(f"⚠️ `{text}` is not a valid url for this type")
                         logger.warning(f"⚠️ 教師代碼 `T{target}` 為 T6d，僅保留英文 `{en}`")
                         return IdentificationResult(role="teacher", match_case="T6d", target=en, ID=None)
-            case (True, False, True):  # ✅ T6c：T + 英文名 + 中文名 → 保留英文
+            case (True, False, True):  # T6c：T + 英文名 + 中文名 → 保留英文
+                match_case = "T6c/T6d"
                 if regex.fullmatch(r'\p{Han}+', target) and regex.fullmatch(r'[A-Za-z]+', prefix):
+                    if is_url:
+                        logger.warning(f"⚠️ `{text}` is not a valid url for this type")
                     logger.warning(f"⚠️ 教師代碼 `{prefix + target}` 中出現中英文混合（T6c），僅保留英文 `{prefix}` 當作姓名")
                     return IdentificationResult(role="teacher", match_case="T6c", target=prefix, ID=None)
                 if regex.fullmatch(r'\p{Han}+', prefix) and regex.fullmatch(r'[A-Za-z]+', target):
+                    if is_url:
+                        logger.warning(f"⚠️ `{text}` is not a valid url for this type")
                     logger.warning(f"⚠️ 教師代碼 `{prefix + target}` 中出現中文+英文混合（T6d），僅保留英文 `{target}` 當作姓名")
                     return IdentificationResult(role="teacher", match_case="T6d", target=target, ID=None)
                 if not regex.fullmatch(r'[A-Za-z]*', prefix):
                     raise ValueError(f"❌ 教師代碼 `{prefix + target}` 中 prefix 含非法字元，無法識別")
 
     elif role == 'C':
-        # ✅ C5: C + 6碼
+        # 處理 C 開頭的班級代碼
+        # C5: C + 6碼
         if regex.fullmatch(fr'\d{{{class_code_len * 2}}}', body):
             # C110123123 → ID = C110123, target = 123
             return IdentificationResult(role="class", match_case="C5", target=body[-class_code_len:], ID=f"C{body[:class_code_len*2]}")
@@ -168,25 +236,51 @@ def identify_type(text: str, class_code_len: int = 3) -> Optional[Identification
 
 
 from tnfsh_timetable_core.index.models import TargetInfo, FullIndexResult
+
 def get_fuzzy_target_info(text: str, source_index: FullIndexResult) -> TargetInfo| List[str]| None:
+    """
+    模糊查詢目標資訊。
+
+    支援多種編碼、前綴、ID、姓名等組合。
+    只需要 FullIndexResult 的 id_to_info、target_to_unique_info 和 target_to_conflicting_ids。
+
+    Args:
+        text (str): 欲查詢的文字，可為教師姓名、教師代碼、班級代碼等。
+        source_index (FullIndexResult): 索引資料，僅需 id_to_info、target_to_unique_info、target_to_conflicting_ids。
+
+    查詢流程：
+        1. 先直接查 target_to_unique_info（唯一對應）
+        2. 再查 target_to_conflicting_ids（有衝突的名稱）
+        3. 用 identify_type 分析後，依 ID 與 target 再查
+        4. 若 TTim（純英文名）嘗試去掉 T 前綴再查
+        5. 全部查不到則丟出 ValueError
+
+    Returns:
+        TargetInfo | List[str] | None: 查到則回傳目標資訊或衝突 ID 列表，查不到丟出例外。
+    """
     result = None
 
+    # 1. 直接查唯一 target
     result = source_index.target_to_unique_info.get(text)
     if result:
         return result
+    # 2. 查有衝突的 target
     result = source_index.target_to_conflicting_ids.get(text)
     if result:
         return result
 
+    # 3. 用識別規則分析
     identify_result = identify_type(text)
     if not identify_result:
         raise ValueError(f"無法識別的輸入：{text}")
 
+    # 3a. 先用 ID 查
     if identify_result.ID:
         id = identify_result.ID
         result = source_index.id_to_info.get(id)
         if result:
             return result
+    # 3b. 再用 target 查
     if identify_result.target:
         target = identify_result.target
         result = source_index.target_to_unique_info.get(target)
@@ -195,8 +289,8 @@ def get_fuzzy_target_info(text: str, source_index: FullIndexResult) -> TargetInf
         result = source_index.target_to_conflicting_ids.get(target)
         if result:
             return result
-        if identify_result.match_case == "T1a": # T1a 可能是純英文名
-            # 嘗試去掉前綴後再查找
+        # 4. 若 T1a（純英文名）嘗試去掉 T 前綴再查
+        if identify_result.match_case == "T1a":
             target = target[1:] if target.startswith('T') else target
             result = source_index.target_to_unique_info.get(target)
             if result:
@@ -204,7 +298,7 @@ def get_fuzzy_target_info(text: str, source_index: FullIndexResult) -> TargetInf
             result = source_index.target_to_conflicting_ids.get(target)
             if result:
                 return result
-            
+    # 5. 全部查不到
     if not result:
         raise ValueError(f"無法找到對應的目標資訊：{text} (ID: {identify_result.ID}, Target: {identify_result.target})")
 
