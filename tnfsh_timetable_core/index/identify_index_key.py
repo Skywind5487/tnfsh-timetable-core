@@ -42,7 +42,6 @@
 """
 
 
-import re
 import regex
 from typing import Optional, Literal, List
 from pydantic import BaseModel
@@ -183,7 +182,7 @@ def identify_type(text: str,
         if match:
             front, mid, tail = match.groups()
             if mid != tail:
-                raise ValueError(f"❌ C4 格式錯誤：後兩段 `{mid}` 與 `{tail}` 不一致")
+                logger.warning(f"❌ C4 格式錯誤：後兩段 `{mid}` 與 `{tail}` 不一致，將以 `{mid}` 為目標")
             # C110123123 → ID = C110123, target = 123
             return IdentificationResult(role="class", match_case="C4", target=tail, ID=f"C{front}{mid}")
         # C8: 非法 C 組合（fallback）

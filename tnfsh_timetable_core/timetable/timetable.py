@@ -1,12 +1,13 @@
 from __future__ import annotations
-from typing import List, Optional, Literal, Dict, Tuple
+from typing import TYPE_CHECKING, List, Optional, Literal, Dict, Tuple
 from datetime import datetime, time
 from pydantic import BaseModel
 
 from tnfsh_timetable_core.utils.logger import get_logger
 from tnfsh_timetable_core.timetable.models import CourseInfo
 from tnfsh_timetable_core.abc.domain_abc import BaseDomainABC
-from tnfsh_timetable_core.timetable.models import TimetableSchema
+if TYPE_CHECKING:
+    from tnfsh_timetable_core.timetable.timetable import TimetableSchema
 
 # 設定日誌
 logger = get_logger(logger_level="INFO")
@@ -56,7 +57,7 @@ class Timetable(BaseDomainABC, BaseModel):
     
     
     @classmethod
-    def from_schema(cls, schema: TimetableSchema) -> "Timetable":
+    def from_schema(cls, schema: TimetableSchema) -> Timetable:
         # 轉換 periods: Dict[str, Tuple[str, str]] → Dict[str, Tuple[time, time]]
         periods: Dict[str, Tuple[time, time]] = {
             name: (
@@ -79,7 +80,7 @@ class Timetable(BaseDomainABC, BaseModel):
         )
     
     @classmethod
-    async def fetch(cls, target: str, refresh: bool = False) -> "Timetable":
+    async def fetch(cls, target: str, refresh: bool = False) -> Timetable:
         """
         支援三層快取的智能載入方法：
         1. 記憶體 → 2. 本地檔案 → 3. 網路請求（可透過 refresh 強制重新建立）

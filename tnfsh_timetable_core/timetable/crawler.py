@@ -1,4 +1,5 @@
-from typing import List, Set, Dict, Optional, Literal, Tuple, TypedDict, TypeAlias
+from __future__ import annotations  
+from typing import TYPE_CHECKING, List, Set, Dict, Optional, Literal, Tuple, TypedDict, TypeAlias
 import logging
 from unittest import result
 import aiohttp
@@ -15,10 +16,12 @@ from tenacity import (
     before_sleep_log,
     RetryError
 )
+if TYPE_CHECKING:
+    from tnfsh_timetable_core.index.index import Index
 
 from tnfsh_timetable_core.utils.logger import get_logger
 from tnfsh_timetable_core.abc.crawler_abc import BaseCrawlerABC
-from tnfsh_timetable_core.index.models import ReverseIndexResult
+from tnfsh_timetable_core.index.models import ReverseIndexResult, TargetInfo
 
 
 
@@ -127,19 +130,28 @@ class TimetableCrawler(BaseCrawlerABC):
             )
         return None
     
-    def _resolve_target(self, target: str, reverse_index: ReverseIndexResult) -> Optional[str]:
+    def _resolve_target(self, target: str, index: Index) -> Optional[TargetInfo]:
         """根據目標名稱解析別名"""
-        if target in reverse_index:
-            logger.debug(f"🎯 找到 {target} 的TimeTable網址")
-            return target
+        result = index[target]
+
+        if result:
+            if isinstance(result, list):
+                raise KeyError(f"🔄 {target} 有多個對應的ID: {result}")
+            else:
+                logger.debug(f"🎯 找到 {target} 的TimeTable網址")
+                return result
 
         for alias_set in self.aliases:
             if target in alias_set:
                 candidates = alias_set - {target}
                 for alias in candidates:
-                    if alias in reverse_index:
-                        logger.info(f"🔄 將 {target} 解析為別名 {alias}")
-                        return alias
+                    tmp_result = index[alias]
+                    if tmp_result:
+                        if isinstance(tmp_result, list):
+                            raise KeyError(f"🔄 {alias} 有多個對應的ID: {tmp_result}")
+                        else:
+                            logger.info(f"🔄 將 {target} 解析為別名 {alias}")
+                            return tmp_result
                     logger.debug(f"找不到 {alias} 對應的TimeTable網址")
         return None
 
@@ -155,15 +167,12 @@ class TimetableCrawler(BaseCrawlerABC):
             raise FetchError("無法獲取Index資料")
 
         logger.debug(f"🔍 解析目標：{target}")
-        real_target = self._resolve_target(target, index.reverse_index)
+        real_target = self._resolve_target(target, index)
         if real_target is None:
             logger.error(f"❌ 找不到 {target} 的Timetable網址")
             raise FetchError(f"找不到 {target} 的Timetable網址")
 
-        if target == "307":
-            relative_url = "C101307.html"
-        else:
-            relative_url = index.reverse_index[real_target]["url"]
+        relative_url = real_target.url
 
         url = index.base_url + relative_url
         self._url_cache[target] = url

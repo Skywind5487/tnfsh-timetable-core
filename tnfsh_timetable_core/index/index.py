@@ -1,26 +1,16 @@
 """台南一中課表系統的索引管理器"""
 
-from operator import index
-from typing import List
+from typing import TYPE_CHECKING, Dict, List, Optional
 from datetime import datetime
-from typing import Dict, Optional
-from tnfsh_timetable_core.abc.domain_abc import BaseDomainABC
+import json
 from tnfsh_timetable_core.index.models import (
     DetailedIndex,
     IndexResult, 
     ReverseIndexResult, 
-    FullIndexResult,
-    CacheMetadata,
-    CachedIndex,
-    CachedReverseIndex,
-    CachedFullIndex,
     TargetInfo
 )
-from tnfsh_timetable_core.index.cache import IndexCache
-from tnfsh_timetable_core.index.crawler import IndexCrawler
+from tnfsh_timetable_core.abc.domain_abc import BaseDomainABC
 from tnfsh_timetable_core.utils.logger import get_logger
-
-import json
 
 logger = get_logger(logger_level="INFO")
 
@@ -60,10 +50,12 @@ class Index(BaseDomainABC):
         self.id_to_info: Dict[str, TargetInfo] | None = id_to_info
         self.target_to_unique_info: Dict[str, TargetInfo] | None = target_to_unique_info
         self.target_to_conflicting_ids: Dict[str, List[str]] | None = target_to_conflicting_ids
-
+        
+        from tnfsh_timetable_core.index.cache import IndexCache
+        from tnfsh_timetable_core.index.crawler import IndexCrawler
         # 私有屬性
         self._cache = IndexCache()
-        self._crawler = IndexCrawler(base_url=base_url)
+        self._crawler = IndexCrawler()
 
     @classmethod
     async def fetch(cls, *, refresh: bool = False, base_url: Optional[str] = None) -> "Index":
@@ -115,6 +107,13 @@ class Index(BaseDomainABC):
             RuntimeError: 當尚未載入索引資料時
             Exception: 當檔案寫入失敗時
         """
+        from tnfsh_timetable_core.index.models import (
+            CacheMetadata,
+            CachedIndex,
+            CachedReverseIndex,
+            CachedFullIndex,
+            FullIndexResult
+        )
         if self.index is None or self.reverse_index is None:
             raise RuntimeError("尚未載入索引資料")
             
@@ -179,6 +178,7 @@ class Index(BaseDomainABC):
             RuntimeError: 當尚未載入索引資料時
         """
         from tnfsh_timetable_core.index.identify_index_key import get_fuzzy_target_info
+        from tnfsh_timetable_core.index.models import FullIndexResult
 
         if (self.id_to_info is None or 
             self.target_to_unique_info is None or 

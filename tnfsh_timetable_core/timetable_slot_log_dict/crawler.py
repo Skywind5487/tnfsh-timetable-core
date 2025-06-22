@@ -5,7 +5,7 @@ from tnfsh_timetable_core.timetable_slot_log_dict.models import StreakTime, Time
 
 if TYPE_CHECKING:
     from tnfsh_timetable_core.timetable.models import CourseInfo
-    from tnfsh_timetable_core.timetable.models import Timetable
+    from tnfsh_timetable_core.timetable.timetable import Timetable
     from tnfsh_timetable_core.index.index import Index
     from tnfsh_timetable_core.index.models import ReverseIndexResult
 
@@ -26,7 +26,7 @@ class TimetableSlotLogCrawler(
         reverse_index: ReverseIndexResult = index.reverse_index
         result_list: List["Timetable"] = []
         
-        from tnfsh_timetable_core.timetable.models import Timetable
+        from tnfsh_timetable_core.timetable.timetable import Timetable
         for target in reverse_index.root.keys():
             result_list.append(await Timetable.fetch_cached(target=target, refresh=refresh))
 
