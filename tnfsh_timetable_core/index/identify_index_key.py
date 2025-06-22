@@ -146,7 +146,7 @@ def identify_type(text: str,
                 match_case = "T6a"
                 if regex.fullmatch(r'[A-Za-z]+', prefix):
                     return IdentificationResult(role="teacher", match_case=match_case, target=prefix, ID=None)
-                raise ValueError(f"❌ 無法識別的教師代碼：{prefix}")
+                raise KeyError(f"❌ 無法識別的教師代碼：{prefix}")
             case (False, False, True):  # T6b / T6d：T + 中文名 或混合
                 match_case = "T6b/T6d"
                 if regex.fullmatch(r'\p{Han}+', target):
@@ -167,7 +167,7 @@ def identify_type(text: str,
                     logger.warning(f"⚠️ 教師代碼 `{prefix + target}` 中出現中文+英文混合（T6d），僅保留英文 `{target}` 當作姓名")
                     return IdentificationResult(role="teacher", match_case="T6d", target=target, ID=None)
                 if not regex.fullmatch(r'[A-Za-z]*', prefix):
-                    raise ValueError(f"❌ 教師代碼 `{prefix + target}` 中 prefix 含非法字元，無法識別")
+                    raise KeyError(f"❌ 教師代碼 `{prefix + target}` 中 prefix 含非法字元，無法識別")
 
     elif role == 'C':
         # 處理 C 開頭的班級代碼
@@ -239,10 +239,10 @@ def get_fuzzy_target_info(text: str, source_index: FullIndexResult) -> TargetInf
         2. 再查 target_to_conflicting_ids（有衝突的名稱）
         3. 用 identify_type 分析後，依 ID 與 target 再查
         4. 若 TTim（純英文名）嘗試去掉 T 前綴再查
-        5. 全部查不到則丟出 ValueError
+        5. 全部查不到則丟出 KeyError
 
     Returns:
-        TargetInfo | List[str] | None: 查到則回傳目標資訊或衝突 ID 列表，查不到丟出例外。
+        TargetInfo | List[str] | None: 查到則回傳目標資訊或衝突 ID 列表，查不到丟出 KeyError。
     """
     result = None
 
@@ -258,7 +258,7 @@ def get_fuzzy_target_info(text: str, source_index: FullIndexResult) -> TargetInf
     # 3. 用識別規則分析
     identify_result = identify_type(text)
     if not identify_result:
-        raise ValueError(f"無法識別的輸入：{text}")
+        raise KeyError(f"無法識別的輸入：{text}")
 
     # 3a. 先用 ID 查
     if identify_result.ID:
@@ -286,7 +286,7 @@ def get_fuzzy_target_info(text: str, source_index: FullIndexResult) -> TargetInf
                 return result
     # 5. 全部查不到
     if not result:
-        raise ValueError(f"無法找到對應的目標資訊：{text} (ID: {identify_result.ID}, Target: {identify_result.target})")
+        raise KeyError(f"無法找到對應的目標資訊：{text} (ID: {identify_result.ID}, Target: {identify_result.target})")
 
 
 if __name__ == "__main__":
