@@ -8,7 +8,7 @@ class DummyTimeTable:
         self.table = table
 
 def test_parse_slotlog_basic():
-    from tnfsh_timetable_core.timetable.models import TimeTable, CourseInfo
+    from tnfsh_timetable_core.timetable.models import Timetable, CourseInfo
     from tnfsh_timetable_core.timetable_slot_log_dict.models import StreakTime
     # 模擬一個班級有三天，每天三節課
     # 第一天：A, A, None（2連堂A+1空堂）
