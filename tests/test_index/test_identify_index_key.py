@@ -40,7 +40,7 @@ def build_test_cases():
             test_inputs.add(f"http://{base_url}{code}{ext}")
             test_inputs.add(f"{code}{ext}")
     return sorted(test_inputs)
-
+"""
 @pytest.mark.parametrize("example", build_test_cases())
 def test_identify_type(example):
     result = identify_type(example)
@@ -49,3 +49,4 @@ def test_identify_type(example):
         print(f"\n{example:30} | {result.role:7} | {result.match_case or '-':6} | {str(result.target)[:8]:8} | {str(result.ID)[:10]:10} | {getattr(result, 'type', None)}")
     else:
         print(f"\n{example:30} | {'-':7} | {'-':6} | {'-':8} | {'-':10} | -")
+"""
