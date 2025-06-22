@@ -131,7 +131,11 @@ class Index(BaseDomainABC):
                 metadata=metadata,
                 data=FullIndexResult(
                     index=self.index,
-                    reverse_index=self.reverse_index
+                    reverse_index=self.reverse_index,
+                    detailed_index=self.detailed_index,
+                    id_to_info=self.id_to_info or {},
+                    target_to_unique_info=self.target_to_unique_info or {},
+                    target_to_conflicting_ids=self.target_to_conflicting_ids or {}
                 )
             ).model_dump()
         elif export_type == "index":
