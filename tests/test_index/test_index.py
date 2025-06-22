@@ -2,7 +2,6 @@ import asyncio
 import json
 from pathlib import Path
 import pytest
-from datetime import datetime
 from tnfsh_timetable_core.index.index import Index
 
 @pytest.mark.asyncio
