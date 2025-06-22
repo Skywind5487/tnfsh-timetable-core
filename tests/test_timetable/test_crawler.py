@@ -1,7 +1,5 @@
 import pytest
-import asyncio
 import aiohttp
-from pathlib import Path
 from bs4 import BeautifulSoup
 from tnfsh_timetable_core.timetable.crawler import TimetableCrawler, FetchError
 from tnfsh_timetable_core.utils.logger import get_logger
