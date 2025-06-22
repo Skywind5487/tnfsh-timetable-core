@@ -1,8 +1,6 @@
-import asyncio
 import pytest
-from pathlib import Path
 from tnfsh_timetable_core.index.cache import IndexCache
-from tnfsh_timetable_core.index.models import IndexResult, AllTypeIndexResult, ReverseIndexResult
+
 
 @pytest.fixture
 def cache():
@@ -27,7 +25,8 @@ async def test_memory_cache(cache: IndexCache):
 @pytest.mark.asyncio
 async def test_reverse_index_creation(cache: IndexCache):
     """測試反向索引的建立"""
-    result = await cache.fetch(refresh=True)
+    from tnfsh_timetable_core.index.models import CachedFullIndex
+    result: CachedFullIndex = await cache.fetch(refresh=True)
     
     # 選擇一個教師和班級來測試
     teacher_data = next(iter(result.index.teacher.data.values()))
