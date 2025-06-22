@@ -156,7 +156,28 @@ class Index(BaseDomainABC):
         # 寫入檔案
         try:
             with open(filepath, "w", encoding="utf-8") as f:
-                json.dump(export_data, f, indent=4, ensure_ascii=False)
+                if export_type == "all":
+                    f.write(CachedFullIndex(
+                        metadata=metadata,
+                        data=FullIndexResult(
+                            index=self.index,
+                            reverse_index=self.reverse_index,
+                            detailed_index=self.detailed_index,
+                            id_to_info=self.id_to_info or {},
+                            target_to_unique_info=self.target_to_unique_info or {},
+                            target_to_conflicting_ids=self.target_to_conflicting_ids or {}
+                        )
+                    ).model_dump_json(indent=4))
+                elif export_type == "index":
+                    f.write(CachedIndex(
+                        metadata=metadata,
+                        data=self.index
+                    ).model_dump_json(indent=4))
+                else:  # reverse_index
+                    f.write(CachedReverseIndex(
+                        metadata=metadata,
+                        data=self.reverse_index
+                    ).model_dump_json(indent=4))
                 logger.debug(f"📝 索引資料已匯出至：{filepath}")
                 logger.debug(f"⏰ 快取時間戳記：{metadata.cache_fetch_at}")
         except Exception as e:
