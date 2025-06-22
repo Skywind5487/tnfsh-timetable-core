@@ -49,18 +49,20 @@ async def test_export_json_all(tmp_path: Path):
     index = await Index.fetch()
     json_path = tmp_path / "test_index.json"
     filepath = index.export_json(export_type="all", filepath=str(json_path))
-    
     assert json_path.exists()
-    
     # 驗證匯出的 JSON 內容
     data = json.loads(json_path.read_text(encoding='utf-8'))
-    
-    assert "index" in data
-    assert "reverse_index" in data
-    assert "export_time" in data
-    
-    # 驗證時間格式
-    datetime.strptime(data["export_time"], "%Y-%m-%d %H:%M:%S")
+    # 頂層欄位
+    assert "metadata" in data
+    assert "data" in data
+    # metadata 欄位
+    assert "cache_fetch_at" in data["metadata"]
+    # data 欄位
+    for key in [
+        "index", "reverse_index", "detailed_index",
+        "id_to_info", "target_to_unique_info", "target_to_conflicting_ids"
+    ]:
+        assert key in data["data"]
 
 @pytest.mark.asyncio
 async def test_export_json_index_only(tmp_path: Path):
@@ -71,8 +73,10 @@ async def test_export_json_index_only(tmp_path: Path):
     
     data = json.loads(json_path.read_text(encoding='utf-8'))
     
-    assert "index" in data
-    assert "reverse_index" not in data
+    # IndexResult 應有的欄位
+    for key in ["base_url", "root", "class_", "teacher"]:
+        assert key in data["data"]
+    assert "reverse_index" not in data["data"]
 
 @pytest.mark.asyncio
 async def test_export_json_reverse_only(tmp_path: Path):
@@ -80,11 +84,13 @@ async def test_export_json_reverse_only(tmp_path: Path):
     index = await Index.fetch()
     json_path = tmp_path / "test_index.json"
     filepath = index.export_json(export_type="reverse_index", filepath=str(json_path))
-    
     data = json.loads(json_path.read_text(encoding='utf-8'))
-    
-    assert "reverse_index" in data
-    assert "index" not in data
+    # ReverseIndexResult 是 dict，key 應該是 target name
+    assert isinstance(data["data"], dict)
+    # 應該有一些 key（target name），且沒有 "index"、"base_url" 等
+    assert len(data["data"]) > 0
+    assert "index" not in data["data"]
+    assert "base_url" not in data["data"]
 
 @pytest.mark.asyncio
 async def test_getitem_success():
@@ -96,8 +102,8 @@ async def test_getitem_success():
     class_ = index.get_all_classes()[0]
     
     # 測試教師和班級的 URL 獲取
-    assert index[teacher].startswith(index.base_url)
-    assert index[class_].startswith(index.base_url)
+    assert index[teacher].url.endswith("html") or index[teacher].url.endswith("HTML")
+    assert index[class_].url.endswith("html") or index[class_].url.endswith("HTML")
 
 @pytest.mark.asyncio
 async def test_getitem_not_found():
