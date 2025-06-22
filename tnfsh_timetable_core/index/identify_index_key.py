@@ -213,7 +213,7 @@ def identify_type(text: str,
         if m:
             a, b, c = m.groups()
             if b != c:
-                raise ValueError(f"❌ C2 格式錯誤：後兩段 `{b}` 與 `{c}` 不一致")
+                logger.warning(f"❌ C2 格式錯誤：後兩段 `{b}` 與 `{c}` 不一致，將以 `{b}` 為目標")
             return IdentificationResult(role="class", match_case="C2", target=c, ID=f"C{a}{b}")
         # T8: 非法 T 組合
         if text.startswith('T'):
