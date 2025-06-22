@@ -2,7 +2,7 @@ from __future__ import annotations
 """台南一中課表系統核心模組"""
 from typing import TYPE_CHECKING, Generator, List, Optional
 if TYPE_CHECKING:
-    from tnfsh_timetable_core.timetable.models import Timetable
+    from tnfsh_timetable_core.timetable.timetable import Timetable
     from tnfsh_timetable_core.index.index import Index
     from tnfsh_timetable_core.scheduling.scheduling import Scheduling
     from tnfsh_timetable_core.timetable_slot_log_dict.timetable_slot_log_dict import TimetableSlotLogDict
