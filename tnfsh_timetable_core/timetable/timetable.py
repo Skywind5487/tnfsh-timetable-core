@@ -7,7 +7,7 @@ from tnfsh_timetable_core.utils.logger import get_logger
 from tnfsh_timetable_core.timetable.models import CourseInfo
 from tnfsh_timetable_core.abc.domain_abc import BaseDomainABC
 if TYPE_CHECKING:
-    from tnfsh_timetable_core.timetable.timetable import TimetableSchema
+    from tnfsh_timetable_core.timetable.models import TimetableSchema
 
 # 設定日誌
 logger = get_logger(logger_level="INFO")
@@ -24,6 +24,8 @@ class Timetable(BaseDomainABC, BaseModel):
     - 目標資訊（班級編號或教師姓名）
     - 原始網頁路徑
     - 課表時間資訊
+    - 午休課程資訊
+    - 快取抓取時間
     """
     # 核心資料
     table: List[List[Optional[CourseInfo]]]  # 5 weekdays x 8 periods
@@ -34,14 +36,21 @@ class Timetable(BaseDomainABC, BaseModel):
             time # 節次結束時間
         ]
     ]  # 節次時間資訊 
-    
+    lunch_break: List[Optional[CourseInfo]] | None = None  # 午休課程資訊 5 weekdays
+    lunch_break_periods: Dict[
+        str,
+        Tuple[time, time]
+    ] | None = None  # 午休時間資訊，格式同 periods
+
     # 識別資訊
-    type: Literal["class", "teacher"]
+    role: Literal["class", "teacher"]
     target: str
     target_url: str
     
     # 更新資訊
     last_update: datetime  # 遠端更新時間
+    cache_fetch_at: datetime | None = None  # 快取抓取時間
+
     def determine_type(cls, target: str) -> Literal["class", "teacher"]:
         """根據目標名稱判斷課表類型
         
@@ -55,9 +64,8 @@ class Timetable(BaseDomainABC, BaseModel):
         """
         return "class" if target.isdigit() else "teacher"
     
-    
     @classmethod
-    def from_schema(cls, schema: TimetableSchema) -> Timetable:
+    def from_schema(cls, schema: "TimetableSchema", cache_fetch_at: datetime | None = None) -> "Timetable":
         # 轉換 periods: Dict[str, Tuple[str, str]] → Dict[str, Tuple[time, time]]
         periods: Dict[str, Tuple[time, time]] = {
             name: (
@@ -66,17 +74,28 @@ class Timetable(BaseDomainABC, BaseModel):
             )
             for name, (start, end) in schema.periods.items()
         }
-
+        # 轉換午休時間
+        lunch_break_periods = None
+        if schema.lunch_break_periods:
+            lunch_break_periods = {
+                name: (
+                    time.fromisoformat(start),
+                    time.fromisoformat(end)
+                )
+                for name, (start, end) in schema.lunch_break_periods.items()
+            }
         # 轉換 last_update: str → datetime
-        last_update = datetime.strptime(schema.last_update, "%Y/%m/%d %H:%M:%S")
-
+        last_update = schema.last_update_datetime
         return cls(
             table=schema.table,
             periods=periods,
+            lunch_break=getattr(schema, "lunch_break", None),
+            lunch_break_periods=lunch_break_periods,
             type=schema.type,
             target=schema.target,
             target_url=schema.target_url,
             last_update=last_update,
+            cache_fetch_at=cache_fetch_at
         )
     
     @classmethod
@@ -98,4 +117,4 @@ class Timetable(BaseDomainABC, BaseModel):
         cache = TimeTableCache()
         instance = await cache.fetch(target, refresh=refresh)
         return cls.from_schema(instance.data)
-    
+
