@@ -42,7 +42,9 @@ class TimetableCrawler(BaseCrawlerABC):
     # 預設別名列表，作為類別屬性
     DEFAULT_ALIASES: List[Set[str]] = [{"朱蒙", "吳銘"}]
     
-    def __init__(self, aliases: Optional[List[Set[str]]] = None):
+    def __init__(self, 
+                 aliases: Optional[List[Set[str]]] = None
+    ):
         """
         初始化課表爬蟲
 
@@ -67,7 +69,8 @@ class TimetableCrawler(BaseCrawlerABC):
         times = [re.sub(re_pattern, re_sub, t.replace(" ", "")) for t in time_text.split("｜")]
         if len(times) == 2:
             return (lesson_name, (times[0], times[1]))
-        return None    
+        return None 
+    
     @staticmethod
     def _parse_cell(class_td: BeautifulSoup) -> Optional[CourseInfo]:
         """分析課程td元素為 CourseInfo 格式"""
@@ -341,5 +344,12 @@ class TimetableCrawler(BaseCrawlerABC):
         return result
 
 if __name__ == "__main__":
-    # For test cases, see: tests/test_timetable/test_crawler.py
-    pass
+    import asyncio
+    async def main():
+        crawler = TimetableCrawler()
+        target = "陳暐捷"  # 替換為實際的班級或教師名稱
+        timetable = await crawler.fetch(target, refresh=True)
+        with open(f"{target}_timetable.json", "w", encoding="utf-8") as f:
+            f.write(timetable.model_dump_json(indent=4))
+
+    asyncio.run(main())

@@ -48,7 +48,7 @@ from pydantic import BaseModel
 from tnfsh_timetable_core import TNFSHTimetableCore
 
 core = TNFSHTimetableCore()
-logger = core.get_logger(logger_level="DEBUG")
+logger = core.get_logger(logger_level="INFO")
 
 # 🔍 識別結果的結構：教師或班級，其類型、代號與對應目標（如姓名或班級號）
 class IdentificationResult(BaseModel):
