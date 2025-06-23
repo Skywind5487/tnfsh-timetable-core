@@ -1,0 +1,196 @@
+{
+    "target": "陳暐捷",
+    "category": "數學科",
+    "target_url": "TC32.html",
+    "role": "teacher",
+    "id": "TC32",
+    "last_update": "2025-02-03T18:59:34",
+    "cache_fetch_at": "2025-06-23T15:38:40.220846",
+    "table": [
+        [
+            null,
+            {
+                "subject": "數學A",
+                "counterpart": [
+                    {
+                        "participant": "206",
+                        "url": "C101206.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "數學A",
+                "counterpart": [
+                    {
+                        "participant": "205",
+                        "url": "C101205.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "＊特殊需求課程-學習策略(數學)",
+                "counterpart": null
+            }
+        ],
+        [
+            null,
+            null,
+            null,
+            {
+                "subject": "數學A",
+                "counterpart": [
+                    {
+                        "participant": "205",
+                        "url": "C101205.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            {
+                "subject": "＊特殊需求課程-學習策略(數學)",
+                "counterpart": null
+            }
+        ],
+        [
+            null,
+            null,
+            null,
+            {
+                "subject": "數學A",
+                "counterpart": [
+                    {
+                        "participant": "206",
+                        "url": "C101206.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            {
+                "subject": "＊特殊需求課程-學習策略(數學)",
+                "counterpart": null
+            }
+        ],
+        [
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "subject": "數學A",
+                "counterpart": [
+                    {
+                        "participant": "206",
+                        "url": "C101206.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "數學A",
+                "counterpart": [
+                    {
+                        "participant": "205",
+                        "url": "C101205.HTML"
+                    }
+                ]
+            },
+            {
+                "subject": "＊特殊需求課程-學習策略(數學)",
+                "counterpart": null
+            }
+        ],
+        [
+            {
+                "subject": "數學A",
+                "counterpart": [
+                    {
+                        "participant": "206",
+                        "url": "C101206.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null,
+            {
+                "subject": "數學A",
+                "counterpart": [
+                    {
+                        "participant": "205",
+                        "url": "C101205.HTML"
+                    }
+                ]
+            },
+            null,
+            null,
+            null
+        ]
+    ],
+    "periods": {
+        "第一節": [
+            "08:00:00",
+            "08:50:00"
+        ],
+        "第二節": [
+            "09:00:00",
+            "09:50:00"
+        ],
+        "第三節": [
+            "10:10:00",
+            "11:00:00"
+        ],
+        "第四節": [
+            "11:10:00",
+            "12:00:00"
+        ],
+        "第五節": [
+            "13:10:00",
+            "14:00:00"
+        ],
+        "第六節": [
+            "14:10:00",
+            "15:00:00"
+        ],
+        "第七節": [
+            "15:10:00",
+            "16:00:00"
+        ],
+        "第八節": [
+            "16:10:00",
+            "17:00:00"
+        ]
+    },
+    "lunch_break": [
+        {
+            "subject": "＊特殊需求課程-學習策略(數學)",
+            "counterpart": null
+        },
+        {
+            "subject": "＊特殊需求課程-學習策略(數學)",
+            "counterpart": null
+        },
+        {
+            "subject": "＊特殊需求課程-學習策略(數學)",
+            "counterpart": null
+        },
+        {
+            "subject": "＊特殊需求課程-學習策略(數學)",
+            "counterpart": null
+        },
+        null
+    ],
+    "lunch_break_periods": {
+        "午休": [
+            "12:10:00",
+            "13:00:00"
+        ]
+    }
+}
