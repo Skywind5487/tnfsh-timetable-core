@@ -34,18 +34,26 @@ class TimetableSchema(BaseModel):
     - 5x8 的課程矩陣（週一到週五，每天8節）
     - 節次時間對照表
     - 課表基本資訊（類型、目標、更新時間等）
+    - 午休課程資訊（如有）
     """
     # 核心資料
     table: List[List[Optional[CourseInfo]]]  # 5 weekdays x 8 periods
     periods: Dict[str, TimeInfo]  # 課表時間資訊 {第一節: ("08:00", "09:30"), ...}
+    lunch_break: List[Optional[CourseInfo]] | None = None  # 午休課程資訊 5 weekdays
+    lunch_break_periods: Dict[str, TimeInfo] | None = None  # 午休時間資訊 {午休: ("12:10", "13:00")}
 
     # 識別資訊
-    type: Literal["class", "teacher"]
+    role: Literal["class", "teacher"]
     target: str
     target_url: str
     
     # 更新資訊
     last_update: str  # 遠端更新時間
+
+    @property
+    def last_update_datetime(self) -> datetime:
+        """將 last_update 字符串轉換為 datetime 對象"""
+        return datetime.strptime(self.last_update, "%Y/%m/%d %H:%M:%S")
 
 class CacheMetadata(BaseModel):
     """快取的元數據，記錄資料的生命週期資訊"""
