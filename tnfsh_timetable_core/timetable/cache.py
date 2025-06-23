@@ -1,5 +1,5 @@
 import re
-from typing import Dict, Optional
+from typing import Dict, Optional, List, Set
 from datetime import datetime
 import logging
 import asyncio
@@ -21,6 +21,7 @@ from tnfsh_timetable_core.timetable.models import (
     CachedTimeTable, 
     TimetableSchema
 )
+from tnfsh_timetable_core.index.index import Index
 from tnfsh_timetable_core.timetable.crawler import TimetableCrawler, FetchError
 from tnfsh_timetable_core.utils.logger import get_logger
 from pydantic import BaseModel
@@ -39,7 +40,9 @@ class TimeTableCache(BaseCacheABC):
         self, 
         crawler: Optional[TimetableCrawler] = None,
         cache_dir: Optional[str] = None,
-        file_path_template: str = "prebuilt_{target}.json"
+        file_path_template: str = "prebuilt_{target}.json",
+        index: Optional[Index] = None,
+        aliases: Optional[List[Set[str]]] = None
     ):
         """初始化快取系統
         
@@ -48,7 +51,11 @@ class TimeTableCache(BaseCacheABC):
             cache_dir: 快取目錄路徑，如果未提供則使用預設路徑
             file_path_template: 快取檔案名稱模板，可用 {target} 做替換
         """
-        self._crawler = crawler or TimetableCrawler()
+        self._index = index or Index()
+        self._crawler = crawler or TimetableCrawler(
+            index=self._index,
+            aliases=aliases,
+        )
         self._cache_dir = Path(cache_dir) if cache_dir else Path(__file__).resolve().parent / "cache"
         self._file_path_template = file_path_template
         self._cache_dir.mkdir(exist_ok=True)
@@ -177,8 +184,19 @@ class TimeTableCache(BaseCacheABC):
         Returns:
             CachedTimeTable: 完整的課表資料
         """
-        result = await super().fetch(target=target, refresh=refresh, **kwargs)
-        return result
+        if not refresh:
+            mem = await self.fetch_from_memory(target)
+            if mem:
+                return mem
+        if not refresh:
+            file = await self.fetch_from_file(target)
+            if file:
+                await self.save_to_memory(file, target)
+                return file
+        net = await self.fetch_from_source(target)
+        await self.save_to_file(net, target)
+        await self.save_to_memory(net, target)
+        return net
 
 @retry(
     stop=stop_after_attempt(2),  # 整體最多重試 2 次
@@ -202,6 +220,7 @@ async def preload_all(only_missing: bool = True, max_concurrent: int = 5, delay:
         core = TNFSHTimetableCore()
         index = await core.fetch_index(refresh=True)
         
+        
         if not index.reverse_index:
             error_msg = "❌ 無法獲取課表索引"
             logger.error(error_msg)
@@ -210,7 +229,7 @@ async def preload_all(only_missing: bool = True, max_concurrent: int = 5, delay:
         targets = index.get_all_targets()
         logger.info(f"🔄 開始預載入所有課表，共 {len(targets)} 項，延遲：{delay} 秒，併發上限：{max_concurrent}")
 
-        cache = TimeTableCache()
+        cache = TimeTableCache(index=index)
         semaphore = asyncio.Semaphore(max_concurrent)
 
         async def process(target: str):
