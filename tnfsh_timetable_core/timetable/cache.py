@@ -261,4 +261,4 @@ async def preload_all(only_missing: bool = True, max_concurrent: int = 5, delay:
 
 if __name__ == "__main__":
     import asyncio
-    asyncio.run(preload_all(only_missing=False, max_concurrent=5, delay=0.0))
+    asyncio.run(preload_all(only_missing=False, max_concurrent=10, delay=0.0))
