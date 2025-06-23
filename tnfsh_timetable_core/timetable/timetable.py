@@ -97,17 +97,17 @@ class Timetable(BaseDomainABC, BaseModel):
         # 轉換 last_update: str → datetime
         last_update = schema.last_update_datetime
         return cls(
+            target=schema.target,
+            category=schema.category,
+            target_url=schema.target_url,
+            role=schema.role,
+            id=schema.id,
+            last_update=last_update,
+            cache_fetch_at=cache_fetch_at,
             table=schema.table,
             periods=periods, # datetime.time 格式
             lunch_break=schema.lunch_break,
             lunch_break_periods=lunch_break_periods, # datetime.time 格式
-            role=schema.role,
-            target=schema.target,
-            category=schema.category,
-            target_url=schema.target_url,
-            id=schema.id,
-            last_update=last_update,
-            cache_fetch_at=cache_fetch_at
         )
     
     @classmethod
@@ -131,12 +131,35 @@ class Timetable(BaseDomainABC, BaseModel):
         return cls.from_schema(instance.data, cache_fetch_at=instance.metadata.cache_fetch_at)
 
 
+    def export_calendar(
+        self, 
+        type: Literal["csv", "ics"], 
+        filepath: Optional[str] = None,
+        has_a_href: bool = True,
+        location: Optional[str] = None,
+    ) -> str:
+        """
+        將課表資料匯出為指定格式的檔案（僅作為接口，實作委派給外部函式）
+        returns:
+            str: 實際儲存的檔案路徑
+        """
+        from tnfsh_timetable_core.timetable.export_calendar import export_calendar
+        return export_calendar(
+            self, 
+            type=type, 
+            filepath=filepath, 
+            has_a_href=has_a_href,
+            location=location,
+        )
+
 if __name__ == "__main__":
     # 測試用例
     import asyncio
     async def main():
         target = "陳暐捷"
-        timetable = await Timetable.fetch(target)
-        with open(f"{target}_timetable.json", "w", encoding="utf-8") as f:
-            f.write(timetable.model_dump_json(indent=4))
+        timetable = await Timetable.fetch(target, refresh=True)
+        timetable.export_calendar(
+            type="csv",
+            filepath=f"{target}_timetable.csv"
+        )
     asyncio.run(main())
