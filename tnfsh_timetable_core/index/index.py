@@ -227,40 +227,84 @@ class Index(BaseDomainABC):
 
 
     def get_all_categories(self) -> List[str]:
-        """獲取所有教師的分類科目列表"""
-        if self.index is None:
-            raise RuntimeError("尚未載入Index資料")
-        return list(self.index.teacher.data.keys())
+        """
+        獲取所有教師的分類科目列表（新版，來源：detailed_index）
+        """
+        if self.detailed_index is None:
+            raise RuntimeError("尚未載入詳細索引資料")
+        return list(self.detailed_index.teacher.data.keys())
     
     def get_all_grades(self) -> List[str]:
-        """獲取年級列表"""
-        if self.index is None:
-            raise RuntimeError("尚未載入Index資料")
-        return list(self.index.class_.data.keys())
+        """
+        獲取所有年級分類列表（新版，來源：detailed_index）
+        """
+        if self.detailed_index is None:
+            raise RuntimeError("尚未載入詳細索引資料")
+        return list(self.detailed_index.class_.data.keys())
 
     def get_all_teachers(self) -> List[str]:
-        """獲取所有教師的名稱列表"""
-        if self.index is None:
-            raise RuntimeError("尚未載入Index資料")
+        """
+        獲取所有教師名稱列表（允許重複，來源：detailed_index）
+        """
+        if self.detailed_index is None:
+            raise RuntimeError("尚未載入詳細索引資料")
         result = []
-        for category_name, teachers in self.index.teacher.data.items():
-            result.extend(teachers.keys())
+        for category_teachers in self.detailed_index.teacher.data.values():
+            for info in category_teachers.values():
+                result.append(info.target)
         return result
     
-    def get_all_classes(self) -> List[str]:
-        """獲取所有班級的代碼列表"""
-        if self.index is None:
-            raise RuntimeError("尚未載入Index資料")
+    def get_all_teacher_ids(self) -> List[str]:
+        """
+        獲取所有教師 ID 列表（唯一，來源：detailed_index）
+        """
+        if self.detailed_index is None:
+            raise RuntimeError("尚未載入詳細索引資料")
         result = []
-        for category_name, classes in self.index.class_.data.items():
-            result.extend(classes.keys())
+        for category_teachers in self.detailed_index.teacher.data.values():
+            for info in category_teachers.values():
+                result.append(info.id)
+        return result
+
+    def get_all_classes(self) -> List[str]:
+        """
+        獲取所有班級名稱列表（允許重複，來源：detailed_index）
+        """
+        if self.detailed_index is None:
+            raise RuntimeError("尚未載入詳細索引資料")
+        result = []
+        for category_classes in self.detailed_index.class_.data.values():
+            for info in category_classes.values():
+                result.append(info.target)
+        return result
+
+    def get_all_class_ids(self) -> List[str]:
+        """
+        獲取所有班級 ID 列表（唯一，來源：detailed_index）
+        """
+        if self.detailed_index is None:
+            raise RuntimeError("尚未載入詳細索引資料")
+        result = []
+        for category_classes in self.detailed_index.class_.data.values():
+            for info in category_classes.values():
+                result.append(info.id)
         return result
 
     def get_all_targets(self) -> List[str]:
-        """獲取所有教師和班級的名稱列表"""
-        if self.reverse_index is None:
-            raise RuntimeError("尚未載入Index資料")
-        return list(self.reverse_index.keys())
+        """
+        獲取所有教師和班級名稱列表（允許重複，來源：detailed_index）
+        """
+        if self.detailed_index is None:
+            raise RuntimeError("尚未載入詳細索引資料")
+        return self.get_all_teachers() + self.get_all_classes()
+
+    def get_all_ids(self) -> List[str]:
+        """
+        獲取所有教師和班級 ID 列表（唯一，來源：detailed_index）
+        """
+        if self.detailed_index is None:
+            raise RuntimeError("尚未載入詳細索引資料")
+        return self.get_all_teacher_ids() + self.get_all_class_ids()
     
 
 if __name__ == "__main__":
