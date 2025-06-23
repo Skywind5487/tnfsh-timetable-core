@@ -1,6 +1,6 @@
 from __future__ import annotations
 from typing import List, Optional, Dict, Tuple, Literal
-from datetime import datetime
+from datetime import date, time, datetime
 from pydantic import BaseModel, Field
 
 # 基礎型別定義
@@ -72,5 +72,17 @@ class CachedTimeTable(BaseModel):
     """
     metadata: CacheMetadata
     data: TimetableSchema
+
+class TimetableSlot(BaseModel):
+    """
+    單一課表時段的最小資訊（僅供匯出/下游使用）
+    - weekday: 週幾（0=週一, 4=週五）
+    - course: 課程資訊（CourseInfo）
+    - start_datetime, end_datetime: 此時段完整 datetime
+    """
+    weekday: int
+    course: CourseInfo
+    start_datetime: datetime
+    end_datetime: datetime
 
 
