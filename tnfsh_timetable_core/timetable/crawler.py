@@ -26,7 +26,7 @@ from tnfsh_timetable_core.index.models import ReverseIndexResult, TargetInfo
 
 
 # 設定日誌
-logger = get_logger(logger_level="DEBUG")
+logger = get_logger(logger_level="INFO")
 
 from tnfsh_timetable_core.timetable.models import (
     TimetableSchema,
@@ -134,7 +134,7 @@ class TimetableCrawler(BaseCrawlerABC):
         return None
     
     def _resolve_target(self, target: str, index: Index) -> Optional[TargetInfo]:
-        """根據目標名稱解析別名"""
+        """根據目標名稱解析並返回 TargetInfo 或 URL"""
         result = index[target]
 
         if result:
@@ -158,29 +158,22 @@ class TimetableCrawler(BaseCrawlerABC):
                     logger.debug(f"找不到 {alias} 對應的TimeTable網址")
         return None
 
-    async def _get_url(self, target: str, refresh: bool = False) -> str:
-        """獲取目標的完整 URL"""
-        if not refresh and target in self._url_cache:
-            return self._url_cache[target]
+    async def _resolve_target_info(self, target: str, refresh: bool = False) -> tuple[TargetInfo, str]:
+        """
+        解析目標名稱並取得 TargetInfo 與完整 URL
+        """
         from tnfsh_timetable_core import TNFSHTimetableCore
         core = TNFSHTimetableCore()
         index = await core.fetch_index(refresh=refresh)
-        if index.reverse_index is None:
-            logger.error("❌ 無法獲取Index資料")
-            raise FetchError("無法獲取Index資料")
-
-        logger.debug(f"🔍 解析目標：{target}")
         real_target = self._resolve_target(target, index)
         if real_target is None:
             logger.error(f"❌ 找不到 {target} 的Timetable網址")
             raise FetchError(f"找不到 {target} 的Timetable網址")
-
         relative_url = real_target.url
-
         url = index.base_url + relative_url
-        self._url_cache[target] = url
+        self._url_cache[target] = url  # 僅快取 url
         logger.debug(f"🌐 準備請求網址：{url}")
-        return url
+        return real_target, url
 
     @retry(
         retry=retry_if_exception_type((
@@ -193,23 +186,12 @@ class TimetableCrawler(BaseCrawlerABC):
         before_sleep=before_sleep_log(logger, logging.WARNING),
         retry_error_cls=FetchError
     )
-    async def fetch_raw(self, target: str, refresh: bool = False, *args, **kwargs) -> BeautifulSoup:
+    async def fetch_raw(self, target: str, refresh: bool = False, *args, **kwargs) -> tuple[BeautifulSoup, TargetInfo, str]:
         """
-        抓取原始課表 HTML
-
-        Args:
-            target (str): 目標名稱（班級或教師）
-            refresh (bool, optional): 是否強制更新索引快取. 預設為 False
-
-        Returns:
-            BeautifulSoup: 解析後的 HTML 内容
-
-        Raises:
-            FetchError: 當發生網路請求錯誤時拋出
+        抓取原始課表 HTML，並回傳 TargetInfo 與 url
         """
-        url = await self._get_url(target, refresh=refresh)
+        target_info, url = await self._resolve_target_info(target, refresh=refresh)
         headers = self.get_headers()
-
         try:
             async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=10)) as session:
                 logger.debug(f"📡 發送請求：{target}")
@@ -218,36 +200,32 @@ class TimetableCrawler(BaseCrawlerABC):
                     content = await response.read()
                     logger.debug(f"📥 收到回應：{target}")
                     soup = BeautifulSoup(content, 'html.parser')
-                    return soup
-
+                    return soup, target_info, url
         except client_exceptions.ClientResponseError as e:
             error_msg = f"HTTP 狀態碼錯誤 {e.status}: {e.message}"
             logger.error(f"❌ {error_msg}")
             raise FetchError(error_msg)
-
         except client_exceptions.ClientError as e:
             error_msg = f"網路請求錯誤：{str(e)}"
             logger.warning(f"⚠️ {error_msg}")
             raise  # 讓 tenacity 處理重試
-
         except (client_exceptions.ServerTimeoutError, asyncio.TimeoutError) as e:
             error_msg = "請求超時"
             logger.warning(f"⚠️ {error_msg}")
             raise  # 讓 tenacity 處理重試
-
         except Exception as e:
             error_msg = f"未預期的錯誤：{str(e)}"
             logger.error(f"❌ {error_msg}")
             raise FetchError(error_msg)
 
-    def parse(self, soup: BeautifulSoup, target: str, target_url: str, *args, **kwargs) -> TimetableSchema:
+    def parse(self, soup: BeautifulSoup, target_info: TargetInfo, target_url: str, *args, **kwargs) -> TimetableSchema:
         """
         解析 BeautifulSoup 物件為結構化資料，支援午休課程分離。
 
         Args:
             soup (BeautifulSoup): HTML 解析樹
-            target: 目標名稱（班級或教師）
-            target_url: 目標的課表連結
+            target_info (TargetInfo): 目標資訊（含 id, role, category）
+            target_url (str): 目標的課表連結
 
         Returns:
             TimetableSchema: 解析後的結構化資料
@@ -255,13 +233,12 @@ class TimetableCrawler(BaseCrawlerABC):
         Raises:
             FetchError: 當解析失敗時拋出
         """
-        
         try:
             # 擷取更新日期
             update_element = soup.find('p', class_='MsoNormal', align='center')
             if update_element:
-                spans = update_element.find_all('span')
-                last_update = spans[1].text if len(spans) > 1 else "No update date found."
+                span = update_element.find('span').find('span')
+                last_update = span.text if span else "No update date found."
                 logger.debug(f"📅 更新日期：{last_update}")
             else:
                 last_update = "No update date found."
@@ -277,7 +254,6 @@ class TimetableCrawler(BaseCrawlerABC):
                             td.decompose()
                     if len(row.find_all('td')) == 7:
                         new_table.append(row)
-                        
                 if len(new_table.find_all('tr')) > 0:
                     main_table = new_table
                     break
@@ -289,9 +265,8 @@ class TimetableCrawler(BaseCrawlerABC):
             # 擷取 periods，並偵測午休
             periods: Dict[str, Tuple[str, str]] = {}
             lunch_break_periods: Dict[str, Tuple[str, str]] = {}
-            lunch_break_key = None
-            current_lesson_count:int = 0
             lunch_break_col = None
+            current_lesson_count:int = 0
             for row in main_table.find_all("tr"):
                 result = self._parse_periods(row)
                 if result:
@@ -301,7 +276,6 @@ class TimetableCrawler(BaseCrawlerABC):
                     if "午休" in lesson_name:
                         lunch_break_col = current_lesson_count - 1  # 午休課程所在的列
                         lunch_break_periods[lesson_name] = times
-                        logger.debug(f"🔍 偵測到午休課程：{lesson_name} 時間：{times}, col:{lunch_break_col}")
                     else:
                         periods[lesson_name] = times
 
@@ -327,43 +301,38 @@ class TimetableCrawler(BaseCrawlerABC):
                 if row_data:
                     table.append(row_data)
             # 行列互換
-            table = list(map(list, zip(*table)))  # 轉置表格
+            table = list(map(list, zip(*table)))
 
-            simple_target_url = str(target_url.split("/")[-1])
+            
+            if len(lunch_break) == 0:
+                lunch_break = None
         except Exception as e:
             error_msg = f"解析錯誤：{str(e)}"
             logger.error(f"❌ {error_msg}")
             raise FetchError(error_msg)
         # return 拿到 try 區塊外，避免 except 攔截 model 驗證錯誤
         return TimetableSchema(
-            table=table, 
+            # 課表核心資料
+            table=table,
             periods=periods,
-            type="class" if target.isdigit() else "teacher",
-            target=target,
-            target_url=simple_target_url,
-            last_update=last_update,
             lunch_break=lunch_break,
-            lunch_break_periods=lunch_break_periods
+            lunch_break_periods=lunch_break_periods,
+            # TargetInfo 相關資訊
+            target=target_info.target,
+            category=target_info.category,
+            target_url=target_info.url,
+            role=target_info.role,
+            id=target_info.id,
+            # 其他資訊
+            last_update=last_update,
         )
 
     async def fetch(self, target: str, refresh: bool = False, *args, **kwargs) -> TimetableSchema:
         """
-        完整的課表抓取流程
-
-        Args:
-            target (str): 目標名稱（班級或教師）
-            refresh (bool, optional): 是否強制更新索引快取. 預設為 False
-
-        Returns:
-            TimetableSchema: 解析後的課表資料
-
-        Raises:
-            FetchError: 當抓取或解析失敗時拋出
+        完整的課表抓取流程，TargetInfo 全程貫穿
         """
-        raw_html = await self.fetch_raw(target, refresh=refresh)
-        target_url = await self._get_url(target, refresh=refresh)
-        result = self.parse(raw_html, target=target, target_url=target_url)
-        
+        soup, target_info, url = await self.fetch_raw(target, refresh=refresh)
+        result = self.parse(soup, target_info=target_info, target_url=url)
         logger.info(f"✅ {target}[抓取]完成")
         return result
 
@@ -376,6 +345,8 @@ if __name__ == "__main__":
         with open(f"{target}_timetable.json", "w", encoding="utf-8") as f:
             f.write(timetable.model_dump_json(indent=4))
 
-
+        from tnfsh_timetable_core.index.index import Index
+        index = await Index.fetch(refresh=False)
+        index["C101205.HTML"]
 
     asyncio.run(main())
