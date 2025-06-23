@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:14.567554"
+        "cache_fetch_at": "2025-06-23T14:28:44.523235"
     },
     "data": {
+        "target": "陳盈言",
+        "category": "數學科",
+        "target_url": "TC19.html",
+        "role": "teacher",
+        "id": "TC19",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -119,7 +125,7 @@
                 null,
                 null,
                 {
-                    "subject": "高層思考(2)：, 線性代數",
+                    "subject": "高層思考(2)：線性代數",
                     "counterpart": [
                         {
                             "participant": "218",
@@ -193,9 +199,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "陳盈言",
-        "target_url": "TC19.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

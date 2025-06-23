@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:17.015223"
+        "cache_fetch_at": "2025-06-23T14:28:51.473733"
     },
     "data": {
+        "target": "蔡和蓁",
+        "category": "自然科",
+        "target_url": "TI27.HTML",
+        "role": "teacher",
+        "id": "TI27",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
@@ -273,9 +279,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "蔡和蓁",
-        "target_url": "TI27.HTML",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

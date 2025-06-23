@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:29:55.055755"
+        "cache_fetch_at": "2025-06-23T14:28:26.002701"
     },
     "data": {
+        "target": "華泓嘉",
+        "category": "國文科",
+        "target_url": "TA34.html",
+        "role": "teacher",
+        "id": "TA34",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -121,9 +127,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "華泓嘉",
-        "target_url": "TA34.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

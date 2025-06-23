@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:29.385881"
+        "cache_fetch_at": "2025-06-23T14:29:03.243790"
     },
     "data": {
+        "target": "115",
+        "category": "高一",
+        "target_url": "C101115.html",
+        "role": "class",
+        "id": "C101115",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
@@ -357,9 +363,7 @@
                 "17:00"
             ]
         },
-        "type": "class",
-        "target": "115",
-        "target_url": "C101115.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

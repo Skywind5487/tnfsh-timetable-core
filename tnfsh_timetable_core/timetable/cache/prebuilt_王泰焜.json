@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:23.898349"
+        "cache_fetch_at": "2025-06-23T14:28:55.968822"
     },
     "data": {
+        "target": "王泰焜",
+        "category": "藝能科",
+        "target_url": "TK01.html",
+        "role": "teacher",
+        "id": "TK01",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
@@ -117,9 +123,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "王泰焜",
-        "target_url": "TK01.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:15.274858"
+        "cache_fetch_at": "2025-06-23T14:28:48.890413"
     },
     "data": {
+        "target": "阮雋絜",
+        "category": "社會科",
+        "target_url": "TF05.html",
+        "role": "teacher",
+        "id": "TF05",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -201,9 +207,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "阮雋絜",
-        "target_url": "TF05.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

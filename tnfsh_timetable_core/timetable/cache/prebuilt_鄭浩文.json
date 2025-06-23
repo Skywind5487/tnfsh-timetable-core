@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:29:59.039981"
+        "cache_fetch_at": "2025-06-23T14:28:29.856888"
     },
     "data": {
+        "target": "鄭浩文",
+        "category": "國文科",
+        "target_url": "TA42.html",
+        "role": "teacher",
+        "id": "TA42",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -121,9 +127,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "鄭浩文",
-        "target_url": "TA42.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

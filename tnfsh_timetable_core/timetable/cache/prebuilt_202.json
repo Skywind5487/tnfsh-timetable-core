@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:29.761661"
+        "cache_fetch_at": "2025-06-23T14:29:03.549570"
     },
     "data": {
+        "target": "202",
+        "category": "高二",
+        "target_url": "C101202.html",
+        "role": "class",
+        "id": "C101202",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
@@ -42,7 +48,7 @@
                     ]
                 },
                 {
-                    "subject": "數學A, 數學B",
+                    "subject": "數學A數學B",
                     "counterpart": [
                         {
                             "participant": "施明吉",
@@ -143,7 +149,7 @@
                     ]
                 },
                 {
-                    "subject": "數學A, 數學B",
+                    "subject": "數學A數學B",
                     "counterpart": [
                         {
                             "participant": "施明吉",
@@ -269,7 +275,7 @@
                     ]
                 },
                 {
-                    "subject": "數學A, 數學B",
+                    "subject": "數學A數學B",
                     "counterpart": [
                         {
                             "participant": "施明吉",
@@ -347,7 +353,7 @@
                     ]
                 },
                 {
-                    "subject": "數學A, 數學B",
+                    "subject": "數學A數學B",
                     "counterpart": [
                         {
                             "participant": "施明吉",
@@ -405,9 +411,7 @@
                 "17:00"
             ]
         },
-        "type": "class",
-        "target": "202",
-        "target_url": "C101202.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

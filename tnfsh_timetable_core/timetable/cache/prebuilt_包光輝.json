@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:28.573716"
+        "cache_fetch_at": "2025-06-23T14:29:04.761636"
     },
     "data": {
+        "target": "包光輝",
+        "category": "外聘教師",
+        "target_url": "TZ28.html",
+        "role": "teacher",
+        "id": "TZ28",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -97,9 +103,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "包光輝",
-        "target_url": "TZ28.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

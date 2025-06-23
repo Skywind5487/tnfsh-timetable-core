@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:29:59.305868"
+        "cache_fetch_at": "2025-06-23T14:28:29.985602"
     },
     "data": {
+        "target": "梁力仁",
+        "category": "英文科",
+        "target_url": "TB14.html",
+        "role": "teacher",
+        "id": "TB14",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -217,9 +223,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "梁力仁",
-        "target_url": "TB14.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

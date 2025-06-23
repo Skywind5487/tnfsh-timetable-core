@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:05.336914"
+        "cache_fetch_at": "2025-06-23T14:28:37.010907"
     },
     "data": {
+        "target": "黃雅微",
+        "category": "英文科",
+        "target_url": "TB18.html",
+        "role": "teacher",
+        "id": "TB18",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -201,9 +207,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "黃雅微",
-        "target_url": "TB18.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

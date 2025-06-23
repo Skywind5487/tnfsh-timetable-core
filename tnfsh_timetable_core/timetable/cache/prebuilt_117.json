@@ -1,12 +1,18 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:31.991576"
+        "cache_fetch_at": "2025-06-23T14:29:03.325103"
     },
     "data": {
+        "target": "117",
+        "category": "高一",
+        "target_url": "C101117.html",
+        "role": "class",
+        "id": "C101117",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
-                    "subject": "閩南語文, 臺灣手語",
+                    "subject": "閩南語文臺灣手語",
                     "counterpart": [
                         {
                             "participant": "陳秀枝",
@@ -361,9 +367,7 @@
                 "17:00"
             ]
         },
-        "type": "class",
-        "target": "117",
-        "target_url": "C101117.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

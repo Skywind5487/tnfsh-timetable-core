@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:15.570589"
+        "cache_fetch_at": "2025-06-23T14:28:48.588597"
     },
     "data": {
+        "target": "黃木全",
+        "category": "自然科",
+        "target_url": "TG09.html",
+        "role": "teacher",
+        "id": "TG09",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
@@ -225,9 +231,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "黃木全",
-        "target_url": "TG09.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

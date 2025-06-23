@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:16.051644"
+        "cache_fetch_at": "2025-06-23T14:28:50.003472"
     },
     "data": {
+        "target": "侯俊男",
+        "category": "自然科",
+        "target_url": "TH06.html",
+        "role": "teacher",
+        "id": "TH06",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -217,9 +223,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "侯俊男",
-        "target_url": "TH06.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

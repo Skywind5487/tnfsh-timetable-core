@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:29:54.887077"
+        "cache_fetch_at": "2025-06-23T14:28:25.411500"
     },
     "data": {
+        "target": "林文瑜",
+        "category": "國文科",
+        "target_url": "TA15.html",
+        "role": "teacher",
+        "id": "TA15",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
@@ -177,9 +183,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "林文瑜",
-        "target_url": "TA15.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

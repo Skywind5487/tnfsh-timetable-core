@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:02.572853"
+        "cache_fetch_at": "2025-06-23T14:28:33.518354"
     },
     "data": {
+        "target": "張志成",
+        "category": "英文科",
+        "target_url": "TB25.html",
+        "role": "teacher",
+        "id": "TB25",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
@@ -201,9 +207,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "張志成",
-        "target_url": "TB25.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

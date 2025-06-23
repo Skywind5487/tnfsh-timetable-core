@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:29:59.420034"
+        "cache_fetch_at": "2025-06-23T14:28:32.254582"
     },
     "data": {
+        "target": "張惠智",
+        "category": "英文科",
+        "target_url": "TB16.html",
+        "role": "teacher",
+        "id": "TB16",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -217,9 +223,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "張惠智",
-        "target_url": "TB16.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

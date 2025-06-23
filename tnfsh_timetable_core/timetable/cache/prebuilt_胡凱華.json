@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:14.488976"
+        "cache_fetch_at": "2025-06-23T14:28:46.507368"
     },
     "data": {
+        "target": "胡凱華",
+        "category": "數學科",
+        "target_url": "TC22.html",
+        "role": "teacher",
+        "id": "TC22",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -121,9 +127,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "胡凱華",
-        "target_url": "TC22.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

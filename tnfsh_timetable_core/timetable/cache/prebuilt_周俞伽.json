@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:16.058682"
+        "cache_fetch_at": "2025-06-23T14:28:49.889871"
     },
     "data": {
+        "target": "周俞伽",
+        "category": "自然科",
+        "target_url": "TH03.html",
+        "role": "teacher",
+        "id": "TH03",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -209,9 +215,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "周俞伽",
-        "target_url": "TH03.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:29:54.928727"
+        "cache_fetch_at": "2025-06-23T14:28:28.145688"
     },
     "data": {
+        "target": "陳浥瑗",
+        "category": "國文科",
+        "target_url": "TA28.html",
+        "role": "teacher",
+        "id": "TA28",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -183,9 +189,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "陳浥瑗",
-        "target_url": "TA28.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

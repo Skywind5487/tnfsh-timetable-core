@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:14.736254"
+        "cache_fetch_at": "2025-06-23T14:28:48.120598"
     },
     "data": {
+        "target": "葉俊麟",
+        "category": "數學科",
+        "target_url": "TC34.html",
+        "role": "teacher",
+        "id": "TC34",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
@@ -153,9 +159,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "葉俊麟",
-        "target_url": "TC34.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

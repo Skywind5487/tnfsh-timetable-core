@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:15.424845"
+        "cache_fetch_at": "2025-06-23T14:28:49.202626"
     },
     "data": {
+        "target": "杜思谷",
+        "category": "自然科",
+        "target_url": "TG03.html",
+        "role": "teacher",
+        "id": "TG03",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -167,9 +173,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "杜思谷",
-        "target_url": "TG03.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

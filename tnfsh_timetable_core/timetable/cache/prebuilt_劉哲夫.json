@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:29:59.178648"
+        "cache_fetch_at": "2025-06-23T14:28:29.886506"
     },
     "data": {
+        "target": "劉哲夫",
+        "category": "英文科",
+        "target_url": "TB09.html",
+        "role": "teacher",
+        "id": "TB09",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -121,9 +127,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "劉哲夫",
-        "target_url": "TB09.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

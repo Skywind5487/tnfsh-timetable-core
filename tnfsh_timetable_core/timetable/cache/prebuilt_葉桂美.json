@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:15.255921"
+        "cache_fetch_at": "2025-06-23T14:28:45.121936"
     },
     "data": {
+        "target": "葉桂美",
+        "category": "社會科",
+        "target_url": "TF01.html",
+        "role": "teacher",
+        "id": "TF01",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -137,9 +143,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "葉桂美",
-        "target_url": "TF01.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:29:58.947518"
+        "cache_fetch_at": "2025-06-23T14:28:29.906577"
     },
     "data": {
+        "target": "蔣銘鴻",
+        "category": "英文科",
+        "target_url": "TB06.html",
+        "role": "teacher",
+        "id": "TB06",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
@@ -185,9 +191,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "蔣銘鴻",
-        "target_url": "TB06.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

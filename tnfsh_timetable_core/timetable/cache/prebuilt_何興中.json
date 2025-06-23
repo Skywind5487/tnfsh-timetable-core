@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:15.533752"
+        "cache_fetch_at": "2025-06-23T14:28:48.463184"
     },
     "data": {
+        "target": "何興中",
+        "category": "自然科",
+        "target_url": "TG07.html",
+        "role": "teacher",
+        "id": "TG07",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
@@ -121,9 +127,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "何興中",
-        "target_url": "TG07.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

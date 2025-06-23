@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:15.971913"
+        "cache_fetch_at": "2025-06-23T14:28:51.020707"
     },
     "data": {
+        "target": "林季瑩",
+        "category": "自然科",
+        "target_url": "TH01.html",
+        "role": "teacher",
+        "id": "TH01",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -225,9 +231,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "林季瑩",
-        "target_url": "TH01.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

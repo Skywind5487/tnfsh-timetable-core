@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:28.989726"
+        "cache_fetch_at": "2025-06-23T14:29:01.469946"
     },
     "data": {
+        "target": "103",
+        "category": "高一",
+        "target_url": "C101103.html",
+        "role": "class",
+        "id": "C101103",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
@@ -229,7 +235,7 @@
                     ]
                 },
                 {
-                    "subject": "閩南語文, 排灣族語",
+                    "subject": "閩南語文排灣族語",
                     "counterpart": [
                         {
                             "participant": "林皇德",
@@ -361,9 +367,7 @@
                 "17:00"
             ]
         },
-        "type": "class",
-        "target": "103",
-        "target_url": "C101103.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:14.727871"
+        "cache_fetch_at": "2025-06-23T14:28:44.452724"
     },
     "data": {
+        "target": "陳暐捷",
+        "category": "數學科",
+        "target_url": "TC32.html",
+        "role": "teacher",
+        "id": "TC32",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -17,10 +23,6 @@
                 },
                 null,
                 null,
-                {
-                    "subject": "＊特殊需求課程\r, , , -學習策略(數學)",
-                    "counterpart": null
-                },
                 null,
                 null,
                 {
@@ -33,7 +35,7 @@
                     ]
                 },
                 {
-                    "subject": "＊特殊需求課程\r, , , -學習策略(數學)",
+                    "subject": "＊特殊需求課程-學習策略(數學)",
                     "counterpart": null
                 }
             ],
@@ -50,15 +52,11 @@
                         }
                     ]
                 },
-                {
-                    "subject": "＊特殊需求課程\r, , , -學習策略(數學)",
-                    "counterpart": null
-                },
                 null,
                 null,
                 null,
                 {
-                    "subject": "＊特殊需求課程\r, , , -學習策略(數學)",
+                    "subject": "＊特殊需求課程-學習策略(數學)",
                     "counterpart": null
                 }
             ],
@@ -75,15 +73,11 @@
                         }
                     ]
                 },
-                {
-                    "subject": "＊特殊需求課程\r, , , -學習策略(數學)",
-                    "counterpart": null
-                },
                 null,
                 null,
                 null,
                 {
-                    "subject": "＊特殊需求課程\r, , , -學習策略(數學)",
+                    "subject": "＊特殊需求課程-學習策略(數學)",
                     "counterpart": null
                 }
             ],
@@ -92,10 +86,6 @@
                 null,
                 null,
                 null,
-                {
-                    "subject": "＊特殊需求課程\r, , , -學習策略(數學)",
-                    "counterpart": null
-                },
                 null,
                 {
                     "subject": "數學A",
@@ -116,7 +106,7 @@
                     ]
                 },
                 {
-                    "subject": "＊特殊需求課程\r, , , -學習策略(數學)",
+                    "subject": "＊特殊需求課程-學習策略(數學)",
                     "counterpart": null
                 }
             ],
@@ -130,7 +120,6 @@
                         }
                     ]
                 },
-                null,
                 null,
                 null,
                 null,
@@ -165,10 +154,6 @@
                 "11:10",
                 "12:00"
             ],
-            "午休": [
-                "12:10",
-                "13:00"
-            ],
             "第五節": [
                 "13:10",
                 "14:00"
@@ -186,9 +171,30 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "陳暐捷",
-        "target_url": "TC32.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": [
+            {
+                "subject": "＊特殊需求課程-學習策略(數學)",
+                "counterpart": null
+            },
+            {
+                "subject": "＊特殊需求課程-學習策略(數學)",
+                "counterpart": null
+            },
+            {
+                "subject": "＊特殊需求課程-學習策略(數學)",
+                "counterpart": null
+            },
+            {
+                "subject": "＊特殊需求課程-學習策略(數學)",
+                "counterpart": null
+            },
+            null
+        ],
+        "lunch_break_periods": {
+            "午休": [
+                "12:10",
+                "13:00"
+            ]
+        }
     }
 }

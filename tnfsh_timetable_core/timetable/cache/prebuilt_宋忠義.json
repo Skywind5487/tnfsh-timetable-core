@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:05.069551"
+        "cache_fetch_at": "2025-06-23T14:28:38.941338"
     },
     "data": {
+        "target": "宋忠義",
+        "category": "英文科",
+        "target_url": "TB21.html",
+        "role": "teacher",
+        "id": "TB21",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
@@ -201,9 +207,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "宋忠義",
-        "target_url": "TB21.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

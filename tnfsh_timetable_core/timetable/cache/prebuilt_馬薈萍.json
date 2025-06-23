@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:29:54.762280"
+        "cache_fetch_at": "2025-06-23T14:28:25.853984"
     },
     "data": {
+        "target": "馬薈萍",
+        "category": "國文科",
+        "target_url": "TA09.html",
+        "role": "teacher",
+        "id": "TA09",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -153,9 +159,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "馬薈萍",
-        "target_url": "TA09.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

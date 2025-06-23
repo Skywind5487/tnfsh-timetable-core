@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:29:51.059044"
+        "cache_fetch_at": "2025-06-23T14:28:25.956552"
     },
     "data": {
+        "target": "黃大倬",
+        "category": "國文科",
+        "target_url": "TA01.html",
+        "role": "teacher",
+        "id": "TA01",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
@@ -185,9 +191,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "黃大倬",
-        "target_url": "TA01.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

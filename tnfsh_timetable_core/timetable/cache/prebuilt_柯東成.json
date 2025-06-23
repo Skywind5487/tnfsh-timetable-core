@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:25.143272"
+        "cache_fetch_at": "2025-06-23T14:29:01.333010"
     },
     "data": {
+        "target": "柯東成",
+        "category": "藝能科",
+        "target_url": "TK12.html",
+        "role": "teacher",
+        "id": "TK12",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
@@ -233,9 +239,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "柯東成",
-        "target_url": "TK12.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

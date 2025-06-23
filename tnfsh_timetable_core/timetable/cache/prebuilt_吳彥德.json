@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:28.404519"
+        "cache_fetch_at": "2025-06-23T14:28:59.196225"
     },
     "data": {
+        "target": "吳彥德",
+        "category": "外聘教師",
+        "target_url": "TZ19.html",
+        "role": "teacher",
+        "id": "TZ19",
+        "last_update": "2025/02/03\r\n18:59:34",
         "table": [
             [
                 null,
@@ -101,9 +107,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "吳彥德",
-        "target_url": "TZ19.html",
-        "last_update": "2025/02/03\r\n18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

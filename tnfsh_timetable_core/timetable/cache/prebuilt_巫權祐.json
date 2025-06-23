@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:05.444344"
+        "cache_fetch_at": "2025-06-23T14:28:36.515723"
     },
     "data": {
+        "target": "巫權祐",
+        "category": "數學科",
+        "target_url": "TC06.html",
+        "role": "teacher",
+        "id": "TC06",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
@@ -257,9 +263,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "巫權祐",
-        "target_url": "TC06.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

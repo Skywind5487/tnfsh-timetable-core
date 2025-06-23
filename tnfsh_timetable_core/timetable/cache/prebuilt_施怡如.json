@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:16.590079"
+        "cache_fetch_at": "2025-06-23T14:28:51.337683"
     },
     "data": {
+        "target": "施怡如",
+        "category": "自然科",
+        "target_url": "TI08.html",
+        "role": "teacher",
+        "id": "TI08",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
@@ -116,7 +122,7 @@
                     ]
                 },
                 {
-                    "subject": "獨立研究, 專題研究",
+                    "subject": "獨立研究專題研究",
                     "counterpart": [
                         {
                             "participant": "218",
@@ -129,7 +135,7 @@
                     ]
                 },
                 {
-                    "subject": "獨立研究, 專題研究",
+                    "subject": "獨立研究專題研究",
                     "counterpart": [
                         {
                             "participant": "218",
@@ -249,9 +255,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "施怡如",
-        "target_url": "TI08.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

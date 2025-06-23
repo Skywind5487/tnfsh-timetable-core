@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:28.758825"
+        "cache_fetch_at": "2025-06-23T14:29:00.348478"
     },
     "data": {
+        "target": "方柏舜",
+        "category": "外聘教師",
+        "target_url": "Ty06.html",
+        "role": "teacher",
+        "id": "Ty06",
+        "last_update": "2025/02/03\r\n18:59:34",
         "table": [
             [
                 null,
@@ -95,9 +101,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "方柏舜",
-        "target_url": "Ty06.html",
-        "last_update": "2025/02/03\r\n18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

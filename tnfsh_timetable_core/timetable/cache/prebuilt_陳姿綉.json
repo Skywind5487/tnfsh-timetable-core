@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:29:51.131102"
+        "cache_fetch_at": "2025-06-23T14:28:21.191895"
     },
     "data": {
+        "target": "陳姿綉",
+        "category": "國文科",
+        "target_url": "TA02.html",
+        "role": "teacher",
+        "id": "TA02",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
@@ -175,9 +181,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "陳姿綉",
-        "target_url": "TA02.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

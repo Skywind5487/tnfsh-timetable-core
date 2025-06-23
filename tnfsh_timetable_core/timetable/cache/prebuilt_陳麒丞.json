@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:15.078088"
+        "cache_fetch_at": "2025-06-23T14:28:45.005723"
     },
     "data": {
+        "target": "陳麒丞",
+        "category": "社會科",
+        "target_url": "TE04.html",
+        "role": "teacher",
+        "id": "TE04",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -207,9 +213,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "陳麒丞",
-        "target_url": "TE04.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:16.994022"
+        "cache_fetch_at": "2025-06-23T14:28:51.492025"
     },
     "data": {
+        "target": "張惠國",
+        "category": "藝能科",
+        "target_url": "TJ02.html",
+        "role": "teacher",
+        "id": "TJ02",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
@@ -207,9 +213,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "張惠國",
-        "target_url": "TJ02.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

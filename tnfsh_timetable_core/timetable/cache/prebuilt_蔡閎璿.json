@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:24.013477"
+        "cache_fetch_at": "2025-06-23T14:28:55.992439"
     },
     "data": {
+        "target": "蔡閎璿",
+        "category": "藝能科",
+        "target_url": "TK03.html",
+        "role": "teacher",
+        "id": "TK03",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -239,9 +245,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "蔡閎璿",
-        "target_url": "TK03.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

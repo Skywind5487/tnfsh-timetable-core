@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:03.220070"
+        "cache_fetch_at": "2025-06-23T14:28:40.741761"
     },
     "data": {
+        "target": "林湘昀",
+        "category": "英文科",
+        "target_url": "TB17.html",
+        "role": "teacher",
+        "id": "TB17",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -225,9 +231,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "林湘昀",
-        "target_url": "TB17.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

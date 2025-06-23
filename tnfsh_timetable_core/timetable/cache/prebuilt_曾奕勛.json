@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:15.841684"
+        "cache_fetch_at": "2025-06-23T14:28:50.259437"
     },
     "data": {
+        "target": "曾奕勛",
+        "category": "自然科",
+        "target_url": "TG23.html",
+        "role": "teacher",
+        "id": "TG23",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -249,9 +255,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "曾奕勛",
-        "target_url": "TG23.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

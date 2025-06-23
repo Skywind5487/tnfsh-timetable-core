@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:14.938993"
+        "cache_fetch_at": "2025-06-23T14:28:44.634358"
     },
     "data": {
+        "target": "郭雅馨",
+        "category": "社會科",
+        "target_url": "TD05.html",
+        "role": "teacher",
+        "id": "TD05",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
@@ -225,9 +231,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "郭雅馨",
-        "target_url": "TD05.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

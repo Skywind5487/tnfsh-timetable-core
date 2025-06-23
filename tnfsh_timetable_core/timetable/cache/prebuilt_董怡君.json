@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:18.400334"
+        "cache_fetch_at": "2025-06-23T14:28:52.646866"
     },
     "data": {
+        "target": "董怡君",
+        "category": "藝能科",
+        "target_url": "TJ06.html",
+        "role": "teacher",
+        "id": "TJ06",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
@@ -247,9 +253,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "董怡君",
-        "target_url": "TJ06.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

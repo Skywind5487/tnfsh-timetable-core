@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:01.818194"
+        "cache_fetch_at": "2025-06-23T14:28:35.335427"
     },
     "data": {
+        "target": "李俊文",
+        "category": "英文科",
+        "target_url": "TB03.html",
+        "role": "teacher",
+        "id": "TB03",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
@@ -201,9 +207,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "李俊文",
-        "target_url": "TB03.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

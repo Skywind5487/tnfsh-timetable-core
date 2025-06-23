@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:06.711455"
+        "cache_fetch_at": "2025-06-23T14:28:37.763327"
     },
     "data": {
+        "target": "蔡仲彬",
+        "category": "數學科",
+        "target_url": "TC10.html",
+        "role": "teacher",
+        "id": "TC10",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -207,9 +213,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "蔡仲彬",
-        "target_url": "TC10.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

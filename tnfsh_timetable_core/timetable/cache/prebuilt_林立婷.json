@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:15.618688"
+        "cache_fetch_at": "2025-06-23T14:28:48.729895"
     },
     "data": {
+        "target": "林立婷",
+        "category": "自然科",
+        "target_url": "TG11.html",
+        "role": "teacher",
+        "id": "TG11",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -233,9 +239,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "林立婷",
-        "target_url": "TG11.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

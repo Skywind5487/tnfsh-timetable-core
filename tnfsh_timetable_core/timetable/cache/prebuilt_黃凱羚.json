@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:24.909652"
+        "cache_fetch_at": "2025-06-23T14:28:56.288224"
     },
     "data": {
+        "target": "黃凱羚",
+        "category": "藝能科",
+        "target_url": "TJ21.html",
+        "role": "teacher",
+        "id": "TJ21",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -241,9 +247,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "黃凱羚",
-        "target_url": "TJ21.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

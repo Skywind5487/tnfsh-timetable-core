@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:29:51.576355"
+        "cache_fetch_at": "2025-06-23T14:28:25.875142"
     },
     "data": {
+        "target": "陳禹齊",
+        "category": "國文科",
+        "target_url": "TA26.html",
+        "role": "teacher",
+        "id": "TA26",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
@@ -223,9 +229,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "陳禹齊",
-        "target_url": "TA26.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

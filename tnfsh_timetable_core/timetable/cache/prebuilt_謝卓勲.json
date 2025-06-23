@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:25.252679"
+        "cache_fetch_at": "2025-06-23T14:28:56.499259"
     },
     "data": {
+        "target": "謝卓勲",
+        "category": "藝能科",
+        "target_url": "TL24.html",
+        "role": "teacher",
+        "id": "TL24",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
@@ -233,9 +239,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "謝卓勲",
-        "target_url": "TL24.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

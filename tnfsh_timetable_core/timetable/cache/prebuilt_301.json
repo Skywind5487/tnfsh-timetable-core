@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:35.991442"
+        "cache_fetch_at": "2025-06-23T14:29:07.551170"
     },
     "data": {
+        "target": "301",
+        "category": "高三",
+        "target_url": "C101301.html",
+        "role": "class",
+        "id": "C101301",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
@@ -364,9 +370,7 @@
                 "17:00"
             ]
         },
-        "type": "class",
-        "target": "301",
-        "target_url": "C101301.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

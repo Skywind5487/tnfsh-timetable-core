@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:18.370583"
+        "cache_fetch_at": "2025-06-23T14:28:51.632097"
     },
     "data": {
+        "target": "黃建彰",
+        "category": "自然科",
+        "target_url": "TI25.html",
+        "role": "teacher",
+        "id": "TI25",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -44,7 +50,7 @@
                 null,
                 null,
                 {
-                    "subject": "獨立研究, 專題研究",
+                    "subject": "獨立研究專題研究",
                     "counterpart": [
                         {
                             "participant": "118",
@@ -57,7 +63,7 @@
                     ]
                 },
                 {
-                    "subject": "獨立研究, 專題研究",
+                    "subject": "獨立研究專題研究",
                     "counterpart": [
                         {
                             "participant": "118",
@@ -129,9 +135,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "黃建彰",
-        "target_url": "TI25.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

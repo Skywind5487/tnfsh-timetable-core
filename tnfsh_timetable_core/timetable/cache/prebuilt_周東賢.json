@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:07.098639"
+        "cache_fetch_at": "2025-06-23T14:28:38.523637"
     },
     "data": {
+        "target": "周東賢",
+        "category": "數學科",
+        "target_url": "TC13.html",
+        "role": "teacher",
+        "id": "TC13",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -233,9 +239,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "周東賢",
-        "target_url": "TC13.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

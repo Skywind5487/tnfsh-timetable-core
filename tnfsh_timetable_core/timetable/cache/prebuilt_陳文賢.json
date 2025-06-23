@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:15.406810"
+        "cache_fetch_at": "2025-06-23T14:28:50.401579"
     },
     "data": {
+        "target": "陳文賢",
+        "category": "自然科",
+        "target_url": "TG01.html",
+        "role": "teacher",
+        "id": "TG01",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -105,9 +111,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "陳文賢",
-        "target_url": "TG01.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

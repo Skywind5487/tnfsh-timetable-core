@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:28.186795"
+        "cache_fetch_at": "2025-06-23T14:29:01.845702"
     },
     "data": {
+        "target": "林高義",
+        "category": "藝能科",
+        "target_url": "TK05.html",
+        "role": "teacher",
+        "id": "TK05",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -121,9 +127,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "林高義",
-        "target_url": "TK05.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

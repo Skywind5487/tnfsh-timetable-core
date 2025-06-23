@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:29:58.835408"
+        "cache_fetch_at": "2025-06-23T14:28:29.943066"
     },
     "data": {
+        "target": "姜伯俞",
+        "category": "國文科",
+        "target_url": "TA41.html",
+        "role": "teacher",
+        "id": "TA41",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -185,9 +191,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "姜伯俞",
-        "target_url": "TA41.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

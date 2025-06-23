@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:20.597175"
+        "cache_fetch_at": "2025-06-23T14:28:51.597841"
     },
     "data": {
+        "target": "王理俐",
+        "category": "藝能科",
+        "target_url": "TJ05.html",
+        "role": "teacher",
+        "id": "TJ05",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -273,9 +279,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "王理俐",
-        "target_url": "TJ05.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

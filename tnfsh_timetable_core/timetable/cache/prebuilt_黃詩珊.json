@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:15.226711"
+        "cache_fetch_at": "2025-06-23T14:28:45.138266"
     },
     "data": {
+        "target": "黃詩珊",
+        "category": "社會科",
+        "target_url": "TE12.html",
+        "role": "teacher",
+        "id": "TE12",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
@@ -271,9 +277,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "黃詩珊",
-        "target_url": "TE12.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

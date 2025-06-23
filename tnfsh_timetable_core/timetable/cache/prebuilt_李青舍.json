@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:14.682127"
+        "cache_fetch_at": "2025-06-23T14:28:44.406930"
     },
     "data": {
+        "target": "李青舍",
+        "category": "數學科",
+        "target_url": "TC31.html",
+        "role": "teacher",
+        "id": "TC31",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -121,9 +127,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "李青舍",
-        "target_url": "TC31.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

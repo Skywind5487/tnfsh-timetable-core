@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:15.060357"
+        "cache_fetch_at": "2025-06-23T14:28:47.281725"
     },
     "data": {
+        "target": "賴秀茹",
+        "category": "社會科",
+        "target_url": "TE05.html",
+        "role": "teacher",
+        "id": "TE05",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -233,9 +239,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "賴秀茹",
-        "target_url": "TE05.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

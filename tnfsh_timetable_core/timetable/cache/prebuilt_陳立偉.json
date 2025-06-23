@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:16.047265"
+        "cache_fetch_at": "2025-06-23T14:28:50.321909"
     },
     "data": {
+        "target": "陳立偉",
+        "category": "自然科",
+        "target_url": "TH10.html",
+        "role": "teacher",
+        "id": "TH10",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -183,9 +189,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "陳立偉",
-        "target_url": "TH10.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

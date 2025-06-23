@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:25.027600"
+        "cache_fetch_at": "2025-06-23T14:28:56.462378"
     },
     "data": {
+        "target": "曾冠騰",
+        "category": "藝能科",
+        "target_url": "TK11.html",
+        "role": "teacher",
+        "id": "TK11",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -245,9 +251,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "曾冠騰",
-        "target_url": "TK11.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

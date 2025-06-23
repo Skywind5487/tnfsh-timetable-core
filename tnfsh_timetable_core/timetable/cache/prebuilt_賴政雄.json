@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:24.592791"
+        "cache_fetch_at": "2025-06-23T14:28:56.319334"
     },
     "data": {
+        "target": "賴政雄",
+        "category": "藝能科",
+        "target_url": "TK06.html",
+        "role": "teacher",
+        "id": "TK06",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -255,9 +261,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "賴政雄",
-        "target_url": "TK06.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

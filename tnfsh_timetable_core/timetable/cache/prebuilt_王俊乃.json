@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:15.759389"
+        "cache_fetch_at": "2025-06-23T14:28:51.619580"
     },
     "data": {
+        "target": "王俊乃",
+        "category": "自然科",
+        "target_url": "TG13.html",
+        "role": "teacher",
+        "id": "TG13",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
@@ -225,9 +231,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "王俊乃",
-        "target_url": "TG13.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

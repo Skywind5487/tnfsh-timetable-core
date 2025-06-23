@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:28.397238"
+        "cache_fetch_at": "2025-06-23T14:28:59.060333"
     },
     "data": {
+        "target": "杜建毅",
+        "category": "外聘教師",
+        "target_url": "TZ07.html",
+        "role": "teacher",
+        "id": "TZ07",
+        "last_update": "2025/02/03\r\n18:59:34",
         "table": [
             [
                 null,
@@ -101,9 +107,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "杜建毅",
-        "target_url": "TZ07.html",
-        "last_update": "2025/02/03\r\n18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

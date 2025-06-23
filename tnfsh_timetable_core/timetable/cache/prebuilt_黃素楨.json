@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:23.765820"
+        "cache_fetch_at": "2025-06-23T14:28:55.186840"
     },
     "data": {
+        "target": "黃素楨",
+        "category": "藝能科",
+        "target_url": "TJ24.html",
+        "role": "teacher",
+        "id": "TJ24",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
@@ -34,40 +40,16 @@
                 null,
                 null,
                 null,
-                null,
                 {
                     "subject": "＊間接服務",
                     "counterpart": null
                 },
                 {
-                    "subject": "＊特殊需求課程\r, , , -學習策略",
+                    "subject": "＊特殊需求課程-學習策略",
                     "counterpart": null
                 },
                 {
-                    "subject": "＊特殊需求課程\r, , , -學習策略",
-                    "counterpart": null
-                }
-            ],
-            [
-                null,
-                null,
-                null,
-                null,
-                null,
-                {
-                    "subject": "＊間接服務",
-                    "counterpart": null
-                },
-                {
-                    "subject": "＊間接服務",
-                    "counterpart": null
-                },
-                {
-                    "subject": "＊間接服務",
-                    "counterpart": null
-                },
-                {
-                    "subject": "＊特殊需求課程\r, , , -社會技巧",
+                    "subject": "＊特殊需求課程-學習策略",
                     "counterpart": null
                 }
             ],
@@ -77,15 +59,33 @@
                 null,
                 null,
                 {
-                    "subject": "＊特殊需求課程\r, , , -社會技巧",
+                    "subject": "＊間接服務",
                     "counterpart": null
                 },
                 {
-                    "subject": "＊特殊需求課程\r, , , -學習策略",
+                    "subject": "＊間接服務",
                     "counterpart": null
                 },
                 {
-                    "subject": "＊特殊需求課程\r, , , -學習策略",
+                    "subject": "＊間接服務",
+                    "counterpart": null
+                },
+                {
+                    "subject": "＊特殊需求課程-社會技巧",
+                    "counterpart": null
+                }
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "＊特殊需求課程-學習策略",
+                    "counterpart": null
+                },
+                {
+                    "subject": "＊特殊需求課程-學習策略",
                     "counterpart": null
                 },
                 null,
@@ -99,11 +99,9 @@
                 null,
                 null,
                 null,
-                null,
                 null
             ],
             [
-                null,
                 null,
                 null,
                 null,
@@ -131,10 +129,6 @@
                 "11:10",
                 "12:00"
             ],
-            "午休": [
-                "12:10",
-                "13:00"
-            ],
             "第五節": [
                 "13:10",
                 "14:00"
@@ -152,9 +146,21 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "黃素楨",
-        "target_url": "TJ24.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": [
+            null,
+            null,
+            {
+                "subject": "＊特殊需求課程-社會技巧",
+                "counterpart": null
+            },
+            null,
+            null
+        ],
+        "lunch_break_periods": {
+            "午休": [
+                "12:10",
+                "13:00"
+            ]
+        }
     }
 }

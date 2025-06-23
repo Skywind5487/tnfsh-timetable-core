@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:10.304565"
+        "cache_fetch_at": "2025-06-23T14:28:41.224819"
     },
     "data": {
+        "target": "彭威銘",
+        "category": "數學科",
+        "target_url": "TC09.html",
+        "role": "teacher",
+        "id": "TC09",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -201,9 +207,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "彭威銘",
-        "target_url": "TC09.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

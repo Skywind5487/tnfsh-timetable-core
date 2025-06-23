@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:28.984506"
+        "cache_fetch_at": "2025-06-23T14:29:03.901949"
     },
     "data": {
+        "target": "101",
+        "category": "高一",
+        "target_url": "C101101.html",
+        "role": "class",
+        "id": "C101101",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
@@ -294,7 +300,7 @@
                     ]
                 },
                 {
-                    "subject": "客語文, 閩南語文",
+                    "subject": "客語文閩南語文",
                     "counterpart": [
                         {
                             "participant": "劉柔秀",
@@ -361,9 +367,7 @@
                 "17:00"
             ]
         },
-        "type": "class",
-        "target": "101",
-        "target_url": "C101101.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

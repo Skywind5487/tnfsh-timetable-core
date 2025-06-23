@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:14.542273"
+        "cache_fetch_at": "2025-06-23T14:28:44.478285"
     },
     "data": {
+        "target": "鄭旭峰",
+        "category": "數學科",
+        "target_url": "TC17.html",
+        "role": "teacher",
+        "id": "TC17",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -201,9 +207,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "鄭旭峰",
-        "target_url": "TC17.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

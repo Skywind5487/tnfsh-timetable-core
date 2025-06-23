@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:22.638887"
+        "cache_fetch_at": "2025-06-23T14:28:59.099876"
     },
     "data": {
+        "target": "吳玟芷",
+        "category": "藝能科",
+        "target_url": "TJ17.html",
+        "role": "teacher",
+        "id": "TJ17",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -127,9 +133,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "吳玟芷",
-        "target_url": "TJ17.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

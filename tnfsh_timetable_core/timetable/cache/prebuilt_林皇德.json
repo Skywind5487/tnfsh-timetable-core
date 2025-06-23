@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:29:54.876350"
+        "cache_fetch_at": "2025-06-23T14:28:25.982433"
     },
     "data": {
+        "target": "林皇德",
+        "category": "國文科",
+        "target_url": "TA23.html",
+        "role": "teacher",
+        "id": "TA23",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -129,9 +135,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "林皇德",
-        "target_url": "TA23.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:17.187634"
+        "cache_fetch_at": "2025-06-23T14:28:51.510187"
     },
     "data": {
+        "target": "顏永進",
+        "category": "藝能科",
+        "target_url": "TJ04.html",
+        "role": "teacher",
+        "id": "TJ04",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -100,7 +106,7 @@
                     ]
                 },
                 {
-                    "subject": "獨立研究, 專題研究",
+                    "subject": "獨立研究專題研究",
                     "counterpart": [
                         {
                             "participant": "118",
@@ -117,7 +123,7 @@
                     ]
                 },
                 {
-                    "subject": "獨立研究, 專題研究",
+                    "subject": "獨立研究專題研究",
                     "counterpart": [
                         {
                             "participant": "118",
@@ -231,9 +237,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "顏永進",
-        "target_url": "TJ04.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

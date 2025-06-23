@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:18.529105"
+        "cache_fetch_at": "2025-06-23T14:28:51.661184"
     },
     "data": {
+        "target": "高英耀",
+        "category": "藝能科",
+        "target_url": "TJ09.html",
+        "role": "teacher",
+        "id": "TJ09",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
@@ -279,9 +285,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "高英耀",
-        "target_url": "TJ09.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

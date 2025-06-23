@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:15.403247"
+        "cache_fetch_at": "2025-06-23T14:28:48.867339"
     },
     "data": {
+        "target": "李明哲",
+        "category": "社會科",
+        "target_url": "TF07.html",
+        "role": "teacher",
+        "id": "TF07",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -169,9 +175,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "李明哲",
-        "target_url": "TF07.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:19.151262"
+        "cache_fetch_at": "2025-06-23T14:28:51.176548"
     },
     "data": {
+        "target": "江佩娟",
+        "category": "自然科",
+        "target_url": "TI05.html",
+        "role": "teacher",
+        "id": "TI05",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 null,
@@ -108,7 +114,7 @@
                 null,
                 null,
                 {
-                    "subject": "獨立研究, 專題研究",
+                    "subject": "獨立研究專題研究",
                     "counterpart": [
                         {
                             "participant": "118",
@@ -121,7 +127,7 @@
                     ]
                 },
                 {
-                    "subject": "獨立研究, 專題研究",
+                    "subject": "獨立研究專題研究",
                     "counterpart": [
                         {
                             "participant": "118",
@@ -233,9 +239,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "江佩娟",
-        "target_url": "TI05.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

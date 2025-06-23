@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:24.477357"
+        "cache_fetch_at": "2025-06-23T14:28:59.553451"
     },
     "data": {
+        "target": "李芬蘭",
+        "category": "藝能科",
+        "target_url": "TJ22.html",
+        "role": "teacher",
+        "id": "TJ22",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
@@ -145,9 +151,7 @@
                 "17:00"
             ]
         },
-        "type": "teacher",
-        "target": "李芬蘭",
-        "target_url": "TJ22.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }

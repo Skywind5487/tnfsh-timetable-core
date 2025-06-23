@@ -1,8 +1,14 @@
 {
     "metadata": {
-        "cache_fetch_at": "2025-06-18T20:30:28.996317"
+        "cache_fetch_at": "2025-06-23T14:29:03.931326"
     },
     "data": {
+        "target": "102",
+        "category": "高一",
+        "target_url": "C101102.html",
+        "role": "class",
+        "id": "C101102",
+        "last_update": "2025/02/03 18:59:34",
         "table": [
             [
                 {
@@ -247,7 +253,7 @@
                     ]
                 },
                 {
-                    "subject": "閩南語文, 排灣族語",
+                    "subject": "閩南語文排灣族語",
                     "counterpart": [
                         {
                             "participant": "陳秀枝",
@@ -361,9 +367,7 @@
                 "17:00"
             ]
         },
-        "type": "class",
-        "target": "102",
-        "target_url": "C101102.html",
-        "last_update": "2025/02/03 18:59:34"
+        "lunch_break": null,
+        "lunch_break_periods": null
     }
 }
