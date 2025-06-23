@@ -312,11 +312,6 @@ class TimetableCrawler(BaseCrawlerABC):
             raise FetchError(error_msg)
         # return 拿到 try 區塊外，避免 except 攔截 model 驗證錯誤
         return TimetableSchema(
-            # 課表核心資料
-            table=table,
-            periods=periods,
-            lunch_break=lunch_break,
-            lunch_break_periods=lunch_break_periods,
             # TargetInfo 相關資訊
             target=target_info.target,
             category=target_info.category,
@@ -325,6 +320,11 @@ class TimetableCrawler(BaseCrawlerABC):
             id=target_info.id,
             # 其他資訊
             last_update=last_update,
+            # 課表核心資料
+            table=table,
+            periods=periods,
+            lunch_break=lunch_break,
+            lunch_break_periods=lunch_break_periods,
         )
 
     async def fetch(self, target: str, refresh: bool = False, *args, **kwargs) -> TimetableSchema:
