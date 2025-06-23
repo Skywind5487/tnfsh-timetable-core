@@ -20,7 +20,7 @@ class IndexCache(BaseCacheABC):
     def __init__(self, crawler: Optional[IndexCrawler] = None, file_path: Optional[str] = None):
         self._crawler = crawler or IndexCrawler()
         self._cache_dir = Path(__file__).resolve().parent / "cache"
-        self._cache_file = self._cache_dir / "prebuilt_all_index.json" if file_path is None else Path(file_path)
+        self._cache_file = self._cache_dir / "prebuilt_full_index.json" if file_path is None else Path(file_path)
         self._cache_dir.mkdir(exist_ok=True)
 
     async def fetch_from_memory(self, *args, **kwargs) -> Optional[CachedFullIndex]:
