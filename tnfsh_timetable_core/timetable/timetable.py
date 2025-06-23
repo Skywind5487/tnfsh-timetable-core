@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING, List, Optional, Literal, Dict, Tuple
+from typing import TYPE_CHECKING, Generator, List, Optional, Literal, Dict, Tuple
 from datetime import datetime, time
 from unicodedata import category
 from pydantic import BaseModel, Field, computed_field
@@ -156,7 +156,7 @@ def get_all_timetables(
     refresh: bool = False,
     max_concurrent: int = 5, 
     delay: float = 0.0
-) -> List[Timetable]:
+) -> Generator[Timetable]:
     """
     預載入所有課表，加入併發上限與延遲控制
     Args:
