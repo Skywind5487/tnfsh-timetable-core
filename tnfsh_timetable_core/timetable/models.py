@@ -43,9 +43,11 @@ class TimetableSchema(BaseModel):
     lunch_break_periods: Dict[str, TimeInfo] | None = None  # 午休時間資訊 {午休: ("12:10", "13:00")}
 
     # 識別資訊
-    role: Literal["class", "teacher"]
     target: str
+    category: Optional[str] = None  # 分類名稱（如 "國文科"）
     target_url: str
+    role: Literal["class", "teacher"]
+    id: str  # 唯一識別碼，通常是班級編號或教師姓名
     
     # 更新資訊
     last_update: str  # 遠端更新時間
