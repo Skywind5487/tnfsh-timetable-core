@@ -125,30 +125,6 @@ class Index(BaseDomainABC):
         # 準備元數據
         metadata = CacheMetadata(cache_fetch_at=self.cache_fetch_at or datetime.now())
         
-        # 準備要匯出的資料
-        if export_type == "all":
-            export_data = CachedFullIndex(
-                metadata=metadata,
-                data=FullIndexResult(
-                    index=self.index,
-                    reverse_index=self.reverse_index,
-                    detailed_index=self.detailed_index,
-                    id_to_info=self.id_to_info or {},
-                    target_to_unique_info=self.target_to_unique_info or {},
-                    target_to_conflicting_ids=self.target_to_conflicting_ids or {}
-                )
-            ).model_dump()
-        elif export_type == "index":
-            export_data = CachedIndex(
-                metadata=metadata,
-                data=self.index
-            ).model_dump()
-        else:  # reverse_index
-            export_data = CachedReverseIndex(
-                metadata=metadata,
-                data=self.reverse_index
-            ).model_dump()
-        
         # 生成檔案路徑
         if filepath is None:
             filepath = f"index_{export_type}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
