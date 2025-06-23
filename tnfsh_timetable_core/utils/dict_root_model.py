@@ -1,6 +1,6 @@
 from __future__ import annotations
-from typing import TypeVar, Generic, Dict, Any, Iterable, Tuple, Iterator
-from pydantic import RootModel, field_validator
+from typing import TypeVar, Generic, Dict, Any
+from pydantic import RootModel
 from collections.abc import MutableMapping
 
 
@@ -58,10 +58,10 @@ class DictRootModel(RootModel[Dict[K, V]], MutableMapping[K, V], Generic[K, V]):
     def __delitem__(self, key: K) -> None:
         del self.root[key]
 
-    def __contains__(self, key: K) -> bool:
+    def __contains__(self, key: object) -> bool:
         return key in self.root
-    
-    def __iter__(self) -> Iterator[K]:
+
+    def __iter__(self) -> Any:  # Iterator[K]:
         return iter(self.root)
     
     def __len__(self) -> int:
