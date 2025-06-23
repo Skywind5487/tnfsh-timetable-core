@@ -1,0 +1,381 @@
+{
+    "metadata": {
+        "cache_fetch_at": "2025-06-23T18:55:24.038029"
+    },
+    "data": {
+        "target": "318",
+        "category": "高三",
+        "target_url": "C106318.html",
+        "role": "class",
+        "id": "C106318",
+        "last_update": "2025/02/03 18:59:34",
+        "table": [
+            [
+                {
+                    "subject": "選修物理-波動、光及聲音",
+                    "counterpart": [
+                        {
+                            "participant": "楊盛智",
+                            "url": "TG20.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "各類文學選讀",
+                    "counterpart": [
+                        {
+                            "participant": "華泓嘉",
+                            "url": "TA34.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "選修生物-生命的起源與植物體的構造與功能",
+                    "counterpart": [
+                        {
+                            "participant": "鄭楷騰",
+                            "url": "TI09.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "選修生物-生命的起源與植物體的構造與功能",
+                    "counterpart": [
+                        {
+                            "participant": "鄭楷騰",
+                            "url": "TI09.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "健康與護理",
+                    "counterpart": [
+                        {
+                            "participant": "黃凱羚",
+                            "url": "TJ21.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學甲",
+                    "counterpart": [
+                        {
+                            "participant": "周東賢",
+                            "url": "TC13.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "英文閱讀與寫作",
+                    "counterpart": [
+                        {
+                            "participant": "留郁涵",
+                            "url": "TB32.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                {
+                    "subject": "數學甲",
+                    "counterpart": [
+                        {
+                            "participant": "周東賢",
+                            "url": "TC13.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學甲",
+                    "counterpart": [
+                        {
+                            "participant": "周東賢",
+                            "url": "TC13.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "美術",
+                    "counterpart": [
+                        {
+                            "participant": "黃逸民",
+                            "url": "TJ08.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "生命教育",
+                    "counterpart": [
+                        {
+                            "participant": "施冠汝",
+                            "url": "TJ28.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "選修物理-電磁現象二與量子現象",
+                    "counterpart": [
+                        {
+                            "participant": "楊盛智",
+                            "url": "TG20.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "選修物理-電磁現象二與量子現象",
+                    "counterpart": [
+                        {
+                            "participant": "楊盛智",
+                            "url": "TG20.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "體育",
+                    "counterpart": [
+                        {
+                            "participant": "林高義",
+                            "url": "TK05.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                {
+                    "subject": "各類文學選讀",
+                    "counterpart": [
+                        {
+                            "participant": "華泓嘉",
+                            "url": "TA34.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學甲",
+                    "counterpart": [
+                        {
+                            "participant": "周東賢",
+                            "url": "TC13.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "選修化學-化學反應與平衡二",
+                    "counterpart": [
+                        {
+                            "participant": "宋照生",
+                            "url": "TH09.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "音樂",
+                    "counterpart": [
+                        {
+                            "participant": "王理俐",
+                            "url": "TJ05.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "家政",
+                    "counterpart": [
+                        {
+                            "participant": "潘智惠",
+                            "url": "TJ20.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "家政",
+                    "counterpart": [
+                        {
+                            "participant": "潘智惠",
+                            "url": "TJ20.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "英文閱讀與寫作",
+                    "counterpart": [
+                        {
+                            "participant": "留郁涵",
+                            "url": "TB32.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                {
+                    "subject": "團體活動時間",
+                    "counterpart": [
+                        {
+                            "participant": "楊盛智",
+                            "url": "TG20.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "團體活動時間",
+                    "counterpart": [
+                        {
+                            "participant": "楊盛智",
+                            "url": "TG20.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "藝術生活",
+                    "counterpart": [
+                        {
+                            "participant": "王理俐",
+                            "url": "TJ05.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "選修生物-生態、演化及生物多樣性",
+                    "counterpart": [
+                        {
+                            "participant": "鄭楷騰",
+                            "url": "TI09.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "彈性-數學",
+                    "counterpart": [
+                        {
+                            "participant": "周東賢",
+                            "url": "TC13.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "語文表達與傳播應用",
+                    "counterpart": [
+                        {
+                            "participant": "華泓嘉",
+                            "url": "TA34.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "語文表達與傳播應用",
+                    "counterpart": [
+                        {
+                            "participant": "華泓嘉",
+                            "url": "TA34.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                {
+                    "subject": "英語聽講",
+                    "counterpart": [
+                        {
+                            "participant": "留郁涵",
+                            "url": "TB32.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "英語聽講",
+                    "counterpart": [
+                        {
+                            "participant": "留郁涵",
+                            "url": "TB32.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "科證猛於唬Ⅱ",
+                    "counterpart": [
+                        {
+                            "participant": "楊盛智",
+                            "url": "TG20.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "彈性-數學",
+                    "counterpart": [
+                        {
+                            "participant": "周東賢",
+                            "url": "TC13.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "選修化學-有機化學與應用科技",
+                    "counterpart": [
+                        {
+                            "participant": "宋照生",
+                            "url": "TH09.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "選修化學-有機化學與應用科技",
+                    "counterpart": [
+                        {
+                            "participant": "宋照生",
+                            "url": "TH09.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "體育",
+                    "counterpart": [
+                        {
+                            "participant": "林高義",
+                            "url": "TK05.HTML"
+                        }
+                    ]
+                },
+                null
+            ]
+        ],
+        "periods": {
+            "第一節": [
+                "08:00",
+                "08:50"
+            ],
+            "第二節": [
+                "09:00",
+                "09:50"
+            ],
+            "第三節": [
+                "10:10",
+                "11:00"
+            ],
+            "第四節": [
+                "11:10",
+                "12:00"
+            ],
+            "第五節": [
+                "13:10",
+                "14:00"
+            ],
+            "第六節": [
+                "14:10",
+                "15:00"
+            ],
+            "第七節": [
+                "15:10",
+                "16:00"
+            ],
+            "第八節": [
+                "16:10",
+                "17:00"
+            ]
+        },
+        "lunch_break": null,
+        "lunch_break_periods": null
+    }
+}

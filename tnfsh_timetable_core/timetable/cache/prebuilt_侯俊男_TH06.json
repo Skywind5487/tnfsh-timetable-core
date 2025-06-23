@@ -1,0 +1,229 @@
+{
+    "metadata": {
+        "cache_fetch_at": "2025-06-23T18:54:57.958674"
+    },
+    "data": {
+        "target": "侯俊男",
+        "category": "自然科",
+        "target_url": "TH06.html",
+        "role": "teacher",
+        "id": "TH06",
+        "last_update": "2025/02/03 18:59:34",
+        "table": [
+            [
+                null,
+                null,
+                {
+                    "subject": "選修化學-化學反應與平衡二",
+                    "counterpart": [
+                        {
+                            "participant": "308",
+                            "url": "C101308.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "選修化學-化學反應與平衡二",
+                    "counterpart": [
+                        {
+                            "participant": "308",
+                            "url": "C101308.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                {
+                    "subject": "彈性-化學",
+                    "counterpart": [
+                        {
+                            "participant": "314",
+                            "url": "C101314.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                {
+                    "subject": "選修化學-有機化學與應用科技",
+                    "counterpart": [
+                        {
+                            "participant": "314",
+                            "url": "C101314.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "選修化學-有機化學與應用科技",
+                    "counterpart": [
+                        {
+                            "participant": "308",
+                            "url": "C101308.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "選修化學-物質構造與反應速率",
+                    "counterpart": [
+                        {
+                            "participant": "218",
+                            "url": "C106218.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "選修化學-物質構造與反應速率",
+                    "counterpart": [
+                        {
+                            "participant": "218",
+                            "url": "C106218.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                null,
+                {
+                    "subject": "彈性-化學",
+                    "counterpart": [
+                        {
+                            "participant": "308",
+                            "url": "C101308.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "獨立研究",
+                    "counterpart": [
+                        {
+                            "participant": "218",
+                            "url": "C106218.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "獨立研究",
+                    "counterpart": [
+                        {
+                            "participant": "218",
+                            "url": "C106218.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                {
+                    "subject": "團體活動時間",
+                    "counterpart": [
+                        {
+                            "participant": "218",
+                            "url": "C106218.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                {
+                    "subject": "團體活動時間",
+                    "counterpart": [
+                        {
+                            "participant": "218",
+                            "url": "C106218.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                {
+                    "subject": "選修化學-有機化學與應用科技",
+                    "counterpart": [
+                        {
+                            "participant": "314",
+                            "url": "C101314.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                {
+                    "subject": "選修化學-化學反應與平衡二",
+                    "counterpart": [
+                        {
+                            "participant": "314",
+                            "url": "C101314.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "選修化學-化學反應與平衡二",
+                    "counterpart": [
+                        {
+                            "participant": "314",
+                            "url": "C101314.HTML"
+                        }
+                    ]
+                },
+                null,
+                {
+                    "subject": "選修化學-有機化學與應用科技",
+                    "counterpart": [
+                        {
+                            "participant": "308",
+                            "url": "C101308.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null
+            ]
+        ],
+        "periods": {
+            "第一節": [
+                "08:00",
+                "08:50"
+            ],
+            "第二節": [
+                "09:00",
+                "09:50"
+            ],
+            "第三節": [
+                "10:10",
+                "11:00"
+            ],
+            "第四節": [
+                "11:10",
+                "12:00"
+            ],
+            "第五節": [
+                "13:10",
+                "14:00"
+            ],
+            "第六節": [
+                "14:10",
+                "15:00"
+            ],
+            "第七節": [
+                "15:10",
+                "16:00"
+            ],
+            "第八節": [
+                "16:10",
+                "17:00"
+            ]
+        },
+        "lunch_break": null,
+        "lunch_break_periods": null
+    }
+}

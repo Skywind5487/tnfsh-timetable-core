@@ -1,0 +1,245 @@
+{
+    "metadata": {
+        "cache_fetch_at": "2025-06-23T18:54:57.506009"
+    },
+    "data": {
+        "target": "蔡良昇",
+        "category": "社會科",
+        "target_url": "TD08.html",
+        "role": "teacher",
+        "id": "TD08",
+        "last_update": "2025/02/03 18:59:34",
+        "table": [
+            [
+                null,
+                {
+                    "subject": "歷史",
+                    "counterpart": [
+                        {
+                            "participant": "213",
+                            "url": "C101213.HTML"
+                        }
+                    ]
+                },
+                null,
+                {
+                    "subject": "歷史",
+                    "counterpart": [
+                        {
+                            "participant": "115",
+                            "url": "C101115.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "歷史",
+                    "counterpart": [
+                        {
+                            "participant": "114",
+                            "url": "C101114.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "歷史",
+                    "counterpart": [
+                        {
+                            "participant": "215",
+                            "url": "C101215.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "歷史",
+                    "counterpart": [
+                        {
+                            "participant": "103",
+                            "url": "C101103.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                {
+                    "subject": "歷史",
+                    "counterpart": [
+                        {
+                            "participant": "113",
+                            "url": "C101113.HTML"
+                        }
+                    ]
+                },
+                null,
+                {
+                    "subject": "歷史",
+                    "counterpart": [
+                        {
+                            "participant": "115",
+                            "url": "C101115.HTML"
+                        }
+                    ]
+                },
+                null,
+                {
+                    "subject": "歷史",
+                    "counterpart": [
+                        {
+                            "participant": "213",
+                            "url": "C101213.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "歷史",
+                    "counterpart": [
+                        {
+                            "participant": "111",
+                            "url": "C101111.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "歷史",
+                    "counterpart": [
+                        {
+                            "participant": "101",
+                            "url": "C101101.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                null,
+                {
+                    "subject": "歷史",
+                    "counterpart": [
+                        {
+                            "participant": "111",
+                            "url": "C101111.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "歷史",
+                    "counterpart": [
+                        {
+                            "participant": "101",
+                            "url": "C101101.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                {
+                    "subject": "歷史",
+                    "counterpart": [
+                        {
+                            "participant": "105",
+                            "url": "C101105.HTML"
+                        }
+                    ]
+                },
+                null,
+                {
+                    "subject": "歷史",
+                    "counterpart": [
+                        {
+                            "participant": "113",
+                            "url": "C101113.HTML"
+                        }
+                    ]
+                },
+                null,
+                {
+                    "subject": "歷史",
+                    "counterpart": [
+                        {
+                            "participant": "215",
+                            "url": "C101215.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                {
+                    "subject": "歷史",
+                    "counterpart": [
+                        {
+                            "participant": "105",
+                            "url": "C101105.HTML"
+                        }
+                    ]
+                },
+                null,
+                {
+                    "subject": "歷史",
+                    "counterpart": [
+                        {
+                            "participant": "103",
+                            "url": "C101103.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "歷史",
+                    "counterpart": [
+                        {
+                            "participant": "114",
+                            "url": "C101114.HTML"
+                        }
+                    ]
+                },
+                null
+            ]
+        ],
+        "periods": {
+            "第一節": [
+                "08:00",
+                "08:50"
+            ],
+            "第二節": [
+                "09:00",
+                "09:50"
+            ],
+            "第三節": [
+                "10:10",
+                "11:00"
+            ],
+            "第四節": [
+                "11:10",
+                "12:00"
+            ],
+            "第五節": [
+                "13:10",
+                "14:00"
+            ],
+            "第六節": [
+                "14:10",
+                "15:00"
+            ],
+            "第七節": [
+                "15:10",
+                "16:00"
+            ],
+            "第八節": [
+                "16:10",
+                "17:00"
+            ]
+        },
+        "lunch_break": null,
+        "lunch_break_periods": null
+    }
+}

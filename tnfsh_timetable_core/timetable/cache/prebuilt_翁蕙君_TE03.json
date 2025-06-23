@@ -1,0 +1,235 @@
+{
+    "metadata": {
+        "cache_fetch_at": "2025-06-23T18:54:56.277792"
+    },
+    "data": {
+        "target": "翁蕙君",
+        "category": "社會科",
+        "target_url": "TE03.html",
+        "role": "teacher",
+        "id": "TE03",
+        "last_update": "2025/02/03 18:59:34",
+        "table": [
+            [
+                {
+                    "subject": "地理",
+                    "counterpart": [
+                        {
+                            "participant": "104",
+                            "url": "C101104.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "地理",
+                    "counterpart": [
+                        {
+                            "participant": "112",
+                            "url": "C101112.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                {
+                    "subject": "地理",
+                    "counterpart": [
+                        {
+                            "participant": "107",
+                            "url": "C101107.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                {
+                    "subject": "地理",
+                    "counterpart": [
+                        {
+                            "participant": "112",
+                            "url": "C101112.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "地理",
+                    "counterpart": [
+                        {
+                            "participant": "117",
+                            "url": "C101117.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "地理",
+                    "counterpart": [
+                        {
+                            "participant": "108",
+                            "url": "C101108.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                null,
+                {
+                    "subject": "地理",
+                    "counterpart": [
+                        {
+                            "participant": "115",
+                            "url": "C101115.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "地理",
+                    "counterpart": [
+                        {
+                            "participant": "108",
+                            "url": "C101108.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                {
+                    "subject": "地理",
+                    "counterpart": [
+                        {
+                            "participant": "102",
+                            "url": "C101102.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "地理",
+                    "counterpart": [
+                        {
+                            "participant": "104",
+                            "url": "C101104.HTML"
+                        }
+                    ]
+                },
+                null,
+                {
+                    "subject": "地理",
+                    "counterpart": [
+                        {
+                            "participant": "117",
+                            "url": "C101117.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "地理",
+                    "counterpart": [
+                        {
+                            "participant": "110",
+                            "url": "C101110.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "地理",
+                    "counterpart": [
+                        {
+                            "participant": "115",
+                            "url": "C101115.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                null,
+                null,
+                {
+                    "subject": "高二多元選修",
+                    "counterpart": null
+                },
+                {
+                    "subject": "彈性-多元選修",
+                    "counterpart": null
+                },
+                {
+                    "subject": "地理",
+                    "counterpart": [
+                        {
+                            "participant": "102",
+                            "url": "C101102.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "地理",
+                    "counterpart": [
+                        {
+                            "participant": "110",
+                            "url": "C101110.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "地理",
+                    "counterpart": [
+                        {
+                            "participant": "107",
+                            "url": "C101107.HTML"
+                        }
+                    ]
+                },
+                null
+            ]
+        ],
+        "periods": {
+            "第一節": [
+                "08:00",
+                "08:50"
+            ],
+            "第二節": [
+                "09:00",
+                "09:50"
+            ],
+            "第三節": [
+                "10:10",
+                "11:00"
+            ],
+            "第四節": [
+                "11:10",
+                "12:00"
+            ],
+            "第五節": [
+                "13:10",
+                "14:00"
+            ],
+            "第六節": [
+                "14:10",
+                "15:00"
+            ],
+            "第七節": [
+                "15:10",
+                "16:00"
+            ],
+            "第八節": [
+                "16:10",
+                "17:00"
+            ]
+        },
+        "lunch_break": null,
+        "lunch_break_periods": null
+    }
+}

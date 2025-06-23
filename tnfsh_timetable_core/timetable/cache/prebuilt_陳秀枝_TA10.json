@@ -1,0 +1,213 @@
+{
+    "metadata": {
+        "cache_fetch_at": "2025-06-23T18:54:35.393567"
+    },
+    "data": {
+        "target": "陳秀枝",
+        "category": "國文科",
+        "target_url": "TA10.html",
+        "role": "teacher",
+        "id": "TA10",
+        "last_update": "2025/02/03 18:59:34",
+        "table": [
+            [
+                {
+                    "subject": "閩南語文",
+                    "counterpart": [
+                        {
+                            "participant": "117",
+                            "url": "C101117.HTML"
+                        }
+                    ]
+                },
+                null,
+                {
+                    "subject": "閩南語文",
+                    "counterpart": [
+                        {
+                            "participant": "111",
+                            "url": "C101111.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "閩南語文",
+                    "counterpart": [
+                        {
+                            "participant": "113",
+                            "url": "C101113.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                {
+                    "subject": "國語文",
+                    "counterpart": [
+                        {
+                            "participant": "111",
+                            "url": "C101111.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                {
+                    "subject": "國語文",
+                    "counterpart": [
+                        {
+                            "participant": "113",
+                            "url": "C101113.HTML"
+                        }
+                    ]
+                },
+                null,
+                {
+                    "subject": "閩南語文",
+                    "counterpart": [
+                        {
+                            "participant": "115",
+                            "url": "C101115.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                null,
+                null,
+                {
+                    "subject": "國語文",
+                    "counterpart": [
+                        {
+                            "participant": "113",
+                            "url": "C101113.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "國語文",
+                    "counterpart": [
+                        {
+                            "participant": "113",
+                            "url": "C101113.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                {
+                    "subject": "閩南語文",
+                    "counterpart": [
+                        {
+                            "participant": "109",
+                            "url": "C101109.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                {
+                    "subject": "閩南語文",
+                    "counterpart": [
+                        {
+                            "participant": "102",
+                            "url": "C101102.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "國語文",
+                    "counterpart": [
+                        {
+                            "participant": "111",
+                            "url": "C101111.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                null,
+                null,
+                {
+                    "subject": "國語文",
+                    "counterpart": [
+                        {
+                            "participant": "111",
+                            "url": "C101111.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "國語文",
+                    "counterpart": [
+                        {
+                            "participant": "111",
+                            "url": "C101111.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                {
+                    "subject": "國語文",
+                    "counterpart": [
+                        {
+                            "participant": "113",
+                            "url": "C101113.HTML"
+                        }
+                    ]
+                },
+                null
+            ]
+        ],
+        "periods": {
+            "第一節": [
+                "08:00",
+                "08:50"
+            ],
+            "第二節": [
+                "09:00",
+                "09:50"
+            ],
+            "第三節": [
+                "10:10",
+                "11:00"
+            ],
+            "第四節": [
+                "11:10",
+                "12:00"
+            ],
+            "第五節": [
+                "13:10",
+                "14:00"
+            ],
+            "第六節": [
+                "14:10",
+                "15:00"
+            ],
+            "第七節": [
+                "15:10",
+                "16:00"
+            ],
+            "第八節": [
+                "16:10",
+                "17:00"
+            ]
+        },
+        "lunch_break": null,
+        "lunch_break_periods": null
+    }
+}

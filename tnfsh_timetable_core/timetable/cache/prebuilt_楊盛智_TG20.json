@@ -1,0 +1,229 @@
+{
+    "metadata": {
+        "cache_fetch_at": "2025-06-23T18:54:57.788886"
+    },
+    "data": {
+        "target": "楊盛智",
+        "category": "自然科",
+        "target_url": "TG20.html",
+        "role": "teacher",
+        "id": "TG20",
+        "last_update": "2025/02/03 18:59:34",
+        "table": [
+            [
+                {
+                    "subject": "選修物理-波動、光及聲音",
+                    "counterpart": [
+                        {
+                            "participant": "318",
+                            "url": "C106318.HTML"
+                        }
+                    ]
+                },
+                null,
+                {
+                    "subject": "選修物理-電磁現象一",
+                    "counterpart": [
+                        {
+                            "participant": "306",
+                            "url": "C101306.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "選修物理-電磁現象一",
+                    "counterpart": [
+                        {
+                            "participant": "306",
+                            "url": "C101306.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "選修物理-電磁現象一",
+                    "counterpart": [
+                        {
+                            "participant": "311",
+                            "url": "C101311.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "選修物理-電磁現象一",
+                    "counterpart": [
+                        {
+                            "participant": "311",
+                            "url": "C101311.HTML"
+                        }
+                    ]
+                },
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "選修物理-電磁現象二與量子現象",
+                    "counterpart": [
+                        {
+                            "participant": "318",
+                            "url": "C106318.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "選修物理-電磁現象二與量子現象",
+                    "counterpart": [
+                        {
+                            "participant": "318",
+                            "url": "C106318.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "彈性-物理",
+                    "counterpart": [
+                        {
+                            "participant": "306",
+                            "url": "C101306.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "選修物理-電磁現象二與量子現象",
+                    "counterpart": [
+                        {
+                            "participant": "311",
+                            "url": "C101311.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "選修物理-電磁現象二與量子現象",
+                    "counterpart": [
+                        {
+                            "participant": "311",
+                            "url": "C101311.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "選修物理-電磁現象二與量子現象",
+                    "counterpart": [
+                        {
+                            "participant": "306",
+                            "url": "C101306.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                {
+                    "subject": "團體活動時間",
+                    "counterpart": [
+                        {
+                            "participant": "318",
+                            "url": "C106318.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "團體活動時間",
+                    "counterpart": [
+                        {
+                            "participant": "318",
+                            "url": "C106318.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                {
+                    "subject": "彈性-物理",
+                    "counterpart": [
+                        {
+                            "participant": "311",
+                            "url": "C101311.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "選修物理-電磁現象二與量子現象",
+                    "counterpart": [
+                        {
+                            "participant": "306",
+                            "url": "C101306.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "科證猛於唬Ⅱ",
+                    "counterpart": [
+                        {
+                            "participant": "318",
+                            "url": "C106318.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        ],
+        "periods": {
+            "第一節": [
+                "08:00",
+                "08:50"
+            ],
+            "第二節": [
+                "09:00",
+                "09:50"
+            ],
+            "第三節": [
+                "10:10",
+                "11:00"
+            ],
+            "第四節": [
+                "11:10",
+                "12:00"
+            ],
+            "第五節": [
+                "13:10",
+                "14:00"
+            ],
+            "第六節": [
+                "14:10",
+                "15:00"
+            ],
+            "第七節": [
+                "15:10",
+                "16:00"
+            ],
+            "第八節": [
+                "16:10",
+                "17:00"
+            ]
+        },
+        "lunch_break": null,
+        "lunch_break_periods": null
+    }
+}

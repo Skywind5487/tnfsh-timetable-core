@@ -1,0 +1,213 @@
+{
+    "metadata": {
+        "cache_fetch_at": "2025-06-23T18:54:54.267415"
+    },
+    "data": {
+        "target": "鄭旭峰",
+        "category": "數學科",
+        "target_url": "TC17.html",
+        "role": "teacher",
+        "id": "TC17",
+        "last_update": "2025/02/03 18:59:34",
+        "table": [
+            [
+                null,
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "數學A",
+                    "counterpart": [
+                        {
+                            "participant": "217",
+                            "url": "C101217.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學A",
+                    "counterpart": [
+                        {
+                            "participant": "215",
+                            "url": "C101215.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "數學A",
+                    "counterpart": [
+                        {
+                            "participant": "215",
+                            "url": "C101215.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學A",
+                    "counterpart": [
+                        {
+                            "participant": "215",
+                            "url": "C101215.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學A",
+                    "counterpart": [
+                        {
+                            "participant": "203",
+                            "url": "C101203.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                null,
+                null,
+                {
+                    "subject": "數學A",
+                    "counterpart": [
+                        {
+                            "participant": "203",
+                            "url": "C101203.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學A",
+                    "counterpart": [
+                        {
+                            "participant": "203",
+                            "url": "C101203.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                {
+                    "subject": "團體活動時間",
+                    "counterpart": [
+                        {
+                            "participant": "203",
+                            "url": "C101203.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                {
+                    "subject": "團體活動時間",
+                    "counterpart": [
+                        {
+                            "participant": "203",
+                            "url": "C101203.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學A",
+                    "counterpart": [
+                        {
+                            "participant": "215",
+                            "url": "C101215.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null,
+                {
+                    "subject": "數學A",
+                    "counterpart": [
+                        {
+                            "participant": "217",
+                            "url": "C101217.HTML"
+                        }
+                    ]
+                },
+                null
+            ],
+            [
+                {
+                    "subject": "數學A",
+                    "counterpart": [
+                        {
+                            "participant": "217",
+                            "url": "C101217.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "數學A",
+                    "counterpart": [
+                        {
+                            "participant": "217",
+                            "url": "C101217.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                {
+                    "subject": "數學A",
+                    "counterpart": [
+                        {
+                            "participant": "203",
+                            "url": "C101203.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null
+            ]
+        ],
+        "periods": {
+            "第一節": [
+                "08:00",
+                "08:50"
+            ],
+            "第二節": [
+                "09:00",
+                "09:50"
+            ],
+            "第三節": [
+                "10:10",
+                "11:00"
+            ],
+            "第四節": [
+                "11:10",
+                "12:00"
+            ],
+            "第五節": [
+                "13:10",
+                "14:00"
+            ],
+            "第六節": [
+                "14:10",
+                "15:00"
+            ],
+            "第七節": [
+                "15:10",
+                "16:00"
+            ],
+            "第八節": [
+                "16:10",
+                "17:00"
+            ]
+        },
+        "lunch_break": null,
+        "lunch_break_periods": null
+    }
+}

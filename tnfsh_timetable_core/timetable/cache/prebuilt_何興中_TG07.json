@@ -1,0 +1,133 @@
+{
+    "metadata": {
+        "cache_fetch_at": "2025-06-23T18:54:57.642658"
+    },
+    "data": {
+        "target": "何興中",
+        "category": "自然科",
+        "target_url": "TG07.html",
+        "role": "teacher",
+        "id": "TG07",
+        "last_update": "2025/02/03 18:59:34",
+        "table": [
+            [
+                {
+                    "subject": "自然科學探究與實作",
+                    "counterpart": [
+                        {
+                            "participant": "109",
+                            "url": "C101109.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "自然科學探究與實作",
+                    "counterpart": [
+                        {
+                            "participant": "109",
+                            "url": "C101109.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "自然科學探究與實作",
+                    "counterpart": [
+                        {
+                            "participant": "116",
+                            "url": "C101116.HTML"
+                        }
+                    ]
+                },
+                {
+                    "subject": "自然科學探究與實作",
+                    "counterpart": [
+                        {
+                            "participant": "116",
+                            "url": "C101116.HTML"
+                        }
+                    ]
+                },
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        ],
+        "periods": {
+            "第一節": [
+                "08:00",
+                "08:50"
+            ],
+            "第二節": [
+                "09:00",
+                "09:50"
+            ],
+            "第三節": [
+                "10:10",
+                "11:00"
+            ],
+            "第四節": [
+                "11:10",
+                "12:00"
+            ],
+            "第五節": [
+                "13:10",
+                "14:00"
+            ],
+            "第六節": [
+                "14:10",
+                "15:00"
+            ],
+            "第七節": [
+                "15:10",
+                "16:00"
+            ],
+            "第八節": [
+                "16:10",
+                "17:00"
+            ]
+        },
+        "lunch_break": null,
+        "lunch_break_periods": null
+    }
+}
