@@ -1,7 +1,9 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING, List, Optional, Literal, Dict, Tuple
 from datetime import datetime, time
-from pydantic import BaseModel
+from pydantic import BaseModel, Field, computed_field
+from functools import cached_property
+
 
 from tnfsh_timetable_core.utils.logger import get_logger
 from tnfsh_timetable_core.timetable.models import CourseInfo
@@ -43,17 +45,21 @@ class Timetable(BaseDomainABC, BaseModel):
     ] | None = None  # 午休時間資訊，格式同 periods
 
     # 識別資訊
-    role: Literal["class", "teacher"]
     target: str
+    category: str | None = None  # 分類名稱（如 "國文科"）
     target_url: str
+    role: Literal["class", "teacher"]
+    id: str
     
     # 更新資訊
     last_update: datetime  # 遠端更新時間
     cache_fetch_at: datetime | None = None  # 快取抓取時間
-
-    def determine_type(cls, target: str) -> Literal["class", "teacher"]:
-        """根據目標名稱判斷課表類型
-        
+    
+    
+    
+    def determine_role(cls, target: str) -> Literal["class", "teacher"]:
+        """根據目標名稱判斷課表角色
+        這裡使用簡單的規則：如果是純數字則為班級，否則為教師
         使用簡單的規則：如果是純數字則為班級，否則為教師
         
         Args:
