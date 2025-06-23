@@ -76,7 +76,7 @@ class TimetableCrawler(BaseCrawlerABC):
         """分析課程td元素為 CourseInfo 格式"""
         def clean_text(text: str) -> str:
             """清理文字內容，移除多餘空格與換行"""
-            return text.strip("\n").strip("\r").strip(" ").replace(" ", ", ")
+            return text.replace("\n", "").replace("\r", "").strip(" ").replace(" ", "")
 
         def is_teacher_p(p_tag: BeautifulSoup) -> bool:
             """檢查是否為包含教師資訊的p標籤"""
@@ -242,7 +242,7 @@ class TimetableCrawler(BaseCrawlerABC):
 
     def parse(self, soup: BeautifulSoup, target: str, target_url: str, *args, **kwargs) -> TimetableSchema:
         """
-        解析 BeautifulSoup 物件為結構化資料
+        解析 BeautifulSoup 物件為結構化資料，支援午休課程分離。
 
         Args:
             soup (BeautifulSoup): HTML 解析樹
@@ -286,42 +286,66 @@ class TimetableCrawler(BaseCrawlerABC):
                 logger.error("❌ 找不到符合格式的Timetable")
                 raise FetchError("找不到符合格式的Timetable")
 
-            # 擷取 periods
+            # 擷取 periods，並偵測午休
             periods: Dict[str, Tuple[str, str]] = {}
+            lunch_break_periods: Dict[str, Tuple[str, str]] = {}
+            lunch_break_key = None
+            current_lesson_count:int = 0
+            lunch_break_col = None
             for row in main_table.find_all("tr"):
                 result = self._parse_periods(row)
                 if result:
+                    current_lesson_count += 1
                     lesson_name, times = result
-                    periods[lesson_name] = times
+                    # 午休關鍵字偵測
+                    if "午休" in lesson_name:
+                        lunch_break_col = current_lesson_count - 1  # 午休課程所在的列
+                        lunch_break_periods[lesson_name] = times
+                        logger.debug(f"🔍 偵測到午休課程：{lesson_name} 時間：{times}, col:{lunch_break_col}")
+                    else:
+                        periods[lesson_name] = times
 
-            # 擷取 table raw 格式
+            if not lunch_break_periods:
+                lunch_break_periods = None
+
+            # 擷取 table raw 格式，並分離午休課程
             from tnfsh_timetable_core.timetable.models import CourseInfo
             table: List[List[CourseInfo | None]] = []
-            for row in main_table.find_all("tr"):
+            lunch_break: List[CourseInfo | None] = []
+
+            for i, row in enumerate(main_table.find_all("tr")):
                 cells = row.find_all("td")[2:]  # 跳過前兩列（節次和時間）
                 row_data = []
-                for cell in cells:
-                    row_data.append(self._parse_cell(cell))
+                for j, cell in enumerate(cells):
+                    course = self._parse_cell(cell)
+                    logger.debug(f"lunch_break_col: {lunch_break_col}, i: {i}, j: {j}")
+                    # 若本行為午休節次，分離存入 lunch_break
+                    if lunch_break_col is not None and i == lunch_break_col:
+                        lunch_break.append(course)
+                    else:
+                        row_data.append(course)
                 if row_data:
                     table.append(row_data)
             # 行列互換
             table = list(map(list, zip(*table)))  # 轉置表格
 
             simple_target_url = str(target_url.split("/")[-1])
-            # 直接回傳 TimetableSchema
-            return TimetableSchema(
-                table=table, 
-                periods=periods,
-                type="class" if target.isdigit() else "teacher",
-                target=target,
-                target_url=simple_target_url,
-                last_update=last_update
-            )
         except Exception as e:
             error_msg = f"解析錯誤：{str(e)}"
             logger.error(f"❌ {error_msg}")
-            raise FetchError(error_msg)    
-    
+            raise FetchError(error_msg)
+        # return 拿到 try 區塊外，避免 except 攔截 model 驗證錯誤
+        return TimetableSchema(
+            table=table, 
+            periods=periods,
+            type="class" if target.isdigit() else "teacher",
+            target=target,
+            target_url=simple_target_url,
+            last_update=last_update,
+            lunch_break=lunch_break,
+            lunch_break_periods=lunch_break_periods
+        )
+
     async def fetch(self, target: str, refresh: bool = False, *args, **kwargs) -> TimetableSchema:
         """
         完整的課表抓取流程
@@ -351,5 +375,7 @@ if __name__ == "__main__":
         timetable = await crawler.fetch(target, refresh=True)
         with open(f"{target}_timetable.json", "w", encoding="utf-8") as f:
             f.write(timetable.model_dump_json(indent=4))
+
+
 
     asyncio.run(main())
