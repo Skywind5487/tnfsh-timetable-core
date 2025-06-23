@@ -36,21 +36,23 @@ class TimetableSchema(BaseModel):
     - 課表基本資訊（類型、目標、更新時間等）
     - 午休課程資訊（如有）
     """
+    # 識別資訊
+    target: str
+    category: str | None = None  # 分類名稱（如 "國文科"）
+    target_url: str
+    role: Literal["class", "teacher"]
+    id: str | None  = None # 唯一識別碼，通常是班級編號或教師姓名
+
+    # 更新資訊
+    last_update: str  # 遠端更新時間
+
     # 核心資料
     table: List[List[Optional[CourseInfo]]]  # 5 weekdays x 8 periods
     periods: Dict[str, TimeInfo]  # 課表時間資訊 {第一節: ("08:00", "09:30"), ...}
     lunch_break: List[Optional[CourseInfo]] | None = None  # 午休課程資訊 5 weekdays
     lunch_break_periods: Dict[str, TimeInfo] | None = None  # 午休時間資訊 {午休: ("12:10", "13:00")}
 
-    # 識別資訊
-    target: str
-    category: Optional[str] = None  # 分類名稱（如 "國文科"）
-    target_url: str
-    role: Literal["class", "teacher"]
-    id: str  # 唯一識別碼，通常是班級編號或教師姓名
     
-    # 更新資訊
-    last_update: str  # 遠端更新時間
 
     @property
     def last_update_datetime(self) -> datetime:
