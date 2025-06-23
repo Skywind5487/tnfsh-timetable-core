@@ -338,7 +338,7 @@ class TimetableCrawler(BaseCrawlerABC):
         """
         soup, target_info, url = await self.fetch_raw(target, refresh=refresh)
         result = self.parse(soup, target_info=target_info, target_url=url)
-        logger.info(f"✅ {target}[抓取]完成")
+        logger.info(f"✅ {target}({target_info.id})[抓取]完成")
         return result
 
 if __name__ == "__main__":
