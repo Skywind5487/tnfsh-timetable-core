@@ -1,5 +1,6 @@
 """台南一中課表系統的索引管理器"""
 
+from encodings import aliases
 from typing import TYPE_CHECKING, Dict, List, Optional
 from datetime import datetime
 import json
@@ -7,7 +8,8 @@ from tnfsh_timetable_core.index.models import (
     DetailedIndex,
     IndexResult, 
     ReverseIndexResult, 
-    TargetInfo
+    TargetInfo,
+    NewCategoryMap
 )
 from tnfsh_timetable_core.abc.domain_abc import BaseDomainABC
 from tnfsh_timetable_core.utils.logger import get_logger
@@ -162,7 +164,7 @@ class Index(BaseDomainABC):
             
         return filepath
 
-    def __getitem__(self, key: str) -> TargetInfo | List[str]:
+    def __getitem__(self, key: str) -> TargetInfo | List[str] | NewCategoryMap:
         """
         快速查詢任何教師或班級的課表 TargetInfo
         推薦使用的方法
@@ -180,22 +182,49 @@ class Index(BaseDomainABC):
         """
         from tnfsh_timetable_core.index.identify_index_key import get_fuzzy_target_info
         from tnfsh_timetable_core.index.models import FullIndexResult
-
-        if (self.id_to_info is None or 
-            self.target_to_unique_info is None or 
-            self.target_to_conflicting_ids is None):
-            raise RuntimeError("尚未載入索引資料")
-        return get_fuzzy_target_info(
-            key,
-            FullIndexResult(
-                index=self.index,
-                reverse_index=self.reverse_index,
-                detailed_index=self.detailed_index,
-                id_to_info=self.id_to_info,
-                target_to_unique_info=self.target_to_unique_info,
-                target_to_conflicting_ids=self.target_to_conflicting_ids
+        try:
+            if (self.id_to_info is None or 
+                self.target_to_unique_info is None or 
+                self.target_to_conflicting_ids is None):
+                raise RuntimeError("尚未載入索引資料")
+            return get_fuzzy_target_info(
+                key,
+                FullIndexResult(
+                    index=self.index,
+                    reverse_index=self.reverse_index,
+                    detailed_index=self.detailed_index,
+                    id_to_info=self.id_to_info,
+                    target_to_unique_info=self.target_to_unique_info,
+                    target_to_conflicting_ids=self.target_to_conflicting_ids
+                )
             )
-        )
+        except KeyError as e:
+            pass
+        
+        # 從detailed_index中查找
+        if self.detailed_index is None:
+            raise RuntimeError("尚未載入詳細索引資料")
+
+        if result := self.detailed_index.teacher.data.get(key if key.endswith("科") else key + "科"):
+            return result
+        
+        if result := self.detailed_index.class_.data.get(key):
+            return result
+
+        aliases_list = [
+            {"高一", "一年級", "一", "1年級"},
+            {"高二", "二年級", "二", "2年級"},
+            {"高三", "三年級", "三", "3年級"}
+        ]
+        # 嘗試處理年級別名
+        for aliases in aliases_list:
+            if key in aliases:
+                for alias in aliases - {key}:
+                    if result := self.detailed_index.class_.data.get(alias):
+                        return result        
+        raise KeyError(f"找不到指定的教師、班級、科目、年級： {key}")
+            
+
 
     def get_all_categories(self) -> List[str]:
         """獲取所有教師的分類科目列表"""
