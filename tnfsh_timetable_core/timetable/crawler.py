@@ -1,4 +1,5 @@
 from __future__ import annotations  
+from operator import index
 from typing import TYPE_CHECKING, List, Set, Dict, Optional, Literal, Tuple, TypedDict, TypeAlias
 import logging
 from unittest import result
@@ -34,7 +35,7 @@ from tnfsh_timetable_core.timetable.models import (
     CourseInfo,
     CounterPart
 )
-
+from tnfsh_timetable_core.index.index import Index
 
 class TimetableCrawler(BaseCrawlerABC):
     """課表爬蟲實作"""
@@ -43,7 +44,8 @@ class TimetableCrawler(BaseCrawlerABC):
     DEFAULT_ALIASES: List[Set[str]] = [{"朱蒙", "吳銘"}]
     
     def __init__(self, 
-                 aliases: Optional[List[Set[str]]] = None
+                 aliases: Optional[List[Set[str]]] = None,
+                 index: Optional[Index] = None
     ):
         """
         初始化課表爬蟲
@@ -53,6 +55,7 @@ class TimetableCrawler(BaseCrawlerABC):
         """
         self.aliases = aliases or self.DEFAULT_ALIASES
         self._url_cache: Dict[str, str] = {}  # 快取不同目標的 URL
+        self._index : Index | None = index  # 用於存儲索引資料
 
     @staticmethod
     def _parse_periods(row: BeautifulSoup) -> Optional[Tuple[str, Tuple[str, str]]]:
@@ -162,9 +165,11 @@ class TimetableCrawler(BaseCrawlerABC):
         """
         解析目標名稱並取得 TargetInfo 與完整 URL
         """
-        from tnfsh_timetable_core import TNFSHTimetableCore
-        core = TNFSHTimetableCore()
-        index = await core.fetch_index(refresh=refresh)
+        if not self._index:
+            # 如果索引不存在，則重新抓取索引
+            from tnfsh_timetable_core.index.index import Index
+            self._index = await Index.fetch(refresh=refresh)
+        index = self._index
         real_target = self._resolve_target(target, index)
         if real_target is None:
             logger.error(f"❌ 找不到 {target} 的Timetable網址")
