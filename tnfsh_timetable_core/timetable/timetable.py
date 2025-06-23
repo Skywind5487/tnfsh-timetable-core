@@ -152,6 +152,27 @@ class Timetable(BaseDomainABC, BaseModel):
             location=location,
         )
 
+def get_all_timetables(
+    refresh: bool = False,
+    max_concurrent: int = 5, 
+    delay: float = 0.0
+) -> List[Timetable]:
+    """
+    預載入所有課表，加入併發上限與延遲控制
+    Args:
+        refresh: 是否強制重新載入課表，預設為 False，只會載入沒有快取檔案的課表
+        max_concurrent: 最大併發請求數量，預設為 5
+        delay: 每筆請求前的延遲秒數，預設為 0
+    """
+    from tnfsh_timetable_core.timetable.cache import preload_all
+    preload_all(only_missing=not(refresh), max_concurrent=max_concurrent, delay=delay)
+    from tnfsh_timetable_core import TNFSHTimetableCore
+    core = TNFSHTimetableCore()
+    index = core.fetch_index(refresh=refresh)  # 確保索引是最新的
+    for target in index:
+        yield Timetable.fetch(target, refresh=refresh)
+
+
 if __name__ == "__main__":
     # 測試用例
     import asyncio
