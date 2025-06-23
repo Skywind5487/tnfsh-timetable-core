@@ -39,7 +39,7 @@ class TimeTableCache(BaseCacheABC):
         self, 
         crawler: Optional[TimetableCrawler] = None,
         cache_dir: Optional[str] = None,
-        file_path_template: str = "prebuilt_{target}.json"
+        file_path_template: str = "prebuilt_{target}_{ID}.json"
     ):
         """初始化快取系統
         
@@ -53,7 +53,7 @@ class TimeTableCache(BaseCacheABC):
         self._file_path_template = file_path_template
         self._cache_dir.mkdir(exist_ok=True)
 
-    def _get_cache_path(self, target: str) -> Path:
+    def _get_cache_path(self, target: str, id: str) -> Path:
         """取得目標的快取檔案路徑
         
         Args:
@@ -64,9 +64,9 @@ class TimeTableCache(BaseCacheABC):
         """
         # 確保檔名安全
         safe_target = "".join(c for c in target if c.isalnum() or c in "-_")
-        return self._cache_dir / self._file_path_template.format(target=safe_target)
+        return self._cache_dir / self._file_path_template.format(target=safe_target, id=id)
 
-    async def fetch_from_memory(self, target: str, *args, **kwargs) -> Optional[CachedTimeTable]:
+    async def fetch_from_memory(self, id: str, *args, **kwargs) -> Optional[CachedTimeTable]:
         """從全域變數快取取得課表資料
         
         Args:
@@ -75,22 +75,22 @@ class TimeTableCache(BaseCacheABC):
         Returns:
             Optional[CachedTimeTable]: 快取的課表資料，如果不存在則為 None
         """
-        if target in _memory_cache:
-            logger.debug(f"✨ 從記憶體快取取得課表：{target}")
-            return _memory_cache[target]
+        if id in _memory_cache:
+            logger.debug(f"✨ 從記憶體快取取得課表：{id}")
+            return _memory_cache[id]
         return None
 
-    async def save_to_memory(self, data: CachedTimeTable, target: str, *args, **kwargs) -> None:
+    async def save_to_memory(self, data: CachedTimeTable, id: str, *args, **kwargs) -> None:
         """儲存課表資料到全域變數快取
         
         Args:
             data: 要儲存的課表資料
             target: 目標名稱（班級或教師）
         """
-        _memory_cache[target] = data
-        logger.debug(f"✨ 已更新記憶體快取：{target}")
+        _memory_cache[id] = data
+        logger.debug(f"✨ 已更新記憶體快取：{id}")
 
-    async def fetch_from_file(self, target: str, *args, **kwargs) -> Optional[CachedTimeTable]:
+    async def fetch_from_file(self, target: str, id: str, *args, **kwargs) -> Optional[CachedTimeTable]:
         """從檔案快取取得課表資料
         
         Args:
@@ -99,7 +99,7 @@ class TimeTableCache(BaseCacheABC):
         Returns:
             Optional[CachedTimeTable]: 快取的課表資料，如果不存在或讀取失敗則為 None
         """
-        cache_path = self._get_cache_path(target)
+        cache_path = self._get_cache_path(target, id)
         try:
             if not cache_path.exists():
                 return None
@@ -107,25 +107,25 @@ class TimeTableCache(BaseCacheABC):
             with open(cache_path, encoding="utf-8") as f:
                 data = json.load(f)
                 result = CachedTimeTable.model_validate(data)
-                logger.debug(f"💾 從檔案載入課表快取：{target}")
+                logger.debug(f"💾 從檔案載入課表快取：{id}")
                 return result
         except Exception as e:
             logger.error(f"讀取快取檔案時發生錯誤: {e}")
             return None
 
-    async def save_to_file(self, data: CachedTimeTable, target: str, *args, **kwargs) -> None:
+    async def save_to_file(self, data: CachedTimeTable, target: str, id: str, *args, **kwargs) -> None:
         """儲存課表資料到檔案快取
         
         Args:
             data: 要儲存的課表資料
             target: 目標名稱（班級或教師）
         """
-        cache_path = self._get_cache_path(target)
+        cache_path = self._get_cache_path(target, id)
         try:
             with open(cache_path, "w", encoding="utf-8") as f:
                 json_data = data.model_dump_json(indent=4)
                 f.write(json_data)
-                logger.debug(f"💾 已更新檔案快取：{target}")
+                logger.debug(f"💾 已更新檔案快取：{id}")
         except Exception as e:
             logger.error(f"儲存快取檔案時發生錯誤: {e}")
             raise FetchError(f"儲存快取檔案失敗: {str(e)}")
@@ -141,7 +141,7 @@ class TimeTableCache(BaseCacheABC):
         wait=wait_exponential(multiplier=1, min=1, max=5),
         before_sleep=before_sleep_log(logger, logging.WARNING)
     )
-    async def fetch_from_source(self, target: str, *args, **kwargs) -> CachedTimeTable:
+    async def fetch_from_source(self, id: str, *args, **kwargs) -> CachedTimeTable:
         """從網路來源取得最新的課表資料
         
         Args:
@@ -151,8 +151,8 @@ class TimeTableCache(BaseCacheABC):
             CachedTimeTable: 包含最新課表資料的快取結構
         """
         try:
-            logger.info(f"🌐 從網路抓取課表：{target}")
-            timetable = await self._crawler.fetch(target, refresh=kwargs.get('refresh', False))
+            logger.info(f"🌐 從網路抓取課表：{id}")
+            timetable = await self._crawler.fetch(id, refresh=kwargs.get('refresh', False))
             
             cached_result = CachedTimeTable(
                 metadata=CacheMetadata(cache_fetch_at=datetime.now()),
@@ -162,7 +162,7 @@ class TimeTableCache(BaseCacheABC):
             return cached_result
             
         except Exception as e:
-            error_msg = f"從來源抓取課表失敗 {target}: {str(e)}"
+            error_msg = f"從來源抓取課表失敗 {id}: {str(e)}"
             logger.warning(f"⚠️ {error_msg}")
             raise FetchError(error_msg)
 
@@ -177,8 +177,33 @@ class TimeTableCache(BaseCacheABC):
         Returns:
             CachedTimeTable: 完整的課表資料
         """
-        result = await super().fetch(target=target, refresh=refresh, **kwargs)
-        return result
+        from tnfsh_timetable_core import TNFSHTimetableCore
+        core = TNFSHTimetableCore()
+        index = await core.fetch_index(refresh=refresh)
+        info = index[target]
+        from tnfsh_timetable_core.index.models import TargetInfo
+        if isinstance(info, TargetInfo):
+            id = info.id
+            target = info.target
+        elif isinstance(info, list):
+            raise FetchError(f"目標 {target} 有多種可能的 ID，請指定具體 ID: {info}")
+        else:
+            raise FetchError(f"無法解析目標 {target} 的 ID，請檢查索引資料")
+        
+        if not refresh:
+            mem = await self.fetch_from_memory(id)
+            if mem:
+                return mem
+        if not refresh:
+            file = await self.fetch_from_file(target, id)
+            if file:
+                await self.save_to_memory(file, id)
+                return file
+        net = await self.fetch_from_source(id)
+        await self.save_to_file(net, target, id)
+        await self.save_to_memory(net, id)
+        return net
+        
 
 @retry(
     stop=stop_after_attempt(2),  # 整體最多重試 2 次
@@ -207,18 +232,18 @@ async def preload_all(only_missing: bool = True, max_concurrent: int = 5, delay:
             logger.error(error_msg)
             raise FetchError(error_msg)
 
-        targets = index.get_all_targets()
-        logger.info(f"🔄 開始預載入所有課表，共 {len(targets)} 項，延遲：{delay} 秒，併發上限：{max_concurrent}")
+        ids = index.get_all_ids()
+        logger.info(f"🔄 開始預載入所有課表，共 {len(ids)} 項，延遲：{delay} 秒，併發上限：{max_concurrent}")
 
         cache = TimeTableCache()
         semaphore = asyncio.Semaphore(max_concurrent)
 
-        async def process(target: str):
+        async def process(id: str):
             # 檢查是否已有快取
             if only_missing:
-                cached = await cache.fetch_from_memory(target) or await cache.fetch_from_file(target)
+                cached = await cache.fetch_from_memory(id) or await cache.fetch_from_file(id)
                 if cached:
-                    logger.debug(f"⚡ 快取已存在，略過：{target}")
+                    logger.debug(f"⚡ 快取已存在，略過：{id}")
                     return
                 
             # 內部重試函數
@@ -238,20 +263,20 @@ async def preload_all(only_missing: bool = True, max_concurrent: int = 5, delay:
                     async with semaphore:
                         if delay > 0:
                             await asyncio.sleep(delay)
-                        await cache.fetch(target, refresh=True)
-                        logger.debug(f"✅ 預載入成功：{target}")
+                        await cache.fetch(id, refresh=True)
+                        logger.debug(f"✅ 預載入成功：{id}")
                 except Exception as e:
-                    error_msg = f"預載入失敗 {target}: {str(e)}"
+                    error_msg = f"預載入失敗 {id}: {str(e)}"
                     logger.warning(f"⚠️ {error_msg}")
                     raise FetchError(error_msg)
             
             try:
                 await _fetch_with_retry()
             except Exception as e:
-                logger.error(f"❌ {target} 重試耗盡仍然失敗: {str(e)}")
+                logger.error(f"❌ {id} 重試耗盡仍然失敗: {str(e)}")
 
         # 並行處理所有目標
-        await asyncio.gather(*(process(t) for t in targets))
+        await asyncio.gather(*(process(t) for t in ids))
         logger.info("🏁 預載入完成")
 
     except Exception as e:
