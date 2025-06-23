@@ -1,6 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING, List, Optional, Literal, Dict, Tuple
 from datetime import datetime, time
+from unicodedata import category
 from pydantic import BaseModel, Field, computed_field
 from functools import cached_property
 
@@ -29,6 +30,18 @@ class Timetable(BaseDomainABC, BaseModel):
     - 午休課程資訊
     - 快取抓取時間
     """
+
+    # 識別資訊
+    target: str
+    category: str | None = None  # 分類名稱（如 "國文科"）
+    target_url: str
+    role: Literal["class", "teacher"]
+    id: str
+    
+    # 更新資訊
+    last_update: datetime  # 遠端更新時間
+    cache_fetch_at: datetime | None = None  # 快取抓取時間
+    
     # 核心資料
     table: List[List[Optional[CourseInfo]]]  # 5 weekdays x 8 periods
     periods: Dict[
@@ -44,16 +57,7 @@ class Timetable(BaseDomainABC, BaseModel):
         Tuple[time, time]
     ] | None = None  # 午休時間資訊，格式同 periods
 
-    # 識別資訊
-    target: str
-    category: str | None = None  # 分類名稱（如 "國文科"）
-    target_url: str
-    role: Literal["class", "teacher"]
-    id: str
     
-    # 更新資訊
-    last_update: datetime  # 遠端更新時間
-    cache_fetch_at: datetime | None = None  # 快取抓取時間
     
     
     
@@ -94,12 +98,14 @@ class Timetable(BaseDomainABC, BaseModel):
         last_update = schema.last_update_datetime
         return cls(
             table=schema.table,
-            periods=periods,
-            lunch_break=getattr(schema, "lunch_break", None),
-            lunch_break_periods=lunch_break_periods,
-            type=schema.type,
+            periods=periods, # datetime.time 格式
+            lunch_break=schema.lunch_break,
+            lunch_break_periods=lunch_break_periods, # datetime.time 格式
+            role=schema.role,
             target=schema.target,
+            category=schema.category,
             target_url=schema.target_url,
+            id=schema.id,
             last_update=last_update,
             cache_fetch_at=cache_fetch_at
         )
@@ -122,5 +128,15 @@ class Timetable(BaseDomainABC, BaseModel):
         # 使用快取系統來獲取課表資料
         cache = TimeTableCache()
         instance = await cache.fetch(target, refresh=refresh)
-        return cls.from_schema(instance.data)
+        return cls.from_schema(instance.data, cache_fetch_at=instance.metadata.cache_fetch_at)
 
+
+if __name__ == "__main__":
+    # 測試用例
+    import asyncio
+    async def main():
+        target = "陳暐捷"
+        timetable = await Timetable.fetch(target)
+        with open(f"{target}_timetable.json", "w", encoding="utf-8") as f:
+            f.write(timetable.model_dump_json(indent=4))
+    asyncio.run(main())
