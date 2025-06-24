@@ -17,13 +17,33 @@ logger = get_logger(logger_level="INFO")
 _memory_cache: Optional[CachedFullIndex] = None
 
 class IndexCache(BaseCacheABC):
-    def __init__(self, crawler: Optional[IndexCrawler] = None, file_path: Optional[str] = None):
+    """
+    Index 快取層，支援三層快取（記憶體、檔案、網路來源）
+    - 檔案快取預設為 prebuilt_full_index.json
+    - 全域記憶體快取只存一份
+    - 來源由 IndexCrawler 提供
+    """
+    def __init__(
+        self,
+        crawler: Optional[IndexCrawler] = None,
+        file_path: Optional[str] = None
+    ):
+        """
+        初始化 IndexCache
+        Args:
+            crawler: 索引爬蟲實例，預設自動建立
+            file_path: 快取檔案路徑，預設為 prebuilt_full_index.json
+        """
         self._crawler = crawler or IndexCrawler()
         self._cache_dir = Path(__file__).resolve().parent / "cache"
         self._cache_file = self._cache_dir / "prebuilt_full_index.json" if file_path is None else Path(file_path)
         self._cache_dir.mkdir(exist_ok=True)
 
     async def fetch_from_memory(self, *args, **kwargs) -> Optional[CachedFullIndex]:
+        """
+        從全域記憶體快取取得 Index
+        Returns: CachedFullIndex 或 None
+        """
         global _memory_cache
         if _memory_cache is not None:
             logger.debug("✨ 從全域記憶體快取取得Index")
@@ -31,11 +51,18 @@ class IndexCache(BaseCacheABC):
         return None
 
     async def save_to_memory(self, data: CachedFullIndex, *args, **kwargs) -> None:
+        """
+        儲存 Index 到全域記憶體快取
+        """
         global _memory_cache
         _memory_cache = data
         logger.debug("✨ 已更新Index的全域記憶體快取")
 
     async def fetch_from_file(self, *args, **kwargs) -> Optional[CachedFullIndex]:
+        """
+        從檔案快取取得 Index
+        Returns: CachedFullIndex 或 None
+        """
         try:
             if not self._cache_file.exists():
                 return None
@@ -49,6 +76,9 @@ class IndexCache(BaseCacheABC):
             return None
 
     async def save_to_file(self, data: CachedFullIndex, *args, **kwargs) -> None:
+        """
+        儲存 Index 到檔案快取
+        """
         try:
             with open(self._cache_file, "w", encoding="utf-8") as f:
                 json_data = data.model_dump_json(indent=4)
@@ -59,6 +89,10 @@ class IndexCache(BaseCacheABC):
             raise
 
     async def fetch_from_source(self, *args, **kwargs) -> CachedFullIndex:
+        """
+        從網路來源取得最新 Index
+        Returns: CachedFullIndex
+        """
         logger.info("🌐 從網路抓取 Index")
         result: FullIndexResult = await self._crawler.fetch()
         return CachedFullIndex(
@@ -67,6 +101,10 @@ class IndexCache(BaseCacheABC):
         )
 
     async def fetch(self, *, refresh: bool = False, **kwargs) -> CachedFullIndex:
+        """
+        智能獲取 Index，依序嘗試記憶體、檔案、來源
+        Returns: CachedFullIndex
+        """
         if not refresh:
             mem = await self.fetch_from_memory()
             if mem:
