@@ -9,6 +9,9 @@ if TYPE_CHECKING:
     from tnfsh_timetable_core.scheduling.models import CourseNode
     from logging import Logger
 
+_GLOBAL_ALIASES: List[set] = []
+
+
 class TNFSHTimetableCore:
     """台南一中課表核心功能的統一入口點
     
@@ -150,3 +153,12 @@ class TNFSHTimetableCore:
         """
         from tnfsh_timetable_core.utils.logger import set_log_level
         set_log_level(level)
+
+    def set_aliases(self, aliases: List[set]):
+        """設定全域別名（aliases）"""
+        global _GLOBAL_ALIASES
+        _GLOBAL_ALIASES = aliases
+
+    def get_aliases(self) -> List[set]:
+        """取得全域別名（aliases）"""
+        return _GLOBAL_ALIASES
