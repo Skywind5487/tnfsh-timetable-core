@@ -43,9 +43,10 @@ class TimetableCrawler(BaseCrawlerABC):
     # 預設別名列表，作為類別屬性
     DEFAULT_ALIASES: List[Set[str]] = [{"朱蒙", "吳銘"}]
     
-    def __init__(self, 
-                 aliases: Optional[List[Set[str]]] = None,
-                 index: Optional[Index] = None
+    def __init__(
+        self, 
+        aliases: Optional[List[Set[str]]] = None,
+        index: Optional[Index] = None
     ):
         """
         初始化課表爬蟲
@@ -55,7 +56,7 @@ class TimetableCrawler(BaseCrawlerABC):
         """
         self.aliases = aliases or self.DEFAULT_ALIASES
         self._url_cache: Dict[str, str] = {}  # 快取不同目標的 URL
-        self._index : Index | None = index  # 用於存儲索引資料
+        self._index: Index | None = index  # 用於存儲索引資料
 
     @staticmethod
     def _parse_periods(row: BeautifulSoup) -> Optional[Tuple[str, Tuple[str, str]]]:
