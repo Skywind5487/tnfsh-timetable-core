@@ -42,6 +42,7 @@
 """
 
 
+from doctest import Example
 import regex
 from typing import Optional, Literal, List, Set, Union
 from pydantic import BaseModel
@@ -231,6 +232,8 @@ def _get_aliases_if_none(aliases: Optional[List[Set[str]]]) -> List[Set[str]]:
     return core.get_aliases()
 
 
+from tnfsh_timetable_core.index.models import TargetInfo, FullIndexResult
+
 def _alias_fallback_lookup(name: str, aliases: List[Set[str]], source_index: FullIndexResult):
     for alias_set in aliases:
         if name in alias_set:
@@ -240,21 +243,6 @@ def _alias_fallback_lookup(name: str, aliases: List[Set[str]], source_index: Ful
             elif main_name in source_index.target_to_conflicting_ids:
                 return source_index.target_to_conflicting_ids[main_name]
     return None
-
-
-from tnfsh_timetable_core.index.models import TargetInfo, FullIndexResult
-
-def alias_sets_to_dict(aliases: List[set]) -> dict:
-    """將 List[set] 轉為 alias->main 的 dict，set 最小字典序為主名"""
-    alias_dict = {}
-    for alias_set in aliases:
-        if not alias_set:
-            continue
-        main = sorted(alias_set)[0]
-        for name in alias_set:
-            alias_dict[name] = main
-    return alias_dict
-
 
 def get_fuzzy_target_info(
     text: str,
@@ -337,37 +325,43 @@ def get_fuzzy_target_info(
 
 
 if __name__ == "__main__":
-    examples = [
-        "",        # T0 / C0
-        "王大明",   # T1a
-        "Tim",     # T1b
-        "Cindy",  # T1b
-        "JA04王大明",  # T2
-        "JA04",     # T3
-        "TJA04王大明",  # T4
-        "TJA04",     # T5
-        "TTim",      # T6a 因為純英文，其實會視為 T1b 得到 TTim 
-        "T王大明",    # T6b
-        "TNicole魏", # T6c
-        "T王大明Nicole",  # T6d
-        "T",         # T7
-        "T@zhen",     # T8
-        "T03" ,  # fallback
-        "TT03", # fallback
-        "Tzhen@",  # T8
-        "101",       # C1
-        "110123123", # C2
-        "110123",    # C3
-        "C110123123",# C4
-        "C110123",   # C5
-        "C101",      # C6
-        "C",         # C7
-        "Czzzzz"      # C8 因為純英文，其實會視為T1b，這也是沒辦法的事
-    ]
+    def identify_type_test():
+        examples = [
+            "",        # T0 / C0
+            "王大明",   # T1a
+            "Tim",     # T1b
+            "Cindy",  # T1b
+            "JA04王大明",  # T2
+            "JA04",     # T3
+            "TJA04王大明",  # T4
+            "TJA04",     # T5
+            "TTim",      # T6a 因為純英文，其實會視為 T1b 得到 TTim 
+            "T王大明",    # T6b
+            "TNicole魏", # T6c
+            "T王大明Nicole",  # T6d
+            "T",         # T7
+            "T@zhen",     # T8
+            "T03" ,  # fallback
+            "TT03", # fallback
+            "Tzhen@",  # T8
+            "101",       # C1
+            "110123123", # C2
+            "110123",    # C3
+            "C110123123",# C4
+            "C110123",   # C5
+            "C101",      # C6
+            "C",         # C7
+            "Czzzzz",      # C8 因為純英文，其實會視為T1b，這也是沒辦法的事
+            "朱蒙",
+            "吳銘",
+        ]
 
-    for example in examples:
-        try:
-            result = identify_type(example)
-            print(f"{example!r:20} → {result} type={getattr(result, 'type', None) if result else None}")
-        except Exception as e:
-            print(f"{example!r:20} → ❌ {e}")
+        for example in examples:
+            try:
+                result = identify_type(example)
+                print(f"{example!r:20} → {result} type={getattr(result, 'type', None) if result else None}")
+            except Exception as e:
+                print(f"{example!r:20} → ❌ {e}")
+        
+    # identify_type_test()
+    test_aliases()
