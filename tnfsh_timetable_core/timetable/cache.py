@@ -132,12 +132,22 @@ class TimeTableCache(BaseCacheABC):
             logger.warning(f"⚠️ {error_msg}")
             raise FetchError(error_msg)
 
-    async def fetch(self, target: str, *, refresh: bool = False, **kwargs) -> CachedTimeTable:
+    async def fetch(
+        self, 
+        target: str, 
+        *, 
+        refresh: bool = False, 
+        crawler: Optional[TimetableCrawler] = None,
+        cache_dir: Optional[str] = None,
+        file_path_template: str = "prebuilt_{target}_{id}.json",
+        index: Optional[Index] = None,
+        aliases: Optional[List[Set[str]]] = None,
+        **kwargs) -> CachedTimeTable:
         """智能獲取課表資料，主鍵為 id，檔名為 prebuilt_target_id.json，logger 同時記錄 target 與 id"""
         if not self._index:
             from tnfsh_timetable_core import TNFSHTimetableCore
             core = TNFSHTimetableCore()
-            self._index = await core.fetch_index(refresh=refresh)
+            self._index = await core.fetch_index(refresh=refresh, aliases=aliases)
         target_info = self._index[target]
         if isinstance(target_info, TargetInfo):
             target_name = target_info.target

@@ -121,6 +121,7 @@ class IndexCache(BaseCacheABC):
     
 
 if __name__ == "__main__":
-    cache =  IndexCache()
     import asyncio
+    cache =  IndexCache()
+    
     asyncio.run(cache.fetch(refresh=True))
