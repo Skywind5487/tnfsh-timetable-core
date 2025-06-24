@@ -9,7 +9,7 @@ if TYPE_CHECKING:
     from tnfsh_timetable_core.scheduling.models import CourseNode
     from logging import Logger
 
-_GLOBAL_ALIASES: List[set] = []
+_GLOBAL_ALIASES: List[set] = [{"朱蒙", "吳銘"}]
 
 
 class TNFSHTimetableCore:
