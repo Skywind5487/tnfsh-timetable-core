@@ -43,7 +43,7 @@
 
 
 import regex
-from typing import Optional, Literal, List
+from typing import Optional, Literal, List, Set, Union
 from pydantic import BaseModel
 from tnfsh_timetable_core import TNFSHTimetableCore
 
@@ -171,12 +171,14 @@ def identify_type(text: str,
 
     elif role == 'C':
         # 處理 C 開頭的班級代碼
-        # C5: C + 3碼prefix + 3碼class_code（如 C110123）
-        if regex.fullmatch(fr'\d{{{class_code_len * 2}}}', body):
-            return IdentificationResult(role="class", match_case="C5", target=body[-class_code_len:], ID=f"C{body[:class_code_len*2]}")
         # C6: C + 3碼class_code（如 C101）→ 直接返回
         if regex.fullmatch(fr'\d{{{class_code_len}}}', body):
             return IdentificationResult(role="class", match_case="C6", target=body, ID=None)
+        
+        # C5: C + 3碼prefix + 3碼class_code（如 C110123）
+        if regex.fullmatch(fr'\d{{{class_id_prefix_len + class_code_len}}}', body):
+            return IdentificationResult(role="class", match_case="C5", target=body[-class_code_len:], ID=f"C{body[:{class_id_prefix_len + class_code_len}]}")
+        
         # C4: C + 重複 class_code（如 C110123123 C + prefix + suffix + class)code 其中suffix就是 class_code）→ 拆解後三段檢查
         match = regex.fullmatch(fr'(\d+)(\d{{{class_code_len}}})(\d{{{class_code_len}}})', body)
         if match:
@@ -204,8 +206,8 @@ def identify_type(text: str,
         # C1: 3碼數字
         if regex.fullmatch(fr'\d{{{class_code_len}}}', text):
             return IdentificationResult(role="class", match_case="C1", target=text, ID=None)
-        # C3: 6碼數字
-        if regex.fullmatch(fr'\d{{{class_code_len * 2}}}', text):
+        # C3: 3碼prefix + 3碼數字
+        if regex.fullmatch(fr'\d{{{class_id_prefix_len + class_code_len}}}', text):
             return IdentificationResult(role="class", match_case="C3", target=text[-class_code_len:], ID=f"C{text}")
         # C2: 重複 class_code
         m = regex.fullmatch(fr'(\d+)(\d{{{class_code_len}}})(\d{{{class_code_len}}})', text)
@@ -221,9 +223,44 @@ def identify_type(text: str,
     return None
 
 
+def _get_aliases_if_none(aliases: Optional[List[Set[str]]]) -> List[Set[str]]:
+    if aliases is not None:
+        return aliases
+    from tnfsh_timetable_core import TNFSHTimetableCore
+    core = TNFSHTimetableCore()
+    return core.get_aliases()
+
+
+def _alias_fallback_lookup(name: str, aliases: List[Set[str]], source_index: FullIndexResult):
+    for alias_set in aliases:
+        if name in alias_set:
+            main_name = sorted(alias_set)[0]
+            if main_name in source_index.target_to_unique_info:
+                return source_index.target_to_unique_info[main_name]
+            elif main_name in source_index.target_to_conflicting_ids:
+                return source_index.target_to_conflicting_ids[main_name]
+    return None
+
+
 from tnfsh_timetable_core.index.models import TargetInfo, FullIndexResult
 
-def get_fuzzy_target_info(text: str, source_index: FullIndexResult) -> TargetInfo| List[str]| None:
+def alias_sets_to_dict(aliases: List[set]) -> dict:
+    """將 List[set] 轉為 alias->main 的 dict，set 最小字典序為主名"""
+    alias_dict = {}
+    for alias_set in aliases:
+        if not alias_set:
+            continue
+        main = sorted(alias_set)[0]
+        for name in alias_set:
+            alias_dict[name] = main
+    return alias_dict
+
+
+def get_fuzzy_target_info(
+    text: str,
+    source_index: FullIndexResult,
+    aliases: Optional[List[Set[str]]] = None
+) -> Union[TargetInfo, List[str], None]:
     """
     模糊查詢目標資訊。
 
@@ -232,10 +269,12 @@ def get_fuzzy_target_info(text: str, source_index: FullIndexResult) -> TargetInf
 
     Args:
         text (str): 欲查詢的文字，可為教師姓名、教師代碼、班級代碼等。
-        source_index (FullIndexResult): 索引資料，僅需 id_to_info、target_to_unique_info、target_to_conflicting_ids。
+        source_index (FullIndexResult): 索引資料，僅需 id_to_info、target_to_unique_info 和 target_to_conflicting_ids。
+        aliases (Optional[List[set]]): 別名列表，可選
 
     查詢流程：
-        1. 先直接查 target_to_unique_info（唯一對應）
+        0. 先查 aliases
+        1. 直接查 target_to_unique_info（唯一對應）
         2. 再查 target_to_conflicting_ids（有衝突的名稱）
         3. 用 identify_type 分析後，依 ID 與 target 再查
         4. 若 TTim（純英文名）嘗試去掉 T 前綴再查
@@ -244,7 +283,9 @@ def get_fuzzy_target_info(text: str, source_index: FullIndexResult) -> TargetInf
     Returns:
         TargetInfo | List[str] | None: 查到則回傳目標資訊或衝突 ID 列表，查不到丟出 KeyError。
     """
+    
     result = None
+    aliases = _get_aliases_if_none(aliases)
 
     # 1. 直接查唯一 target
     result = source_index.target_to_unique_info.get(text)
@@ -275,13 +316,19 @@ def get_fuzzy_target_info(text: str, source_index: FullIndexResult) -> TargetInf
         result = source_index.target_to_conflicting_ids.get(target)
         if result:
             return result
+        result = _alias_fallback_lookup(target, aliases, source_index)
+        if result:
+            return result
         # 4. 若 T1a（純英文名）嘗試去掉 T 前綴再查
         if identify_result.match_case == "T1a":
-            target = target[1:] if target.startswith('T') else target
-            result = source_index.target_to_unique_info.get(target)
+            target2 = target[1:] if target.startswith('T') else target
+            result = source_index.target_to_unique_info.get(target2)
             if result:
                 return result
-            result = source_index.target_to_conflicting_ids.get(target)
+            result = source_index.target_to_conflicting_ids.get(target2)
+            if result:
+                return result
+            result = _alias_fallback_lookup(target2, aliases, source_index)
             if result:
                 return result
     # 5. 全部查不到
