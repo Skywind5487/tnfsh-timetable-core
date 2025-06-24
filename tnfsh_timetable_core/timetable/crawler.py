@@ -40,9 +40,6 @@ from tnfsh_timetable_core.index.index import Index
 class TimetableCrawler(BaseCrawlerABC):
     """課表爬蟲實作"""
     
-    # 預設別名列表，作為類別屬性
-    DEFAULT_ALIASES: List[Set[str]] = [{"朱蒙", "吳銘"}]
-    
     def __init__(
         self, 
         aliases: Optional[List[Set[str]]] = None,
@@ -54,7 +51,7 @@ class TimetableCrawler(BaseCrawlerABC):
         Args:
             aliases (Optional[List[Set[str]]], optional): 別名列表. 預設為 None
         """
-        self.aliases = aliases or self.DEFAULT_ALIASES
+        self.aliases = aliases
         self._url_cache: Dict[str, str] = {}  # 快取不同目標的 URL
         self._index: Index | None = index  # 用於存儲索引資料
 
@@ -147,19 +144,6 @@ class TimetableCrawler(BaseCrawlerABC):
             else:
                 logger.debug(f"🎯 找到 {target} 的TimeTable網址")
                 return result
-
-        for alias_set in self.aliases:
-            if target in alias_set:
-                candidates = alias_set - {target}
-                for alias in candidates:
-                    tmp_result = index[alias]
-                    if tmp_result:
-                        if isinstance(tmp_result, list):
-                            raise KeyError(f"🔄 {alias} 有多個對應的ID: {tmp_result}")
-                        else:
-                            logger.info(f"🔄 將 {target} 解析為別名 {alias}")
-                            return tmp_result
-                    logger.debug(f"找不到 {alias} 對應的TimeTable網址")
         return None
 
     async def _resolve_target_info(self, target: str, refresh: bool = False) -> tuple[TargetInfo, str]:
@@ -169,7 +153,7 @@ class TimetableCrawler(BaseCrawlerABC):
         if not self._index:
             # 如果索引不存在，則重新抓取索引
             from tnfsh_timetable_core.index.index import Index
-            self._index = await Index.fetch(refresh=refresh)
+            self._index = await Index.fetch(refresh=refresh, aliases=self.aliases)
         index = self._index
         real_target = self._resolve_target(target, index)
         if real_target is None:
