@@ -11,6 +11,7 @@ from tnfsh_timetable_core.index.models import (
     TargetInfo,
     NewCategoryMap
 )
+from tnfsh_timetable_core.index.cache import IndexCache
 from tnfsh_timetable_core.abc.domain_abc import BaseDomainABC
 from tnfsh_timetable_core.utils.logger import get_logger
 
@@ -29,7 +30,8 @@ class Index(BaseDomainABC):
         target_to_unique_info: Dict[str, TargetInfo] | None = None,
         target_to_conflicting_ids: Dict[str, List[str]] | None = None,
         cache_fetch_at: Optional[datetime] = None,
-        base_url: str = "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/"
+        base_url: str = "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/",
+        cache: Optional[IndexCache] = None
     ) -> None:
         """初始化索引管理器
         
@@ -54,13 +56,11 @@ class Index(BaseDomainABC):
         self.target_to_conflicting_ids: Dict[str, List[str]] | None = target_to_conflicting_ids
         
         from tnfsh_timetable_core.index.cache import IndexCache
-        from tnfsh_timetable_core.index.crawler import IndexCrawler
         # 私有屬性
-        self._cache = IndexCache()
-        self._crawler = IndexCrawler()
+        self._cache = cache or IndexCache()
 
     @classmethod
-    async def fetch(cls, *, refresh: bool = False, base_url: Optional[str] = None) -> "Index":
+    async def fetch(cls, *, refresh: bool = False, base_url: Optional[str] = None, cache: IndexCache | None = None) -> "Index":
         """從快取或網路獲取索引資料並建立實例
         
         Args:
@@ -74,8 +74,10 @@ class Index(BaseDomainABC):
             logger.info("🔄 正在強制更新Index資料...")
         
         # 建立實例
-        instance = cls(base_url=base_url or "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/")
-        
+        instance = cls(
+            base_url=base_url or "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/", cache=cache
+        )
+
         # 獲取資料
         cached_result = await instance._cache.fetch(refresh=refresh)
 
