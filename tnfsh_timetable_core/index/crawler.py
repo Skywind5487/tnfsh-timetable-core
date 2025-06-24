@@ -1,4 +1,3 @@
-from math import log
 from typing import Optional, Dict, Tuple, List
 import aiohttp
 import asyncio
