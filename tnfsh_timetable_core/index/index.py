@@ -1,5 +1,4 @@
 """台南一中課表系統的索引管理器"""
-
 from encodings import aliases
 from typing import TYPE_CHECKING, Dict, List, Optional
 from datetime import datetime
@@ -31,7 +30,8 @@ class Index(BaseDomainABC):
         target_to_conflicting_ids: Dict[str, List[str]] | None = None,
         cache_fetch_at: Optional[datetime] = None,
         base_url: str = "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/",
-        cache: Optional[IndexCache] = None
+        cache: Optional[IndexCache] = None,
+        aliases: Optional[List[set]] = None  # 新增
     ) -> None:
         """初始化索引管理器
         
@@ -40,9 +40,11 @@ class Index(BaseDomainABC):
             reverse_index: 反向索引，可選
             cache_fetch_at: 快取抓取時間，可選
             base_url: 課表系統基礎 URL
+            aliases: 別名列表，可選
         """
         # 公開屬性
         self.base_url = base_url
+        self.aliases: List[set] | None = aliases or None  # 新增
         # deprecated
         self.index: IndexResult | None = index
         self.reverse_index: ReverseIndexResult | None = reverse_index
@@ -60,13 +62,13 @@ class Index(BaseDomainABC):
         self._cache = cache or IndexCache()
 
     @classmethod
-    async def fetch(cls, *, refresh: bool = False, base_url: Optional[str] = None, cache: IndexCache | None = None) -> "Index":
+    async def fetch(cls, *, refresh: bool = False, base_url: Optional[str] = None, cache: IndexCache | None = None, aliases: Optional[List[set]] = None) -> "Index":
         """從快取或網路獲取索引資料並建立實例
         
         Args:
             refresh: 是否強制更新快取
             base_url: 可選的基礎 URL
-            
+            aliases: 別名列表，可選
         Returns:
             Index: 包含索引資料的實例
         """
@@ -75,7 +77,7 @@ class Index(BaseDomainABC):
         
         # 建立實例
         instance = cls(
-            base_url=base_url or "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/", cache=cache
+            base_url=base_url or "http://w3.tnfsh.tn.edu.tw/deanofstudies/course/", cache=cache, aliases=aliases
         )
 
         # 獲取資料
@@ -91,7 +93,7 @@ class Index(BaseDomainABC):
         instance.target_to_unique_info = cached_result.data.target_to_unique_info
         instance.target_to_conflicting_ids = cached_result.data.target_to_conflicting_ids
         instance.cache_fetch_at = cached_result.metadata.cache_fetch_at
-        
+
         logger.debug(f"⏰ 快取抓取時間：{instance.cache_fetch_at}")
         logger.info("✅ Index[載入]完成！")
         return instance
@@ -182,6 +184,7 @@ class Index(BaseDomainABC):
             KeyError: 當找不到指定的教師或班級時
             RuntimeError: 當尚未載入索引資料時
         """
+        
         from tnfsh_timetable_core.index.identify_index_key import get_fuzzy_target_info
         from tnfsh_timetable_core.index.models import FullIndexResult
         try:
@@ -328,7 +331,9 @@ if __name__ == "__main__":
             "Z09",       # teacher ID (短)
             "TZ09",      # teacher ID (全)
             "119",       # class id_suffix
-            "C108119"    # class id (全)
+            "C108119",    # class id (全)
+            "吳銘", "朱蒙" # aliases    
+
         ]
         for example in examples:
             try:
