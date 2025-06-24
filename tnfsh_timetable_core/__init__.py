@@ -1,7 +1,9 @@
 from __future__ import annotations
 """台南一中課表系統核心模組"""
-from typing import TYPE_CHECKING, Generator, List, Optional
+from typing import TYPE_CHECKING, Generator, List, Optional, Set
 if TYPE_CHECKING:
+    from tnfsh_timetable_core.index.cache import IndexCache
+
     from tnfsh_timetable_core.timetable.timetable import Timetable
     from tnfsh_timetable_core.index.index import Index
     from tnfsh_timetable_core.scheduling.scheduling import Scheduling
@@ -48,14 +50,24 @@ class TNFSHTimetableCore:
         # 使用 Timetable.fetch 方法來獲取課表資料 
         return await Timetable.fetch(target=target, refresh=refresh)
 
-    async def fetch_index(self, refresh: bool = False) -> Index:
+    async def fetch_index(
+        self, 
+        refresh: bool = False, 
+        base_url: str = None,
+        cache: IndexCache = None,
+        aliases: Optional[List[Set[str]]] = None) -> Index:
         """從網路獲取索引資料
         
         Returns:
             Index: 包含最新索引資料的物件
         """
         from tnfsh_timetable_core.index.index import Index
-        index = await Index.fetch(refresh=refresh)
+        index = await Index.fetch(
+            refresh=refresh, 
+            aliases=aliases,
+            cache=cache,
+            base_url=base_url,
+        )
         return index
     
     async def fetch_timetable_slot_log_dict(self, refresh: bool = False) -> TimetableSlotLogDict:
